@@ -1,0 +1,20 @@
+# macOS junk
+.DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# ChromaDB persistent store
+chroma/
+
+# PDF and Word documents (optional)
+*.pdf
+*.docx
+*.pages
+
+# Python cache
+__pycache__/
+*.pyc
+

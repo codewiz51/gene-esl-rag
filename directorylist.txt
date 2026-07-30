@@ -1,0 +1,131 @@
+total 32
+drwxr-xr-x    9 gene  staff    288 Jul 30 06:11 .
+drwx------@ 206 gene  staff   6592 Jul 30 06:11 ..
+-rw-r--r--@   1 gene  staff  10244 Jul 30 06:02 .DS_Store
+drwxr-xr-x    8 gene  staff    256 Jul 29 07:36 chroma
+-rw-r--r--@   1 gene  staff      0 Jul 30 06:47 directorylist.txt
+drwxr-xr-x    3 gene  staff     96 Jul 30 05:39 metadata
+-rw-r--r--    1 gene  staff     54 Jul 28 19:51 Modelfile
+drwxr-xr-x    9 gene  staff    288 Jul 29 12:39 source_docs
+drwxr-xr-x@  14 gene  staff    448 Jul 30 06:11 sourcecode
+
+./chroma:
+total 53512
+drwxr-xr-x  8 gene  staff       256 Jul 29 07:36 .
+drwxr-xr-x  9 gene  staff       288 Jul 30 06:11 ..
+-rw-r--r--@ 1 gene  staff      6148 Jul 30 06:02 .DS_Store
+drwxr-xr-x  6 gene  staff       192 Jul 27 19:46 02efd045-6338-4a9c-b447-6e9cd90a5d28
+drwxr-xr-x  6 gene  staff       192 Jul 27 18:45 1525800f-a8fd-4bfb-93f2-66de5cc4935f
+drwxr-xr-x  7 gene  staff       224 Jul 27 17:05 b8e4a40e-cfb8-4fe8-9ba7-0fdfe92def00
+-rw-r--r--  1 gene  staff  27389952 Jul 29 07:36 chroma.sqlite3
+drwxr-xr-x  7 gene  staff       224 Jul 27 17:05 fc86504a-157a-4cfb-8156-995c480dfcdb
+
+./chroma/02efd045-6338-4a9c-b447-6e9cd90a5d28:
+total 344
+drwxr-xr-x  6 gene  staff     192 Jul 27 19:46 .
+drwxr-xr-x  8 gene  staff     256 Jul 29 07:36 ..
+-rw-r--r--  1 gene  staff  167600 Jul 27 19:46 data_level0.bin
+-rw-r--r--  1 gene  staff     100 Jul 27 19:46 header.bin
+-rw-r--r--  1 gene  staff     400 Jul 27 19:46 length.bin
+-rw-r--r--  1 gene  staff       0 Jul 27 19:46 link_lists.bin
+
+./chroma/1525800f-a8fd-4bfb-93f2-66de5cc4935f:
+total 344
+drwxr-xr-x  6 gene  staff     192 Jul 27 18:45 .
+drwxr-xr-x  8 gene  staff     256 Jul 29 07:36 ..
+-rw-r--r--  1 gene  staff  167600 Jul 29 07:36 data_level0.bin
+-rw-r--r--  1 gene  staff     100 Jul 29 07:36 header.bin
+-rw-r--r--  1 gene  staff     400 Jul 29 07:36 length.bin
+-rw-r--r--  1 gene  staff       0 Jul 29 07:36 link_lists.bin
+
+./chroma/b8e4a40e-cfb8-4fe8-9ba7-0fdfe92def00:
+total 8416
+drwxr-xr-x  7 gene  staff      224 Jul 27 17:05 .
+drwxr-xr-x  8 gene  staff      256 Jul 29 07:36 ..
+-rw-r--r--  1 gene  staff  4236000 Jul 27 17:04 data_level0.bin
+-rw-r--r--  1 gene  staff      100 Jul 27 17:04 header.bin
+-rw-r--r--  1 gene  staff    49056 Jul 27 17:04 index_metadata.pickle
+-rw-r--r--  1 gene  staff     4000 Jul 27 17:04 length.bin
+-rw-r--r--  1 gene  staff     8624 Jul 27 17:04 link_lists.bin
+
+./chroma/fc86504a-157a-4cfb-8156-995c480dfcdb:
+total 8416
+drwxr-xr-x  7 gene  staff      224 Jul 27 17:05 .
+drwxr-xr-x  8 gene  staff      256 Jul 29 07:36 ..
+-rw-r--r--  1 gene  staff  4236000 Jul 27 17:05 data_level0.bin
+-rw-r--r--  1 gene  staff      100 Jul 27 17:05 header.bin
+-rw-r--r--  1 gene  staff    49144 Jul 27 17:05 index_metadata.pickle
+-rw-r--r--  1 gene  staff     4000 Jul 27 17:05 length.bin
+-rw-r--r--  1 gene  staff     8624 Jul 27 17:05 link_lists.bin
+
+./metadata:
+total 232
+drwxr-xr-x  3 gene  staff      96 Jul 30 05:39 .
+drwxr-xr-x  9 gene  staff     288 Jul 30 06:11 ..
+-rw-r--r--  1 gene  staff  118589 Jul 27 17:10 page_map.json
+
+./source_docs:
+total 32
+drwxr-xr-x  9 gene  staff    288 Jul 29 12:39 .
+drwxr-xr-x  9 gene  staff    288 Jul 30 06:11 ..
+-rw-r--r--@ 1 gene  staff  14340 Jul 30 06:02 .DS_Store
+drwxr-xr-x  3 gene  staff     96 Jul 29 12:38 ESL
+drwxr-xr-x  3 gene  staff     96 Jul 26 11:18 Graphics
+drwxr-xr-x  3 gene  staff     96 Jul 29 12:38 Mometrix
+drwxr-xr-x  3 gene  staff     96 Jul 29 12:39 Trading
+drwxr-xr-x  3 gene  staff     96 Jul 29 08:08 WeeklyLessons
+drwxr-xr-x  4 gene  staff    128 Jul 29 08:09 WeeklyTemplates
+
+./source_docs/ESL:
+total 24
+drwxr-xr-x  3 gene  staff    96 Jul 29 12:38 .
+drwxr-xr-x  9 gene  staff   288 Jul 29 12:39 ..
+-rw-r--r--@ 1 gene  staff  8196 Jul 29 12:38 .DS_Store
+
+./source_docs/Graphics:
+total 16
+drwxr-xr-x  3 gene  staff    96 Jul 26 11:18 .
+drwxr-xr-x  9 gene  staff   288 Jul 29 12:39 ..
+-rw-r--r--@ 1 gene  staff  6148 Jul 26 11:18 .DS_Store
+
+./source_docs/Mometrix:
+total 16
+drwxr-xr-x  3 gene  staff    96 Jul 29 12:38 .
+drwxr-xr-x  9 gene  staff   288 Jul 29 12:39 ..
+-rw-r--r--@ 1 gene  staff  6148 Jul 29 12:38 .DS_Store
+
+./source_docs/Trading:
+total 16
+drwxr-xr-x  3 gene  staff    96 Jul 29 12:39 .
+drwxr-xr-x  9 gene  staff   288 Jul 29 12:39 ..
+-rw-r--r--@ 1 gene  staff  6148 Jul 29 12:39 .DS_Store
+
+./source_docs/WeeklyLessons:
+total 64
+drwxr-xr-x  3 gene  staff     96 Jul 29 08:08 .
+drwxr-xr-x  9 gene  staff    288 Jul 29 12:39 ..
+-rw-r--r--@ 1 gene  staff  30750 Jul 29 07:45 Week27Output20260729073648.txt
+
+./source_docs/WeeklyTemplates:
+total 32
+drwxr-xr-x  4 gene  staff   128 Jul 29 08:09 .
+drwxr-xr-x  9 gene  staff   288 Jul 29 12:39 ..
+-rw-r--r--@ 1 gene  staff  6148 Jul 29 08:08 .DS_Store
+-rw-r--r--@ 1 gene  staff  7760 Jul 29 07:08 Week27.txt
+
+./sourcecode:
+total 128
+drwxr-xr-x@ 14 gene  staff   448 Jul 30 06:11 .
+drwxr-xr-x   9 gene  staff   288 Jul 30 06:11 ..
+-rw-r--r--@  1 gene  staff  6148 Jul 29 12:58 .DS_Store
+-rw-r--r--   1 gene  staff  2289 Jul 27 17:10 build_page_map.py
+-rw-r--r--   1 gene  staff   250 Jul 27 10:28 create_collection.py
+-rw-r--r--@  1 gene  staff  2708 Jul 28 13:18 ESLPDFIngestion.py
+-rw-r--r--@  1 gene  staff   722 Jul 26 10:49 extract_graphics_text.py
+-rw-r--r--   1 gene  staff  2468 Jul 26 11:00 full_pipeline_graphics.py
+-rw-r--r--@  1 gene  staff  4054 Jul 27 17:03 ingest_mometrix.py
+-rw-r--r--   1 gene  staff   124 Jul 27 10:27 init_chroma.py
+-rw-r--r--@  1 gene  staff  8427 Jul 29 12:47 lesson_generator_ollama.py
+-rw-r--r--   1 gene  staff  6301 Jul 27 20:30 rag_lesson_generator_LMStudio.py
+-rw-r--r--   1 gene  staff  2868 Jul 27 19:44 TradingPDFIngestion.py
+-rw-r--r--@  1 gene  staff  3585 Jul 27 20:18 week_build_template.py
