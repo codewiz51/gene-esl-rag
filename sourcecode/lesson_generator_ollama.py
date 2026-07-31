@@ -194,8 +194,10 @@ if __name__ == "__main__":
 
     days_in_template = []
     for line in template_text.lower().splitlines():
+        line_stripped = line.strip()
         for d in DAYS:
-            if line.strip().startswith(d):
+            header = f"=== {d.upper()} ==="
+            if line_stripped == header.lower():
                 days_in_template.append(d.capitalize())
 
     if not days_in_template:
@@ -210,7 +212,9 @@ if __name__ == "__main__":
     output_dir = "/Users/gene/Documents/RAG/source_docs/WeeklyLessons"
     output_filename = f"{base_name}Output{timestamp}.txt"
     output_path = os.path.join(output_dir, output_filename)
-
+    print("DEBUG cwd:", os.getcwd())
+    print("DEBUG output_path:", output_path)
+    print("DEBUG dir exists:", os.path.exists(output_dir))
     # Open output file for writing
     output_file = open(output_path, "w", encoding="utf-8")
     

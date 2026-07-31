@@ -1,5 +1,5 @@
 ############################################################
- # WEEK 27 TEMPLATE FILE
+# WEEK 27 TEMPLATE FILE
 # This file is loaded by lesson_generator_ollama.py
 # Copy last week's file → rename → edit → save.
 ############################################################
@@ -11,10 +11,6 @@ Separate each lesson with a clear header.
 
 ============================================================
 CHARACTER SECTION
-# Add or modify characters for this week's lessons.
-# Format:
-# Name = <Character Name>
-# Description: <Short description of the character, role, and relevant details>
 ============================================================
 
 Name = Maria
@@ -23,13 +19,8 @@ Description: 36-year-old female with one child; overweight; high blood pressure;
 Name = Marisol
 Description: Clinic medical assistant; friendly; bilingual; central character for all weekly stories.
 
-
-
 ============================================================
 VOCABULARY SECTION
-# Weekly vocabulary for lessons.
-# Format: English = Spanish
-# Add, remove, or modify as needed.
 ============================================================
 
 exercise = ejercicio
@@ -39,8 +30,6 @@ nutrition = nutrición
 weight control = control de peso
 high blood pressure = presión alta
 alcohol use = consumo de alcohol
-
-
 
 ============================================================
 WEEKLY THEME AND VERB FOCUS
@@ -54,116 +43,105 @@ Use the Story Requirements as a guide and expand the narrative into a full story
 
 SPANISH ACCURACY DIRECTIVE:
 All Spanish output must use correct, natural Spanish phrasing. If a literal English translation would produce incorrect Spanish (for example: “hacer un error”), automatically replace it with the correct idiomatic Spanish (for example: “cometer un error”). Always prefer Cuban Spanish vocabulary and phrasing.
-Please correct the following translations.  Use the Cuban phrases or professional phrases I give you:
-- hacer un error should be cometer un error
-- hacer tan bien should be hacerlo tan bien or haberlo hecho tan bien
-- del clínica should be de la clínica
-- tomar el examen should be hacer el examen
-- certificado de aprobación should be certificado de finalización
-- nuevlica is not a word.
-- frio turki should be a la brava or de golpe or de un tirón
-- realizar un plan should be hacer un plan or preparar un plan
+Please correct the following translations:
+- hacer un error → cometer un error
+- hacer tan bien → hacerlo tan bien / haberlo hecho tan bien
+- del clínica → de la clínica
+- tomar el examen → hacer el examen
+- certificado de aprobación → certificado de finalización
+- nuevlica is not a word
+- frio turki → a la brava / de golpe / de un tirón
+- realizar un plan → hacer un plan / preparar un plan
 
-
-Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing (e.g., cometer un error, tomar una decisión, hacer un plan, aprobar un examen).
+Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing.
 
 STUDENT PROFILE DIRECTIVE:
-The target student of this lesson is a Cuban native Spanish speaker, a resident alien who has lived in the United States for two years and needs to improve English for better work opportunities. All explanations, examples, and grammar notes must be appropriate for an A2 English learner who is a native Spanish speaker. Use clear, simple English, provide supportive bilingual guidance, and maintain a positive, encouraging tone that reflects the student’s strong motivation to learn.
+The target student is a Cuban native Spanish speaker, A2 level, motivated, needs English for work opportunities.
 
-============================================================
-MONDAY STORY SUMMARY
-============================================================
-
-Marisol counsels a 36-year-old female patient (one child, overweight, smokes, high blood pressure, possible alcohol use).  
-Vocabulary themes: Exercise, Smoking, Substance Abuse, Nutrition, Weight Control.  
-Language focus: do exercise, make changes, make a plan.
-Story Length: 10–12 sentences.
-
-
-============================================================
-TUESDAY STORY CONTEXT
-============================================================
-
+=== MONDAY ===
+#MOMETRIX_SUMMARY(page=27, sentences=4)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+#PRONUNCIATION(W_words)
 Story Requirements:
-- Marisol is completing a computer-based training course on Nutrition Elements.  
-- She struggles with questions and makes mistakes.
-- She is interrupted by surrounding noise and conversations of coworkers
-- Coworkers gently tease her when she misses questions.  
-- She decides to repeat the training again.
-- She passes the training the second time, scoring 95%
-- She receives an email with the link to a certificate of completion
-- The clinic doctor says he can assign her to nutrition counseling appointments.
-Vocabulary themes: Fats, Carbohydrates, Proteins, Vitamins, Minerals.  
-Language focus: make a mistake, do the training again, pass certification, celebrate.
+- Marisol counsels patient Maria
+- Patient is mildly nervous
+- Patient is reticent talking about alcohol consumption
+- Patient is not sure if she can begin exercising regularly
+- Patient insecure about eating healthy
+- Marisol explains she has taken the first steps by asking for counseling
+Vocabulary themes: Exercise, Smoking, Substance Abuse, Nutrition, Weight Control
+Language focus: do exercise, make changes, make a plan
 
+=== TUESDAY ===
+#MOMETRIX_SUMMARY(page=28, sentences=6)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Marisol completes computer-based training on Nutrition Elements
+- She struggles with questions and makes mistakes
+- Noise and coworkers interrupt her
+- Coworkers tease her gently
+- She repeats the training
+- She passes with 95%
+- She receives certificate link
+- Doctor assigns her nutrition counseling duties
+Vocabulary themes: Fats, Carbohydrates, Proteins, Vitamins, Minerals
+Language focus: make a mistake, do the training again, pass certification, celebrate
 
-============================================================
-WEDNESDAY REVIEW SUMMARY
-# Follow the Week 26 review format:
-# - Warm-up
-# - Vocabulary review
-# - Verb focus review
-# - Short story recap
-# - Translation practice
-# - Role-play
-============================================================
+=== WEDNESDAY ===
+#MOMETRIX_SUMMARY(page=28, sentences=6)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Combine Monday and Tuesday into a coherent review story
+Vocabulary: Monday + Tuesday vocabulary
+Verb focus: do vs make
 
-Review day focusing on Week 27 vocabulary, verb focus (do vs make), and story elements from Monday and Tuesday.
-Story Length: 3-5 sentences.
+=== THURSDAY ===
+#MOMETRIX_SUMMARY(page=29, sentences=6)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Marisol assesses older woman with stooped back and bruises
+- Screening questions: osteoporosis, domestic violence
+- Woman admits son has anger issues
+- Marisol offers clinic help
+Vocabulary themes: Screening measures, preventive care
+Language focus: do screenings, make a safety plan
 
+=== FRIDAY ===
+#MOMETRIX_SUMMARY(page=30, sentences=5)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Marisol accompanies coworker seeking smoking cessation help
+- Coworker coughed blood; TB test requested
+- Marisol provides support
+- Make a cessation plan
+Vocabulary themes: cessation, support groups, cold-turkey, medication-assisted
+Language focus: do a TB test, make a plan to quit
 
-============================================================
-THURSDAY STORY SUMMARY
-============================================================
+=== SATURDAY ===
+#MOMETRIX_SUMMARY(page=31, sentences=5)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Marisol works noon–7
+- Kids want pancakes and bacon
+- She warms frozen pancakes; kids complain
+- Clinic calls her early
+- Doctor asks her to remove 8 sutures; she is nervous
+Vocabulary themes: Pancakes, Bacon, Frozen, Childcare, Sutures, Procedure
+Language focus: make breakfast, do a procedure
 
-Marisol assesses an older woman with stooped back and bruises.  
-Screening for osteoporosis and domestic violence.  
-Vocabulary themes: Use Column One topics from COMMON SCREENING MEASURES AND PREVENTIVE CARE.  
-Language focus: do screenings, make a safety plan.
-Story Length: 12–14 sentences.
-
-
-============================================================
-FRIDAY STORY SUMMARY
-============================================================
-
-Marisol accompanies a coworker seeking smoking cessation help.  
-Coworker coughed blood; TB test requested.  
-Vocabulary themes: Planned cessation, Support groups, Cold-turkey, Medication-assisted.  
-Language focus: do a TB test, make a plan to quit.
-Story Length: 12–14 sentences.
-
-
-============================================================
-SATURDAY STORY SUMMARY
-============================================================
-
-Marisol works noon–7.  
-Kids wake her wanting pancakes and bacon.  
-She makes frozen pancakes; kids prefer homemade.  
-Clinic calls asking her to come early.  
-Doctor asks her to remove 8 sutures; she is nervous.  
-Vocabulary themes: Pancakes, Bacon, Frozen, Childcare, Sutures, Procedure.  
-Language focus: make breakfast, do a procedure.
-Story Length: 10-12 sentences.
-
-
-============================================================
-SUNDAY REVIEW SUMMARY
-# This section uses the text from your prompt as the example.
-============================================================
-
-Follow the Week 26 review format:
-- Warm-up
-- Vocabulary review
-- Verb focus review
-- Short story recap
-- Translation practice
-- Role-play
-
-Sunday is a structured review day that reinforces the entire week’s content, focusing on repetition, bilingual practice, and confidence-building activities.
-Story Length: 10-12
-
+=== SUNDAY ===
+#MOMETRIX_SUMMARY(page=31, sentences=5)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Summarize the week’s stories
+- Reinforce vocabulary, bilingual practice, confidence-building
 
 ============================================================
 GRAMMAR FOCUS (A2 LEVEL)
@@ -178,9 +156,6 @@ Examples:
 - make a plan  
 - make changes  
 
-
-
 ############################################################
 # END OF TEMPLATE FILE
 ############################################################
-
