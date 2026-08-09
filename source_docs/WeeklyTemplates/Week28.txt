@@ -1,0 +1,316 @@
+############################################################
+# WEEK 28 TEMPLATE FILE
+# This file is loaded by lesson_generator_ollama.py
+# Copy last week's file → rename → edit → save.
+############################################################
+FORMAT EVERYTHING IN HTML. DO NOT USE MARKDOWN.
+HTML TAGS ARE FORMATTING INSTRUCTIONS, NOT CONTENT.
+ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+DO NOT USE EMOJIS, FLAGS, OR DECORATIVE SYMBOLS.
+DO NOT USE INLINE CSS OR STYLE ATTRIBUTES.
+DO NOT USE COLORED BOXES, BORDERS, OR GRAPHIC ELEMENTS.
+USE ONLY STANDARD HTML TAGS: <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+#SECTION: SHORT_DAY_RULES
+- Tuesday and Wednesday MUST be short lessons.
+- These days MUST fit on one printed page (front only).
+- These days MUST be 5-minute lessons.
+- Story MUST be 4–5 sentences maximum.
+- Vocabulary MUST be 3–5 items maximum.
+- Warm-up MUST be 1–2 questions only.
+- NO role-play on Tuesday or Wednesday.
+- NO extended translation practice on Tuesday or Wednesday.
+- NO long bilingual blocks on Tuesday or Wednesday.
+- Use ONLY 3–4 line items from the list.
+- Keep spacing tight and compact.
+#END_SECTION
+
+#SECTION BEGIN: MULTI_DAY_INSTRUCTION
+If the user requests multiple lessons (e.g., "Generate Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday lessons"),
+generate each day's lesson in order, using the daily story summaries and daily story lengths.
+Separate each lesson with a clear header.
+#SECTION END: MULTI_DAY_INSTRUCTION
+
+============================================================
+#SECTION BEGIN: CHARACTER_SECTION
+============================================================
+
+Name = Cami
+Description: 9 year old daughter of Marisol.  Bright, energetic, good grades.
+
+Name = Danny
+Description: 11 yr old son of Marisol.  Athletic, intelligent, loves technology.
+
+Name = Marisol
+Description: Clinic medical assistant; friendly; bilingual; central character for all weekly stories. Single mother of two.
+
+Name = Rosie
+Description: Marisol's coworker.  Funny, a bit loud, alway cheerful.  Medical assistant.
+
+Name = Letia
+Description: Marisol's coworker. An LPN, a bit serious, handles more compicated patients.
+
+Name = Dr. Amanda Lopex
+Decription: Clinic Doctor, owner and boss.  A good boss, she mixes well with staff and patients.
+
+Name = Virginia
+Description: Marisol's sister in law.  She provides day care and is generally a friend to Marisol.
+
+Name = Anita
+Description: Lives in the apartment next door to Marisol.  Has a daughter Cami's age.  The are in class together in the school year.
+
+Name = Barbara
+Description: Anita's daughter 11 years.  Smart, curious, also energetic.
+
+Name = Armando
+Description: Male patient with a severely bruised elbow.  He finds is difficult to move his elbow. It is recommended he use alternating heat and cold treatment.
+
+Name = Sicily
+Description: Female adolescent patient with inflamed earlobs from a poorly performed ear piercing.
+
+#SECTION END: CHARACTER_SECTION
+
+============================================================
+#SECTION BEGIN: VOCABULARY_SECTION
+============================================================
+
+Heat treatments – Tratamientos con calor
+Hot Packs – Compresas calientes secas
+Moist Packs – Compresas calientes húmedas
+Heat Lamps – Lámparas de calor
+Whirlpool Baths – Baños de hidromasaje
+Ice Packs – Compresas de hielo
+Cold Compress – Compresa fría
+
+#SECTION END: VOCABULARY_SECTION
+
+============================================================
+#SECTION BEGIN: WEEKLY_THEME_AND_VERB_FOCUS
+============================================================
+
+Weekly Theme: Weave vocabulary, verb focus and clinical use into stories.
+Weekly Verb Focus: see vs look vs watch
+see = something appears
+look for = intentional search
+watch = monitor over time
+Include each verb in daily stories.
+
+A1+ to A2‑ Vocabulary Rule:
+Use high‑frequency clinic vocabulary only.
+Avoid technical medical terms unless already listed in the vocabulary section.
+If a term is required (e.g., contusion, ibuprofen), keep the explanation simple and short.
+
+A1+ to A2‑ Verb Rule:
+Allowed: present simple, past simple, going to, can, should, early phrasal verbs.
+Avoid: present perfect, past perfect, conditionals, multi‑clause modal structures.
+
+STORY DIRECTIVE:
+Use the Story Requirements as a guide and expand the narrative into a full story that meets the Story Length specified for that day. 
+Do not simply rewrite the bullet points; extend them into a richer, more detailed sequence of events with natural transitions, added detail, and natural pacing.
+Maintain A1+ to A2- pacing, complexity and grammar limits.
+
+STORY LENGTH CONTROL:
+Target complexity is A1+ to A2-
+Maintain A1+ to A2- complexity
+Daily stories MUST stay within the Story Requirements. 
+Do NOT expand beyond the listed events. 
+Do NOT add extra medical detail, extra characters, or extra narrative scenes. 
+Keep pacing simple and short.
+A1+ to A2‑ STORY LENGTH RULE:
+Stories should be 70–110 words except Tuesday/Wednesday short‑day rules.
+Tuesday/Wednesday remain 4–5 sentences, 5‑minute lessons, one page only.
+
+A1+ to A2‑ SENTENCE CONTROL DIRECTIVE:
+All sentences MUST be short (8–12 words). 
+Avoid subordinate clauses (when, while, after, before).
+Avoid compound sentences with commas.
+Avoid long medical explanations. 
+Use simple connectors only: and, but, because.
+Grammar must stay in A1+ → A2‑ range: present simple, basic past, going to, can, should, early phrasal verbs.
+One inference per story only.
+Maintain A1+ to A2- pacing at all times.
+A1+ to A2‑ Pacing Rule:
+Keep pacing concrete and direct.
+Avoid abstract reflections or long emotional commentary.
+Each sentence should move the story forward.
+Stories MUST be concise and must not exceed the Story Requirements. 
+Do NOT add extra events, extra characters, or extra medical detail.
+
+TRANSLATION MOMENT RULE:
+Each daily story MUST include exactly one Spanish-to-English translation moment inside the story.
+This moment MUST be short and simple (one Spanish sentence + one English translation).
+The Spanish sentence MUST be natural Cuban Spanish.
+The English translation MUST be simple A1+ to A2‑ (8–12 words).
+Do NOT add additional translation moments inside the story.
+All other translation practice MUST appear in the Translation Practice section only.
+
+SPANISH ACCURACY DIRECTIVE:
+All Spanish output must use correct, natural Spanish phrasing. If a literal English translation would produce incorrect Spanish (for example: “hacer un error”), automatically replace it with the correct idiomatic Spanish (for example: “cometer un error”). Always prefer Cuban Spanish vocabulary and phrasing.
+Please correct the following translations:
+- hacer un error should be cometer un error
+- hacer tan bien should be hacerlo tan bien or haberlo hecho tan bien
+- del clínica should be de la clínica
+- tomar el examen should be hacer el examen
+- certificado de aprobación should be certificado de finalización
+- nuevlica is not a word
+- frio turki should be a la brava / de golpe / de un tirón
+- realizar un plan should be hacer un plan / preparar un plan
+- miré a las radiografías should be miró las radiografías
+- compresas húmedas calientes is correct but slightly formal; Cuban Spanish often uses “paños calientes húmedos
+- test de manchas should be “prueba de Mononucleosis” or “prueba rápida de Mono”
+- observó cómo Letia realizaba is correct but slightly formal; A1+ to A2- prefers “observó a Letia mientras hacía…”
+
+Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing.
+
+STUDENT PROFILE DIRECTIVE:
+The target student is a Cuban native Spanish speaker, A1+ to A2- level, motivated, needs English for work opportunities.
+The student is progressing to A2.
+
+#SECTION END: WEEKLY_THEME_AND_VERB_FOCUS
+
+#SECTION BEGIN: TRANSLATION_AND_ROLEPLAY_CONTROL
+
+ROLE‑PLAY DISABLE RULE:
+No role‑play of any kind.
+Do NOT generate dialogues, coworker interactions, or “Student A / Student B” tasks.
+All practice MUST be translation‑based only.
+
+TRANSLATION PRACTICE CONTROL:
+Long days (Monday, Thursday, Friday, Saturday, Sunday):
+- Provide exactly 6 Spanish→English translation sentences.
+- Provide exactly 2 English→Spanish translation sentences at the end.
+- All Spanish MUST be natural Cuban Spanish.
+- All English MUST be simple A1+ to A2‑ (8–12 words).
+- Sentences MUST be short, concrete, and clinic‑related.
+- Avoid subordinate clauses and complex connectors.
+- Avoid abstract reasoning or multi‑step explanations.
+
+Short days (Tuesday, Wednesday):
+- Provide exactly 2 Spanish→English translation sentences.
+- Provide exactly 2 English→Spanish translation sentences.
+- Keep all sentences short and simple.
+
+#SECTION END: TRANSLATION_AND_ROLEPLAY_CONTROL
+
+============================================================
+#SECTION BEGIN: DAILY_STORIES
+============================================================
+
+=== MONDAY ===
+#MOMETRIX_SUMMARY(33, 34, 4)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+#PRONUNCIATION(W_words)
+Story Requirements:
+- Marisol assesses Armando's elbow
+- Requests Letia to examine also
+- XRay shows no bone damage, only soft tissue injury
+- Patient is extremely sore.
+- Hematoma has three colors: purple, yellow, and a little green.  Extends several inches on either side of the elbow.
+- Letia directs Marisol to advise hot and cold treatments and over the counter ibuprofen for pain.
+Vocabulary themes: Bruise, limited motion, hot and cold alternating treatments, ibuprofen for pain.
+Language focus: see the bruise, look at the xray, watch Letia do range of motion assessment
+
+=== TUESDAY ===
+#MOMETRIX_SUMMARY(33, 34, 6)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Marisol is assigned to assess Sicily, a new patient
+- Sicily is embarrassed.  Her ear lobes are very swollen.  She let a friend pierce her ears and they appear to be infected.
+- Marisol presses on the ear lobe gently, and notices a yellow puss exuding from the ear lobe puncture.
+- Marisol has to calm herself, the puss smells horrible. Marisol feels uncomfortable with the smell.
+- She completes the assessment and communicates with the doctor to examine the infections.
+- The doctor views the ear lobes, instructs the patient to not insert any ear rings.
+- She calls Marisol in, instructs Marisol to advise the patient on warm compresses.
+- The doctor prescribes and antibiotic and also advises wiping the ear lobes gently with alcohol wipes.
+Vocabulary themes: Hot packs, Moist Packs
+Language focus: Assess ear lobes.  Queries how the ears have become infected. Doctor's assessment. Marisol's assignment to counsel about warm compresses.
+
+=== WEDNESDAY ===
+#MOMETRIX_SUMMARY(29, 30, 6)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Combine Monday and Tuesday into a coherent review story
+Vocabulary: Monday + Tuesday vocabulary
+Verb focus: see, look and watch
+
+=== THURSDAY ===
+#MOMETRIX_SUMMARY(31, 32, 6)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Thursday starts out more relaxed at the clinic.  A steady stream of patients with minor ailments.
+- Marisol sees six clinic patients with mild contusions, several deeper cuts, not requiring stitches.  She also sees a teenager with Mono, and must follow clean procedures to protect herself.
+- Screening questions: How did you get the bruises?  What were you doing when you cut yourself.  Recommended strip bandages for the wounds.  Counseling the teen that he must inform anyone he has been in contact with.
+- Mono spot test to confirm.  Proper would cleaning for the cuts.  Possibly wrapping contusions.
+- By lunch time, Marisol is exhausted.  Coworkers decide to go out for lunch.  Marisol has packed a sandwich, but is in the mood to talk and unwind a little.
+- The afternoon is a bit slower.  Two truck drivers for DOT assessments.  Several pre-employment drug tests.
+Vocabulary themes: Screening measures, preventive care, wound cleaning, DOT assessments, drug testing.
+Language focus: do screenings, counsel wound care, prescriptions for blood pressure
+
+=== FRIDAY ===
+#MOMETRIX_SUMMARY(41, 42, 5)
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Friday starts out tough.  After assessing her first patient, she thinks it might be COVID.  
+- The patient's symptoms match COVID, and she as taken precautions.  
+- she also knows the assessment room needs deep cleaning and can't be used until office personnel clean.  
+- She is also a bit upset at the receptionist for allowing the patient to be around children and older adultsm since her admitted to having a fever in the precheckin form.
+- She see several children she suspects have fifth disease, which is odd, because this virus is usually seen in the spring.
+- She kids Rosie that today is infectious disease day.  They both know the clinic isn't properly set up to handle contagious virus cases.
+- Marisol is glad when lunch time arrives.  She is tired, a bit worried about all the suspected viruses she has come into contact with.
+- The afternoon is quiet, which several truck drivers coming in for DOT health checks.
+Vocabulary themes: virus, Carona virus, Fifth disease, personal protective equipment
+Language focus: Personal protective equipment, virus, COVID, clean the assessment room
+
+=== SATURDAY ===
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Marisol sleeps until 9.  She has the whole weekend off.
+- Her kids wanted cereal this morning.  She hears a third voice while the kids are pouring bowls of cereal.  Ah, Barbara has come over to watch Animal Planet with Cami.
+- She feels a little guilty not making the kids breakfast, but she falls back asleep/
+- Anita calls at 9:30. She wants to walk at the park and wants to know if Marisol would join her.
+- She checks, the kids are settled in front of the TV.  She tells Anita she'd love to join her.
+- Just what she needs, some conversation with a friend, some out door air and some light exercise.
+Vocabulary themes: Cereal, Walk in the park, relaxed morning, kids watching Saturday morning TV.
+Language focus: sleeping late, walking with a friend, relaxing morning
+
+=== SUNDAY ===
+#VERB_CONTRAST(do_vs_make)
+#SPANISH_TRANSLATION(moment=1)
+Story Requirements:
+- Summarize the week’s stories
+- Reinforce vocabulary, bilingual practice, confidence-building
+
+#SECTION END: DAILY_STORIES
+
+============================================================
+#SECTION BEGIN: GRAMMAR_FOCUS
+============================================================
+
+This week’s grammar focus: see, look, watch  
+A1+ to A2- Progression This is the core rule.
+- See = passive
+- Look = intentional search
+- Watch = intentional + time + change
+
+Examples:
+- I see bananas
+- I look for bananas 
+- I watch for banana sales
+- I see the patient.
+- I look for the chart.
+- I watch the patient’s breathing.
+- I see a tornado.
+- I look for a tornado.
+- I watch the weather on TV.
+
+
+#SECTION END: GRAMMAR_FOCUS
+
+############################################################
+# END OF TEMPLATE FILE
+############################################################

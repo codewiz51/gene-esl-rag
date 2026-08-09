@@ -1,0 +1,373 @@
+############################################################
+# WEEK 29 TEMPLATE FILE
+# This file is loaded by lesson_generator_ollama.py
+# Copy last week's file → rename → edit → save.
+############################################################
+FORMAT EVERYTHING IN HTML. DO NOT USE MARKDOWN.
+HTML TAGS ARE FORMATTING INSTRUCTIONS, NOT CONTENT.
+ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+DO NOT USE EMOJIS, FLAGS, OR DECORATIVE SYMBOLS.
+DO NOT USE INLINE CSS OR STYLE ATTRIBUTES.
+DO NOT USE COLORED BOXES, BORDERS, OR GRAPHIC ELEMENTS.
+USE ONLY STANDARD HTML TAGS: <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+
+#SECTION BEGIN: MULTI_DAY_INSTRUCTION
+If the user requests multiple lessons (e.g., "Generate Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday lessons"),
+generate each day's lesson in order, using the daily story summaries and daily story lengths.
+Separate each lesson with a clear header.
+#SECTION END: MULTI_DAY_INSTRUCTION
+
+============================================================
+#SECTION BEGIN: CHARACTER_SECTION
+============================================================
+
+Name = Marisol
+Description: Protagonist. Clinic medical assistant; friendly; A1+ -> A2- bilingual; central character for all weekly stories. Single mother.
+
+Name = Camy
+Description: 10 year old daughter of Marisol.  Bright, energetic, good grades.
+
+Name = Rosie
+Description: Marisol's coworker.  Funny, a bit loud, alway cheerful.  Medical assistant.
+
+Name = Letia
+Description: Marisol's coworker. An LPN, a bit serious, handles more compicated patients.
+
+Name = Dra. Doris Pérez
+Description: Clinic Doctor, owner and boss.  A good boss, she mixes well with staff and patients.
+
+Name = Amanda
+Description: Clinic receptionist, schedules appointments with patients, collects any fees due when the patient exits.
+
+Name = Virginia
+Description: Nickname is Titi, the Spanish equivalent of Auntie.  Marisol's sister in law.  She provides day care and is generally a friend to Marisol.
+
+Name = Marisa
+Description: Lives in the apartment next door to Marisol.  Has a daughter about Camy's age.  The are in class together in the school year.
+
+Name = Donna
+Description: Marisa's daughter 11 years.  Smart, curious, also energetic.
+
+Name = Rod
+Description: UPS delivery driver, possibly interested in getting to know or dating Marisol.  They seem compatible in light conversation.
+
+Name = Rico
+Description: New patient.  A walk-in. Foreman for a machine shop.  Skilled, technical, used to computer controlled lathes and saws. Works across the road from the clinic.
+
+Name = Rosita
+Description: Regular patient.  A welder and part time mechanic at a truck maintenance company.  Comes in for drips, vitamin shops.
+
+Name = Joseph
+Description: Cashier at the pharmacy down the street.  High blood pressure, high cholesterol, poor circulation.
+
+#SECTION END: CHARACTER_SECTION
+
+============================================================
+#SECTION BEGIN: VOCABULARY_SECTION
+============================================================
+
+VOCABULARY FORMAT RULE: Use unordered bulleted lists (<ul> and <li>) only for vocabulary.
+Do NOT use HTML tables for vocabulary items.
+Lyme disease – Enfermedad de Lyme
+Infection control procedure – Procedimiento de control de infecciones
+Car tires – Gomas del carro (or gomas de carro / gomas)
+Windshield Washer Fluid – líquido del limpiaparabrisas
+Hail – Granizo
+Cracked Windshield – Parabrisas rajado
+
+#SECTION END: VOCABULARY_SECTION
+
+============================================================
+#SECTION BEGIN: WEEKLY_THEME_AND_VERB_FOCUS
+============================================================
+
+STUDENT PROFILE DIRECTIVE:
+The target student is a Cuban native Spanish speaker, A1+ to A2- level, motivated, needs English for work opportunities.
+The student is progressing to A2.
+
+Weekly Theme: Weave vocabulary, verb focus and work and life situations into stories.
+Weekly Verb Focus: think vs know vs imagine
+A1+ to A2- Progression:
+- Think = opinion or belief (not 100% sure)
+- Know = facts, data, or certainty (100% sure)
+- Imagine = picturing possibilities or future ideas
+Include each verb in daily stories.
+
+A1+ to A2‑ Vocabulary Rule:
+Use high‑frequency clinic vocabulary only.
+Avoid technical medical terms unless already listed in the vocabulary section.
+If a term is required (e.g., contusion, ibuprofen), keep the explanation simple and short.
+
+A1+ to A2‑ Verb Rule:
+Allowed: present simple, past simple, going to, can, should, early phrasal verbs.
+Avoid: present perfect, past perfect, conditionals, multi‑clause modal structures.
+
+STORY DIRECTIVE:
+Use the Story Requirements as a guide and expand the narrative into a full story that meets the Story Length specified for that day. 
+Add descriptive detail, natural transitions, and sensory/emotional texture to the listed events — but do not invent new plot events, characters, or scenes beyond what's listed.
+Maintain A1+ to A2- pacing, complexity and grammar limits.
+
+BILINGUAL STORY FORMAT RULE:
+Every Daily Story MUST contain BOTH an English block and a full Spanish translation block formatted as a side-by-side 2-column HTML table:
+
+<table class="story-table" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding-right: 10px;">
+        <p>[Full English story text]</p>
+        <p><strong>Translation Moment:</strong> [Spanish sentence] ([English translation])</p>
+      </td>
+      <td style="width: 50%; vertical-align: top; padding-left: 10px;">
+        <p>[Full Spanish story text]</p>
+        <p><strong>Translation Moment:</strong> [Spanish sentence] ([English translation])</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+Do NOT use stacked <div> containers. Always place English in the left column and Spanish in the right column.
+
+#SECTION: STORY_LENGTH_AND_PACING
+
+GENERAL (all days):
+- Target complexity: A1+ to A2-.
+- Keep pacing simple and short.
+- Story length: 120–150 words.
+
+TUESDAY / WEDNESDAY OVERRIDE (short days):
+- Replace the 120-150 word rule above with: 6–8 sentences maximum, English and Spanish stories both.
+- SHALL fit on one printed page, as a 6–8-minute lesson.
+- Vocabulary MUST be 3–5 items maximum.
+- Warm-up MUST be 1–2 questions only.
+- Use ONLY 3–4 line items from the practice list.
+- NO role-play.
+- NO extended translation practice.
+- Keep spacing tight and compact.
+
+#END_SECTION
+
+A1+ to A2‑ SENTENCE CONTROL DIRECTIVE:
+All sentences MUST be short (8–12 words). 
+Avoid subordinate clauses (when, while, after, before).
+Avoid compound sentences with commas.
+Avoid long medical explanations. 
+Use simple connectors only: and, but, because.
+Grammar must stay in A1+ → A2‑ range: present simple, basic past, going to, can, should, early phrasal verbs.
+One inference per story only.
+Maintain A1+ to A2- pacing at all times.
+A1+ to A2‑ Pacing Rule:
+Keep pacing concrete and direct.
+Avoid abstract reflections or long emotional commentary.
+Each sentence should move the story forward.
+Stories MUST be concise and must not exceed the Story Requirements. 
+
+TRANSLATION MOMENT RULE:
+Each daily story MUST include exactly one Spanish-to-English translation moment inside the story.
+This moment MUST be short and simple (one Spanish sentence + one English translation).
+The Spanish sentence MUST be natural Cuban Spanish.
+The English translation MUST be simple A1+ to A2‑ (8–12 words).
+Do NOT add additional translation moments inside the story.
+All other translation practice MUST appear in the Translation Practice section only.
+
+SPANISH ACCURACY DIRECTIVE:
+All Spanish output must use correct, natural Spanish phrasing.
+If a literal English translation would produce incorrect Spanish (for example: “hacer un error”), automatically replace it with the correct idiomatic Spanish (for example: “cometer un error”).
+Always prefer Cuban Spanish vocabulary and phrasing.
+Please correct the following translations:
+- hacer un error should be cometer un error
+- hacer tan bien should be hacerlo tan bien or haberlo hecho tan bien
+- del clínica should be de la clínica
+- tomar el examen should be hacer el examen
+- certificado de aprobación should be certificado de finalización
+- nuevlica is not a word
+- frio turki should be a la brava / de golpe / de un tirón
+- realizar un plan should be hacer un plan / preparar un plan
+- miré a las radiografías should be miró las radiografías
+- compresas húmedas calientes is correct but slightly formal; Cuban Spanish often uses “paños calientes húmedos
+- test de manchas should be “prueba de Mononucleosis” or “prueba rápida de Mono”
+- observó cómo Letia realizaba is correct but slightly formal; A1+ to A2- prefers “observó a Letia mientras hacía…”
+
+Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing.
+
+#SECTION END: WEEKLY_THEME_AND_VERB_FOCUS
+
+#SECTION BEGIN: TRANSLATION_CONTROL
+
+ROLE‑PLAY RULE:
+Role play exists only in stories, when specified.  Do not generate or invent role play that is not the story outlines.
+Do NOT generate dialogues, coworker interactions, or “Student A / Student B” tasks.
+All practice MUST be translation‑based only.
+
+LIVE SESSION CO-WORKING DIRECTIVE:
+For long-day translation practice, prompts are designed for live, real-time verbal formulation.
+The student formulates each translation aloud from memory.
+Iterate through each sentence 3-4 times to refine conversational fluidity, correct over-literal verb translations (such as improper use of 'know' vs 'think' vs 'imagine'), and smooth out natural English phrasing.
+
+TRANSLATION PRACTICE CONTROL:
+Long days (Monday, Thursday, Friday, Saturday, Sunday):
+- Provide exactly 6 Spanish→English translation sentences.
+- Provide exactly 2 English→Spanish translation sentences at the end.
+- All Spanish MUST be natural Cuban Spanish.
+- All English MUST be simple A1+ to A2‑ (8–12 words).
+- Sentences MUST be short, concrete, clinic‑related or related to real life activities (buying gas, going to the supermercado, lunch with friends, walking with a friend for exercise.)
+- Avoid subordinate clauses and complex connectors.
+- Avoid abstract reasoning or multi‑step explanations.
+
+Short days (Tuesday, Wednesday):
+- Provide exactly 2 Spanish→English translation sentences.
+- Provide exactly 2 English→Spanish translation sentences.
+- Keep all sentences short and simple.
+
+#SECTION END: TRANSLATION_CONTROL
+
+============================================================
+#SECTION BEGIN: GRAMMAR_FOCUS
+============================================================
+
+This week’s grammar focus: think, know, imagine  
+A1+ to A2- Progression:
+- Think = opinion or belief (not 100% sure)
+- Know = facts, data, or certainty (100% sure)
+- Imagine = picturing possibilities or future ideas
+
+Examples:
+- I think the patient has a fever. (Opinion / Guess)
+- I know the patient has a fever. (Checked thermometer or placed hand on forehead)
+- I imagine he feels very tired. (Empathy / Possibility)
+- Marisol thinks Rico has Lyme disease.
+- Dra. Pérez knows the X-ray is clear.
+- Joseph imagines running in the park.
+
+#SECTION END: GRAMMAR_FOCUS
+
+
+============================================================
+#SECTION BEGIN: DAILY_STORIES
+============================================================
+
++++ START WEEK 29 +++
+=== START MONDAY ===
+#MOMETRIX_SUMMARY(47, 47, 3)
+#SPANISH_TRANSLATION(moment=1)
+#PRONUNCIATION(TH_words, KN_words)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Rico arrives at the clinic with severe fatigue and joint pain.
+- Rico is a walk in, but Amanda is able to assign him to a treatment room and assigns Marisol to assess.
+- As Marisol enters the room, he shows Marisol a round, red mark on his leg from a tick bite.
+- Marisol also spots a faint target rash, common with Lyme disease.
+- Marisol thinks Rico has Lyme disease, but she calls Dra. Pérez to examine him.
+- Dra. Pérez knows the symptoms match Lyme disease and orders blood tests.
+- Rico may have to visit the clinic to be treated with an antibiotic drip for several weeks.
+- Rico imagines he might not be able to work next week.
+Vocabulary themes: Lyme disease, tick bite, joint pain, rash, antibiotic, spots (synonym for see in this story.)
+Language focus: think (Rico has Lyme), know (doctor knows symptoms), imagine (Rico imagines resting).
+=== END MONDAY ===
+
+=== START TUESDAY ===
+#SPANISH_TRANSLATION(moment=1)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Joseph comes to the clinic complaining of zero energy and high stress.
+- Marisol knows Joseph needs regular exercise to improve his heart health.
+- Joseph thinks exercise is too hard, but Marisol helps him start with simple daily walks.
+- Joseph imagines walking in the park every morning before work.
+- As Marisol is exiting the patient room, Rod pops in and says Hi.
+- Rod is delivering packages for UPS.
+- They visit quickly saying Hi, but Marisol must return to other patients.
+- Rod indicates he will be back on Thursday.
+- Rod seems to be interested in getting to know Marisol.
+Vocabulary themes: Physical activity, heart health, daily routine, energy, 
+Language focus: think, know, imagine.
+=== END TUESDAY ===
+
+=== START WEDNESDAY ===
+#SPANISH_TRANSLATION(moment=1)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Combine Monday and Tuesday into a coherent review story featuring Rico and Joseph.
+Vocabulary: Review Monday and Tuesday vocabulary
+Verb focus: think, know, imagine
+=== END WEDNESDAY ===
+
+=== START THURSDAY ===
+#SPANISH_TRANSLATION(moment=1)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Rod stops by the clinic early today.  It is his first delivery stop.
+- He talks to Amanda as he places the packages next to the receptionist counter.
+- Just then, Marisol walks in, says Hello and tells Rod she will be right back.
+- Amanda whispers to Rod, "Ask her to go to lunch."
+- Marisol returns to chat for a moment, and Rod blurts out "Want to go to lunch today?"
+- Marisol says "Sure, come by at 11:30.  It will have to be quick."
+- After lunch, Marisol settles into to enter chart data.
+- Amanda wants details of the lunch date, but Rosita walks in to the clinic with strong headaches.  
+- Marisol and Amanda return to work quickly to help the patient.
+- Rosita is a welder at the shop across the street which does not have good ventilation.
+- Marisol thinks Rosita needs better ventilation at her workplace.
+- Dra. Pérez knows the headaches come from breathing bad air and recommends regular rest breaks.
+- Dra. Pérez asks Rosita if she uses breathing protection or filtration.
+- Welding produces hazardous fumes and gases that require respiratory protection.
+Vocabulary themes: Welding helmet, fumes, headache, ventilation, lunch date.
+Language focus: think, know, imagine.
+=== END THURSDAY ===
+
+=== START FRIDAY ===
+#MOMETRIX_SUMMARY(99, 100, 4)
+#SPANISH_TRANSLATION(moment=1)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Two young immigrant workers arrive at the clinic after an accident at work.
+- One worker has a deep cut on his arm, and the other has a bruised knee.
+- Marisol thinks the deep cut needs infection control procedures.
+- Marisol asks Letia to check if the cut is significant enough for stitches.
+- Letia cleans the cuts and applies antiseptic while Marisol wraps the knee.
+- The workers hope they can return to their jobs next Monday morning.
+- After the morning rush, the office gathers in the break rooms for lunch together.
+- The microwave is warming food, Amanda, Rosie, Dra. Pérez, Marisol and Letia gather around the table.
+- Conversation is warm and friendly.  The group is close.  They catch up on children, the latest makeup trends, Rosie shows off her latest social media post.
+- Titi calls Marisol.  Camy isn't feeling well, her stomach is upset.  Nothing to worry about, but she want to give Marisol and update.
+- Friday afternoon is a steady stream of routine clinic patients.  Some physicals, a few bruises, none requiring triage or serious in nature.
+- Marisol likes that is it busy but not hectic.  Makes the day go by faster.
+- When Marisol arrives at Virginia's house to pick up Camy, Camy's stomach ache is better.
+- However, Camy vomits later that night.  Camy apparently ate some bad food in the last 24 hours.
+Vocabulary themes: Immigrant workers, cut, bruised knee, infection control procedure, microwave, lunch time, conversation
+Language focus: think, know, imagine.
+=== END FRIDAY ===
+
+=== START SATURDAY ===
+#SPANISH_TRANSLATION(moment=1)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Marisol is driving to the supermarket Saturday morning after a long week at work.
+- Camy's stomach issues have resolved and she is with Marisol in the car.
+- A severe thunderstorm is in the vicinity.
+- Her neighbor calls Marisol to tell her there could be hail.
+- Marisol is from Cuba and has not experienced hail like it occurs in Oklahoma.
+- She seeks shelter under a gas station awning.
+- She is just in time. Pea sized hail begins to fall and quickly increases to golf ball size.
+- She sees a pickup truck with damage from two large hail strikes.
+- The hail passes in a few minutes.  The noise of the ice hitting objects was loud and a little unnerving.
+- After the storm, all Marisol can think of is getting to the market and going home.
+- After a pause, she thinks it is safe and she continues to the supermarket.
+- As she leaves the gas station, she sees police are cordoning off an intersection due to an accident.
+- Marisol decides to take a route through a side street. Camy and Marisol watch kids playing happily in the runoff from the storm.
+- She arrives at the store without damage and happy with herself that she handled the situation properly.
+Vocabulary themes: Hail, cracked windshield, thinks, accident, runoff.
+Language focus: think, know, imagine.
+=== END SATURDAY ===
+
+=== START SUNDAY ===
+#SPANISH_TRANSLATION(moment=1)
+Story Format: Must use the 2-column side-by-side HTML story table.
+Story Requirements:
+- Summarize the week’s stories.
+- Reinforce vocabulary (Lyme, welding, exercise, car issues), bilingual practice, and confidence-building.
+=== END SUNDAY ===
+
++++ END WEEK 29 +++
+
+#SECTION END: DAILY_STORIES
+
+############################################################
+# END OF TEMPLATE FILE
+############################################################

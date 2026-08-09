@@ -17,7 +17,7 @@ COLLECTIONS = ["esl_lessons", "mometrix_english", "mometrix_spanish"]
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 # MODEL_NAME = "qwen2.5:14b"   # Change here if you switch models
-MODEL_NAME = "qwen32b"   # Change here if you switch models
+MODEL_NAME = "gemma4-clean"   # Change here if you switch models
 
 TOP_K = 4
 
@@ -75,9 +75,6 @@ def build_prompt(user_request, template_text, context):
         "- Closing summary\n"
     )
 
-    # -----------------------------------------------------
-    # FINAL PROMPT ASSEMBLY
-    # -----------------------------------------------------
     prompt = (
         f"{system_instructions}\n\n"
         f"=== WEEKLY TEMPLATE ===\n{template_text}\n\n"
@@ -87,6 +84,47 @@ def build_prompt(user_request, template_text, context):
     )
 
     return prompt
+
+def lookup_mometrix_pages(collection, start_page, end_page):
+    results = collection.query(
+        query_texts=["dummy"],
+        where={
+            "$and": [
+                {"printed_page": {"$gte": start_page}},
+                {"printed_page": {"$lte": end_page}}
+            ]
+        },
+        n_results=100
+    )
+
+    docs = results["documents"][0]
+
+    if not docs:
+        return f"[No Mometrix content found for pages {start_page}-{end_page}]"
+
+    return " ".join(docs)
+
+import re
+
+def parse_mometrix_macro(line):
+    """
+    Parse a line like:
+    #MOMETRIX_SUMMARY(35, 37, 6)
+    Returns: (start_page, end_page, sentences)
+    """
+
+    pattern = r"#MOMETRIX_SUMMARY\((\d+),\s*(\d+),\s*(\d+)\)"
+    match = re.search(pattern, line)
+
+    if not match:
+        return None
+
+    start_page = int(match.group(1))
+    end_page = int(match.group(2))
+    sentences = int(match.group(3))
+
+    return start_page, end_page, sentences
+
 
 # =========================================================
 # CHROMA RETRIEVAL
@@ -158,6 +196,23 @@ def generate_lesson(user_request, template_path):
     print("\n=== GENERATED LESSON ===\n")
     print(lesson)
 
+def extract_day_block(template_text, day):
+    lines = template_text.splitlines()
+    start = f"=== {day.upper()} ==="
+    collecting = False
+    block_lines = []
+
+    for line in lines:
+        if line.strip() == start:
+            collecting = True
+            continue
+        if collecting:
+            if line.strip().startswith("==="):  # next day begins
+                break
+            block_lines.append(line)
+
+    return "\n".join(block_lines)
+
 # =========================================================
 # ENTRY POINT
 # ---------------------------------------------------------
@@ -175,7 +230,7 @@ if __name__ == "__main__":
     # 1. Template filename comes from command line
     # ---------------------------------------------
     if len(sys.argv) < 2:
-        print("Usage: python lesson_generator_ollama.py Week27.txt")
+        print("Usage: python lesson_generator_ollama.py WeekXX.txt")
         sys.exit(1)
 
     user_template = sys.argv[1].strip()
@@ -210,18 +265,48 @@ if __name__ == "__main__":
     base_name = os.path.splitext(user_template)[0]
 
     output_dir = "/Users/gene/Documents/RAG/source_docs/WeeklyLessons"
-    output_filename = f"{base_name}Output{timestamp}.txt"
+    output_filename = f"{base_name}Output{timestamp}.html"
     output_path = os.path.join(output_dir, output_filename)
     print("DEBUG cwd:", os.getcwd())
     print("DEBUG output_path:", output_path)
     print("DEBUG dir exists:", os.path.exists(output_dir))
     # Open output file for writing
     output_file = open(output_path, "w", encoding="utf-8")
-    
+
+    # Write HTML header
+    output_file.write("""<!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Weekly Lesson Output</title>
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            font-size: 14pt;
+            line-height: 1.0;
+            margin: 40px;
+        }
+        p {
+            font-family: "Times New Roman", serif;
+            font-size: 14pt;
+        }
+        h1 {
+            font-size: 18pt;
+        }
+        h2 {
+            font-size: 16pt;
+        }
+    </style>
+    </head>
+    <body>
+    """)
+
     # ---------------------------------------------
     # 3. Generate each day’s lesson and stream output
     # ---------------------------------------------
     client = get_client()
+    # Load the Mometrix English collection
+    mometrix_english_collection = client.get_or_create_collection("mometrix_english")
 
     for day in days_in_template:
         print(f"\nGENERATING {day.upper()}\n")
@@ -230,14 +315,45 @@ if __name__ == "__main__":
 
         context = retrieve_context(client, user_request)
         prompt = build_prompt(user_request, template_text, context)
+
+        # ---------------------------------------------------------
+        # BLOCK 3 — Mometrix Macro Integration
+        # ---------------------------------------------------------
+        day_block = extract_day_block(template_text, day)
+        mometrix_macro = parse_mometrix_macro(day_block)
+
+        if mometrix_macro:
+            start_page, end_page, num_sentences = mometrix_macro
+
+            raw_mometrix = lookup_mometrix_pages(
+                mometrix_english_collection,
+                start_page,
+                end_page
+            )
+
+            mometrix_summary_prompt = f"""
+Summarize the following Mometrix content into {num_sentences} clear, concise sentences.
+
+Content:
+{raw_mometrix}
+"""
+
+            mometrix_summary = call_ollama(mometrix_summary_prompt).strip()
+
+            prompt += f"\n\nMOMETRIX SUMMARY:\n{mometrix_summary}\n"
+        # ---------------------------------------------------------
         lesson = call_ollama(prompt)
 
         # Stream to terminal
         print(lesson)
 
         # Write to output file
-        output_file.write(f"\n\n=== {day.upper()} ===\n\n")
-        output_file.write(lesson)
+        output_file.write(f"<h1>{day.upper()}</h1>\n")
+        output_file.write(f"<div class='day-block'>\n{lesson}\n</div>\n")
+        # output_file.write(lesson)
 
+    # Close HTML document
+    with open(output_path, "a", encoding="utf-8") as output_file:
+        output_file.write("\n</body>\n</html>")
     output_file.close()
     print(f"\nWeekly lesson saved to: {output_path}\n")

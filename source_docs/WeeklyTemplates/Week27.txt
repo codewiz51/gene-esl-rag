@@ -4,13 +4,14 @@
 # Copy last week's file → rename → edit → save.
 ############################################################
 
-# MULTI-DAY GENERATION INSTRUCTION
+#SECTION BEGIN: MULTI_DAY_INSTRUCTION
 If the user requests multiple lessons (e.g., "Generate Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday lessons"),
 generate each day's lesson in order, using the daily story summaries and daily story lengths.
 Separate each lesson with a clear header.
+#SECTION END: MULTI_DAY_INSTRUCTION
 
 ============================================================
-CHARACTER SECTION
+#SECTION BEGIN: CHARACTER_SECTION
 ============================================================
 
 Name = Maria
@@ -19,8 +20,10 @@ Description: 36-year-old female with one child; overweight; high blood pressure;
 Name = Marisol
 Description: Clinic medical assistant; friendly; bilingual; central character for all weekly stories.
 
+#SECTION END: CHARACTER_SECTION
+
 ============================================================
-VOCABULARY SECTION
+#SECTION BEGIN: VOCABULARY_SECTION
 ============================================================
 
 exercise = ejercicio
@@ -31,8 +34,10 @@ weight control = control de peso
 high blood pressure = presión alta
 alcohol use = consumo de alcohol
 
+#SECTION END: VOCABULARY_SECTION
+
 ============================================================
-WEEKLY THEME AND VERB FOCUS
+#SECTION BEGIN: WEEKLY_THEME_AND_VERB_FOCUS
 ============================================================
 
 Weekly Theme: Health and Wellness woven into every day’s story
@@ -58,8 +63,14 @@ Avoid literal translations of English verbs; always use the correct Spanish verb
 STUDENT PROFILE DIRECTIVE:
 The target student is a Cuban native Spanish speaker, A2 level, motivated, needs English for work opportunities.
 
+#SECTION END: WEEKLY_THEME_AND_VERB_FOCUS
+
+============================================================
+#SECTION BEGIN: DAILY_STORIES
+============================================================
+
 === MONDAY ===
-#MOMETRIX_SUMMARY(page=27, sentences=4)
+#MOMETRIX_SUMMARY(27, 27, 4)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 #PRONUNCIATION(W_words)
@@ -74,7 +85,7 @@ Vocabulary themes: Exercise, Smoking, Substance Abuse, Nutrition, Weight Control
 Language focus: do exercise, make changes, make a plan
 
 === TUESDAY ===
-#MOMETRIX_SUMMARY(page=28, sentences=6)
+#MOMETRIX_SUMMARY(28, 28, 6)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 Story Requirements:
@@ -90,7 +101,7 @@ Vocabulary themes: Fats, Carbohydrates, Proteins, Vitamins, Minerals
 Language focus: make a mistake, do the training again, pass certification, celebrate
 
 === WEDNESDAY ===
-#MOMETRIX_SUMMARY(page=28, sentences=6)
+#MOMETRIX_SUMMARY(29, 30, 6)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 Story Requirements:
@@ -99,7 +110,7 @@ Vocabulary: Monday + Tuesday vocabulary
 Verb focus: do vs make
 
 === THURSDAY ===
-#MOMETRIX_SUMMARY(page=29, sentences=6)
+#MOMETRIX_SUMMARY(31, 32, 6)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 Story Requirements:
@@ -111,7 +122,7 @@ Vocabulary themes: Screening measures, preventive care
 Language focus: do screenings, make a safety plan
 
 === FRIDAY ===
-#MOMETRIX_SUMMARY(page=30, sentences=5)
+#MOMETRIX_SUMMARY(33, 35, 5)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 Story Requirements:
@@ -123,7 +134,7 @@ Vocabulary themes: cessation, support groups, cold-turkey, medication-assisted
 Language focus: do a TB test, make a plan to quit
 
 === SATURDAY ===
-#MOMETRIX_SUMMARY(page=31, sentences=5)
+#MOMETRIX_SUMMARY(36, 36, 5)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 Story Requirements:
@@ -136,15 +147,17 @@ Vocabulary themes: Pancakes, Bacon, Frozen, Childcare, Sutures, Procedure
 Language focus: make breakfast, do a procedure
 
 === SUNDAY ===
-#MOMETRIX_SUMMARY(page=31, sentences=5)
+#MOMETRIX_SUMMARY(37, 37, 5)
 #VERB_CONTRAST(do_vs_make)
 #SPANISH_TRANSLATION(moment=1)
 Story Requirements:
 - Summarize the week’s stories
 - Reinforce vocabulary, bilingual practice, confidence-building
 
+#SECTION END: DAILY_STORIES
+
 ============================================================
-GRAMMAR FOCUS (A2 LEVEL)
+#SECTION BEGIN: GRAMMAR_FOCUS
 ============================================================
 
 This week’s grammar focus: do vs make  
@@ -155,6 +168,8 @@ Examples:
 - make breakfast  
 - make a plan  
 - make changes  
+
+#SECTION END: GRAMMAR_FOCUS
 
 ############################################################
 # END OF TEMPLATE FILE
