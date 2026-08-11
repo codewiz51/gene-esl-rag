@@ -1,37 +1,24 @@
 ############################################################
 # WEEK 30 TEMPLATE FILE
 # This file is loaded by lesson_generator_ollama.py
-# Structure: RULES (constraints) / SECTION (output content) / DICTIONARY (lookup data)
-# Cross-cutting rules are grouped near the top.
-# Rules specific to DAILY_STORIES are placed immediately before it.
 # Copy last week's file → rename → edit → save.
 ############################################################
+FORMAT EVERYTHING IN HTML. DO NOT USE MARKDOWN.
+HTML TAGS ARE FORMATTING INSTRUCTIONS, NOT CONTENT.
+ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+DO NOT USE EMOJIS, FLAGS, OR DECORATIVE SYMBOLS.
+DO NOT USE INLINE CSS OR STYLE ATTRIBUTES.
+DO NOT USE COLORED BOXES, BORDERS, OR GRAPHIC ELEMENTS.
+USE ONLY STANDARD HTML TAGS: <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
 
-#BEGIN RULES: OUTPUT_FORMAT
-Respond in PLAIN TEXT ONLY. Do NOT use HTML, Markdown, or any markup.
-Structure your response using ONLY these exact section markers, each on its own line, in this exact order:
-[WARMUP]
-[VOCABULARY]
-[STORY_EN]
-[STORY_ES]
-[GRAMMAR]
-[EXAMPLES]
-[TRANSLATION_ES_EN]
-[TRANSLATION_EN_ES]
-[QUESTIONS]
-[CLOSING]
-Do not add extra markers, headers, or commentary before, between, or after sections.
-Vocabulary: one "English – Spanish" pair per line.
-Example Sentences, Translation Practice, and Student Questions: one item per line, no leading numbers or bullets.
-#END RULES: OUTPUT_FORMAT
-
-#BEGIN RULES: STUDENT_PROFILE
-The target student is a Cuban native Spanish speaker, A1+ to A2- level, motivated, needs English for work opportunities.
-The student is progressing to A2.
-#END RULES: STUDENT_PROFILE
+#SECTION BEGIN: MULTI_DAY_INSTRUCTION
+If the user requests multiple lessons (e.g., "Generate Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday lessons"),
+generate each day's lesson in order, using the daily story summaries and daily story lengths.
+Separate each lesson with a clear header.
+#SECTION END: MULTI_DAY_INSTRUCTION
 
 ============================================================
-#BEGIN DICTIONARY: CHARACTERS
+#SECTION BEGIN: CHARACTER_SECTION
 ============================================================
 
 Name = Marisol
@@ -73,20 +60,14 @@ Description: Regular patient.  A welder and part time mechanic at a truck mainte
 Name = Joseph
 Description: Cashier at the pharmacy down the street.  High blood pressure, high cholesterol, poor circulation.
 
-Name = Armando
-Description: Male patient with a severely bruised elbow.  He finds is difficult to move his elbow. It is recommended he use alternating heat and cold treatment.
-
-Name = Sicily
-Description: Female adolescent patient with inflamed earlobs from a poorly performed ear piercing.
-
-#END DICTIONARY: CHARACTERS
+#SECTION END: CHARACTER_SECTION
 
 ============================================================
-#BEGIN DICTIONARY: VOCABULARY
+#SECTION BEGIN: VOCABULARY_SECTION
 ============================================================
 
+VOCABULARY FORMAT RULE: Use unordered bulleted lists (<ul> and <li>) only for vocabulary.
 Do NOT use HTML tables for vocabulary items.
-
 Lyme disease – Enfermedad de Lyme
 Infection control procedure – Procedimiento de control de infecciones
 Car tires – Gomas del carro (or gomas de carro / gomas)
@@ -94,39 +75,24 @@ Windshield Washer Fluid – líquido del limpiaparabrisas
 Hail – Granizo
 Cracked Windshield – Parabrisas rajado
 
-#END DICTIONARY: VOCABULARY
+#SECTION END: VOCABULARY_SECTION
 
 ============================================================
-#BEGIN DICTIONARY: SPANISH_CORRECTIONS
+#SECTION BEGIN: WEEKLY_THEME_AND_VERB_FOCUS
 ============================================================
 
-hacer un error → cometer un error
-hacer tan bien → hacerlo tan bien / haberlo hecho tan bien
-del clínica → de la clínica
-tomar el examen → hacer el examen
-certificado de aprobación → certificado de finalización
-nuevlica → not a word, avoid
-frio turki → a la brava / de golpe / de un tirón
-realizar un plan → hacer un plan / preparar un plan
-miré a las radiografías → miró las radiografías
-compresas húmedas calientes → correct but formal; prefer "paños calientes húmedos" for Cuban Spanish
-test de manchas → prueba de Mononucleosis / prueba rápida de Mono
-observó cómo Letia realizaba → correct but formal; prefer "observó a Letia mientras hacía…"
+STUDENT PROFILE DIRECTIVE:
+The target student is a Cuban native Spanish speaker, A1+ to A2- level, motivated, needs English for work opportunities.
+The student is progressing to A2.
 
-#END DICTIONARY: SPANISH_CORRECTIONS
-
-============================================================
-#BEGIN SECTION: VERB_FOCUS
-============================================================
-
+Weekly Theme: Weave vocabulary, verb focus and work and life situations into stories.
 Weekly Verb Focus: think vs know vs imagine
+A1+ to A2- Progression:
 - Think = opinion or belief (not 100% sure)
 - Know = facts, data, or certainty (100% sure)
 - Imagine = picturing possibilities or future ideas
+Include each verb in daily stories.
 
-#END SECTION: VERB_FOCUS
-
-#BEGIN RULES: LANGUAGE_LEVEL
 A1+ to A2‑ Vocabulary Rule:
 Use high‑frequency clinic vocabulary only.
 Avoid technical medical terms unless already listed in the vocabulary section.
@@ -135,57 +101,32 @@ If a term is required (e.g., contusion, ibuprofen), keep the explanation simple 
 A1+ to A2‑ Verb Rule:
 Allowed: present simple, past simple, going to, can, should, early phrasal verbs.
 Avoid: present perfect, past perfect, conditionals, multi‑clause modal structures.
-#END RULES: LANGUAGE_LEVEL
 
-#BEGIN RULES: SENTENCE_CONTROL
-All sentences MUST be short (8–12 words).
-Avoid subordinate clauses (when, while, after, before).
-Avoid compound sentences with commas.
-Avoid long medical explanations.
-Use simple connectors only: and, but, because.
-Grammar must stay in A1+ → A2‑ range: present simple, basic past, going to, can, should, early phrasal verbs.
-One inference per story only.
-Maintain A1+ to A2- pacing at all times.
-A1+ to A2‑ Pacing Rule:
-Keep pacing concrete and direct.
-Avoid abstract reflections or long emotional commentary.
-Each sentence should move the story forward.
-Stories MUST be concise and must not exceed the Story Requirements.
-#END RULES: SENTENCE_CONTROL
-
-#BEGIN RULES: GRAMMAR_APPLICATION
-Include each verb (think, know, imagine) in daily stories.
-Maintain A1+ to A2- pacing, complexity and grammar limits when applying them.
-
-Examples:
-- I think the patient has a fever. (Opinion / Guess)
-- I know the patient has a fever. (Checked thermometer or placed hand on forehead)
-- I imagine he feels very tired. (Empathy / Possibility)
-- Marisol thinks Rico has Lyme disease.
-- Dra. Pérez knows the X-ray is clear.
-- Joseph imagines running in the park.
-#END RULES: GRAMMAR_APPLICATION
-
-#BEGIN RULES: SPANISH_ACCURACY
-All Spanish output must use correct, natural Spanish phrasing.
-If a literal English translation would produce incorrect Spanish, use the correct idiomatic form instead — see the SPANISH_CORRECTIONS dictionary above for known cases.
-Always prefer Cuban Spanish vocabulary and phrasing.
-Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing.
-#END RULES: SPANISH_ACCURACY
-
-#BEGIN RULES: STORY_CONSTRUCTION
 STORY DIRECTIVE:
-Use the Story Requirements as a guide and expand the narrative into a full story that meets the Story Length specified for that day.
+Use the Story Requirements as a guide and expand the narrative into a full story that meets the Story Length specified for that day. 
 Add descriptive detail, natural transitions, and sensory/emotional texture to the listed events — but do not invent new plot events, characters, or scenes beyond what's listed.
-Weave vocabulary, verb focus and work and life situations into stories.
 Maintain A1+ to A2- pacing, complexity and grammar limits.
 
-STORY LANGUAGE RULE:
-Write the story once in English under [STORY_EN] and once in Spanish under [STORY_ES].
-The two versions MUST tell the same story and carry the same meaning — a natural translation of each other, not word-for-word, but equivalent in content and detail.
-Do not label them "English:" or "Spanish:" — the markers already indicate the language.
+BILINGUAL STORY FORMAT RULE:
+Every Daily Story MUST contain BOTH an English block and a full Spanish translation block formatted as a side-by-side 2-column HTML table:
 
-STORY LENGTH AND PACING:
+<table class="story-table" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td style="width: 50%; vertical-align: top; padding-right: 10px;">
+        <p>[Full English story text]</p>
+        <p><strong>Translation Moment:</strong> [Spanish sentence] ([English translation])</p>
+      </td>
+      <td style="width: 50%; vertical-align: top; padding-left: 10px;">
+        <p>[Full Spanish story text]</p>
+        <p><strong>Translation Moment:</strong> [Spanish sentence] ([English translation])</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+Do NOT use stacked <div> containers. Always place English in the left column and Spanish in the right column.
+
+#SECTION: STORY_LENGTH_AND_PACING
 
 GENERAL (all days):
 - Target complexity: A1+ to A2-.
@@ -202,6 +143,23 @@ TUESDAY / WEDNESDAY OVERRIDE (short days):
 - NO extended translation practice.
 - Keep spacing tight and compact.
 
+#END_SECTION
+
+A1+ to A2‑ SENTENCE CONTROL DIRECTIVE:
+All sentences MUST be short (8–12 words). 
+Avoid subordinate clauses (when, while, after, before).
+Avoid compound sentences with commas.
+Avoid long medical explanations. 
+Use simple connectors only: and, but, because.
+Grammar must stay in A1+ → A2‑ range: present simple, basic past, going to, can, should, early phrasal verbs.
+One inference per story only.
+Maintain A1+ to A2- pacing at all times.
+A1+ to A2‑ Pacing Rule:
+Keep pacing concrete and direct.
+Avoid abstract reflections or long emotional commentary.
+Each sentence should move the story forward.
+Stories MUST be concise and must not exceed the Story Requirements. 
+
 TRANSLATION MOMENT RULE:
 Each daily story MUST include exactly one Spanish-to-English translation moment inside the story.
 This moment MUST be short and simple (one Spanish sentence + one English translation).
@@ -209,12 +167,34 @@ The Spanish sentence MUST be natural Cuban Spanish.
 The English translation MUST be simple A1+ to A2‑ (8–12 words).
 Do NOT add additional translation moments inside the story.
 All other translation practice MUST appear in the Translation Practice section only.
-#END RULES: STORY_CONSTRUCTION
 
-#BEGIN RULES: TRANSLATION_PRACTICE
+SPANISH ACCURACY DIRECTIVE:
+All Spanish output must use correct, natural Spanish phrasing.
+If a literal English translation would produce incorrect Spanish (for example: “hacer un error”), automatically replace it with the correct idiomatic Spanish (for example: “cometer un error”).
+Always prefer Cuban Spanish vocabulary and phrasing.
+Please correct the following translations:
+- hacer un error should be cometer un error
+- hacer tan bien should be hacerlo tan bien or haberlo hecho tan bien
+- del clínica should be de la clínica
+- tomar el examen should be hacer el examen
+- certificado de aprobación should be certificado de finalización
+- nuevlica is not a word
+- frio turki should be a la brava / de golpe / de un tirón
+- realizar un plan should be hacer un plan / preparar un plan
+- miré a las radiografías should be miró las radiografías
+- compresas húmedas calientes is correct but slightly formal; Cuban Spanish often uses “paños calientes húmedos
+- test de manchas should be “prueba de Mononucleosis” or “prueba rápida de Mono”
+- observó cómo Letia realizaba is correct but slightly formal; A1+ to A2- prefers “observó a Letia mientras hacía…”
+
+Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing.
+
+#SECTION END: WEEKLY_THEME_AND_VERB_FOCUS
+
+#SECTION BEGIN: TRANSLATION_CONTROL
+
 ROLE‑PLAY RULE:
 Role play exists only in stories, when specified.  Do not generate or invent role play that is not the story outlines.
-Do NOT generate dialogues, coworker interactions, or "Student A / Student B" tasks.
+Do NOT generate dialogues, coworker interactions, or “Student A / Student B” tasks.
 All practice MUST be translation‑based only.
 
 LIVE SESSION CO-WORKING DIRECTIVE:
@@ -236,10 +216,32 @@ Short days (Tuesday, Wednesday):
 - Provide exactly 2 Spanish→English translation sentences.
 - Provide exactly 2 English→Spanish translation sentences.
 - Keep all sentences short and simple.
-#END RULES: TRANSLATION_PRACTICE
+
+#SECTION END: TRANSLATION_CONTROL
 
 ============================================================
-#BEGIN SECTION: DAILY_STORIES
+#SECTION BEGIN: GRAMMAR_FOCUS
+============================================================
+
+This week’s grammar focus: think, know, imagine  
+A1+ to A2- Progression:
+- Think = opinion or belief (not 100% sure)
+- Know = facts, data, or certainty (100% sure)
+- Imagine = picturing possibilities or future ideas
+
+Examples:
+- I think the patient has a fever. (Opinion / Guess)
+- I know the patient has a fever. (Checked thermometer or placed hand on forehead)
+- I imagine he feels very tired. (Empathy / Possibility)
+- Marisol thinks Rico has Lyme disease.
+- Dra. Pérez knows the X-ray is clear.
+- Joseph imagines running in the park.
+
+#SECTION END: GRAMMAR_FOCUS
+
+
+============================================================
+#SECTION BEGIN: DAILY_STORIES
 ============================================================
 
 +++ START WEEK 29 +++
@@ -274,7 +276,7 @@ Story Requirements:
 - They visit quickly saying Hi, but Marisol must return to other patients.
 - Rod indicates he will be back on Thursday.
 - Rod seems to be interested in getting to know Marisol.
-Vocabulary themes: Physical activity, heart health, daily routine, energy,
+Vocabulary themes: Physical activity, heart health, daily routine, energy, 
 Language focus: think, know, imagine.
 === END TUESDAY ===
 
@@ -298,7 +300,7 @@ Story Requirements:
 - Marisol returns to chat for a moment, and Rod blurts out "Want to go to lunch today?"
 - Marisol says "Sure, come by at 11:30.  It will have to be quick."
 - After lunch, Marisol settles into to enter chart data.
-- Amanda wants details of the lunch date, but Rosita walks in to the clinic with strong headaches.
+- Amanda wants details of the lunch date, but Rosita walks in to the clinic with strong headaches.  
 - Marisol and Amanda return to work quickly to help the patient.
 - Rosita is a welder at the shop across the street which does not have good ventilation.
 - Marisol thinks Rosita needs better ventilation at her workplace.
@@ -358,13 +360,13 @@ Language focus: think, know, imagine.
 #SPANISH_TRANSLATION(moment=1)
 Story Format: Must use the 2-column side-by-side HTML story table.
 Story Requirements:
-- Summarize the week's stories.
+- Summarize the week’s stories.
 - Reinforce vocabulary (Lyme, welding, exercise, car issues), bilingual practice, and confidence-building.
 === END SUNDAY ===
 
 +++ END WEEK 29 +++
 
-#END SECTION: DAILY_STORIES
+#SECTION END: DAILY_STORIES
 
 ############################################################
 # END OF TEMPLATE FILE
