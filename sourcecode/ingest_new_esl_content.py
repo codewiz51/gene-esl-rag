@@ -198,7 +198,7 @@ def main():
 
     client = PersistentClient(path=CHROMA_PATH)
     # Same embedding model the report identified esl_lessons as already using.
-    ef = embedding_functions.DefaultEmbeddingFunction()
+    ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="BAAI/bge-m3")
     collection = client.get_collection(name=COLLECTION_NAME, embedding_function=ef)
 
     total_chunks = 0

@@ -1,14 +1,16 @@
 import os
 import chromadb
 from chromadb.config import Settings
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 import uuid
+from chromadb.utils import embedding_functions
+embedder = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="BAAI/bge-m3")
 
 # ---------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------
 
-PDF_DIR = "/Users/gene/Documents/RAG/source_docs/ESL"
+PDF_DIR = "/Users/gene/Documents/English As A Second Language/ESL Lessons"
 CHROMA_PATH = "/Users/gene/Documents/RAG/chroma"
 COLLECTION_NAME = "esl_lessons"
 
@@ -53,7 +55,7 @@ def ingest_esl_pdfs():
     client = chromadb.PersistentClient(path=CHROMA_PATH)
 
     print(f"Creating/Loading collection: {COLLECTION_NAME}")
-    collection = client.get_or_create_collection(COLLECTION_NAME)
+    collection = client.get_or_create_collection(COLLECTION_NAME, embedding_function=embedder)
 
     print(f"Scanning directory: {PDF_DIR}")
     files = [f for f in os.listdir(PDF_DIR) if f.lower().endswith(".pdf")]

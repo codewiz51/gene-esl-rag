@@ -1,0 +1,222 @@
+############################################################
+WEEK XX – MASTER LESSON TEMPLATE (UPDATED)
+############################################################
+
+#BEGIN RULES: WEEKLY_RHYTHM
+MONDAY: Long story (150–175 words). Lifestyle, DO.
+TUESDAY: Short story (6–8 sentences). MAKE.
+WEDNESDAY: Short story (6–8 sentences). CREATE + DO + MAKE.
+THURSDAY: Long story (150–175 words). Older woman, bruises, screening.
+FRIDAY: Long story (150–175 words). Minor contusions, Mono teen, DOT.
+SATURDAY: Long story (150–175 words). Photo falls, hammer humor.
+SUNDAY: Long story (150–175 words). Weekly summary.
+#END RULES: WEEKLY_RHYTHM
+
+#BEGIN RULES: VERB_FOCUS
+Weekly Verb Focus: [WEEKLY VERB FOCUS]
+#END RULES: VERB_FOCUS
+
+#BEGIN RULES: LANGUAGE_LEVEL
+A2 → B1‑ vocabulary.
+Use simple present, simple past, going to, can, should.
+Avoid present perfect, past perfect, conditionals.
+Avoid subordinate clauses.
+Avoid long medical explanations.
+#END RULES: LANGUAGE_LEVEL
+
+#BEGIN RULES: SENTENCE_CONTROL
+Sentences MUST be short (8–12 words).
+Avoid subordinate clauses (when, while, after, before).
+Avoid commas.
+Use only: and, but, because.
+One inference per story.
+One patient per day (except Friday).
+#END RULES: SENTENCE_CONTROL
+
+#BEGIN RULES: SPANISH_ACCURACY
+Spanish MUST preserve accents (UTF‑8).
+Do NOT strip accents.
+Do NOT convert to ASCII.
+Spanish must be natural Cuban Spanish.
+Avoid literal translations.
+Use corrections dictionary when relevant.
+#END RULES: SPANISH_ACCURACY
+
+#BEGIN RULES: STORY_LENGTH
+Long days (Mon, Thu, Fri, Sat, Sun): 150–175 words.
+Short days (Tue, Wed): EXACTLY 6–8 sentences in English and Spanish.
+Vocabulary on short days: 3–5 items.
+Warm-up on short days: 1–2 questions.
+Examples on short days: 3–4 items.
+Student questions on short days: 3–4 items.
+Translation Practice MUST use full sentences.
+    Spanish→English: 6 items on long days, 2 items on short days.
+    English→Spanish: 2 items on all days.
+    Translation Practice MUST NOT reuse vocabulary words unless they appear naturally in the story.
+    Translation Practice MUST use complete sentences (8–12 words).
+#END RULES: STORY_LENGTH
+
+#BEGIN RULES: NARRATIVE_REWRITE
+Rewrite all Story Requirements bullets into a full narrative.
+Do NOT copy bullets.
+Do NOT output bullet lists.
+Convert all items into natural sentences.
+Follow STORY_LENGTH rules.
+Follow SENTENCE_CONTROL rules.
+Follow LANGUAGE_LEVEL rules.
+#END RULES: NARRATIVE_REWRITE
+
+#BEGIN RULES: HTML_LAYOUT
+All HTML output MUST follow these layout rules:
+
+1. ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+
+2. USE ONLY STANDARD HTML TAGS: <html>, <head>, <meta>, <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+
+3. DO NOT ADD ANY <style> TAGS, CSS, INLINE STYLES, COLORS, BORDERS, BOXES, BACKGROUNDS, OR DECORATIVE FORMATTING.
+
+4. Only the bilingual story may use a table.
+   The bilingual story MUST use a two‑column structure:
+Example:
+<table>
+  <tr>
+    <td>
+      <p>English paragraph 1.</p>
+      <p>English paragraph 2.</p>
+    </td>
+    <td>
+      <p>Spanish paragraph 1.</p>
+      <p>Spanish paragraph 2.</p>
+    </td>
+  </tr>
+</table>
+
+5. DO NOT ADD ANY OTHER CLASSES OR IDS.
+
+6. Vocabulary MUST appear as an ordered list (<ol>) of bilingual word or idiom pairs.
+   Each item MUST follow this pattern:
+   English word or idiom – Spanish palabra o modismo.
+   Do NOT use full sentences.
+   Do NOT use clauses.
+   Do NOT use punctuation except the dash.
+   Vocabulary list MUST contain 4–6 items total.
+
+7. Warmup, Grammar, Examples, Questions, Closing MUST appear in single‑column layout.
+
+8. Insert ONE blank line between the two <html> documents.
+
+9. Use UTF‑8 encoding for all Spanish text.
+
+10. Do NOT nest <html> blocks.
+
+#BEGIN RULES: HTML_LAYOUT
+All HTML output MUST follow these layout rules:
+
+1. ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+
+2. USE ONLY STANDARD HTML TAGS: <html>, <head>, <meta>, <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+
+3. DO NOT ADD ANY <style> TAGS, CSS, INLINE STYLES, COLORS, BORDERS, BOXES, BACKGROUNDS, OR DECORATIVE FORMATTING.
+
+4. Only the bilingual story may use a table.
+   The bilingual story MUST use a two‑column structure:
+Example:
+<table>
+  <tr>
+    <td>
+      <p>English paragraph 1.</p>
+      <p>English paragraph 2.</p>
+    </td>
+    <td>
+      <p>Spanish paragraph 1.</p>
+      <p>Spanish paragraph 2.</p>
+    </td>
+  </tr>
+</table>
+
+5. DO NOT ADD ANY OTHER CLASSES OR IDS.
+
+6. Vocabulary MUST appear as an ordered list (<ol>) of bilingual word or idiom pairs.
+   Each item MUST follow this pattern:
+   English word or idiom – Spanish palabra o modismo.
+   Do NOT use full sentences.
+   Do NOT use clauses.
+   Do NOT use punctuation except the dash.
+   Vocabulary list MUST contain 4–6 items total.
+
+7. Warmup, Grammar, Examples, Questions, Closing MUST appear in single‑column layout.
+
+8. Insert ONE blank line between the two <html> documents.
+
+9. Use UTF‑8 encoding for all Spanish text.
+
+10. Do NOT nest <html> blocks.
+
+11. Immediately after the opening <html> tag, the model MUST include:
+    <head><meta charset="UTF-8"></head>
+
+#END RULES: HTML_LAYOUT
+
+#BEGIN DICTIONARY: CHARACTERS
+Marisol – clinic medical assistant, single mother
+Camy – Marisol’s daughter
+Marisa – neighbor, energetic, walks with Marisol
+Dra. Doris Pérez – clinic doctor
+Rosie – coworker
+Letia – LPN
+Amanda – receptionist
+Rod – UPS driver
+#END DICTIONARY: CHARACTERS
+
+#BEGIN DICTIONARY: SPANISH_CORRECTIONS
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+compresas húmedas calientes → paños calientes húmedos
+#END DICTIONARY: SPANISH_CORRECTIONS
+
+#BEGIN SECTION: DAILY_STORIES
++++ START WEEK XX +++
+
+=== START MONDAY ===
+Story Requirements:
+[MONDAY STORYBOARD]
+=== END MONDAY ===
+
+=== START TUESDAY ===
+Story Requirements:
+[TUESDAY STORYBOARD]
+=== END TUESDAY ===
+
+=== START WEDNESDAY ===
+Story Requirements:
+[WEDNESDAY STORYBOARD]
+=== END WEDNESDAY ===
+
+=== START THURSDAY ===
+Story Requirements:
+[THURSDAY STORYBOARD]
+=== END THURSDAY ===
+
+=== START FRIDAY ===
+Story Requirements:
+[FRIDAY STORYBOARD]
+=== END FRIDAY ===
+
+=== START SATURDAY ===
+Story Requirements:
+[SATURDAY STORYBOARD]
+=== END SATURDAY ===
+
+=== START SUNDAY ===
+Story Requirements:
+[SUNDAY STORYBOARD]
+=== END SUNDAY ===
+
++++ END WEEK XX +++
+#END SECTION: DAILY_STORIES
+
+############################################################
+END OF TEMPLATE FILE
+############################################################

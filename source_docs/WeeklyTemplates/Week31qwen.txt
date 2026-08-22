@@ -1,0 +1,337 @@
+############################################################
+# WEEK 31 TEMPLATE FILE
+# This file is loaded by lesson_generator_ollama.py
+# Structure: RULES (constraints) / SECTION (output content) / DICTIONARY (lookup data)
+# Cross-cutting rules are grouped near the top.
+# Rules specific to DAILY_STORIES are placed immediately before it.
+# Copy last week's file → rename → edit → save.
+############################################################
+
+#BEGIN RULES: OUTPUT_FORMAT
+Respond in PLAIN TEXT ONLY. Do NOT use HTML, Markdown, or any markup.
+Structure your response using ONLY these exact section markers, each on its own line, in this exact order:
+[WARMUP]
+[VOCABULARY]
+[STORY_EN]
+[STORY_ES]
+[GRAMMAR]
+[EXAMPLES]
+[TRANSLATION_ES_EN]
+[TRANSLATION_EN_ES]
+[QUESTIONS]
+[CLOSING]
+Do not add extra markers, headers, or commentary before, between, or after sections.
+Vocabulary: one "English – Spanish" pair per line.
+Example Sentences, Translation Practice, and Student Questions: one item per line, no leading numbers or bullets.
+#END RULES: OUTPUT_FORMAT
+
+#BEGIN RULES: STUDENT_PROFILE
+The target student is a Cuban native Spanish speaker, A2 to B1- level, motivated, needs English for work opportunities.
+The student is progressing to B1.
+#END RULES: STUDENT_PROFILE
+
+============================================================
+#BEGIN DICTIONARY: CHARACTERS
+============================================================
+
+Name = Marisol
+Description: Protagonist. Clinic medical assistant; friendly; A2 to B1- bilingual; central character for all weekly stories. Single mother.
+
+Name = Camy
+Description: 10 year old daughter of Marisol.  Bright, energetic, good grades.
+
+Name = Rosie
+Description: Marisol's coworker.  Funny, a bit loud, alway cheerful.  Medical assistant.
+
+Name = Letia
+Description: Marisol's coworker. An LPN, a bit serious, handles more compicated patients.
+
+Name = Dra. Doris Pérez
+Description: Clinic Doctor, owner and boss.  A good boss, she mixes well with staff and patients.
+
+Name = Amanda
+Description: Clinic receptionist, schedules appointments with patients, collects any fees due when the patient exits.
+
+Name = Virginia
+Description: Nickname is Titi, the Spanish equivalent of Auntie.  Marisol's sister in law.  She provides day care and is generally a friend to Marisol.
+
+Name = Marisa
+Description: Lives in the apartment next door to Marisol.  Has a daughter about Camy's age.  The are in class together in the school year.
+
+Name = Donna
+Description: Marisa's daughter 11 years.  Smart, curious, also energetic.
+
+Name = Rod
+Description: UPS delivery driver, possibly interested in getting to know or dating Marisol.  They seem compatible in light conversation.
+
+Name = Rico
+Description: New patient.  A walk-in. Foreman for a machine shop.  Skilled, technical, used to computer controlled lathes and saws. Works across the road from the clinic.
+
+Name = Rosita
+Description: Regular patient.  A welder and part time mechanic at a truck maintenance company.  Comes in for drips, vitamin injections.
+
+Name = Joseph
+Description: Cashier at the pharmacy down the street.  High blood pressure, high cholesterol, poor circulation.
+
+Name = Armando
+Description: Male patient with a severely bruised elbow.  He finds is difficult to move his elbow. It is recommended he use alternating heat and cold treatment.
+
+Name = Sicily
+Description: Female adolescent patient with inflamed earlobs from a poorly performed ear piercing.
+
+Name = Padu
+Desciption: Truck driver in the US, from Bangladesh.  Bangladesh is know for common occurances of goiter conditions due to lack or iodine in local diets.
+
+Name = Jeff
+Description: Plumbing contractor.  He mostly works outside, laying pipe for water and sewers to home and appartment buildings.
+
+Name = Raul
+Description: Auto mechanic. Works at a repair shop no far from the clinic.
+
+Name = Carlos
+Description: Migrant worker from El Salvador.  Returns home in the North American winter and returns to harvest crops in the late summer and fall.
+
+#END DICTIONARY: CHARACTERS
+
+============================================================
+#BEGIN DICTIONARY: VOCABULARY
+============================================================
+
+Do NOT use HTML tables for vocabulary items.
+
+Second degree burn
+Infarction
+Ointment
+Dressing
+Emergencey Medical Technician (EMT)
+Heat Exhaustion
+Malady
+
+#END DICTIONARY: VOCABULARY
+
+============================================================
+#BEGIN DICTIONARY: SPANISH_CORRECTIONS
+============================================================
+
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien / haberlo hecho tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+certificado de aprobación → certificado de finalización
+nuevlica → not a word, avoid
+frio turki → a la brava / de golpe / de un tirón
+realizar un plan → hacer un plan / preparar un plan
+miré a las radiografías → miró las radiografías
+compresas húmedas calientes → correct but formal; prefer "paños calientes húmedos" for Cuban Spanish
+test de manchas → prueba de Mononucleosis / prueba rápida de Mono
+observó cómo Letia realizaba → correct but formal; prefer "observó a Letia mientras hacía…"
+
+#END DICTIONARY: SPANISH_CORRECTIONS
+
+============================================================
+#BEGIN SECTION: VERB_FOCUS
+============================================================
+
+Weekly Verb Focus: say vs tell vs speak
+- Say = Produce words; no directed recipient. I said "gracias." Say + that + quoted speech.
+- Tell = Convey information to a person. I told her the news. Requires an indirect object. Tell + person + that.
+- Speak = General use of a language; formal register. She speaks English and Spanish. No that-clause. Pairs with in (a language), to (formal addressee).
+
+#END SECTION: VERB_FOCUS
+
+#BEGIN RULES: LANGUAGE_LEVEL
+A2 to B1- Vocabulary Rule:
+Use high‑frequency clinic vocabulary only.
+Avoid technical medical terms unless already listed in the vocabulary section.
+If a term is required (e.g., contusion, ibuprofen), keep the explanation simple and short.
+
+A2 to B1- Verb Rule:
+Allowed: present simple, past simple, going to, can, should, early phrasal verbs.
+Avoid: present perfect, past perfect, conditionals, multi‑clause modal structures.
+#END RULES: LANGUAGE_LEVEL
+
+#BEGIN RULES: SENTENCE_CONTROL
+All sentences MUST be short (8–12 words).
+Avoid subordinate clauses (when, while, after, before).
+Avoid compound sentences with commas.
+Avoid long medical explanations.
+Use simple connectors only: and, but, because.
+Grammar must stay in A2 to B1- range: present simple, basic past, going to, can, should, early phrasal verbs.
+One inference per story only.
+Maintain A2 to B1- pacing at all times.
+A2 to B1- Pacing Rule:
+Keep pacing concrete and direct.
+Avoid abstract reflections or long emotional commentary.
+Each sentence should move the story forward.
+Stories MUST be concise and must not exceed the Story Requirements.
+#END RULES: SENTENCE_CONTROL
+
+#BEGIN RULES: GRAMMAR_APPLICATION
+Include each verb (say, tell, speak) in daily stories.
+Maintain A2 to B1- pacing, complexity and grammar limits when applying them.
+
+Examples:
+• Marisol says she wants to meet Marisa after work.
+• Rosie says the new patient is waiting in room three.
+• Marisol tells Marisa she didn’t sleep well last night.
+• Rosie tells Marisol that the clinic will close early today.
+• Marisol speaks to the patient again because he didn’t understand the first time.
+• Rosie speaks with Marisa about taking a short trip next month.
+#END RULES: GRAMMAR_APPLICATION
+
+#BEGIN RULES: SPANISH_ACCURACY
+All Spanish output must use correct, natural Spanish phrasing.
+If a literal English translation would produce incorrect Spanish, use the correct idiomatic form instead — see the SPANISH_CORRECTIONS dictionary above for known cases.
+Always prefer Cuban Spanish vocabulary and phrasing.
+Avoid literal translations of English verbs; always use the correct Spanish verb–noun pairing.
+#END RULES: SPANISH_ACCURACY
+
+#BEGIN RULES: STORY_CONSTRUCTION
+STORY DIRECTIVE:
+Use the Story Requirements as a guide and expand the narrative into a full story that meets the Story Length specified for that day.
+Add descriptive detail, natural transitions, and sensory/emotional texture to the listed events — but do not invent new plot events, characters, or scenes beyond what's listed.
+Weave vocabulary, verb focus and work and life situations into stories.
+Maintain A2 to B1- pacing, complexity and grammar limits.
+
+STORY LANGUAGE RULE:
+Write the story once in English under [STORY_EN] and once in Spanish under [STORY_ES].
+The two versions MUST tell the same story and carry the same meaning — a natural translation of each other, not word-for-word, but equivalent in content and detail.
+Do not label them "English:" or "Spanish:" — the markers already indicate the language.
+
+STORY LENGTH AND PACING:
+
+GENERAL (all days):
+- Target complexity: A2 to B1-.
+- Keep pacing simple and short.
+- Story length: 150–175 words.
+
+TUESDAY / WEDNESDAY OVERRIDE (short days):
+- Replace the 150–175 word rule above with: 6–8 sentences maximum, English and Spanish stories both.
+- SHALL fit on one printed page, as a 6–8-minute lesson.
+- Vocabulary MUST be 3–5 items maximum.
+- Warm-up MUST be 1–2 questions only.
+- Use ONLY 3–4 line items from the practice list.
+- NO role-play.
+- NO extended translation practice.
+- Keep spacing tight and compact.
+
+#END RULES: STORY_CONSTRUCTION
+
+#BEGIN RULES: TRANSLATION_PRACTICE
+ROLE‑PLAY RULE:
+Role play exists only in stories, when specified.  Do not generate or invent role play that is not the story outlines.
+Do NOT generate dialogues, coworker interactions, or "Student A / Student B" tasks.
+All practice MUST be translation‑based only.
+
+LIVE SESSION CO-WORKING DIRECTIVE:
+For long-day translation practice, prompts are designed for live, real-time verbal formulation.
+The student formulates each translation aloud from memory.
+Iterate through each sentence 3-4 times to refine conversational fluidity, correct over-literal verb translations (such as improper use of 'bring' vs 'take' vs 'keep'), and smooth out natural English phrasing.
+
+TRANSLATION PRACTICE CONTROL:
+Long days (Monday, Thursday, Friday, Saturday, Sunday):
+- Provide exactly 6 Spanish→English translation sentences.
+- Provide exactly 2 English→Spanish translation sentences at the end.
+- All Spanish MUST be natural Cuban Spanish.
+- All English MUST be simple A2 to B1- (8–12 words).
+- Sentences MUST be short, concrete, clinic‑related or related to real life activities (buying gas, going to the supermercado, lunch with friends, walking with a friend for exercise.)
+- Avoid subordinate clauses and complex connectors.
+- Avoid abstract reasoning or multi‑step explanations.
+
+Short days (Tuesday, Wednesday):
+- Provide exactly 2 Spanish→English translation sentences.
+- Provide exactly 2 English→Spanish translation sentences.
+- Keep all sentences short and simple.
+#END RULES: TRANSLATION_PRACTICE
+
+============================================================
+#BEGIN SECTION: DAILY_STORIES
+============================================================
+
++++ START WEEK 31 +++
+=== START MONDAY ===
+#BLEND IN HEAT EXHAUSITON SYMPTOMS AND TREATMENT.
+Story Requirements:
+- The calendar is full this Monday morning.  Marisol was hoping to study for her Medical Assistant exam.
+- First appointment is at 8:30 AM and two walk-ins in the waiting room.
+- Oh well, she imagines studying at lunch or after work.
+- Also, Dra. Pérez had hoped the staff could clean and organize supplies today,but that will have to wait.
+- The first walk in is named Jeff.  He is a plumber and collapsed while digging a trench. He appears to be suffering from heat exhaustion. 
+- Marisol suspects heat exhaustion, but examines for other maladies, including listening to his heart, measuring temperature, blood pressure, all the normal vital signs.
+- Jeff's heart rate is high, he seems dehydrated and mildly disoriented.  Marisol enters the information in the tablet.
+- During the assessment, Jeff admits he was feeling shaky before work.  The day before had been hot also and he had been drinking beer last night instead of water.
+- Dra. Pérez examines Marisol's notes and asks if the patient has time for the clinic to administer fluids by IV.
+- Letia enters with an IV stand and a bottle of hydrating fluids and an IV kit.
+- Marisol is asked to tend to the next walk-in, Carlos, also dehydrated, but for a different reason.  Carlos has severe diarrhea.  He has just returned from El Salvador and has contracted a rotovirus, more than likely.
+- Marisol suspects Dra. Pérez will prescribe a hydration drip an antibiotics for secondary infections.
+- Marisol assesse Carlos, enters her note in the tablet and leaves to go assist the first appointment.
+- Her gut (intuition) indicates today will be unusually busy.  She knows studying is out of the question today.
+- At the end of the day, Dra. Pérez compliments Marisol and tells her: "I know you want to study some today.  But I can tell from your treatment, you know the material very well.  Your notes and diagnoses are very good.  Don't worry, you will pass the CMA.
+=== END MONDAY ===
+
+=== START TUESDAY ===
+#MOMETRIX_SUMMARY(102, 105, 6)
+Story Requirements:
+- After a quiet morning with patients needing BP checks, cholesterol screening, a second degree burn patient enters without an appointment.
+- The patient, Raul, has a second degree burn on the outside of his left hand.  He was not wearing heat resistant gloves and came into contact with a car's hot exhaust pipe while repairing his personal car at lunch.
+- Marisol, tablet in hand, takes a photo of the burn, assesses the patient.  His vitals are a little elevated, which is normal with a painful wound.
+- Marisol explains to the patient the Dra. will see him soon.  She applies a cool compress to the wound to ease the pain. She begins the process of cleaning the wound for dressing.
+- Dra. Pérez reads the notes on the charting tablet and enters the room.
+- Dra. Pérez invites Marisol in to hear her recommendations on treatment, including cleaning, ointment, mild pain releiver and how to change the dressing.  She knows Marisol will go look this up on her own and smiles.
+- Rauls is patched up and released with a small tube of ointment and some dressings he is to change once a day.
+- The Dra. recommends he wait a day or two before trying to use the hand.
+=== END TUESDAY ===
+
+=== START WEDNESDAY ===
+Story Requirements:
+- Keep the review short and compact. Do not exceed 8 sentences.
+- Focus only on the main actions from Monday and Tuesday.
+=== END WEDNESDAY ===
+
+=== START THURSDAY ===
+Story Requirements:
+- Rod stops by the clinic early today, before the first 8 AM appointment.  It is his first delivery stop.
+- Marisol wants to tell say hi to him, but she is busy with a patient.  Amanda knows this and occupies Rod for a few minutes.
+- Marisol enters the waiting room, smiles at Rod and asks how things are going.
+- It is 7:36 and a walk-in bursts in with a friend supporting him.
+- Marisol looks at Rod and tells him, sorry, call me at lunch. I have to take care of this patient.
+- The staff anticipate an infarction.  They are not equipped to handle this emergency.  They lead him into a treatement room and have in lie prone while they call an ambulance.  Marisol checks on him and wonders if she will have to apply CPR.
+- And finally, a very tired Marisol remembers, she has a meeting with Camy's teacher tonight to start off the new school year.
+=== END THURSDAY ===
+
+=== START FRIDAY ===
+Story Requirements:
+- Friday is starting out to be what Marisol hoped Monday would be.  Slow and steady with time to study.
+- Dra. Pérez has assigned the staff cleaning and organizing duties while the clinic appointments are slow.  Dra. Pérez actually joins in the cleaning, laughing and joking that she had to go to school 8 years to learn how to properly take out the clinic's biohazard trash.  Letia corrects her handling of the biohazard box and eveyone smirks.
+- Friday turns into immunization day.  Many Mom's arrive for required school immunizations with their children.  Probably 15 different kids after lunch.  There are so many, the clinic is running low on required vaccines.
+- But the good news is, Marisol knows Dra. Perez will have a rush delivery, and finally, she will have a calm conversation with Rod, her favorite delivery person.  But in the back of her mind, she remembers the handsome EMT that smiled at her.
+= Rod arrives with a rush delivery at 4 with an insulated container with the vaccines.
+- Rod and Marisol speak quietly about simple dinner plans. 
+- [Do not write dialogue. Describe the conversation only.]
+=== END FRIDAY ===
+
+=== START SATURDAY ===
+# Start Rule
+Do not explain Claude or describe its features. Only mention that Marisol uses it.
+# End Rule
+Story Requirements:
+- Marisol has this Saturday off.  She intends to get all her errands accomplished.  Shopping, meal prep, studying, laundry, helping Camy plan her 5th grade project.
+- But Marisa calls.  She is on an exercise kick and insists Marisol go with her to the gym and train with her.  Then Marisa laughs and tells Marisol: we can go get pastries and the French Bakery after the gym.  Marisol demurs and laughs.
+- The gym is fun for both Marisol and Marisa.
+- Marisol notices she has not dated recently and thinks Rod may be a good match. Keep the reflection short and concrete.
+- When she arrives home, Camy tells her she needs help.  Camy speaks softly.  She is a little embarrased that she needs her Mother's help.
+- Marisol breaks out her laptop and logs in to Claude to ask for help planning  Camy's project.  She takes a picture of the project document and uploads it to Claude.  Claude breaks down the requirements, plans the project and presents Mariol and Camy a plan to produce a stellar school project.
+=== END SATURDAY ===
+
+=== START SUNDAY ===
+Story Requirements:
+- Summarize the week's stories.
+=== END SUNDAY ===
+
++++ END WEEK 31 +++
+
+#END SECTION: DAILY_STORIES
+
+############################################################
+# END OF TEMPLATE FILE
+############################################################

@@ -1,0 +1,233 @@
+############################################################
+# WEEK 31 TEMPLATE FILE — QWEN OPTIMIZED VERSION
+############################################################
+
+#BEGIN RULES: OUTPUT_FORMAT
+Respond in PLAIN TEXT ONLY. Do NOT use HTML, Markdown, or any markup.
+Structure your response using ONLY these exact section markers, each on its own line, in this exact order:
+[WARMUP]
+[VOCABULARY]
+[STORY_EN]
+[STORY_ES]
+[GRAMMAR]
+[EXAMPLES]
+[TRANSLATION_ES_EN]
+[TRANSLATION_EN_ES]
+[QUESTIONS]
+[CLOSING]
+Vocabulary: one "English – Spanish" pair per line.
+Example Sentences, Translation Practice, and Student Questions: one item per line, no leading numbers or bullets.
+#END RULES: OUTPUT_FORMAT
+
+#BEGIN RULES: STUDENT_PROFILE
+The target student is a Cuban native Spanish speaker, A2 to B1- level, motivated, needs English for work opportunities.
+The student is progressing to B1.
+#END RULES: STUDENT_PROFILE
+
+============================================================
+#BEGIN DICTIONARY: CHARACTERS
+============================================================
+
+Name = Marisol
+Description: Protagonist. Clinic medical assistant; friendly; A2 to B1- bilingual; central character for all weekly stories. Single mother.
+
+Name = Camy
+Description: 10 year old daughter of Marisol. Bright, energetic, good grades.
+
+Name = Rosie
+Description: Marisol's coworker. Funny, a bit loud, always cheerful. Medical assistant.
+
+Name = Letia
+Description: Marisol's coworker. An LPN, a bit serious, handles more complicated patients.
+
+Name = Dra. Doris Pérez
+Description: Clinic Doctor, owner and boss. A good boss, she mixes well with staff and patients.
+
+Name = Amanda
+Description: Clinic receptionist, schedules appointments with patients, collects any fees due when the patient exits.
+
+Name = Virginia
+Nickname: Titi. Marisol's sister‑in‑law. Provides day care and is a close friend.
+
+Name = Marisa
+Description: Lives next door to Marisol. Has a daughter Camy's age. They are classmates.
+
+Name = Donna
+Description: Marisa's daughter, 11 years. Smart, curious, energetic.
+
+Name = Rod
+Description: UPS delivery driver, possibly interested in dating Marisol. They seem compatible.
+
+Name = Rico
+Description: New walk‑in patient. Foreman at a machine shop. Skilled with computer‑controlled lathes and saws.
+
+Name = Rosita
+Description: Regular patient. Welder and part‑time mechanic. Comes in for drips and vitamin injections.
+
+Name = Joseph
+Description: Pharmacy cashier. High blood pressure, high cholesterol, poor circulation.
+
+Name = Armando
+Description: Patient with a severely bruised elbow. Recommended alternating heat and cold treatment.
+
+Name = Sicily
+Description: Teen patient with inflamed earlobes from a bad piercing.
+
+Name = Padu
+Description: Truck driver from Bangladesh. Familiar with goiter conditions due to iodine deficiency.
+
+Name = Jeff
+Description: Plumbing contractor. Works outdoors laying pipe for homes and apartments.
+
+Name = Raul
+Description: Auto mechanic. Works near the clinic.
+
+Name = Carlos
+Description: Migrant worker from El Salvador. Returns home in winter; harvests crops in late summer and fall.
+
+#END DICTIONARY: CHARACTERS
+
+============================================================
+#BEGIN DICTIONARY: VOCABULARY
+============================================================
+[WEEKLY VOCABULARY FROM HUMAN READABLE]
+#END DICTIONARY: VOCABULARY
+
+============================================================
+#BEGIN DICTIONARY: SPANISH_CORRECTIONS
+============================================================
+
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien / haberlo hecho tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+certificado de aprobación → certificado de finalización
+nuevlica → not a word, avoid
+frio turki → a la brava / de golpe / de un tirón
+realizar un plan → hacer un plan / preparar un plan
+miré a las radiografías → miró las radiografías
+compresas húmedas calientes → prefer "paños calientes húmedos" for Cuban Spanish
+test de manchas → prueba de Mononucleosis / prueba rápida de Mono
+observó cómo Letia realizaba → prefer "observó a Letia mientras hacía…"
+
+#END DICTIONARY: SPANISH_CORRECTIONS
+
+============================================================
+#BEGIN SECTION: VERB_FOCUS
+============================================================
+[WEEKLY VERB FOCUS FROM HUMAN READABLE]
+#END SECTION: VERB_FOCUS
+
+#BEGIN RULES: LANGUAGE_LEVEL
+A2 to B1- Vocabulary Rule:
+Use only vocabulary listed in the dictionary unless the Story Requirements explicitly require a new term.
+Avoid technical medical terms unless already listed.
+A2 to B1- Verb Rule:
+Allowed: present simple, past simple, going to, can, should, early phrasal verbs.
+Avoid: present perfect, past perfect, conditionals, multi‑clause modal structures.
+#END RULES: LANGUAGE_LEVEL
+
+#BEGIN RULES: SENTENCE_CONTROL
+All sentences MUST be short (8–12 words).
+Avoid subordinate clauses (when, while, after, before).
+Avoid compound sentences with commas.
+Avoid long medical explanations.
+Use simple connectors only: and, but, because.
+One inference per story only.
+Keep pacing concrete and direct.
+Avoid abstract reflections or long emotional commentary.
+Each sentence should move the story forward.
+Stories MUST be concise and must not exceed the Story Requirements.
+#END RULES: SENTENCE_CONTROL
+
+#BEGIN RULES: GRAMMAR_APPLICATION
+Include each verb (say, tell, speak) in daily stories.
+Maintain A2 to B1- pacing and grammar limits.
+#END RULES: GRAMMAR_APPLICATION
+
+#BEGIN RULES: SPANISH_ACCURACY
+All Spanish output must use correct, natural Cuban Spanish.
+Avoid literal translations; use idiomatic phrasing.
+#END RULES: SPANISH_ACCURACY
+
+#BEGIN RULES: STORY_CONSTRUCTION
+STORY DIRECTIVE:
+Use the Story Requirements as a guide and expand the narrative into a full story that meets the Story Length specified for that day.
+Add descriptive detail and natural transitions, but do not invent new plot events or characters.
+
+STORY LANGUAGE RULE:
+Write the story once in English and once in Spanish.
+Both versions must carry the same meaning.
+
+STORY LENGTH AND PACING:
+GENERAL DAYS:
+- Story length: 150–175 words.
+
+TUESDAY / WEDNESDAY SHORT DAYS:
+- Write EXACTLY 6–8 sentences in English.
+- Write EXACTLY 6–8 sentences in Spanish.
+- Vocabulary: 3–5 items maximum.
+- Warm-up: 1–2 questions only.
+- Use ONLY 3–4 example sentences.
+- Use ONLY 3–4 student questions.
+- Translation practice: EXACTLY 2 Spanish→English and EXACTLY 2 English→Spanish.
+#END RULES: STORY_CONSTRUCTION
+
+#BEGIN RULES: TRANSLATION_PRACTICE
+Long days (Mon, Thu, Fri, Sat, Sun):
+- EXACTLY 6 Spanish→English sentences.
+- EXACTLY 2 English→Spanish sentences.
+Short days (Tue, Wed):
+- EXACTLY 2 Spanish→English sentences.
+- EXACTLY 2 English→Spanish sentences.
+All sentences must be short, concrete, and A2–B1- level.
+#END RULES: TRANSLATION_PRACTICE
+
+============================================================
+#BEGIN SECTION: DAILY_STORIES
+============================================================
+
++++ START WEEK 31 +++
+
+=== START MONDAY ===
+Story Requirements:
+[MONDAY STORYBOARD]
+=== END MONDAY ===
+
+=== START TUESDAY ===
+Story Requirements:
+[TUESDAY STORYBOARD]
+=== END TUESDAY ===
+
+=== START WEDNESDAY ===
+Story Requirements:
+[WEDNESDAY STORYBOARD]
+=== END WEDNESDAY ===
+
+=== START THURSDAY ===
+Story Requirements:
+[THURSDAY STORYBOARD]
+=== END THURSDAY ===
+
+=== START FRIDAY ===
+Story Requirements:
+[FRIDAY STORYBOARD]
+=== END FRIDAY ===
+
+=== START SATURDAY ===
+Story Requirements:
+[SATURDAY STORYBOARD]
+=== END SATURDAY ===
+
+=== START SUNDAY ===
+Story Requirements:
+[SUNDAY STORYBOARD]
+=== END SUNDAY ===
+
++++ END WEEK 31 +++
+
+#END SECTION: DAILY_STORIES
+
+############################################################
+# END OF TEMPLATE FILE
+############################################################

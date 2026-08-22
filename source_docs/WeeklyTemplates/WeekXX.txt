@@ -1,0 +1,205 @@
+############################################################
+WEEK XX – MASTER LESSON TEMPLATE (CLEAN REVISED VERSION)
+############################################################
+
+#BEGIN RULES: WEEKLY_RHYTHM
+The weekly rhythm MUST be supplied by the HumanReadable.md file.
+The master template MUST NOT hardcode any day‑specific topics.
+#END RULES: WEEKLY_RHYTHM
+
+#BEGIN RULES: VERB_FOCUS
+Weekly Verb Focus: [WEEKLY VERB FOCUS]
+#END RULES: VERB_FOCUS
+
+#BEGIN RULES: LANGUAGE_LEVEL
+Target level: A2 → A2+ (light B1 vocabulary allowed).
+Use simple present, simple past, going to, can, should.
+Avoid present perfect, past perfect, conditionals.
+Avoid subordinate clauses (when, while, after, before).
+Avoid long medical explanations.
+#END RULES: LANGUAGE_LEVEL
+
+#BEGIN RULES: SENTENCE_CONTROL
+Sentences MUST be short (8–12 words).
+Prefer periods over commas.
+Use at most ONE comma per sentence.
+Allowed connectors: and, but, because.
+Avoid subordinate clauses.
+One inference per story.
+One patient per day (except Friday).
+#END RULES: SENTENCE_CONTROL
+
+#BEGIN RULES: SPANISH_ACCURACY
+Spanish MUST preserve accents (UTF‑8).
+Do NOT strip accents.
+Do NOT convert to ASCII.
+Spanish must be natural Cuban Spanish.
+Avoid literal translations.
+Use corrections dictionary when relevant.
+Use Cuban register dictionary when relevant.
+#END RULES: SPANISH_ACCURACY
+
+#BEGIN RULES: STORY_LENGTH
+Long days: 150–175 words (English side only).
+Short days: EXACTLY 6–8 sentences (English + Spanish).
+Vocabulary on short days: 3–5 items.
+Warm-up on short days: 1–2 questions.
+Examples on short days: 3–4 items.
+Student questions on short days: 3–4 items.
+
+Translation Practice MUST use full sentences (8–12 words).
+Spanish→English: 6 items on long days, 2 items on short days.
+English→Spanish: 2 items on all days.
+Translation Practice MUST NOT reuse vocabulary words unless they appear naturally in the story.
+#END RULES: STORY_LENGTH
+
+#BEGIN RULES: READING_TRANSLATION
+Translation Practice MUST include at least one READING-FOCUSED item per day.
+Reading-focused items MUST:
+  - use clinic-relevant vocabulary
+  - use natural English phrasing (not literal Spanish structure)
+  - include one short professional instruction or note
+  - include one short symptom or assessment description
+  - include one short lifestyle or treatment recommendation
+Spanish→English items MUST include at least one professional reading item.
+English→Spanish items MAY remain simple, but MUST include one clinic-relevant phrase.
+#END RULES: READING_TRANSLATION
+
+#BEGIN RULES: TRAILING_ADVERB
+Do not end a story's final sentence with a bare temporal adverb such as "now", "today", "ahora", or "hoy" unless the time reference is essential to meaning.
+#END RULES: TRAILING_ADVERB
+
+#BEGIN RULES: SPANISH_VOICE
+In the Spanish column prefer active voice. Avoid passive constructions like "es traído", "es examinado", "es llevado". Use "Traen a...", "Llevan a...", "Lo examinan..." instead.
+#END RULES: SPANISH_VOICE
+
+#BEGIN RULES: NARRATIVE_REWRITE
+Rewrite all Story Requirements bullets into a full narrative.
+Do NOT copy bullets.
+Do NOT output bullet lists.
+Convert all items into natural sentences.
+Follow STORY_LENGTH rules.
+Follow SENTENCE_CONTROL rules.
+Follow LANGUAGE_LEVEL rules.
+#END RULES: NARRATIVE_REWRITE
+
+#BEGIN RULES: HTML_LAYOUT
+All HTML output MUST follow these layout rules:
+
+1. ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+
+2. USE ONLY STANDARD HTML TAGS: <html>, <head>, <meta>, <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+
+3. DO NOT ADD ANY <style> TAGS, CSS, INLINE STYLES, COLORS, BORDERS, BOXES, BACKGROUNDS, OR DECORATIVE FORMATTING.
+
+4. Only the bilingual story may use a table.
+   The bilingual story MUST use a two‑column structure:
+   <table>
+     <tr>
+       <td>
+         <p>English paragraph 1.</p>
+         <p>English paragraph 2.</p>
+       </td>
+       <td>
+         <p>Spanish paragraph 1.</p>
+         <p>Spanish paragraph 2.</p>
+       </td>
+     </tr>
+   </table>
+
+5. DO NOT ADD ANY OTHER CLASSES OR IDS.
+
+6. Vocabulary MUST appear as an ordered list (<ol>) of bilingual word or idiom pairs.
+   Pattern:
+   English word or idiom – Spanish palabra o modismo.
+   Do NOT use full sentences.
+   Do NOT use clauses.
+   Do NOT use punctuation except the dash.
+   Vocabulary list MUST contain 4–6 items total.
+
+7. Warmup, Grammar, Examples, Questions, Closing MUST appear in single‑column layout.
+
+8. Insert ONE blank line between the two <html> documents.
+
+9. Use UTF‑8 encoding for all Spanish text.
+
+10. Do NOT nest <html> blocks.
+
+11. Immediately after the opening <html> tag, the model MUST include:
+    <head><meta charset="UTF-8"></head>
+#END RULES: HTML_LAYOUT
+
+#BEGIN DICTIONARY: CHARACTERS
+Marisol – clinic medical assistant, single mother
+Camy – Marisol’s daughter
+Marisa – neighbor, energetic, walks with Marisol
+Dra. Doris Pérez – clinic doctor
+Rosie – coworker
+Letia – LPN
+Amanda – receptionist
+Rod – UPS driver
+#END DICTIONARY: CHARACTERS
+
+#BEGIN DICTIONARY: LANGUAGE_CORRECTIONS
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+compresas húmedas calientes → paños calientes húmedos
+plática → charla
+moqueo → moco
+moquito → moco
+parte del tiempo → pronóstico del tiempo
+ir a rastras → irse en carro juntos / carpool
+carpular → irse en carro juntos / carpool
+narices goteando → nariz que gotea
+#END DICTIONARY: LANGUAGE_CORRECTIONS
+
+#BEGIN DICTIONARY: CUBAN_REGISTER
+"pa'" = "para" (informal, keep)
+"pa'l" = "para el" (informal, keep)
+"pa' la" = "para la" (informal, keep)
+"carpool" = "irse en carro juntos" or keep "carpool" as loanword
+"lonchera" = lunchbox (container), NOT the meal
+"almuerzo en bolsa" = sack lunch
+"desvanecimiento" / "desmayo" = syncope
+Do NOT use "chamba" for job; use "trabajo"
+#END DICTIONARY: CUBAN_REGISTER
+
+#BEGIN SECTION: DAILY_STORIES
++++ START WEEK XX +++
+
+=== START MONDAY ===
+Story Requirements:
+=== END MONDAY ===
+
+=== START TUESDAY ===
+Story Requirements:
+=== END TUESDAY ===
+
+=== START WEDNESDAY ===
+Story Requirements:
+=== END WEDNESDAY ===
+
+=== START THURSDAY ===
+Story Requirements:
+=== END THURSDAY ===
+
+=== START FRIDAY ===
+Story Requirements:
+=== END FRIDAY ===
+
+=== START SATURDAY ===
+Story Requirements:
+=== END SATURDAY ===
+
+=== START SUNDAY ===
+Story Requirements:
+=== END SUNDAY ===
+
++++ END WEEK XX +++
+#END SECTION: DAILY_STORIES
+
+############################################################
+END OF TEMPLATE FILE
+############################################################

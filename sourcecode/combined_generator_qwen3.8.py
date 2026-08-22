@@ -15,7 +15,7 @@ CHROMA_PATH = "/Users/gene/Documents/RAG/chroma"
 COLLECTIONS = ["esl_lessons"]
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "gemma4-clean"
+MODEL_NAME = "qwen38"
 
 weekly_template_dir = "/Users/gene/Documents/RAG/source_docs/weeklytemplates"
 output_dir = "/Users/gene/Documents/RAG/source_docs/WeeklyLessons"
@@ -307,6 +307,7 @@ def generate_weekly_lesson(weekly_template_path):
 
         prompt = (
             "You are an ESL teacher creating bilingual English–Spanish lessons.\n"
+            "Do not show thinking, planning, or analysis. Output only the final sections.\n"
             f"=== WEEKLY TEMPLATE ===\n{template_text}\n\n"
             f"=== TODAY'S REQUIREMENTS ({day}) ===\n{day_block}\n\n"
             f"=== RETRIEVED CONTEXT ===\n{context}\n\n"

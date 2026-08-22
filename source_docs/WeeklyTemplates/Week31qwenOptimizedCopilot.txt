@@ -1,0 +1,192 @@
+============================================================
+WEEK 32 – CLEAN SIMPLIFIED TEMPLATE (GENE + QWEN OPTIMIZED)
+============================================================
+#BEGIN RULES: OUTPUT_FORMAT
+Respond in PLAIN TEXT ONLY.
+Use ONLY these section markers, each on its own line, in this exact order:
+[WARMUP]
+[VOCABULARY]
+[STORY_EN]
+[STORY_ES]
+[GRAMMAR]
+[EXAMPLES]
+[TRANSLATION_ES_EN]
+[TRANSLATION_EN_ES]
+[QUESTIONS]
+[CLOSING]
+Vocabulary: one English – Spanish pair per line.
+Example Sentences, Translation Practice, and Student Questions: one item per line.
+#END RULES: OUTPUT_FORMAT
+#BEGIN RULES: STUDENT_PROFILE
+Target student: Cuban native Spanish speaker, A2 → B1‑.
+Working mom, chaotic home, limited quiet time.
+Needs predictable rhythm, gentle progression, one new skill at a time.
+#END RULES: STUDENT_PROFILE
+#BEGIN RULES: WEEKLY_RHYTHM
+MONDAY: Very low load. Familiar life routines. Verb 1 only (say).
+TUESDAY: Mild patient. Verb 1 + Verb 2 (say + tell).
+WEDNESDAY: Review Mon/Tue. Introduce Verb 3 (speak).
+THURSDAY: Main case (Jeff). Full trio allowed.
+FRIDAY: Gentle progression.
+SATURDAY: Light personal day.
+SUNDAY: Weekly review.
+#END RULES: WEEKLY_RHYTHM
+#BEGIN RULES: VERB_FOCUS
+Weekly Verb Focus: say, tell, speak
+Say = produce words; no indirect object.
+Tell = give information to someone; requires indirect object.
+Speak = use a language or formal communication.
+#END RULES: VERB_FOCUS
+#BEGIN RULES: LANGUAGE_LEVEL
+A2 → B1‑ vocabulary.
+Use simple present, simple past, going to, can, should.
+Avoid present perfect, past perfect, conditionals.
+Avoid subordinate clauses.
+Avoid long medical explanations.
+#END RULES: LANGUAGE_LEVEL
+#BEGIN RULES: SENTENCE_CONTROL
+Sentences MUST be short (8–12 words).
+Avoid subordinate clauses (when, while, after, before).
+Avoid commas.
+Use only: and, but, because.
+One inference per story.
+One patient per day (except Monday).
+#END RULES: SENTENCE_CONTROL
+#BEGIN RULES: SPANISH_ACCURACY
+Spanish must be natural Cuban Spanish.
+Avoid literal translations.
+Use corrections dictionary when relevant.
+#END RULES: SPANISH_ACCURACY
+#BEGIN RULES: STORY_LENGTH
+Long days (Mon, Thu, Fri, Sat, Sun): 150–175 words.
+Short days (Tue, Wed): EXACTLY 6–8 sentences in English and Spanish.
+Vocabulary on short days: 3–5 items.
+Warm-up on short days: 1–2 questions.
+Examples on short days: 3–4 items.
+Student questions on short days: 3–4 items.
+Translation practice:
+• Long days: 6 Spanish→English, 2 English→Spanish
+• Short days: 2 Spanish→English, 2 English→Spanish
+#END RULES: STORY_LENGTH
+#BEGIN DICTIONARY: CHARACTERS
+Marisol – clinic medical assistant, single mother
+Camy – Marisol’s daughter
+Donna – Marisa’s daughter, carpools with Camy
+Marisa – neighbor
+Rosie – coworker
+Letia – LPN
+Dra. Doris Pérez – clinic doctor
+Amanda – receptionist
+Rod – UPS driver
+Rico – walk‑in patient
+Rosita – welder, vitamin injections
+Joseph – pharmacy cashier
+Armando – bruised elbow
+Sicily – teen with piercing issue
+Padu – truck driver
+Jeff – plumber, heat exhaustion case
+Raul – auto mechanic
+Carlos – migrant worker
+#END DICTIONARY: CHARACTERS
+#BEGIN DICTIONARY: SPANISH_CORRECTIONS
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+compresas húmedas calientes → paños calientes húmedos
+#END DICTIONARY: SPANISH_CORRECTIONS
+#BEGIN SECTION: DAILY_STORIES
++++ START WEEK 32 +++
+=== START MONDAY ===
+Story Requirements:
+Introduce SAY.
+Marisol wakes at 6:30.
+Carpool day.
+Coffee in microwave.
+Prepare Camy’s sack lunch: ham sandwich, cheese Doritos, mandarin, chocolate, protein shake.
+Everything fits in paper bag.
+Almost 7:30.
+She says to Camy to get moving.
+Teeth, hair, makeup, scrubs.
+Checks weather: hot and sunny.
+Donna bangs on door.
+They load into car and head to school.
+=== END MONDAY ===
+=== START TUESDAY ===
+Story Requirements:
+Introduce TELL. Reinforce SAY.
+Clinic waiting room full.
+Runny noses, watery eyes, low fevers.
+One patient stands out.
+High fever 101, elevated BP.
+Carlos.
+Possible viral infection.
+Dra. Pérez recognizes tropical virus.
+She says treatment is rest + BRAT diet.
+Marisol tells Raul about BRAT diet.
+He should rest two days.
+If no improvement, call clinic.
+=== END TUESDAY ===
+=== START WEDNESDAY ===
+Story Requirements:
+Introduce SPEAK. Reinforce SAY + TELL.
+Review Monday morning routine.
+Review Raul’s case.
+Dra. Pérez speaks with Marisol, praising her assessments.
+Marisol describes clinic “bugs” to Camy.
+Camy should keep an eye out for runny noses.
+=== END WEDNESDAY ===
+=== START THURSDAY ===
+Story Requirements:
+Reinforce SAY, TELL, SPEAK.
+Rod arrives early.
+Marisol greets him.
+After lunch Jeff is brought in.
+Collapsed while digging trench.
+Heat exhaustion.
+Placed in treatment room.
+Cool compress on forehead.
+Disoriented, elevated temperature.
+BP difficult due to agitation.
+Dra. Pérez enters.
+She tells Marisol to open shirt and place compresses.
+Jeff improves slowly.
+IV hydration ordered.
+Dra. Pérez speaks to Marisol: condition is syncope.
+=== END THURSDAY ===
+=== START FRIDAY ===
+Story Requirements:
+Calm day.
+Late August flu vaccines.
+Older patients return.
+Moms with school-age kids.
+Required immunizations.
+No critical patients.
+Marisol practices assessments.
+Studies for CMA test at lunch.
+Rod delivers vaccines.
+Marisol helps store them.
+Small talk.
+=== END FRIDAY ===
+=== START SATURDAY ===
+Story Requirements:
+Marisol off work.
+Errands.
+Marisa invites her to gym.
+Plan pastries afterward.
+Gym fun.
+Short reflection about Rod.
+Camy speaks softly asking for help.
+Marisol uses Claude to help.
+=== END SATURDAY ===
+=== START SUNDAY ===
+Story Requirements:
+Weekly review.
+Include SAY, TELL, SPEAK once each.
+Summarize week events.
+=== END SUNDAY ===
++++ END WEEK 32 +++
+#END SECTION: DAILY_STORIES
+############################################################
+END OF TEMPLATE FILE
+############################################################

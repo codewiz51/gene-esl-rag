@@ -1,19 +1,22 @@
 import os
 import chromadb
 from chromadb.config import Settings
-from pypdf import PdfReader
 import uuid
 from chromadb.utils import embedding_functions
-embedder = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="BAAI/bge-m3")
-
+embedder = embedding_functions.SentenceTransformerEmbeddingFunction(
+    model_name="/Users/gene/Models/bge-m3"
+)
 
 # ---------------------------------------------------------
 # CONFIGURATION
 # ---------------------------------------------------------
 
-PDF_DIR = "/Users/gene/Documents/RAG/source_docs/Trading"
+#Change the directory path to match your folder structure
+FILE_DIR = "/Users/gene/Documents/RAG/source_docs/ESL"
+# Change to your Chroma path
 CHROMA_PATH = "/Users/gene/Documents/RAG/chroma"
-COLLECTION_NAME = "trading_lessons"
+# Change to the correct collection name
+COLLECTION_NAME = "esl_lessons"
 
 # ---------------------------------------------------------
 # CHUNKING FUNCTION
@@ -33,46 +36,39 @@ def chunk_text(text, chunk_size=800, overlap=100):
     return chunks
 
 # ---------------------------------------------------------
-# PDF TEXT EXTRACTION
+# TXT TEXT EXTRACTION
 # ---------------------------------------------------------
 
-def extract_text_from_pdf(pdf_path):
+def extract_text_from_txt(txt_path):
     try:
-        reader = PdfReader(pdf_path)
-        text = ""
-        for page in reader.pages:
-            page_text = page.extract_text()
-            if page_text:
-                text += page_text + "\n"
-        return text.strip()
+        with open(txt_path, "r", encoding="utf-8") as f:
+            return f.read().strip()
     except Exception as e:
-        print(f"Error reading {pdf_path}: {e}")
+        print(f"Error reading {txt_path}: {e}")
         return ""
+
 
 # ---------------------------------------------------------
 # MAIN INGESTION LOGIC
 # ---------------------------------------------------------
 
-def ingest_trading_pdfs():
+def ingest_esl_txts():
     print("Connecting to Chroma DB...")
-    client = chromadb.PersistentClient(
-        path=CHROMA_PATH,
-        settings=Settings(anonymized_telemetry=False)
-    )
+    client = chromadb.PersistentClient(path=CHROMA_PATH)
 
     print(f"Creating/Loading collection: {COLLECTION_NAME}")
     collection = client.get_or_create_collection(COLLECTION_NAME, embedding_function=embedder)
 
-    print(f"Scanning directory: {PDF_DIR}")
-    files = [f for f in os.listdir(PDF_DIR) if f.lower().endswith(".pdf")]
+    print(f"Scanning directory: {FILE_DIR}")
+    files = [f for f in os.listdir(FILE_DIR) if f.lower().endswith(".txt")]
 
-    print(f"Found {len(files)} PDF files.")
+    print(f"Found {len(files)} TXT files.")
 
     for filename in files:
-        pdf_path = os.path.join(PDF_DIR, filename)
+        txt_path = os.path.join(FILE_DIR, filename)
         print(f"\nProcessing: {filename}")
 
-        text = extract_text_from_pdf(pdf_path)
+        text = extract_text_from_txt(txt_path)
         if not text:
             print(f"Skipping {filename} (no text extracted).")
             continue
@@ -81,7 +77,7 @@ def ingest_trading_pdfs():
         print(f"Extracted {len(chunks)} chunks.")
 
         ids = [str(uuid.uuid4()) for _ in chunks]
-        metadatas = [{"source": filename, "type": "trading_lesson"} for _ in chunks]
+        metadatas = [{"source": filename, "type": "esl_lesson"} for _ in chunks]
 
         collection.add(
             documents=chunks,
@@ -91,12 +87,12 @@ def ingest_trading_pdfs():
 
         print(f"Ingested {filename} into collection '{COLLECTION_NAME}'.")
 
-    print("\nTrading ingestion complete!")
+    print("\nIngestion complete!")
 
 # ---------------------------------------------------------
 # RUN
 # ---------------------------------------------------------
 
 if __name__ == "__main__":
-    ingest_trading_pdfs()
+    ingest_esl_txts()
 
