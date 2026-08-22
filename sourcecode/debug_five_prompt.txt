@@ -179,61 +179,8 @@ END OF TEMPLATE
 ============================================================
 
 
-#BEGIN DAY_1_VOCAB
-lonchera – lonchera
-get moving – moverse / ponerse en marcha
-pronóstico del tiempo – pronóstico del tiempo
-carpool / subirse al carro – carpool / subirse al carro
-protein shake – protein shake
-#END DAY_1_VOCAB
 
-#BEGIN DAY_2_VOCAB
-dieta BRAT – dieta BRAT
-fiebre – fiebre
-presión arterial – presión arterial
-tropical virus – virus tropical
-appointment / cita – cita
-#END DAY_2_VOCAB
 
-#BEGIN DAY_3_VOCAB
-keep an eye out – prestar atención / estar atenta
-runny nose – nariz que gotea
-assessment – evaluación
-compliment – cumplido
-clinic "bugs" – "bichos" de la clínica
-#END DAY_3_VOCAB
-
-#BEGIN DAY_4_VOCAB
-heat exhaustion – agotamiento por el calor
-cool compress – paño frío húmedo
-hydration / IV – suero de hidratación / IV
-syncope – desvanecimiento
-treatment room – sala de tratamiento
-#END DAY_4_VOCAB
-
-#BEGIN DAY_5_VOCAB
-flu vaccine – vacuna contra la gripe
-immunizations – inmunizaciones
-assessment technique – técnica de evaluación
-refrigerated storage – refrigerado
-delivery – delivery / entrega
-#END DAY_5_VOCAB
-
-#BEGIN DAY_6_VOCAB
-gym – gimnasio
-pastries – pasteles
-project – proyecto
-speaks softly – habla bajito
-errands – mandados
-#END DAY_6_VOCAB
-
-#BEGIN DAY_7_VOCAB
-say – decir
-tell – decirle / contarle
-speak – hablar
-summary – resumen
-week review – repaso de la semana
-#END DAY_7_VOCAB
 
 
 ############################################################  

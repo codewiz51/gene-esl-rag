@@ -1,0 +1,3 @@
+I need the storyboard file (the main lesson with its per-day stories and `=== VOCAB DAY ===` blocks) to generate the Five-Minute Reinforcement Lesson. The template and rules are clear, but the source content — day names, daily narratives, weekly verb focus, and per-day vocabulary lists — is not included in this prompt.
+
+Please paste the storyboard (e.g., `WeekXX.txt`) and I will produce the single `<html>` Five-Minute block immediately, following every rule in the template.

@@ -83,10 +83,13 @@ def inject_storyboard_into_template(template_text, day_map):
     return template_text
 
 def _split_main_html_by_day(main_html):
-    # Shared helper: locate each <h1>DAY</h1> heading and return
+    # Shared helper: locate each day heading and return
     # (day_name, chunk_text_from_that_heading_to_the_next) in order.
+    # The main lesson template does not pin a fixed heading level for
+    # day names (observed as <h1> in one run, <h2> in another), so this
+    # matches any <h1>-<h4> level rather than assuming one.
     day_pattern = re.compile(
-        r"<h1>\s*(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\s*</h1>",
+        r"<h[1-4][^>]*>\s*(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\s*</h[1-4]>",
         flags=re.IGNORECASE
     )
     markers = [(m.start(), m.group(1).upper()) for m in day_pattern.finditer(main_html)]
@@ -273,6 +276,17 @@ def main():
 
     vocab_manifest = extract_day_vocab(main_html)
     story_manifest = extract_day_story(main_html)
+
+    if not vocab_manifest.strip() or not story_manifest.strip():
+        print("ERROR: Could not extract per-day vocab and/or story from the main lesson HTML.")
+        print("This means the main lesson's day-heading or Story/Vocabulary structure")
+        print("doesn't match what the extractor expects. Aborting BEFORE calling Ollama")
+        print("for the Five-Minute lesson, rather than sending it an empty prompt.")
+        if debug_flag:
+            with open("debug_extraction_failure.txt", "w", encoding="utf-8") as f:
+                f.write(f"vocab_manifest ({len(vocab_manifest)} chars):\n{vocab_manifest}\n\n")
+                f.write(f"story_manifest ({len(story_manifest)} chars):\n{story_manifest}\n")
+        sys.exit(1)
 
     payload_five = f"{five_template}\n\n{story_manifest}\n\n{vocab_manifest}\n\n{unified_prompt}"
 
