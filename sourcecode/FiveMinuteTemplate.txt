@@ -1,0 +1,191 @@
+############################################################
+FIVE-MINUTE LESSON TEMPLATE (CLEAN REVISED VERSION)
+############################################################
+
+You are generating the SECOND <html> block of the weekly lesson.
+This block is the Five-Minute Reinforcement Lesson.
+
+It MUST follow the structure and rules below.
+
+============================================================
+OUTPUT FORMAT (HTML REQUIRED)
+============================================================
+
+#BEGIN DICTIONARY: LANGUAGE_CORRECTIONS
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+compresas húmedas calientes → paños calientes húmedos
+plática → charla
+moqueo → moco
+moquito → moco
+parte del tiempo → pronóstico del tiempo
+narices goteando → nariz que gotea
+#END DICTIONARY: LANGUAGE_CORRECTIONS
+
+#BEGIN RULES: DICTIONARY_SAFETY
+The dictionary above is ONLY for correction.
+The model MUST NOT use any “wrong” forms as vocabulary.
+The model MUST NOT treat dictionary entries as source vocabulary.
+#END RULES: DICTIONARY_SAFETY
+
+#BEGIN RULES: MINI_STORY_ALIGNMENT
+The Mini Story MUST be a compressed retelling of the main lesson’s story for that day.
+It MUST use the same characters, setting, and events.
+It MUST NOT invent new characters.
+It MUST NOT invent new events.
+It MUST NOT change the setting.
+It MUST NOT add details that do not appear in the main lesson.
+It MUST compress the main story into 4–6 sentences (8–12 words each).
+#END RULES: MINI_STORY_ALIGNMENT
+
+#BEGIN RULES: MINI_STORY_EVENT_SCOPE
+The Mini Story MUST ONLY use events that appear in the main lesson’s story for that day.
+The Mini Story MUST NOT change the mode of transportation used in the main lesson.
+The Mini Story MUST NOT introduce new actions for characters that do not appear in the main lesson’s story for that day.
+The Mini Story MUST NOT generalize to other clinic events.
+The Mini Story MUST NOT reuse events from other days.
+The Mini Story MUST NOT invent new events.
+The Mini Story MUST compress ONLY the events from that day’s main story.
+#END RULES: MINI_STORY_EVENT_SCOPE
+
+#BEGIN RULES: CUBAN_SPANISH_REGISTER
+Spanish MUST follow Cuban register rules:
+  - "pa'" and "pa'l" allowed
+  - Do NOT use "chamba"
+  - "lonchera" = lunchbox only
+  - "almuerzo en llevar" = sack lunch
+  - "desvanecimiento" / "desmayo" = syncope
+  - "carpool" = "ir en el carro de alguien" or "subirse al carro"
+#END RULES: CUBAN_SPANISH_REGISTER
+
+#BEGIN RULES: LANGUAGE_LEVEL
+Target level: A2 → A2+ (light B1 vocabulary allowed).
+Use simple present, simple past, going to, can, should.
+Avoid present perfect, past perfect, conditionals.
+Avoid subordinate clauses (when, while, after, before).
+Avoid long medical explanations.
+#END RULES: LANGUAGE_LEVEL
+
+#BEGIN RULES: SENTENCE_CONTROL
+Mini-story sentences MUST:
+  - be 8–12 words
+  - contain at most ONE comma
+  - use ONLY these connectors: and, but, because
+  - avoid subordinate clauses
+#END RULES: SENTENCE_CONTROL
+
+#BEGIN RULES: TRAILING_ADVERB
+Mini-story sentences MUST NOT end with trailing adverbs such as:
+  - hoy
+  - ahora
+  - después
+#END RULES: TRAILING_ADVERB
+
+#BEGIN RULES: CHARACTER_DICTIONARY
+Characters allowed:
+ Marisol – clinic medical assistant, single mother
+Camy – Marisol’s daughter
+Marisa – neighbor, energetic, walks with Marisol
+Dra. Doris Pérez – clinic doctor
+Rosie – coworker
+Letia – LPN
+Amanda – receptionist
+Rod – UPS driver
+Do NOT introduce new characters.
+#END RULES: CHARACTER_DICTIONARY
+
+#BEGIN RULES: PER_DAY_VOCAB_SOURCE
+Vocabulary for each day MUST come ONLY from the
+#BEGIN DAYNAME_VOCAB / #END DAYNAME_VOCAB block for that day,
+supplied below this template.
+Do NOT select vocabulary from the weekly pool.
+Do NOT import vocabulary from other days.
+#END RULES: PER_DAY_VOCAB_SOURCE
+
+#BEGIN RULES: PER_DAY_STORY_SOURCE
+The Mini Story for each day MUST be based ONLY on the
+#BEGIN DAYNAME_STORY / #END DAYNAME_STORY block for that day,
+supplied below this template. This is the actual main lesson
+story for that day, already written in English.
+Do NOT use a day's story block for any other day.
+Do NOT invent events, characters, or details not present in
+that day's story block.
+#END RULES: PER_DAY_STORY_SOURCE
+
+#BEGIN RULES: RULE_PRIORITY
+If rules conflict:
+1. PER_DAY_STORY_SOURCE
+2. PER_DAY_VOCAB_SOURCE
+3. FIVEMINUTE_FORMAT
+4. LANGUAGE_LEVEL
+5. SENTENCE_CONTROL
+6. TRAILING_ADVERB
+7. CHARACTER_DICTIONARY
+8. CUBAN_SPANISH_REGISTER
+Dictionary corrections apply AFTER generation.
+#END RULES: RULE_PRIORITY
+
+#BEGIN RULES: FIVEMINUTE_FORMAT
+You MUST generate one Five-Minute lesson block for EACH DAY in the main lesson.
+Use the exact day names.
+Insert <hr> between days.
+All blocks MUST be inside a single <html> document.
+If a day does NOT appear in the main lesson, do NOT generate a block for it.
+All text content MUST be wrapped in <p></p> tags unless it is a header (<h1>-<h4>) or a list (<ul>, <ol>).
+Use ONLY these standard HTML tags: <html>, <head>, <meta>, <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+Do NOT add any <style> tags, CSS, inline styles, colors, borders, boxes, backgrounds, or decorative formatting.
+Do NOT add any classes or ids.
+
+It MUST contain, in this order:
+
+1. <h1> Five Minute Lesson – DAY </h1>
+
+2. <h2> Vocabulary Review </h2>
+  - MUST reuse items from the main lesson’s vocabulary for that day.
+  - MUST NOT introduce new vocabulary.
+  - If the main lesson’s vocabulary list has more than 4 items,
+    KEEP THE FIRST FOUR IN ORDER and drop the rest.
+  - If the main lesson’s vocabulary list has fewer than 4 items,
+    use all available items.
+
+3. <h2> Grammar Focus </h2>
+   - 2–3 sentences
+   - Restate weekly verb focus
+   - Include ONE new example
+
+4. <h2> Mini Story </h2>
+  - 4–6 sentences
+  - English only
+  - Simple present or simple past
+  - Sentences MUST be 8–12 words
+  - Allowed connectors: and, but, because
+
+5. <h2> Translation Practice </h2>
+  - Spanish→English: EXACTLY 2 items
+  - English→Spanish: EXACTLY 1 item
+  - All items MUST be 8–12 words
+  - MUST use full sentences
+
+6. <h2> Student Questions </h2>
+  - EXACTLY 2 questions
+  - One comprehension
+  - One personal
+
+7. Insert <hr> between days.
+
+8. MUST include all sections listed above.
+9. MUST NOT omit Translation Practice or Student Questions.
+10. MUST NOT include Spanish versions of the mini-story.
+11. MUST NOT include tables, CSS, classes, <div>, or <style>.
+12. MUST NOT include commentary, reasoning, or markdown.
+13. MUST NOT include the full weekly lesson.
+14. MUST NOT include more than one <html> block.
+15. MUST use UTF-8 Spanish with correct accents.
+
+#END RULES: FIVEMINUTE_FORMAT
+
+============================================================
+END OF TEMPLATE
+============================================================

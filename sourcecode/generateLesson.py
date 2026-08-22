@@ -82,18 +82,57 @@ def inject_storyboard_into_template(template_text, day_map):
                 template_text = template_text + "\n\n" + replacement_block
     return template_text
 
+def _split_main_html_by_day(main_html):
+    # Shared helper: locate each <h1>DAY</h1> heading and return
+    # (day_name, chunk_text_from_that_heading_to_the_next) in order.
+    day_pattern = re.compile(
+        r"<h1>\s*(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\s*</h1>",
+        flags=re.IGNORECASE
+    )
+    markers = [(m.start(), m.group(1).upper()) for m in day_pattern.finditer(main_html)]
+    markers.sort(key=lambda x: x[0])
+    chunks = []
+    for idx, (pos, day) in enumerate(markers):
+        end = markers[idx + 1][0] if idx + 1 < len(markers) else len(main_html)
+        chunks.append((day, main_html[pos:end]))
+    return chunks
+
 def extract_day_vocab(main_html):
-    # Look for vocabulary headings and lists; support several heading levels
-    # This returns raw blocks between a Vocabulary header and the next header
-    pattern = re.compile(r"(?:<h[1-4][^>]*>\s*Vocabulary(?: Review)?\s*</h[1-4]>)(.*?)(?=<h[1-4]|</html>)", flags=re.DOTALL | re.IGNORECASE)
-    matches = pattern.findall(main_html)
+    # Look for a Vocabulary heading within each day's own chunk, so the
+    # label attached to each vocab list is the day it actually belongs
+    # to (not a positional guess).
     vocab_manifest = []
-    for idx, block in enumerate(matches):
-        # Clean HTML tags inside block to plain text lines where possible
-        text = re.sub(r"<[^>]+>", "", block).strip()
-        day = f"DAY_{idx+1}"
+    for day, chunk in _split_main_html_by_day(main_html):
+        vocab_match = re.search(
+            r"<h[1-4][^>]*>\s*Vocabulary(?: Review)?\s*</h[1-4]>(.*?)(?=<h[1-4]|$)",
+            chunk, flags=re.DOTALL | re.IGNORECASE
+        )
+        if not vocab_match:
+            print(f"WARNING: no Vocabulary block found for {day}; Five-Minute vocab for {day} will be empty.")
+            continue
+        text = re.sub(r"<[^>]+>", "", vocab_match.group(1)).strip()
         vocab_manifest.append(f"#BEGIN {day}_VOCAB\n{text}\n#END {day}_VOCAB\n")
     return "\n".join(vocab_manifest)
+
+def extract_day_story(main_html):
+    # Returns the English half of each day's Story table as a manifest
+    # the Five-Minute prompt can compress. The Story table can appear
+    # immediately after the day heading or after other sections (e.g. a
+    # Warm-Up block), so it's located within each day's own chunk rather
+    # than assumed to be adjacent to the heading.
+    manifest = []
+    for day, chunk in _split_main_html_by_day(main_html):
+        story_match = re.search(
+            r"<h3>\s*Story\s*</h3>\s*<table>.*?<td>(.*?)</td>",
+            chunk, flags=re.DOTALL | re.IGNORECASE
+        )
+        if not story_match:
+            print(f"WARNING: no Story block found for {day}; Five-Minute lesson for {day} will have no source story.")
+            continue
+        text = re.sub(r"<[^>]+>", " ", story_match.group(1))
+        text = re.sub(r"\s+", " ", text).strip()
+        manifest.append(f"#BEGIN {day}_STORY\n{text}\n#END {day}_STORY\n")
+    return "\n".join(manifest)
 
 def send_to_ollama(payload):
     data = {
@@ -233,8 +272,9 @@ def main():
     write_html(main_html, identifier, "MAIN")
 
     vocab_manifest = extract_day_vocab(main_html)
+    story_manifest = extract_day_story(main_html)
 
-    payload_five = f"{five_template}\n\n{vocab_manifest}\n\n{unified_prompt}"
+    payload_five = f"{five_template}\n\n{story_manifest}\n\n{vocab_manifest}\n\n{unified_prompt}"
 
     if debug_flag:
         with open("debug_five_prompt.txt", "w", encoding="utf-8") as f:
