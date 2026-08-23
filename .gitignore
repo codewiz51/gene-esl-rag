@@ -21,4 +21,5 @@ __pycache__/
 # Weekly Lesson Output Ignored
 source_docs/WeeklyLessons/
 
-source_docs/WeeklyLessons/
+# Debug output regenerated on exec generateMain.py / generateSupport.py 
+sourcecode/debug_*.txt
