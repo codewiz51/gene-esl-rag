@@ -16,13 +16,19 @@ Keep an eye out – estar atenta o estar pendiente
 Hydration – hidratación / rehidratación  
 Syncope – desvanecimiento / desmayo / síncope
 
+#BEGIN DICTIONARY: WEEKLY_CORRECTIONS
+paño → compresa
+vía de hidratación → suero de hidratación
+refrigeración → el refrigerador
+#END DICTIONARY: WEEKLY_CORRECTIONS
+
 # MONDAY STORYBOARD
 
 Introduce the verb Say (Says)
 
 # === VOCAB MONDAY (Suggested) ===
 
-lonchera  
+sack lunch  
 get moving  
 pronóstico del tiempo  
 carpool / subirse al carro  
