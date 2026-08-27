@@ -93,8 +93,8 @@ def send_to_ollama(payload, debug_label=None, debug_flag=True):
         "prompt": payload,
         "stream": False,
         "options": {
-            "temperature": 0.2,
-            "num_ctx": 32768,
+            "temperature": 0.5,
+            "num_ctx": 65536,
             "num_predict": -1
         }
     }

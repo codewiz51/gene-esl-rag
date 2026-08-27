@@ -17,7 +17,6 @@ Hydration – hidratación / rehidratación
 Syncope – desvanecimiento / desmayo / síncope
 
 #BEGIN DICTIONARY: WEEKLY_CORRECTIONS
-paño → compresa
 vía de hidratación → suero de hidratación
 refrigeración → el refrigerador
 #END DICTIONARY: WEEKLY_CORRECTIONS

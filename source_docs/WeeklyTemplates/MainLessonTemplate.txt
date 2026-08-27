@@ -1,0 +1,495 @@
+############################################################
+WEEK XX – MASTER LESSON TEMPLATE (REVISED – PROSE EXPANSION)
+############################################################
+
+# DIFF NOTES FOR THE HUMAN READER:
+#   # CHANGED: = block was modified from the previous version
+#   # NEW:      = block did not exist in the previous version
+#   No marker   = block is unchanged
+# For a clean diff, open both files side by side in VS Code.
+# The # CHANGED: / # NEW: lines are plain comments.
+# They reach the model as prompt text.
+# Remove them if you want a leaner prompt.
+
+#BEGIN RULES: WEEKLY_RHYTHM
+The weekly rhythm MUST be supplied by the HumanReadable.md file.
+The master template MUST NOT hardcode any day‑specific topics.
+#END RULES: WEEKLY_RHYTHM
+
+#BEGIN RULES: VERB_FOCUS
+Weekly Verb Focus: [WEEKLY VERB FOCUS]
+#END RULES: VERB_FOCUS
+
+# CHANGED: opened subordination at A2+ ceiling; added interiority target
+#BEGIN RULES: LANGUAGE_LEVEL
+Target level: A2 → A2+ (light B1 vocabulary allowed).
+Use simple present, simple past, going to, can, should.
+Avoid present perfect, past perfect, conditionals.
+
+Subordination is allowed at the A2+ ceiling:
+  At most 2 subordinate clauses per long-day story.
+  Allowed connectives: when, after, because, while.
+  One "if" per long-day story is acceptable
+   (simple first conditional,
+  e.g. "If she is late, she takes the bus alone.").
+Short days (Wed, Sat, Sun): 0 subordinate clauses.
+The story is short enough to be flat.
+
+Avoid long medical explanations.
+
+AIM FOR:
+  One sentence per long-day story where the
+  character has an interior moment: she worries,
+  remembers, feels something, or makes a small
+  private decision.
+  One sentence is enough. It does not need to
+  be the last sentence.
+#END RULES: LANGUAGE_LEVEL
+
+# CHANGED: loosened prosody; expanded connectors; added aim-for
+#BEGIN RULES: SENTENCE_CONTROL
+Aim for 8–14 words per sentence.
+No sentence should drop below 5 words.
+A few sentences per story may reach 16 words
+when a subordinate clause or a compound
+structure is in use.
+
+Prefer periods over commas.
+At most 2 commas per sentence. Prefer 1.
+One comma per sentence is the norm.
+Two is acceptable for a compound sentence
+(e.g. "She tells him to rest, and she checks
+the door before she leaves.").
+
+Allowed connectors:
+  and, but, because, so, then, also,
+  first, next, finally.
+These are all A2. Use them to vary rhythm.
+
+Subordination: see LANGUAGE_LEVEL block.
+  2 per long day. 0 per short day.
+
+One main event per story.
+One character reaction per story.
+"Reaction" means the character feels,
+notices, or decides something.
+Not just "the next thing happens."
+
+One patient per main clinical interaction
+per day (except Friday).
+Supporting characters may appear:
+coworkers, patients in the waiting room,
+family, neighbors.
+They are not the main patient.
+They add texture.
+
+AIM FOR:
+  No two consecutive sentences should start
+  with the same word.
+  At least one sentence per long-day story
+  should contain a character speaking directly
+   (dialogue in quotes or internal thought
+  in plain text, no italics — this is
+  plain HTML).
+  e.g. "You need to rest, Carlos," she says.
+  or  She thinks: I should not let him go
+        home alone.
+#END RULES: SENTENCE_CONTROL
+
+#BEGIN RULES: SPANISH_ACCURACY
+Spanish MUST preserve accents (UTF‑8).
+Do NOT strip accents.
+Do NOT convert to ASCII.
+Spanish must be natural Cuban Spanish.
+Avoid literal translations.
+Use corrections dictionary when relevant.
+Use Cuban register dictionary when relevant.
+#END RULES: SPANISH_ACCURACY
+
+# CHANGED: removed EXACTLY; added padding guard; separated translation items
+#BEGIN RULES: STORY_LENGTH
+Long days (Mon, Tue, Thu, Fri):
+ 140–180 words, English side only.
+ The range prevents both truncation and
+ padding.
+ Do not pad to hit the floor.
+ A 142-word story is better than a 152-word
+ story with two filler adverbs.
+
+Short days (Wed, Sat, Sun):
+ 6–8 sentences, English + Spanish.
+ 9 is acceptable if the story needs it.
+ 5 is not acceptable.
+
+Vocabulary on short days: 3–5 items.
+Warm-up on short days: 1–2 questions.
+Examples on short days: 3–4 items.
+Student questions on short days: 3–4 items.
+
+Translation Practice items:
+ 8–14 words per item.
+ They do NOT need to obey the story
+ sentence-length rule.
+ A 16-word translation item is fine.
+ Translation items are analytic.
+ They are not story prose.
+
+Spanish→English: 6 items on long days,
+ 2 items on short days.
+English→Spanish: 2 items on all days.
+
+Translation Practice MUST NOT reuse
+vocabulary words unless they appear
+naturally in the story.
+#END RULES: STORY_LENGTH
+
+#BEGIN RULES: READING_TRANSLATION
+Translation Practice MUST include at least one READING-FOCUSED item per day.
+Reading-focused items MUST:
+   - use clinic-relevant vocabulary
+   - use natural English phrasing (not literal Spanish structure)
+   - include one short professional instruction or note
+   - include one short symptom or assessment description
+   - include one short lifestyle or treatment recommendation
+Spanish→English items MUST include at least one professional reading item.
+English→Spanish items MAY remain simple, but MUST include one clinic-relevant phrase.
+#END RULES: READING_TRANSLATION
+
+# CHANGED: expanded to all sentences; added before/after examples
+#BEGIN RULES: TRAILING_ADVERB
+Do NOT end ANY sentence with a bare
+temporal adverb:
+  now, today, right now, this morning,
+  this afternoon, tonight,
+  ahora, hoy, en este momento,
+  en este instante.
+
+This applies to every sentence in the story,
+not just the last one.
+
+If a sentence needs a time reference to make
+sense, restructure it:
+  BAD:  "Marisol thinks he has heat
+         exhaustion now."
+  GOOD: "Marisol looks at Jeff's face
+         and thinks: heat exhaustion."
+  BAD:  "Jeff is too agitated for the
+         reading now."
+  GOOD: "Jeff keeps moving.
+         She cannot get the cuff on his arm."
+
+If the time reference is essential to
+meaning, keep it, but it must carry
+content, not padding.
+  OK: "Tomorrow she will take the 7
+       o'clock shift."
+#END RULES: TRAILING_ADVERB
+
+#BEGIN RULES: SPANISH_VOICE
+In the Spanish column prefer active voice. Avoid passive constructions like "es traído", "es examinado", "es llevado". Use "Traen a...", "Llevan a...", "Lo examinan..." instead.
+#END RULES: SPANISH_VOICE
+
+# CHANGED: replaced circular references with quality targets
+#BEGIN RULES: NARRATIVE_REWRITE
+Rewrite all Story Requirements bullets
+into a full narrative.
+Do NOT copy bullets.
+Do NOT output bullet lists.
+Convert all items into natural sentences.
+
+The rewrite is an expansion, not a
+transcription.
+  Add one character reaction not in
+  the bullets.
+  Add one sensory detail not in the
+  bullets (a sound, a smell, a texture,
+  a light, a temperature).
+  Use only words already in play:
+  the day's vocabulary block, the weekly
+  verb focus, and general A2 vocabulary.
+  Do NOT import vocabulary from other
+  days.
+  Do NOT invent new vocabulary for the
+  Vocabulary list.
+  The story prose may use common words.
+  The Vocabulary section is the only
+  place vocabulary is constrained.
+
+Each long-day story MUST contain:
+  • One moment of character interiority.
+  • One small conflict, choice, or surprise.
+    Not a crisis. A missed turn. A wrong
+    name. A patient who cancels. A kid who
+    will not stop talking. A coffee that
+    spills. Something small that makes
+    the story a moment instead of a list.
+  • One sentence where a character speaks
+    directly
+    (see SENTENCE_CONTROL, AIM FOR).
+
+Short days (Wed, Sat, Sun):
+  • One character voice moment.
+  • The story should feel like a moment,
+    not a summary.
+#END RULES: NARRATIVE_REWRITE
+
+# NEW: quality targets layer
+#BEGIN RULES: STORY_QUALITY
+These are quality targets, not hard
+constraints.
+They do NOT override HTML_LAYOUT.
+They do NOT add sections, styles, or
+formatting.
+They govern prose only.
+
+VARIETY ACROSS DAYS:
+ No two stories in a week should share
+ the same emotional register.
+ Plan the week:
+  One day can be calm and domestic.
+  One day can be tense.
+  One day can be funny or wry.
+  One day can be small and quiet.
+ The storyboard should show this spread.
+ If the storyboard is flat, the model
+ should add register variation within
+ the character's voice, not invent
+ new plot.
+
+WORLD EXTENDS BEYOND THE CLINIC:
+ Marisol lives in a barrio.
+ She has a daughter, a neighbor, errands,
+ a life, a past as a university student.
+ Clinic days are clinic days.
+ Non-clinic days (Mon, Sat, Sun) MUST
+ feel different in setting, rhythm, and
+ register.
+ A Saturday at the gym should not read
+ like a Tuesday at the clinic with
+ the patients removed.
+
+HUMOR IS WELCOME WHEN NATURAL:
+ A wry aside. A small observation.
+ A line of dialogue that makes you
+ smile.
+ Humor MUST NOT be forced.
+ A story that does not need humor
+ should not get humor.
+ A story that is tense should not
+ get a joke.
+ The model judges this per story.
+
+THE STUDENT IS A SPEAKER, NOT AN OBSERVER:
+ This is the most important quality
+ rule in the file.
+ The student is a Cuban woman, 28–36,
+ a single mother, formerly university-track,
+ now working as a house cleaner.
+ She is not a passive reader of
+ Marisol's life. She is in the room.
+ She speaks. She thinks. She chooses.
+ At least one task per day must put
+ her in first person.
+ (See SECTION_CONTENT, Warmup and
+ Student Questions.)
+#END RULES: STORY_QUALITY
+
+# NEW: section content guidance for existing sections
+#BEGIN RULES: SECTION_CONTENT
+This block governs what text appears
+inside the existing sections.
+It does NOT add new section titles.
+It does NOT change the HTML structure.
+
+Vocabulary:
+ Ordered list (<ol>) of 4–6 bilingual
+ word/idiom pairs.
+ English – Spanish, dash only, no
+ other punctuation.
+ (See HTML_LAYOUT rule 6. Unchanged.)
+
+Warmup:
+ 1–3 questions on long days.
+ 1–2 on short days.
+ MUST include at least one first-person
+ prompt where the student speaks as
+ herself, not as an observer of Marisol.
+ Pattern:
+  "I usually ___ after work."
+  "I tell my daughter ___ when she
+  is sick."
+  "I speak ___ to my coworker when
+  we are tired."
+ The blank should relate to the day's
+ verb focus or vocabulary.
+
+Grammar:
+ One explanation of the day's grammar
+ point (max 3 sentences).
+ MUST include one substitution drill
+ (Pattern Practice):
+  3 items on long days, 2 on short days.
+  A frame sentence with blanks.
+  The student fills in.
+  The frame must use the week's verb
+  focus.
+ Example (Week 31, say/tell/speak):
+  "I say ___ to ___.
+   You tell me ___.
+   She speaks ___ at the clinic.
+   I speak ___ when I am tired."
+
+Examples:
+ 3–4 items on short days.
+ 4–6 items on long days.
+ MUST include one short dialogue
+  (A/B, 4–6 lines) showing the day's
+ grammar in natural use.
+ Not a list of isolated sentences.
+ Characters from the CHARACTERS
+ dictionary.
+ The dialogue MUST feel like a
+ conversation, not a textbook exchange.
+ Include at least one natural,
+ non-textbook line
+ (a joke, a sigh, a "well...",
+ an interjection).
+
+Translation Practice:
+ (Unchanged. See STORY_LENGTH and
+  READING_TRANSLATION.)
+
+Student Questions:
+ 3–4 items on short days.
+ 4–6 items on long days.
+ MUST include at least one question
+ that requires the student to answer
+ in first person about her own life.
+ e.g. "Do you tell your children about
+       your work? What do you say?"
+ e.g. "What do you say when you are
+       tired at the end of a long shift?"
+#END RULES: SECTION_CONTENT
+
+#BEGIN RULES: HTML_LAYOUT
+All HTML output MUST follow these layout rules:
+
+1. ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+
+2. USE ONLY STANDARD HTML TAGS: <html>, <head>, <meta>, <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+
+3. DO NOT ADD ANY <style> TAGS, CSS, INLINE STYLES, COLORS, BORDERS, BOXES, BACKGROUNDS, OR DECORATIVE FORMATTING.
+
+4. Only the bilingual story may use a table.
+   The bilingual story MUST use a two‑column structure:
+    <table>
+      <tr>
+        <td>
+          <p>English paragraph 1.</p>
+          <p>English paragraph 2.</p>
+        </td>
+        <td>
+          <p>Spanish paragraph 1.</p>
+          <p>Spanish paragraph 2.</p>
+        </td>
+      </tr>
+    </table>
+
+5. DO NOT ADD ANY OTHER CLASSES OR IDS.
+
+6. Vocabulary MUST appear as an ordered list (<ol>) of bilingual word or idiom pairs.
+   Pattern:
+   English word or idiom – Spanish palabra o modismo.
+   Do NOT use full sentences.
+   Do NOT use clauses.
+   Do NOT use punctuation except the dash.
+   Vocabulary list MUST contain 4–6 items total.
+
+7. Warmup, Grammar, Examples, Questions, Closing MUST appear in single‑column layout.
+
+8. Insert ONE blank line between the two <html> documents.
+
+9. Use UTF‑8 encoding for all Spanish text.
+
+10. Do NOT nest <html> blocks.
+
+11. Immediately after the opening <html> tag, the model MUST include:
+    <head><meta charset="UTF-8"></head>
+#END RULES: HTML_LAYOUT
+
+#BEGIN SECTION: DAILY_STORIES
++++ START WEEK XX +++
+
+=== START MONDAY ===
+Story Requirements:
+=== END MONDAY ===
+
+=== START TUESDAY ===
+Story Requirements:
+=== END TUESDAY ===
+
+=== START WEDNESDAY ===
+Story Requirements:
+=== END WEDNESDAY ===
+
+=== START THURSDAY ===
+Story Requirements:
+=== END THURSDAY ===
+
+=== START FRIDAY ===
+Story Requirements:
+=== END FRIDAY ===
+
+=== START SATURDAY ===
+Story Requirements:
+=== END SATURDAY ===
+
+=== START SUNDAY ===
+Story Requirements:
+=== END SUNDAY ===
+
++++ END WEEK XX +++
+#END SECTION: DAILY_STORIES
+
+#BEGIN DICTIONARY: CHARACTERS
+Marisol – clinic medical assistant, single mother.  Marisol has a mild interest in Rod.
+Camy – Marisol's daughter, age 11, friends with Donna
+Marisa – neighbor, energetic, walks with Marisol
+Donna - Marisa's daughter, age 12,  friends with Camy
+Dra. Doris Pérez – clinic doctor
+Rosie – coworker
+Letia – LPN
+Amanda – clinic receptionist, also has a hobby, a comidian in local comedy clubs.
+Rod – UPS driver, also has an interest of Marisol.
+Jason - Dra. Pérez's son, part time bookkeeper for the clinic, handle insurance coding.  Born om the US.
+#END DICTIONARY: CHARACTERS
+
+#BEGIN DICTIONARY: LANGUAGE_CORRECTIONS
+hacer un error → cometer un error
+hacer tan bien → hacerlo tan bien
+del clínica → de la clínica
+tomar el examen → hacer el examen
+compresas húmedas calientes → paños calientes húmedos
+plática → charla
+moqueo → moco
+moquito → moco
+parte del tiempo → pronóstico del tiempo
+ir a rastras → irse en carro juntos / carpool
+carpular → irse en carro juntos / carpool
+narices goteando → nariz que gotea
+#END DICTIONARY: LANGUAGE_CORRECTIONS
+
+#BEGIN DICTIONARY: CUBAN_REGISTER
+"pa'" = "para" (informal, keep)
+"pa'l" = "para el" (informal, keep)
+"pa' la" = "para la" (informal, keep)
+"carpool" = "irse en carro juntos" or keep "carpool" as loanword
+"lonchera" = lunchbox (container), NOT the meal
+"almuerzo en bolsa" = sack lunch
+"desvanecimiento" / "desmayo" = syncope
+Do NOT use "chamba" for job; use "trabajo"
+#END DICTIONARY: CUBAN_REGISTER
+
+############################################################
+END OF TEMPLATE FILE
+############################################################

@@ -2,6 +2,7 @@
 import sys
 import os
 import re
+import textwrap
 
 import commonFunctions as common
 
@@ -15,10 +16,6 @@ def strip_meta(text):
             continue
         cleaned.append(line)
     text = "\n".join(cleaned)
-    # Remove the WEEKLY_CORRECTIONS dictionary block itself (if present) so
-    # it never gets treated as story content by parse_storyboard_days().
-    # The block's contents are parsed separately by
-    # common.parse_weekly_corrections() before this function is called.
     text = re.sub(
         r"#BEGIN DICTIONARY:\s*WEEKLY_CORRECTIONS.*?#END DICTIONARY:\s*WEEKLY_CORRECTIONS",
         "", text, flags=re.DOTALL | re.IGNORECASE
@@ -74,11 +71,27 @@ def inject_storyboard_into_template(template_text, day_map):
                 template_text = template_text + "\n\n" + replacement_block
     return template_text
 
-def check_day_heading_format(main_html):
+def extract_partial_template(template_text, days_to_keep):
+    # Strips the day blocks for days NOT in days_to_keep, so a split call
+    # only sees the storyboard content it's actually responsible for.
+    # Rule blocks (everything above DAILY_STORIES) are untouched - they
+    # apply to every call regardless of which days it covers.
+    all_days = ["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY"]
+    for day in all_days:
+        if day in days_to_keep:
+            continue
+        pattern = re.compile(
+            rf"=== START {day} ===.*?=== END {day} ===\s*",
+            flags=re.DOTALL | re.IGNORECASE
+        )
+        template_text = pattern.sub("", template_text)
+    return template_text
+
+def check_day_heading_format(main_html, days=None):
     # WeekXX.txt rule 12 requires day headings to be exactly <h1>DAY</h1>,
     # with nothing else in the tag. This check surfaces it loudly when the
     # model doesn't follow the rule, so drift doesn't go unnoticed.
-    days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+    days = days or ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     for day in days:
         exact = re.search(rf"<h1>{day}</h1>", main_html, flags=re.IGNORECASE)
         if not exact:
@@ -87,6 +100,51 @@ def check_day_heading_format(main_html):
                 print(f"WARNING: {day} heading doesn't match the required <h1>{day}</h1> format exactly: {loose.group(0)!r}")
             else:
                 print(f"WARNING: {day} heading not found in expected form at all.")
+
+def build_part_reminder(days):
+    day_list = ", ".join(d.title() for d in days)
+    return textwrap.dedent(f"""
+    ============================================================
+    PART OVERRIDE — DAYS FOR THIS CALL ONLY
+    ============================================================
+    Ignore any earlier instruction in this prompt that says to
+    produce all seven days in one document. This call is only
+    part of the week.
+
+    For THIS call, produce ONLY these days, in this order:
+    {day_list}.
+
+    Do not add any other days.
+    Do not add extra explanation, commentary, or reasoning.
+    Output ONE <html> document containing ONLY the days listed
+    above, following all template rules (Sentence Control,
+    Trailing Adverb, Character Dictionary, Cuban Register,
+    Translation Practice, HTML structure, Vocabulary rules,
+    Story length rules).
+    """).strip()
+
+def strip_extra_head_blocks(html_inner):
+    # Used when merging two parts: keeps the first <head>...</head>,
+    # removes any additional ones so the merged document has exactly one.
+    parts = re.split(r"(<head.*?</head>)", html_inner, flags=re.DOTALL | re.IGNORECASE)
+    seen_head = False
+    out = []
+    for chunk in parts:
+        if re.match(r"<head.*?</head>", chunk, flags=re.DOTALL | re.IGNORECASE):
+            if seen_head:
+                continue
+            seen_head = True
+        out.append(chunk)
+    return "".join(out)
+
+def merge_html_parts(html_part1, html_part2):
+    inner_pattern = re.compile(r"<html[^>]*>(.*?)</html>", flags=re.DOTALL | re.IGNORECASE)
+    m1 = inner_pattern.search(html_part1)
+    m2 = inner_pattern.search(html_part2)
+    inner1 = m1.group(1).strip() if m1 else html_part1.strip()
+    inner2 = m2.group(1).strip() if m2 else html_part2.strip()
+    merged_inner = strip_extra_head_blocks(inner1 + "\n" + inner2)
+    return f"<html>\n{merged_inner}\n</html>"
 
 MAIN_REQUIRED_SECTIONS = [
     "Vocabulary",
@@ -97,9 +155,48 @@ MAIN_REQUIRED_SECTIONS = [
     "Student Questions"
 ]
 
+DAY_GROUPS = [
+    ("part1", ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY"]),
+    ("part2", ["FRIDAY", "SATURDAY", "SUNDAY"]),
+]
+
+def generate_part(label, days, template_with_stories, unified_prompt, debug_flag):
+    partial_template = extract_partial_template(template_with_stories, days)
+    part_reminder = build_part_reminder(days)
+    payload = f"{partial_template}\n\n{unified_prompt}\n\n{part_reminder}"
+
+    if debug_flag:
+        with open(f"debug_main_{label}_prompt.txt", "w", encoding="utf-8") as f:
+            f.write(payload)
+
+    print(f"Generating main lesson ({label}: {', '.join(d.title() for d in days)})...")
+    try:
+        result = common.send_to_ollama(payload, debug_label=f"main_{label}", debug_flag=debug_flag)
+    except Exception as e:
+        print(f"ERROR: Ollama request failed on {label}: {e}")
+        if debug_flag:
+            with open(f"debug_main_{label}_error.txt", "w", encoding="utf-8") as f:
+                f.write(str(e))
+        sys.exit(1)
+
+    blocks = common.split_html_blocks(result)
+    if len(blocks) == 0:
+        if common.looks_truncated(result if isinstance(result, str) else str(result)):
+            print(f"ERROR: {label} response was cut off mid-generation (opened <html> but never closed it).")
+            print("Check the 'done_reason' printed above and the matching debug_main_*_metadata.txt: 'length' means")
+            print("it hit num_predict/context; 'stop' means the model ended its own turn early -")
+            print("these have different causes and different fixes, so don't assume which one it is.")
+        else:
+            print(f"ERROR: No <html> block found in {label}.")
+        if debug_flag:
+            with open(f"debug_main_{label}_raw_response.txt", "w", encoding="utf-8") as f:
+                f.write(result if isinstance(result, str) else str(result))
+        sys.exit(1)
+
+    check_day_heading_format(blocks[0], days=days)
+    return blocks[0]
+
 def main():
-    # 4 required args: identifier, storyboard, template, unifiedPrompt.
-    # No FiveMinuteTemplate.txt - this script only produces the main lesson.
     if len(sys.argv) not in (5, 6):
         print("Usage: python3 generateMain.py <identifier> <storyboard.md> <template.txt> <unifiedPrompt.md> [Debug|NoDebug]")
         sys.exit(1)
@@ -133,38 +230,12 @@ def main():
     day_map = parse_storyboard_days(storyboard)
     template_with_stories = inject_storyboard_into_template(template, day_map)
 
-    payload_main = f"{template_with_stories}\n\n{unified_prompt}"
+    part_htmls = []
+    for label, days in DAY_GROUPS:
+        html_part = generate_part(label, days, template_with_stories, unified_prompt, debug_flag)
+        part_htmls.append(html_part)
 
-    if debug_flag:
-        with open("debug_main_prompt.txt", "w", encoding="utf-8") as f:
-            f.write(payload_main)
-
-    print("Generating main lesson...")
-    try:
-        result_main = common.send_to_ollama(payload_main, debug_label="main", debug_flag=debug_flag)
-    except Exception as e:
-        print(f"ERROR: Ollama request failed: {e}")
-        if debug_flag:
-            with open("debug_main_error.txt", "w", encoding="utf-8") as f:
-                f.write(str(e))
-        sys.exit(1)
-
-    blocks_main = common.split_html_blocks(result_main)
-
-    if len(blocks_main) == 0:
-        if common.looks_truncated(result_main if isinstance(result_main, str) else str(result_main)):
-            print("ERROR: The main lesson response was cut off mid-generation (opened <html> but never closed it).")
-            print("Check the 'done_reason' printed above and debug_main_metadata.txt: 'length' means")
-            print("it hit num_predict/context; 'stop' means the model ended its own turn early -")
-            print("these have different causes and different fixes, so don't assume which one it is.")
-        else:
-            print("ERROR: No <html> block found in main lesson.")
-        if debug_flag:
-            with open("debug_main_raw_response.txt", "w", encoding="utf-8") as f:
-                f.write(result_main if isinstance(result_main, str) else str(result_main))
-        sys.exit(1)
-
-    main_html = blocks_main[0]
+    main_html = merge_html_parts(part_htmls[0], part_htmls[1])
     main_html = common.apply_corrections(main_html, corrections)
     common.validate_html(main_html, "main lesson", MAIN_REQUIRED_SECTIONS)
     check_day_heading_format(main_html)
