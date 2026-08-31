@@ -8,7 +8,7 @@ Follow ALL rules in the template provided in this prompt.
 Do NOT add new rules.
 Do NOT override any rules.
 Do NOT explain your reasoning.
-Do NOT output anything except the required HTML.
+Do NOT output anything except the required Markdown.
 
 ============================================================
 WHAT THIS PROMPT CONTROLS
@@ -22,7 +22,7 @@ The template (WeekXX.txt) defines:
 • Sentence rules
 • Story length rules
 • Spanish accuracy rules
-• HTML layout rules
+• Markdown layout rules
 • Vocabulary rules
 • Translation practice rules
 • Character dictionary
@@ -68,9 +68,9 @@ Do NOT invent new vocabulary.
 MAIN LESSON REQUIREMENTS
 ============================================================
 
-Produce EXACTLY ONE <html> document containing the FULL WEEK
-LESSON — all seven days: Monday, Tuesday, Wednesday, Thursday,
-Friday, Saturday, Sunday.
+Produce ONE Markdown document containing the FULL WEEK LESSON —
+all seven days: Monday, Tuesday, Wednesday, Thursday, Friday,
+Saturday, Sunday.
 
 Rewrite each day's storyboard into a full narrative.
 Follow ALL template rules including:
@@ -80,7 +80,7 @@ Follow ALL template rules including:
 • Character Dictionary
 • Cuban Register
 • Translation Practice
-• HTML structure
+• Markdown structure
 • Vocabulary rules
 • Story length rules
 
@@ -88,14 +88,18 @@ Follow ALL template rules including:
 OUTPUT RULES
 ============================================================
 
-Output ONLY one <html> block.
-Do NOT include Markdown.
+Output ONLY plain Markdown text.
+Do NOT include any HTML tags of any kind.
+Do NOT wrap the output in a code fence (no ``` anywhere).
 Do NOT include commentary.
-Do NOT include extra text.
+Do NOT include extra text before or after the lesson.
 Do NOT include reasoning.
 Do NOT include dictionary entries.
 Do NOT include the weekly vocab pool.
 Use UTF‑8 Spanish with correct accents.
+Follow MARKDOWN_LAYOUT in the template exactly, including the
+day-heading format, section-heading spelling, and the Story
+section's English/Spanish structure.
 
 ============================================================
 END OF UNIFIED PROMPT — MAIN

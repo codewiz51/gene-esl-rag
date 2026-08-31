@@ -8,7 +8,7 @@ Follow ALL rules in the template provided in this prompt.
 Do NOT add new rules.
 Do NOT override any rules.
 Do NOT explain your reasoning.
-Do NOT output anything except the required HTML.
+Do NOT output anything except the required Markdown.
 
 ============================================================
 WHAT THIS PROMPT CONTROLS
@@ -19,7 +19,7 @@ The template (FiveMinuteTemplate.txt) defines:
 • Language level
 • Sentence rules
 • Trailing adverb rules
-• HTML layout rules
+• Markdown layout rules
 • Character dictionary
 • Cuban register dictionary
 • Corrections dictionary
@@ -75,9 +75,11 @@ Do NOT invent new vocabulary.
 FIVE-MINUTE LESSON REQUIREMENTS
 ============================================================
 
-Produce EXACTLY ONE <html> document containing the FIVE-MINUTE
-LESSON — all seven days: Monday, Tuesday, Wednesday, Thursday,
-Friday, Saturday, Sunday.
+Produce ONE Markdown document containing the FIVE-MINUTE
+LESSON — one block per day supplied in the source material above
+(typically all seven: Monday, Tuesday, Wednesday, Thursday,
+Friday, Saturday, Sunday, but only the days that were actually
+supplied).
 
 • MUST reuse vocabulary from that day's supplied vocabulary list
 • MUST NOT introduce new vocabulary
@@ -87,22 +89,25 @@ Friday, Saturday, Sunday.
 • MUST follow Character Dictionary
 • MUST follow Cuban Register
 • MUST follow Trailing Adverb rules
-• MUST follow HTML structure rules
+• MUST follow Markdown structure rules
 • MUST NOT include Spanish versions of the mini-story
-• MUST NOT include commentary or markdown
-• MUST NOT include more than one <html> block
+• MUST NOT include commentary
+• MUST NOT include any HTML tags
 
 ============================================================
 OUTPUT RULES
 ============================================================
 
-Output ONLY one <html> block.
-Do NOT include Markdown.
+Output ONLY plain Markdown text.
+Do NOT include any HTML tags of any kind.
+Do NOT wrap the output in a code fence (no ``` anywhere).
 Do NOT include commentary.
 Do NOT include extra text.
 Do NOT include reasoning.
 Do NOT include dictionary entries.
 Use UTF‑8 Spanish with correct accents.
+Follow FIVEMINUTE_FORMAT in the template exactly, including the
+day-heading format and section-heading spelling.
 
 ============================================================
 END OF UNIFIED PROMPT — FIVE-MINUTE

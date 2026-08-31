@@ -87,17 +87,20 @@ def extract_partial_template(template_text, days_to_keep):
         template_text = pattern.sub("", template_text)
     return template_text
 
-def check_day_heading_format(main_html, days=None):
-    # WeekXX.txt rule 12 requires day headings to be exactly <h1>DAY</h1>,
-    # with nothing else in the tag. This check surfaces it loudly when the
-    # model doesn't follow the rule, so drift doesn't go unnoticed.
+def check_day_heading_format(markdown_text, days=None):
+    # MARKDOWN_LAYOUT rule 1 requires day headings to be exactly "# DAY"
+    # on their own line, ALL CAPS, nothing else. This check surfaces it
+    # loudly when the model doesn't follow the rule, so drift doesn't go
+    # unnoticed. (Previously this checked for an HTML <h1>DAY</h1> match
+    # against a rule that was never actually specified in the template -
+    # see the CHANGED note at the top of MainLessonTemplate.txt.)
     days = days or ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
     for day in days:
-        exact = re.search(rf"<h1>{day}</h1>", main_html, flags=re.IGNORECASE)
+        exact = re.search(rf"(?m)^#\s+{day}\s*$", markdown_text, flags=re.IGNORECASE)
         if not exact:
-            loose = re.search(rf"<h[1-4][^>]*>\s*{day}\b[^<]*</h[1-4]>", main_html, flags=re.IGNORECASE)
+            loose = re.search(rf"(?m)^#{{1,3}}\s*{day}\b.*$", markdown_text, flags=re.IGNORECASE)
             if loose:
-                print(f"WARNING: {day} heading doesn't match the required <h1>{day}</h1> format exactly: {loose.group(0)!r}")
+                print(f"WARNING: {day} heading doesn't match the required '# {day}' format exactly: {loose.group(0)!r}")
             else:
                 print(f"WARNING: {day} heading not found in expected form at all.")
 
@@ -116,44 +119,18 @@ def build_part_reminder(days):
 
     Do not add any other days.
     Do not add extra explanation, commentary, or reasoning.
-    Output ONE <html> document containing ONLY the days listed
-    above, following all template rules (Sentence Control,
-    Trailing Adverb, Character Dictionary, Cuban Register,
-    Translation Practice, HTML structure, Vocabulary rules,
-    Story length rules).
+    Output ONLY plain Markdown text containing ONLY the days
+    listed above, following all template rules (Sentence
+    Control, Trailing Adverb, Character Dictionary, Cuban
+    Register, Translation Practice, Markdown structure,
+    Vocabulary rules, Story length rules). Do NOT use any
+    HTML tags. Do NOT wrap the output in a code fence.
     """).strip()
 
-def strip_extra_head_blocks(html_inner):
-    # Used when merging two parts: keeps the first <head>...</head>,
-    # removes any additional ones so the merged document has exactly one.
-    parts = re.split(r"(<head.*?</head>)", html_inner, flags=re.DOTALL | re.IGNORECASE)
-    seen_head = False
-    out = []
-    for chunk in parts:
-        if re.match(r"<head.*?</head>", chunk, flags=re.DOTALL | re.IGNORECASE):
-            if seen_head:
-                continue
-            seen_head = True
-        out.append(chunk)
-    return "".join(out)
-
-def merge_html_parts(html_part1, html_part2):
-    inner_pattern = re.compile(r"<html[^>]*>(.*?)</html>", flags=re.DOTALL | re.IGNORECASE)
-    m1 = inner_pattern.search(html_part1)
-    m2 = inner_pattern.search(html_part2)
-    inner1 = m1.group(1).strip() if m1 else html_part1.strip()
-    inner2 = m2.group(1).strip() if m2 else html_part2.strip()
-    merged_inner = strip_extra_head_blocks(inner1 + "\n" + inner2)
-    return f"<html>\n{merged_inner}\n</html>"
-
-MAIN_REQUIRED_SECTIONS = [
-    "Vocabulary",
-    "Warmup",
-    "Grammar",
-    "Examples",
-    "Translation Practice",
-    "Student Questions"
-]
+def merge_markdown_parts(md_part1, md_part2):
+    # Markdown has no <head>/<html> wrapper to dedupe - just join the two
+    # parts on a blank line, per MARKDOWN_LAYOUT rule 12's day separator.
+    return md_part1.strip() + "\n\n" + md_part2.strip() + "\n"
 
 DAY_GROUPS = [
     ("part1", ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY"]),
@@ -179,22 +156,28 @@ def generate_part(label, days, template_with_stories, unified_prompt, debug_flag
                 f.write(str(e))
         sys.exit(1)
 
-    blocks = common.split_html_blocks(result)
-    if len(blocks) == 0:
-        if common.looks_truncated(result if isinstance(result, str) else str(result)):
-            print(f"ERROR: {label} response was cut off mid-generation (opened <html> but never closed it).")
-            print("Check the 'done_reason' printed above and the matching debug_main_*_metadata.txt: 'length' means")
-            print("it hit num_predict/context; 'stop' means the model ended its own turn early -")
-            print("these have different causes and different fixes, so don't assume which one it is.")
-        else:
-            print(f"ERROR: No <html> block found in {label}.")
+    markdown_text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
+
+    day_blocks = common.split_markdown_days(markdown_text, days)
+    missing_days = [d for d in days if d not in day_blocks]
+    if len(day_blocks) == 0:
+        print(f"ERROR: No day headings found in {label} at all (expected: {', '.join(days)}).")
         if debug_flag:
             with open(f"debug_main_{label}_raw_response.txt", "w", encoding="utf-8") as f:
-                f.write(result if isinstance(result, str) else str(result))
+                f.write(markdown_text)
         sys.exit(1)
+    if missing_days:
+        print(f"WARNING: {label} is missing day(s): {', '.join(missing_days)}")
 
-    check_day_heading_format(blocks[0], days=days)
-    return blocks[0]
+    if common.markdown_looks_truncated(markdown_text, days):
+        print(f"WARNING: {label} response may be cut off mid-generation "
+              f"(the last requested day is missing one or more required sections).")
+        print("Check the 'done_reason' printed above and the matching debug_main_*_metadata.txt: 'length' means")
+        print("it hit num_predict/context; 'stop' means the model ended its own turn early -")
+        print("these have different causes and different fixes, so don't assume which one it is.")
+
+    check_day_heading_format(markdown_text, days=days)
+    return markdown_text
 
 def main():
     if len(sys.argv) not in (5, 6):
@@ -230,16 +213,19 @@ def main():
     day_map = parse_storyboard_days(storyboard)
     template_with_stories = inject_storyboard_into_template(template, day_map)
 
-    part_htmls = []
+    part_mds = []
     for label, days in DAY_GROUPS:
-        html_part = generate_part(label, days, template_with_stories, unified_prompt, debug_flag)
-        part_htmls.append(html_part)
+        md_part = generate_part(label, days, template_with_stories, unified_prompt, debug_flag)
+        part_mds.append(md_part)
 
-    main_html = merge_html_parts(part_htmls[0], part_htmls[1])
-    main_html = common.apply_corrections(main_html, corrections)
-    common.validate_html(main_html, "main lesson", MAIN_REQUIRED_SECTIONS)
-    check_day_heading_format(main_html)
-    common.write_html(main_html, identifier, "MAIN")
+    main_markdown = merge_markdown_parts(part_mds[0], part_mds[1])
+    main_markdown = common.apply_corrections(main_markdown, corrections)
+    common.validate_markdown(main_markdown, "main lesson", common.MAIN_REQUIRED_SECTIONS)
+    check_day_heading_format(main_markdown)
+
+    common.write_markdown(main_markdown, identifier, "MAIN")
+    common.write_markdown_fixed(main_markdown, common.MAIN_SUPPORT_FILENAME)
+    common.convert_markdown_to_docx(main_markdown, identifier, "MAIN")
 
     print("Done.")
 

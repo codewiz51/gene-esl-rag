@@ -1,5 +1,5 @@
 ############################################################
-WEEK XX – MASTER LESSON TEMPLATE (REVISED – PROSE EXPANSION)
+WEEK XX – MASTER LESSON TEMPLATE (REVISED – MARKDOWN OUTPUT)
 ############################################################
 
 # DIFF NOTES FOR THE HUMAN READER:
@@ -11,6 +11,17 @@ WEEK XX – MASTER LESSON TEMPLATE (REVISED – PROSE EXPANSION)
 # They reach the model as prompt text.
 # Remove them if you want a leaner prompt.
 
+# CHANGED: Aug 2026 — output format migrated from HTML to Markdown.
+# HTML_LAYOUT is retired. See MARKDOWN_LAYOUT near the end of this
+# file. This also closes a real bug: the old HTML_LAYOUT block never
+# specified a day-heading format, but generateMain.py's validator
+# checked for an exact <h1>DAY</h1> match anyway. The model had no
+# rule to follow, so it settled on its own convention (<h2>Monday</h2>,
+# Title Case), and every run threw a "heading doesn't match" warning
+# against a rule that was never actually stated. MARKDOWN_LAYOUT rule 1
+# below fixes this at the source: the day-heading format is now
+# explicit and unambiguous.
+
 #BEGIN RULES: WEEKLY_RHYTHM
 The weekly rhythm MUST be supplied by the HumanReadable.md file.
 The master template MUST NOT hardcode any day‑specific topics.
@@ -20,7 +31,6 @@ The master template MUST NOT hardcode any day‑specific topics.
 Weekly Verb Focus: [WEEKLY VERB FOCUS]
 #END RULES: VERB_FOCUS
 
-# CHANGED: opened subordination at A2+ ceiling; added interiority target
 #BEGIN RULES: LANGUAGE_LEVEL
 Target level: A2 → A2+ (light B1 vocabulary allowed).
 Use simple present, simple past, going to, can, should.
@@ -32,7 +42,7 @@ Subordination is allowed at the A2+ ceiling:
   One "if" per long-day story is acceptable
    (simple first conditional,
   e.g. "If she is late, she takes the bus alone.").
-Short days (Wed, Sat, Sun): 0 subordinate clauses.
+Short days (Tue, Wed, Sun): 0 subordinate clauses.
 The story is short enough to be flat.
 
 Avoid long medical explanations.
@@ -46,54 +56,17 @@ AIM FOR:
   be the last sentence.
 #END RULES: LANGUAGE_LEVEL
 
-# CHANGED: loosened prosody; expanded connectors; added aim-for
 #BEGIN RULES: SENTENCE_CONTROL
-Aim for 8–14 words per sentence.
-No sentence should drop below 5 words.
-A few sentences per story may reach 16 words
-when a subordinate clause or a compound
-structure is in use.
-
-Prefer periods over commas.
-At most 2 commas per sentence. Prefer 1.
-One comma per sentence is the norm.
-Two is acceptable for a compound sentence
-(e.g. "She tells him to rest, and she checks
-the door before she leaves.").
+Aim for 4–16 words per sentence, don't count exactly.
 
 Allowed connectors:
   and, but, because, so, then, also,
   first, next, finally.
 These are all A2. Use them to vary rhythm.
+Prefer periods over commas. One comma is
+fine for a natural compound sentence using
+an allowed connector.
 
-Subordination: see LANGUAGE_LEVEL block.
-  2 per long day. 0 per short day.
-
-One main event per story.
-One character reaction per story.
-"Reaction" means the character feels,
-notices, or decides something.
-Not just "the next thing happens."
-
-One patient per main clinical interaction
-per day (except Friday).
-Supporting characters may appear:
-coworkers, patients in the waiting room,
-family, neighbors.
-They are not the main patient.
-They add texture.
-
-AIM FOR:
-  No two consecutive sentences should start
-  with the same word.
-  At least one sentence per long-day story
-  should contain a character speaking directly
-   (dialogue in quotes or internal thought
-  in plain text, no italics — this is
-  plain HTML).
-  e.g. "You need to rest, Carlos," she says.
-  or  She thinks: I should not let him go
-        home alone.
 #END RULES: SENTENCE_CONTROL
 
 #BEGIN RULES: SPANISH_ACCURACY
@@ -106,9 +79,8 @@ Use corrections dictionary when relevant.
 Use Cuban register dictionary when relevant.
 #END RULES: SPANISH_ACCURACY
 
-# CHANGED: removed EXACTLY; added padding guard; separated translation items
 #BEGIN RULES: STORY_LENGTH
-Long days (Mon, Tue, Thu, Fri):
+Long days (Mon, Thu, Fri, Sat):
  140–180 words, English side only.
  The range prevents both truncation and
  padding.
@@ -116,7 +88,7 @@ Long days (Mon, Tue, Thu, Fri):
  A 142-word story is better than a 152-word
  story with two filler adverbs.
 
-Short days (Wed, Sat, Sun):
+Short days (Tue, Wed, Sun):
  6–8 sentences, English + Spanish.
  9 is acceptable if the story needs it.
  5 is not acceptable.
@@ -155,7 +127,6 @@ Spanish→English items MUST include at least one professional reading item.
 English→Spanish items MAY remain simple, but MUST include one clinic-relevant phrase.
 #END RULES: READING_TRANSLATION
 
-# CHANGED: expanded to all sentences; added before/after examples
 #BEGIN RULES: TRAILING_ADVERB
 Do NOT end ANY sentence with a bare
 temporal adverb:
@@ -186,10 +157,9 @@ content, not padding.
 #END RULES: TRAILING_ADVERB
 
 #BEGIN RULES: SPANISH_VOICE
-In the Spanish column prefer active voice. Avoid passive constructions like "es traído", "es examinado", "es llevado". Use "Traen a...", "Llevan a...", "Lo examinan..." instead.
+In the Spanish text prefer active voice. Avoid passive constructions like "es traído", "es examinado", "es llevado". Use "Traen a...", "Llevan a...", "Lo examinan..." instead.
 #END RULES: SPANISH_VOICE
 
-# CHANGED: replaced circular references with quality targets
 #BEGIN RULES: NARRATIVE_REWRITE
 Rewrite all Story Requirements bullets
 into a full narrative.
@@ -216,6 +186,9 @@ transcription.
   place vocabulary is constrained.
 
 Each long-day story MUST contain:
+  • One main event. Not a list of things
+    that happen — one thing the story is
+    about.
   • One moment of character interiority.
   • One small conflict, choice, or surprise.
     Not a crisis. A missed turn. A wrong
@@ -224,20 +197,27 @@ Each long-day story MUST contain:
     spills. Something small that makes
     the story a moment instead of a list.
   • One sentence where a character speaks
-    directly
-    (see SENTENCE_CONTROL, AIM FOR).
+    directly.
+  • One patient per main clinical
+    interaction (except Friday).
+    Supporting characters may appear —
+    coworkers, patients in the waiting
+    room, family, neighbors — but they
+    are not the main patient. They add
+    texture.
 
-Short days (Wed, Sat, Sun):
+Short days (Tue, Wed, Sun):
   • One character voice moment.
-  • The story should feel like a moment,
-    not a summary.
+  • Even a review day should read as
+    Marisol living through the recap —
+    a porch, a drive, a quiet pause —
+    not a bulleted list of what happened.
 #END RULES: NARRATIVE_REWRITE
 
-# NEW: quality targets layer
 #BEGIN RULES: STORY_QUALITY
 These are quality targets, not hard
 constraints.
-They do NOT override HTML_LAYOUT.
+They do NOT override MARKDOWN_LAYOUT.
 They do NOT add sections, styles, or
 formatting.
 They govern prose only.
@@ -260,13 +240,15 @@ WORLD EXTENDS BEYOND THE CLINIC:
  Marisol lives in a barrio.
  She has a daughter, a neighbor, errands,
  a life, a past as a university student.
- Clinic days are clinic days.
- Non-clinic days (Mon, Sat, Sun) MUST
- feel different in setting, rhythm, and
- register.
- A Saturday at the gym should not read
- like a Tuesday at the clinic with
- the patients removed.
+ The storyboard's setting for each day
+ decides whether it is a clinic day.
+ A day whose storyboard is NOT set at
+ the clinic MUST feel different in
+ setting, rhythm, and register from a
+ clinic day.
+ A non-clinic day at the gym should not
+ read like a clinic day with the
+ patients removed.
 
 HUMOR IS WELCOME WHEN NATURAL:
  A wry aside. A small observation.
@@ -290,23 +272,13 @@ THE STUDENT IS A SPEAKER, NOT AN OBSERVER:
  She speaks. She thinks. She chooses.
  At least one task per day must put
  her in first person.
- (See SECTION_CONTENT, Warmup and
- Student Questions.)
-#END RULES: STORY_QUALITY
+ END RULES: STORY_QUALITY
 
-# NEW: section content guidance for existing sections
 #BEGIN RULES: SECTION_CONTENT
 This block governs what text appears
 inside the existing sections.
-It does NOT add new section titles.
-It does NOT change the HTML structure.
-
-Vocabulary:
- Ordered list (<ol>) of 4–6 bilingual
- word/idiom pairs.
- English – Spanish, dash only, no
- other punctuation.
- (See HTML_LAYOUT rule 6. Unchanged.)
+It does NOT add new section headings.
+It does NOT change the Markdown structure.
 
 Warmup:
  1–3 questions on long days.
@@ -314,15 +286,16 @@ Warmup:
  MUST include at least one first-person
  prompt where the student speaks as
  herself, not as an observer of Marisol.
- Pattern:
-  "I usually ___ after work."
-  "I tell my daughter ___ when she
-  is sick."
-  "I speak ___ to my coworker when
-  we are tired."
- The blank should relate to the day's
- verb focus or vocabulary.
-
+ Pattern examples:
+  "I usually ___ before work."
+  "I ___ carefully."
+  "I ___ to be a good worker when I am tired."
+ The blank "___" should relate to the day's verb focus or vocabulary.
+ 
+Vocabulary:
+ 4–6 bilingual word/idiom pairs.
+ Not full sentences. Not clauses.
+ 
 Grammar:
  One explanation of the day's grammar
  point (max 3 sentences).
@@ -333,11 +306,13 @@ Grammar:
   The student fills in.
   The frame must use the week's verb
   focus.
- Example (Week 31, say/tell/speak):
-  "I say ___ to ___.
-   You tell me ___.
-   She speaks ___ at the clinic.
-   I speak ___ when I am tired."
+ Example (illustrative only — use the
+current week's verb focus, not the
+words shown here):
+ "I say ___ to ___.
+  You tell me ___.
+  She speaks ___ at the clinic.
+  I speak ___ when I am tired."
 
 Examples:
  3–4 items on short days.
@@ -354,10 +329,15 @@ Examples:
  non-textbook line
  (a joke, a sigh, a "well...",
  an interjection).
+ Format dialogue lines as:
+   Name: "Line of dialogue."
+ One line per turn. Do NOT use a table
+ or a script/screenplay format.
 
 Translation Practice:
  (Unchanged. See STORY_LENGTH and
-  READING_TRANSLATION.)
+  READING_TRANSLATION. See MARKDOWN_LAYOUT
+  rule 7 for the required layout.)
 
 Student Questions:
  3–4 items on short days.
@@ -365,57 +345,117 @@ Student Questions:
  MUST include at least one question
  that requires the student to answer
  in first person about her own life.
- e.g. "Do you tell your children about
-       your work? What do you say?"
- e.g. "What do you say when you are
-       tired at the end of a long shift?"
-#END RULES: SECTION_CONTENT
+ Illustrative examples only, do not reuse verbatim:
+ - Did you go grocery shopping today?
+ - Did you assess a patient today?
+ - Did you send a prescription order to the pharmacy?
+# END RULES: SECTION_CONTENT
 
-#BEGIN RULES: HTML_LAYOUT
-All HTML output MUST follow these layout rules:
+# CHANGED: HTML_LAYOUT retired and replaced with MARKDOWN_LAYOUT.
+#BEGIN RULES: MARKDOWN_LAYOUT
+All output MUST follow these Markdown layout rules.
+This is plain Markdown text, not HTML. Do NOT use any
+HTML tags anywhere in the output.
 
-1. ALL TEXT CONTENT MUST BE WRAPPED IN <p> </p> TAGS UNLESS IT IS A HEADER (<h1>-<h4>) OR A LIST (<ul>, <ol>).
+1. Each day heading MUST be exactly one line, using a
+   single "#", ALL CAPS, the day name only:
+     # MONDAY
+     # TUESDAY
+     # WEDNESDAY
+     # THURSDAY
+     # FRIDAY
+     # SATURDAY
+     # SUNDAY
+   Do NOT use "Monday", "Day 1", "Week XX – Monday", or
+   any other form. Nothing else may appear on that line.
 
-2. USE ONLY STANDARD HTML TAGS: <html>, <head>, <meta>, <h1>-<h4>, <p>, <ul>, <ol>, <li>, <table>, <thead>, <tbody>, <tr>, <td>.
+2. Section headings MUST use "##" and MUST be exactly one
+   of the following, spelled and capitalized exactly as
+   shown:
+     ## Warmup
+     ## Vocabulary
+     ## Story
+     ## Grammar
+     ## Examples
+     ## Translation Practice
+     ## Student Questions
+   Do NOT invent new section headings.
+   Do NOT reorder, rename, merge, or split these.
+   Do NOT use "###" or any heading level deeper than "##"
+   anywhere in the document.
 
-3. DO NOT ADD ANY <style> TAGS, CSS, INLINE STYLES, COLORS, BORDERS, BOXES, BACKGROUNDS, OR DECORATIVE FORMATTING.
+3. The Story section MUST use exactly this structure —
+   no table, no other markup:
 
-4. Only the bilingual story may use a table.
-   The bilingual story MUST use a two‑column structure:
-    <table>
-      <tr>
-        <td>
-          <p>English paragraph 1.</p>
-          <p>English paragraph 2.</p>
-        </td>
-        <td>
-          <p>Spanish paragraph 1.</p>
-          <p>Spanish paragraph 2.</p>
-        </td>
-      </tr>
-    </table>
+     ## Story
 
-5. DO NOT ADD ANY OTHER CLASSES OR IDS.
+     **English:**
 
-6. Vocabulary MUST appear as an ordered list (<ol>) of bilingual word or idiom pairs.
-   Pattern:
-   English word or idiom – Spanish palabra o modismo.
-   Do NOT use full sentences.
-   Do NOT use clauses.
-   Do NOT use punctuation except the dash.
-   Vocabulary list MUST contain 4–6 items total.
+     English paragraph 1.
 
-7. Warmup, Grammar, Examples, Questions, Closing MUST appear in single‑column layout.
+     English paragraph 2.
 
-8. Insert ONE blank line between the two <html> documents.
+     **Spanish:**
 
-9. Use UTF‑8 encoding for all Spanish text.
+     Spanish paragraph 1.
 
-10. Do NOT nest <html> blocks.
+     Spanish paragraph 2.
 
-11. Immediately after the opening <html> tag, the model MUST include:
-    <head><meta charset="UTF-8"></head>
-#END RULES: HTML_LAYOUT
+   "**English:**" and "**Spanish:**" are the ONLY bold
+   text permitted anywhere in the document. Do NOT bold
+   anything else.
+
+4. Vocabulary, Examples, Translation Practice, Student
+   Questions, and Warmup MUST use numbered Markdown lists
+   ("1.", "2.", "3.", ...). Do NOT use "-" or "*" bullets
+   anywhere in the document.
+
+5. Grammar's Pattern Practice items also use a numbered
+   Markdown list, continuing directly after the grammar
+   explanation paragraph — no separate heading for
+   "Pattern Practice", just the label "Pattern Practice:"
+   as a plain text line followed by the numbered list.
+
+6. Vocabulary list line format:
+     English word or idiom – Spanish palabra o modismo
+   One pair per numbered line.
+   Do NOT use punctuation other than the dash.
+   
+7. Translation Practice MUST use plain text labels, not
+   headings, to separate its two parts. There MUST be a blank
+   line between each label and the numbered list that follows
+   it — without that blank line, the label and list merge into
+   a single run-on paragraph when converted to Word, and the
+   numbering is lost:
+     Spanish → English
+
+     1. ...
+     2. ...
+
+     English → Spanish
+
+     1. ...
+     2. ...
+
+8. Do NOT use any Markdown formatting other than what is
+   specified above: no italics, no tables, no blockquotes,
+   no code fences, no horizontal rules, no links, no
+   images, no nested lists.
+
+9. Use UTF‑8 encoding for all Spanish text. Preserve
+   accents. Do NOT strip or convert them to ASCII.
+
+10. Do NOT wrap the output in a code fence. Do NOT start
+    or end the response with three backticks. Output raw
+    Markdown text only.
+
+11. Do NOT include any commentary, preamble, explanation,
+    or reasoning before or after the lesson content.
+
+12. Separate each day's content from the next day's "#"
+    heading with exactly one blank line. Do NOT add any
+    other separator (no "---", no "***").
+#END RULES: MARKDOWN_LAYOUT
 
 #BEGIN SECTION: DAILY_STORIES
 +++ START WEEK XX +++

@@ -5,71 +5,58 @@ import re
 
 import commonFunctions as common
 
-def _split_main_html_by_day(main_html):
-    # Locate each day heading and return (day_name, chunk_text) in order.
-    # The main lesson template does not reliably pin a fixed heading level
-    # OR exact heading content for day names - observed as <h1>, <h2>, and
-    # with trailing text (e.g. "Monday - Do / Did") across different runs.
-    # This matches the day name at the START of any h1-h4 heading.
-    day_pattern = re.compile(
-        r"<h[1-4][^>]*>\s*(MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\b",
-        flags=re.IGNORECASE
-    )
-    markers = [(m.start(), m.group(1).upper()) for m in day_pattern.finditer(main_html)]
-    markers.sort(key=lambda x: x[0])
-    chunks = []
-    for idx, (pos, day) in enumerate(markers):
-        end = markers[idx + 1][0] if idx + 1 < len(markers) else len(main_html)
-        chunks.append((day, main_html[pos:end]))
-    return chunks
-
-def extract_day_vocab(main_html):
-    # Look for a Vocabulary heading within each day's own chunk, so the
-    # label attached to each vocab list is the day it actually belongs to.
+def extract_day_vocab(main_markdown):
+    # Look for a "## Vocabulary" section within each day's own block, so
+    # the vocab handed to the Five-Minute prompt is labeled with the day
+    # it actually belongs to. Reuses common.split_markdown_days() - the
+    # same day-splitting logic generateMain.py's own validation uses, so
+    # this stays in sync automatically if that function's day-heading
+    # regex ever changes.
     vocab_manifest = []
-    for day, chunk in _split_main_html_by_day(main_html):
+    day_blocks = common.split_markdown_days(main_markdown)
+    for day in common.ALL_DAYS:
+        chunk = day_blocks.get(day)
+        if not chunk:
+            continue
         vocab_match = re.search(
-            r"<h[1-4][^>]*>\s*Vocabulary(?: Review)?\s*</h[1-4]>(.*?)(?=<h[1-4]|$)",
-            chunk, flags=re.DOTALL | re.IGNORECASE
+            r"(?ms)^##\s*Vocabulary\s*$(.*?)(?=^##\s|\Z)",
+            chunk
         )
         if not vocab_match:
-            print(f"WARNING: no Vocabulary block found for {day}; Five-Minute vocab for {day} will be empty.")
+            print(f"WARNING: no Vocabulary section found for {day}; Five-Minute vocab for {day} will be empty.")
             continue
-        text = re.sub(r"<[^>]+>", "", vocab_match.group(1)).strip()
+        text = vocab_match.group(1).strip()
         vocab_manifest.append(f"#BEGIN {day}_VOCAB\n{text}\n#END {day}_VOCAB\n")
     return "\n".join(vocab_manifest)
 
-def extract_day_story(main_html):
-    # Returns the English half of each day's Story table as a manifest
-    # the Five-Minute prompt can compress. The Story table can appear
-    # immediately after the day heading or after other sections (e.g. a
-    # Warm-Up block), so it's located within each day's own chunk.
+def extract_day_story(main_markdown):
+    # Returns ONLY the English half of each day's Story section (per
+    # MARKDOWN_LAYOUT rule 3 in MainLessonTemplate.txt: "**English:**"
+    # ... "**Spanish:**" ... ), as a manifest the Five-Minute prompt can
+    # compress. The Five-Minute lesson never includes a Spanish mini-story,
+    # so there's no reason to hand the model the Spanish half at all.
     manifest = []
-    for day, chunk in _split_main_html_by_day(main_html):
+    day_blocks = common.split_markdown_days(main_markdown)
+    for day in common.ALL_DAYS:
+        chunk = day_blocks.get(day)
+        if not chunk:
+            continue
         story_match = re.search(
-            r"<table>.*?<td>(.*?)</td>",
-            chunk, flags=re.DOTALL | re.IGNORECASE
+            r"(?ms)^##\s*Story\s*$.*?\*\*English:\*\*\s*(.*?)\*\*Spanish:\*\*",
+            chunk
         )
         if not story_match:
-            print(f"WARNING: no Story block found for {day}; Five-Minute lesson for {day} will have no source story.")
+            print(f"WARNING: no Story/English block found for {day}; Five-Minute lesson for {day} will have no source story.")
             continue
-        text = re.sub(r"<[^>]+>", " ", story_match.group(1))
-        text = re.sub(r"\s+", " ", text).strip()
+        text = re.sub(r"\s+", " ", story_match.group(1)).strip()
         manifest.append(f"#BEGIN {day}_STORY\n{text}\n#END {day}_STORY\n")
     return "\n".join(manifest)
 
-FIVE_REQUIRED_SECTIONS = [
-    "Vocabulary Review",
-    "Grammar Focus",
-    "Mini Story",
-    "Translation Practice",
-    "Student Questions"
-]
-
 def main():
     if len(sys.argv) not in (6, 7):
-        print("Usage: python3 generateSupport.py <identifier> <main_lesson.html> <storyboard.md> <fiveMinuteTemplate.txt> <unifiedPrompt.md> [Debug|NoDebug]")
-        print("  main_lesson.html is looked up in the lessons output directory.")
+        print("Usage: python3 generateSupport.py <identifier> <main_lesson.md> <storyboard.md> <fiveMinuteTemplate.txt> <unifiedPrompt.md> [Debug|NoDebug]")
+        print("  main_lesson.md is looked up in the lessons output directory (the .md file")
+        print("  generateMain.py writes, NOT the .docx).")
         print("  storyboard.md, fiveMinuteTemplate.txt, unifiedPrompt.md are looked up in the templates directory.")
         sys.exit(1)
 
@@ -89,7 +76,7 @@ def main():
     five_template_path = os.path.join(common.weekly_template_dir, five_template_file)
     prompt_path = os.path.join(common.weekly_template_dir, prompt_file)
 
-    main_html = common.read_file(main_lesson_path)
+    main_markdown = common.read_file(main_lesson_path)
     storyboard_raw = common.read_file(storyboard_path)
     five_template = common.read_file(five_template_path)
     unified_prompt = common.read_file(prompt_path)
@@ -99,11 +86,11 @@ def main():
     if weekly_corrections:
         print(f"Loaded {len(weekly_corrections)} weekly correction(s) from storyboard.")
 
-    vocab_manifest = extract_day_vocab(main_html)
-    story_manifest = extract_day_story(main_html)
+    vocab_manifest = extract_day_vocab(main_markdown)
+    story_manifest = extract_day_story(main_markdown)
 
     if not vocab_manifest.strip() or not story_manifest.strip():
-        print("ERROR: Could not extract per-day vocab and/or story from the main lesson HTML.")
+        print("ERROR: Could not extract per-day vocab and/or story from the main lesson Markdown.")
         print("This means the main lesson's day-heading or Story/Vocabulary structure")
         print("doesn't match what the extractor expects. Aborting BEFORE calling Ollama,")
         print("rather than sending it an empty prompt.")
@@ -129,23 +116,39 @@ def main():
                 f.write(str(e))
         sys.exit(1)
 
-    blocks_five = common.split_html_blocks(result_five)
+    five_markdown = common.strip_markdown_fence(result_five if isinstance(result_five, str) else str(result_five))
 
-    if len(blocks_five) == 0:
-        if common.looks_truncated(result_five if isinstance(result_five, str) else str(result_five)):
-            print("ERROR: The Five-Minute response was cut off mid-generation (opened <html> but never closed it).")
-            print("Check the 'done_reason' printed above and debug_five_metadata.txt.")
-        else:
-            print("ERROR: No <html> block found in Five-Minute lesson.")
+    # Five-Minute always covers whatever days had source material - not
+    # necessarily all seven (extraction warnings above already flagged any
+    # day that's missing vocab/story), so check against the days we
+    # actually supplied rather than assuming a full week.
+    supplied_days = [d for d in common.ALL_DAYS if f"#BEGIN {d}_STORY" in story_manifest]
+
+    day_blocks = common.split_markdown_days(five_markdown, supplied_days)
+    if len(day_blocks) == 0:
+        print("ERROR: No day headings found in the Five-Minute response at all "
+              f"(expected: {', '.join(supplied_days)}).")
         if debug_flag:
             with open("debug_five_raw_response.txt", "w", encoding="utf-8") as f:
-                f.write(result_five if isinstance(result_five, str) else str(result_five))
+                f.write(five_markdown)
         sys.exit(1)
 
-    five_html = blocks_five[0]
-    five_html = common.apply_corrections(five_html, corrections)
-    common.validate_html(five_html, "Five-Minute lesson", FIVE_REQUIRED_SECTIONS)
-    common.write_html(five_html, identifier, "FIVEMIN")
+    missing_days = [d for d in supplied_days if d not in day_blocks]
+    if missing_days:
+        print(f"WARNING: Five-Minute lesson is missing day(s): {', '.join(missing_days)}")
+
+    if common.markdown_looks_truncated(five_markdown, supplied_days, common.SUPPORT_REQUIRED_SECTIONS):
+        print("WARNING: Five-Minute response may be cut off mid-generation "
+              "(the last supplied day is missing one or more required sections).")
+        print("Check the 'done_reason' printed above and debug_five_metadata.txt.")
+
+    common.check_day_heading_format(five_markdown, days=supplied_days, label="Five-Minute")
+
+    five_markdown = common.apply_corrections(five_markdown, corrections)
+    common.validate_markdown(five_markdown, "Five-Minute lesson", common.SUPPORT_REQUIRED_SECTIONS)
+
+    common.write_markdown(five_markdown, identifier, "FIVEMIN")
+    common.convert_markdown_to_docx(five_markdown, identifier, "FIVEMIN")
 
     print("Done.")
 
