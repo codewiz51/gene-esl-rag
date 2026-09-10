@@ -32,18 +32,11 @@ Weekly Verb Focus: [WEEKLY VERB FOCUS]
 #END RULES: VERB_FOCUS
 
 #BEGIN RULES: LANGUAGE_LEVEL
-Target level: A2 → A2+ (light B1 vocabulary allowed).
+Target level: A2 → A2+ (some B1 vocabulary allowed).
 Use simple present, simple past, going to, can, should.
-Avoid present perfect, past perfect, conditionals.
-
-Subordination is allowed at the A2+ ceiling:
-  At most 2 subordinate clauses per long-day story.
-  Allowed connectives: when, after, because, while.
-  One "if" per long-day story is acceptable
-   (simple first conditional,
-  e.g. "If she is late, she takes the bus alone.").
-Short days (Tue, Wed, Sun): 0 subordinate clauses.
-The story is short enough to be flat.
+Avoid present perfect, past perfect, and complex
+conditionals. Simple first conditional is fine
+(e.g. "If she is late, she takes the bus alone.").
 
 Avoid long medical explanations.
 
@@ -160,6 +153,27 @@ content, not padding.
 In the Spanish text prefer active voice. Avoid passive constructions like "es traído", "es examinado", "es llevado". Use "Traen a...", "Llevan a...", "Lo examinan..." instead.
 #END RULES: SPANISH_VOICE
 
+#BEGIN RULES: HINTS_AND_BLANKS
+Every Warmup blank, every Grammar Pattern Practice blank, and
+every Student Questions item MUST include exactly one hint.
+
+Hint format: a single word or one short fixed phrase, in
+parentheses, placed immediately after the blank or after the
+question mark.
+  Blank example:    I ___ (hint) carefully before I leave.
+  Question example: What should you do when there is an air
+                     quality alert? (stay inside)
+
+Hints MUST be exactly one word, or one short fixed phrase
+(e.g. "should + verbo"). Never a list of options. Never a
+full sentence. Never a synonym pair.
+
+Every blank in Warmup and Grammar Pattern Practice MUST have
+exactly one correct answer. Do NOT write a blank that could be
+correctly filled by more than one item from that day's
+vocabulary list.
+#END RULES: HINTS_AND_BLANKS
+
 #BEGIN RULES: NARRATIVE_REWRITE
 Rewrite all Story Requirements bullets
 into a full narrative.
@@ -262,17 +276,13 @@ HUMOR IS WELCOME WHEN NATURAL:
  The model judges this per story.
 
 THE STUDENT IS A SPEAKER, NOT AN OBSERVER:
- This is the most important quality
- rule in the file.
  The student is a Cuban woman, 28–36,
  a single mother, formerly university-track,
  now working as a house cleaner.
  She is not a passive reader of
  Marisol's life. She is in the room.
  She speaks. She thinks. She chooses.
- At least one task per day must put
- her in first person.
- END RULES: STORY_QUALITY
+#END RULES: STORY_QUALITY
 
 #BEGIN RULES: SECTION_CONTENT
 This block governs what text appears
@@ -291,6 +301,7 @@ Warmup:
   "I ___ carefully."
   "I ___ to be a good worker when I am tired."
  The blank "___" should relate to the day's verb focus or vocabulary.
+ Every blank MUST include a hint. See HINTS_AND_BLANKS.
  
 Vocabulary:
  4–6 bilingual word/idiom pairs.
@@ -306,6 +317,7 @@ Grammar:
   The student fills in.
   The frame must use the week's verb
   focus.
+  Every blank MUST include a hint. See HINTS_AND_BLANKS.
  Example (illustrative only — use the
 current week's verb focus, not the
 words shown here):
@@ -349,7 +361,8 @@ Student Questions:
  - Did you go grocery shopping today?
  - Did you assess a patient today?
  - Did you send a prescription order to the pharmacy?
-# END RULES: SECTION_CONTENT
+ Every question MUST include a hint. See HINTS_AND_BLANKS.
+#END RULES: SECTION_CONTENT
 
 # CHANGED: HTML_LAYOUT retired and replaced with MARKDOWN_LAYOUT.
 #BEGIN RULES: MARKDOWN_LAYOUT
@@ -502,6 +515,9 @@ Letia – LPN
 Amanda – clinic receptionist, also has a hobby, a comidian in local comedy clubs.
 Rod – UPS driver, also has an interest of Marisol.
 Jason - Dra. Pérez's son, part time bookkeeper for the clinic, handle insurance coding.  Born om the US.
+Carla - the clinic's part-time medical assistant
+Crystal - the clinic's new Physician Assistant who will be covering weekends going forward.
+Ernesto - Marisol's brother, also a Cuban immigrant
 #END DICTIONARY: CHARACTERS
 
 #BEGIN DICTIONARY: LANGUAGE_CORRECTIONS

@@ -69,19 +69,37 @@ Spanish MUST follow Cuban register rules:
 #END RULES: CUBAN_SPANISH_REGISTER
 
 #BEGIN RULES: LANGUAGE_LEVEL
-Target level: A2 → A2+ (light B1 vocabulary allowed).
+Target level: A2 → A2+. It's a 5-minute quick lesson.
+This applies to every section of the document,
+not only the Mini Story.
 Use simple present, simple past, going to, can, should.
-Avoid present perfect, past perfect, conditionals.
-Avoid subordinate clauses (when, while, after, before).
+Avoid present perfect, past perfect. Simple first
+conditional is fine (e.g. "If she is late, she
+takes the bus alone.").
+Keep sentences concrete. Avoid comparative
+phrasing ("like a suggestion"), idiomatic time
+expressions ("the moment the alert sounds"), and
+abstract descriptions of grammar itself (what a
+word "means," "carries," or "invites"). Explain
+what a character does, not what a word represents.
 Avoid long medical explanations.
 #END RULES: LANGUAGE_LEVEL
+
+#BEGIN RULES: QUESTION_HINTS
+Every Student Questions item MUST include exactly one hint: a
+single word or one short fixed phrase, in parentheses,
+immediately after the question mark.
+  Example: What did Marisol do after her shift? (drink water)
+
+Hints MUST be one word or one short fixed phrase. Never a list
+of options, never a full sentence.
+#END RULES: QUESTION_HINTS
 
 #BEGIN RULES: SENTENCE_CONTROL
 Mini-story sentences MUST:
   - be 8–12 words
   - contain at most ONE comma
   - use ONLY these connectors: and, but, because
-  - avoid subordinate clauses
 #END RULES: SENTENCE_CONTROL
 
 #BEGIN RULES: TRAILING_ADVERB
@@ -132,10 +150,10 @@ If rules conflict:
 6. TRAILING_ADVERB
 7. CHARACTER_DICTIONARY
 8. CUBAN_SPANISH_REGISTER
+9. QUESTION_HINTS
 Dictionary corrections apply AFTER generation.
 #END RULES: RULE_PRIORITY
 
-# CHANGED: HTML rules retired and replaced with Markdown rules.
 #BEGIN RULES: FIVEMINUTE_FORMAT
 You MUST generate one Five-Minute lesson block for EACH DAY
 present in the supplied story/vocab material below this template.
@@ -212,6 +230,7 @@ anywhere in the output. This is not HTML.
 7. Student Questions:
    - Numbered Markdown list ("1.", "2.").
    - EXACTLY 2 questions: one comprehension, one personal.
+   - Each question MUST include a hint. See QUESTION_HINTS.
 
 8. Separate each day's content from the next day's "#" heading
    with a blank line, then a line containing only "---" (a
