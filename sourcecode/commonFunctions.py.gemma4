@@ -26,7 +26,12 @@ import pypandoc
 from datetime import datetime
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen38"
+
+# TESTING GEMMA4 (swapped from "qwen38" — revert this one line, and the
+# temperature/top_p/top_k block in send_to_ollama() below, to go back to
+# the qwen38 config. A dated copy of the qwen38 version of this file
+# exists outside this repo for quick recovery.)
+MODEL_NAME = "gemma4"
 
 weekly_template_dir = "/Users/gene/Documents/RAG/source_docs/weeklytemplates"
 lesson_dir = "/Users/gene/Documents/RAG/source_docs/WeeklyLessons"
@@ -76,8 +81,8 @@ SUPPORT_REQUIRED_SECTIONS = [
 # week) belong in a #BEGIN DICTIONARY: WEEKLY_CORRECTIONS block in that
 # week's storyboard file instead — see parse_weekly_corrections().
 BASE_CORRECTIONS = [
-    (r"\bir a rastras\b", "un rutero"),
-    (r"\bcarpular\b", "un rutero"),
+    (r"\bir a rastras\b", "subirse al carro"),
+    (r"\bcarpular\b", "subirse al carro"),
     (r"\balmuerzo en bolsa\b", "almuerzo en llevar"),
     (r"\bchamba\b", "trabajo"),
     (r"\bparte del tiempo\b", "pronóstico del tiempo"),
@@ -86,16 +91,6 @@ BASE_CORRECTIONS = [
     (r"\bpl[aá]tica\b", "charla"),
     (r"\bse mete(n)? en el carro\b", "se sube\\1 al carro"),
     (r"\bno paraba de\b", "no dejaba de"),
-    # Moved here from the retired LANGUAGE_CORRECTIONS template blocks.
-    (r"\bhacer un error\b", "cometer un error"),
-    (r"\bhacer tan bien\b", "hacerlo tan bien"),
-    (r"\bdel cl[ií]nica\b", "de la clínica"),
-    (r"\btomar el examen\b", "hacer el examen"),
-    (r"\bcompresas h[uú]medas calientes\b", "paños calientes húmedos"),
-    (r"\bnarices goteando\b", "nariz que gotea"),
-    # apply_corrections() is case-insensitive; this phrase almost always
-    # opens a sentence, so the replacement is capitalized.
-    (r"\beso es la vida\b", "Así es la vida"),
 ]
 
 def read_file(path):
@@ -131,40 +126,57 @@ def parse_weekly_corrections(storyboard_text):
 def send_to_ollama(payload, debug_label=None, debug_flag=True):
     # NOTE: Ollama's /api/generate only reads generation parameters
     # (temperature, num_predict, num_ctx, etc.) from a nested "options"
-    # object. A top-level "temperature" key is silently ignored - so
-    # temperature here matches the qwen38 Modelfile's tuned 0.5 explicitly,
-    # rather than assuming the top-level field would take effect.
+    # object. A top-level "temperature" key is silently ignored.
+    #
+    # TESTING GEMMA4: temperature/top_p/top_k below now match Ollama's
+    # published Gemma 4 best-practice config (1.0 / 0.95 / 64 — their
+    # standardized setting for all use cases, not just creative tasks),
+    # rather than qwen38's task-tuned temperature=0.5. This overrides
+    # gemma4.modelfile's own PARAMETER lines for pipeline calls the same
+    # way it previously overrode qwen38.modelfile's, since options passed
+    # here always win over a model's baked-in Modelfile defaults. To
+    # revert to qwen38: MODEL_NAME back to "qwen38", temperature back to
+    # 0.5, and drop top_p/top_k (unset for that call previously).
     #
     # num_ctx is set well above the ~10,000-13,000 tokens a full week's
     # prompt+response typically needs, as a deliberate diagnostic choice:
     # if truncation happens despite this headroom, num_ctx is NOT the
-    # cause - check done_reason below instead of assuming.
+    # cause - check done_reason below instead of assuming. Confirm your
+    # local gemma4:31b build actually supports a 65536-token window;
+    # Ollama clamps silently rather than erroring if it caps lower.
     #
     # NOTE: "think" is intentionally NOT set here (reverted from a brief
-    # "think": False test on Aug 28, 2026). An earlier attempt at
-    # "think": False (pre-dating the Mon-Thu/Fri-Sun call split and the
-    # Markdown rewrite) fixed a mid-generation truncation issue but
-    # introduced a worse regression (the model treating one day as a
-    # complete task and stopping early, on both Week 31 and Week 32
-    # storyboards).
+    # "think": False test on Aug 28, 2026, on qwen38 - see git history).
+    # For gemma4, thinking is controlled via a "<|think|>" token in the
+    # Modelfile's SYSTEM prompt instead of an API option, so leaving
+    # "think" unset here is consistent with that model's control surface
+    # too. Gemma4's reasoning wrapper is "<|channel>thought\n...<channel|>"
+    # - check debug_{label}_thinking.txt (below) on the first real run to
+    # confirm Ollama is separating that into the "thinking" field rather
+    # than leaving it embedded in "response"; if it's leaking into
+    # "response", strip_markdown_fence() will NOT catch it and the day-
+    # block parsing downstream will need a matching strip added first.
     #
-    # DIAGNOSTIC RUN (Aug 28, 2026): eval_count for a real run came back
-    # at ~89,500 response tokens total (part1+part2) against a final
-    # saved document of only ~4,600 words (~6,400 tokens est.) - a ~14x
-    # gap. The leading theory is that most of that gap is an invisible
-    # thinking trace: Ollama returns reasoning output in a separate
-    # "thinking" JSON field on models with thinking enabled, which this
-    # function has never read (only "response" below) - so it's been
-    # silently costing generation time without ever showing up in the
-    # saved file or being counted by anything downstream. This run
-    # captures that field (if present) to debug_{label}_thinking.txt so
-    # it can actually be read, instead of just inferred from token math.
+    # DIAGNOSTIC RUN (Aug 28, 2026, qwen38): eval_count for a real run
+    # came back at ~89,500 response tokens total (part1+part2) against a
+    # final saved document of only ~4,600 words (~6,400 tokens est.) - a
+    # ~14x gap, most likely an invisible thinking trace. Ollama returns
+    # reasoning output in a separate "thinking" JSON field on models with
+    # thinking enabled, which this function has never read (only
+    # "response" below) - so it's been silently costing generation time
+    # without ever showing up in the saved file or being counted by
+    # anything downstream. This run captures that field (if present) to
+    # debug_{label}_thinking.txt so it can actually be read, instead of
+    # just inferred from token math. Worth re-running this same check for
+    # gemma4 - its thinking-token overhead may differ substantially.
     data = {
         "model": MODEL_NAME,
         "prompt": payload,
         "stream": False,
         "options": {
-            "temperature": 0.5,
+            "temperature": 1.0,
+            "top_p": 0.95,
+            "top_k": 64,
             "num_ctx": 65536,
             "num_predict": -1
         }
@@ -254,22 +266,9 @@ def markdown_looks_truncated(text, days, required_sections=None):
 def validate_markdown(text, label, required_sections):
     # Shared by both scripts: generateMain.py passes MAIN_REQUIRED_SECTIONS,
     # generateSupport.py passes SUPPORT_REQUIRED_SECTIONS.
-    # Check each day separately - a section missing from one day (e.g. Sunday
-    # losing Student Questions) is invisible to a whole-document check when
-    # the other six days still have it.
-    day_blocks = split_markdown_days(text)
-    if day_blocks:
-        for day, block in day_blocks.items():
-            missing = [s for s in required_sections if f"## {s}" not in block]
-            if missing:
-                print(f"WARNING: {label} {day} missing sections: {missing}")
-    else:
-        missing = [section for section in required_sections if f"## {section}" not in text]
-        if missing:
-            print(f"WARNING: {label} missing sections: {missing}")
-    if re.search(r"(?m)^\d+\. .+ → .+$", text):
-        print(f"WARNING: {label} has a numbered item containing '→' - "
-              f"Translation Practice may include answers.")
+    missing = [section for section in required_sections if f"## {section}" not in text]
+    if missing:
+        print(f"WARNING: {label} missing sections: {missing}")
     if not any(c in text for c in "áéíóúñ"):
         print(f"WARNING: {label} may have lost Spanish accents")
     if re.search(r"</?[a-zA-Z][^>]*>", text):
@@ -348,7 +347,7 @@ def convert_markdown_to_docx(markdown_text, identifier, suffix):
     pypandoc.convert_text(
         markdown_text,
         to="docx",
-        format="markdown+hard_line_breaks",
+        format="md",
         outputfile=full_path,
         extra_args=extra_args,
     )

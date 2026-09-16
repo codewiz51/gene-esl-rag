@@ -14,44 +14,23 @@ Do NOT output anything except the required Markdown.
 WHAT THIS PROMPT CONTROLS
 ============================================================
 
-The template (FiveMinuteTemplate.txt) defines:
+The rule blocks above this prompt define:
 
 • Language level
-• Sentence rules
-• Trailing adverb rules
-• Markdown layout rules
+• Mini Story alignment and event scope
+• Question hint rules
+• Five-Minute Format (section structure, counts, Markdown layout)
 • Character dictionary
 • Cuban register dictionary
-• Corrections dictionary
-• Translation practice rules
-• Vocabulary reuse rules ("keep first four" rule)
 
-Below the template, this prompt also supplies each day's real
+Below these rules, this prompt also supplies each day's real
 source material, drawn directly from that week's completed main
 lesson:
 
 • #BEGIN DAYNAME_STORY / #END DAYNAME_STORY — that day's actual
-  English story, already written.
+English story, already written.
 • #BEGIN DAYNAME_VOCAB / #END DAYNAME_VOCAB — that day's actual
-  vocabulary list.
-
-============================================================
-RULE PRIORITY
-============================================================
-
-If rules conflict, follow this priority order:
-
-1. Per‑day story source (#BEGIN DAYNAME_STORY blocks)
-2. Per‑day vocabulary source (#BEGIN DAYNAME_VOCAB blocks)
-3. Template structural rules (FiveMinuteTemplate.txt)
-4. Sentence Control rules
-5. Trailing Adverb rules
-6. Character Dictionary
-7. Cuban Spanish Register
-8. Corrections dictionary (applied after generation)
-
-The dictionary is ONLY for correction.
-Do NOT use any "wrong" forms as vocabulary.
+vocabulary list.
 
 ============================================================
 SOURCE MATERIAL RULES
@@ -61,15 +40,12 @@ The Mini Story for each day MUST be based ONLY on that day's
 #BEGIN DAYNAME_STORY block. This is the actual main lesson story
 for that day, already written in English.
 
-Do NOT invent events, characters, or details not present in that
-day's story block.
-Do NOT use a day's story block for any other day.
-
 Vocabulary for each day MUST come ONLY from that day's
 #BEGIN DAYNAME_VOCAB block.
 
-Do NOT select vocabulary from any other day.
-Do NOT invent new vocabulary.
+See PER_DAY_STORY_SOURCE, PER_DAY_VOCAB_SOURCE, and
+MINI_STORY_EVENT_SCOPE above for the full constraints
+governing this source material.
 
 ============================================================
 FIVE-MINUTE LESSON REQUIREMENTS
@@ -80,19 +56,6 @@ LESSON — one block per day supplied in the source material above
 (typically all seven: Monday, Tuesday, Wednesday, Thursday,
 Friday, Saturday, Sunday, but only the days that were actually
 supplied).
-
-• MUST reuse vocabulary from that day's supplied vocabulary list
-• MUST NOT introduce new vocabulary
-• MUST follow the deterministic "keep first four items" rule
-• MUST follow Translation Practice counts exactly
-• MUST follow Sentence Control rules
-• MUST follow Character Dictionary
-• MUST follow Cuban Register
-• MUST follow Trailing Adverb rules
-• MUST follow Markdown structure rules
-• MUST NOT include Spanish versions of the mini-story
-• MUST NOT include commentary
-• MUST NOT include any HTML tags
 
 ============================================================
 OUTPUT RULES
@@ -106,8 +69,6 @@ Do NOT include extra text.
 Do NOT include reasoning.
 Do NOT include dictionary entries.
 Use UTF‑8 Spanish with correct accents.
-Follow FIVEMINUTE_FORMAT in the template exactly, including the
-day-heading format and section-heading spelling.
 
 ============================================================
 END OF UNIFIED PROMPT — FIVE-MINUTE

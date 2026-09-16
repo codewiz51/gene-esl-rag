@@ -14,12 +14,9 @@ Do NOT output anything except the required Markdown.
 WHAT THIS PROMPT CONTROLS
 ============================================================
 
-The template (WeekXX.txt) defines:
+The rule blocks above this prompt define:
 
-• Weekly rhythm
-• Verb focus
 • Language level
-• Sentence rules
 • Story length rules
 • Spanish accuracy rules
 • Markdown layout rules
@@ -27,38 +24,17 @@ The template (WeekXX.txt) defines:
 • Translation practice rules
 • Character dictionary
 • Cuban register dictionary
-• Corrections dictionary
-• Daily storyboards
-• Per‑day vocabulary blocks (=== VOCAB DAY ===)
+• Each day's Story Requirements and per-day vocabulary
+(=== VOCAB DAY === blocks)
 
-The storyboard content injected into the template is the source
-material for each day. Rewrite each day's storyboard into a full
-narrative according to the template — do not copy bullets verbatim.
-
-============================================================
-RULE PRIORITY
-============================================================
-
-If rules conflict, follow this priority order:
-
-1. Per‑day vocabulary blocks (=== VOCAB DAY === in the storyboard)
-2. Template structural rules (WeekXX.txt)
-3. Vocabulary reuse rules
-4. Sentence Control rules
-5. Trailing Adverb rules
-6. Character Dictionary
-7. Cuban Spanish Register
-8. Corrections dictionary (applied after generation)
-
-The dictionary is ONLY for correction.
-Do NOT use any "wrong" forms as vocabulary.
+Rewrite each day's Story Requirements into a full narrative
+according to the rules above — do not copy them verbatim.
 
 ============================================================
 VOCABULARY SOURCE RULES
 ============================================================
 
-Vocabulary MUST come ONLY from the per‑day vocab blocks in the
-storyboard.
+Vocabulary MUST come ONLY from that day's === VOCAB DAY === block.
 
 Do NOT select vocabulary from the weekly pool.
 Do NOT import vocabulary from other days.
@@ -72,18 +48,6 @@ Produce ONE Markdown document containing the FULL WEEK LESSON —
 all seven days: Monday, Tuesday, Wednesday, Thursday, Friday,
 Saturday, Sunday.
 
-Rewrite each day's storyboard into a full narrative.
-Follow ALL template rules including:
-
-• Sentence Control
-• Trailing Adverb
-• Character Dictionary
-• Cuban Register
-• Translation Practice
-• Markdown structure
-• Vocabulary rules
-• Story length rules
-
 ============================================================
 OUTPUT RULES
 ============================================================
@@ -91,15 +55,10 @@ OUTPUT RULES
 Output ONLY plain Markdown text.
 Do NOT include any HTML tags of any kind.
 Do NOT wrap the output in a code fence (no ``` anywhere).
-Do NOT include commentary.
-Do NOT include extra text before or after the lesson.
-Do NOT include reasoning.
-Do NOT include dictionary entries.
-Do NOT include the weekly vocab pool.
-Use UTF‑8 Spanish with correct accents.
-Follow MARKDOWN_LAYOUT in the template exactly, including the
-day-heading format, section-heading spelling, and the Story
-section's English/Spanish structure.
+Do NOT include commentary, reasoning, or extra text before or
+after the lesson.
+Do NOT include dictionary entries or the weekly vocab pool.
+Follow MARKDOWN_LAYOUT exactly.
 
 ============================================================
 END OF UNIFIED PROMPT — MAIN

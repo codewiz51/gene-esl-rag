@@ -2,73 +2,46 @@
 WEEK XX – MASTER LESSON TEMPLATE (REVISED – MARKDOWN OUTPUT)
 ############################################################
 
-# DIFF NOTES FOR THE HUMAN READER:
-#   # CHANGED: = block was modified from the previous version
-#   # NEW:      = block did not exist in the previous version
-#   No marker   = block is unchanged
-# For a clean diff, open both files side by side in VS Code.
-# The # CHANGED: / # NEW: lines are plain comments.
-# They reach the model as prompt text.
-# Remove them if you want a leaner prompt.
-
-# CHANGED: Aug 2026 — output format migrated from HTML to Markdown.
-# HTML_LAYOUT is retired. See MARKDOWN_LAYOUT near the end of this
-# file. This also closes a real bug: the old HTML_LAYOUT block never
-# specified a day-heading format, but generateMain.py's validator
-# checked for an exact <h1>DAY</h1> match anyway. The model had no
-# rule to follow, so it settled on its own convention (<h2>Monday</h2>,
-# Title Case), and every run threw a "heading doesn't match" warning
-# against a rule that was never actually stated. MARKDOWN_LAYOUT rule 1
-# below fixes this at the source: the day-heading format is now
-# explicit and unambiguous.
-
-#BEGIN RULES: WEEKLY_RHYTHM
-The weekly rhythm MUST be supplied by the HumanReadable.md file.
-The master template MUST NOT hardcode any day‑specific topics.
-#END RULES: WEEKLY_RHYTHM
-
-#BEGIN RULES: VERB_FOCUS
-Weekly Verb Focus: [WEEKLY VERB FOCUS]
-#END RULES: VERB_FOCUS
+The weekly verb focus and day-specific content come from the
+storyboard content injected into the DAILY_STORIES section below.
+This master template MUST NOT hardcode any day-specific topics.
 
 #BEGIN RULES: LANGUAGE_LEVEL
-Target level: A2 → A2+ (some B1 vocabulary allowed).
-Use simple present, simple past, going to, can, should.
+Target level: A2 → A2+ (a day's Vocabulary list MAY
+include a B1-level target word/idiom being taught that
+week — general story prose stays A2, see NARRATIVE_REWRITE).
+Use simple present, simple past, going to, will (simple future), can, should.
 Avoid present perfect, past perfect, and complex
 conditionals. Simple first conditional is fine
-(e.g. "If she is late, she takes the bus alone.").
+(e.g. "If she is late, she will take the bus alone.").
 
 Avoid long medical explanations.
 
-AIM FOR:
-  One sentence per long-day story where the
-  character has an interior moment: she worries,
-  remembers, feels something, or makes a small
-  private decision.
-  One sentence is enough. It does not need to
-  be the last sentence.
+See NARRATIVE_REWRITE for the interior-moment
+requirement on long-day stories.
 #END RULES: LANGUAGE_LEVEL
 
-#BEGIN RULES: SENTENCE_CONTROL
-Aim for 4–16 words per sentence, don't count exactly.
-
-Allowed connectors:
-  and, but, because, so, then, also,
-  first, next, finally.
-These are all A2. Use them to vary rhythm.
-Prefer periods over commas. One comma is
-fine for a natural compound sentence using
-an allowed connector.
-
-#END RULES: SENTENCE_CONTROL
+#BEGIN RULES: SENTENCE_STYLE
+Story prose reads like a simple graded reader:
+short, plain sentences, one idea each.
+No dashes in story prose. No figurative
+language ("like a man waiting for pain
+to find him"). Say what happens.
+#END RULES: SENTENCE_STYLE
 
 #BEGIN RULES: SPANISH_ACCURACY
-Spanish MUST preserve accents (UTF‑8).
-Do NOT strip accents.
-Do NOT convert to ASCII.
-Spanish must be natural Cuban Spanish.
-Avoid literal translations.
-Use corrections dictionary when relevant.
+See MARKDOWN_LAYOUT for the accent/encoding mechanic.
+Spanish must be natural Cuban Spanish — everyday spoken
+register, not formal or literal translation.
+Two-step process: first identify what the English sentence
+means in everyday, conversational English (the way people
+actually talk, often using "get" or "have" rather than a
+more formal verb) — then render THAT meaning in natural,
+everyday Cuban Spanish. Do NOT translate the formal/literal
+English directly; translate the everyday meaning.
+The Spanish should teach the student what the English
+actually means in real Cuban conversation, not just supply
+a grammatically correct equivalent.
 Use Cuban register dictionary when relevant.
 #END RULES: SPANISH_ACCURACY
 
@@ -82,7 +55,8 @@ Long days (Mon, Thu, Fri, Sat):
  story with two filler adverbs.
 
 Short days (Tue, Wed, Sun):
- 6–8 sentences, English + Spanish.
+ 6–8 sentences on the English side;
+ the Spanish is a matching translation.
  9 is acceptable if the story needs it.
  5 is not acceptable.
 
@@ -92,12 +66,12 @@ Examples on short days: 3–4 items.
 Student questions on short days: 3–4 items.
 
 Translation Practice items:
- 8–14 words per item.
- They do NOT need to obey the story
- sentence-length rule.
- A 16-word translation item is fine.
- Translation items are analytic.
- They are not story prose.
+ One sentence per item.
+ Give ONLY the sentence to translate.
+ Do NOT include the answer or an arrow.
+ Spanish → English items are written in
+ Spanish. English → Spanish items are
+ written in English.
 
 Spanish→English: 6 items on long days,
  2 items on short days.
@@ -109,58 +83,23 @@ naturally in the story.
 #END RULES: STORY_LENGTH
 
 #BEGIN RULES: READING_TRANSLATION
-Translation Practice MUST include at least one READING-FOCUSED item per day.
-Reading-focused items MUST:
-   - use clinic-relevant vocabulary
-   - use natural English phrasing (not literal Spanish structure)
-   - include one short professional instruction or note
-   - include one short symptom or assessment description
-   - include one short lifestyle or treatment recommendation
-Spanish→English items MUST include at least one professional reading item.
-English→Spanish items MAY remain simple, but MUST include one clinic-relevant phrase.
+Translation Practice MUST include at least one READING-FOCUSED
+item per day: clinic-relevant vocabulary, natural English
+phrasing (not literal Spanish structure).
+Spanish→English items MUST include at least one professional
+reading item.
+English→Spanish items MAY remain simple, but MUST include one
+clinic-relevant phrase.
 #END RULES: READING_TRANSLATION
-
-#BEGIN RULES: TRAILING_ADVERB
-Do NOT end ANY sentence with a bare
-temporal adverb:
-  now, today, right now, this morning,
-  this afternoon, tonight,
-  ahora, hoy, en este momento,
-  en este instante.
-
-This applies to every sentence in the story,
-not just the last one.
-
-If a sentence needs a time reference to make
-sense, restructure it:
-  BAD:  "Marisol thinks he has heat
-         exhaustion now."
-  GOOD: "Marisol looks at Jeff's face
-         and thinks: heat exhaustion."
-  BAD:  "Jeff is too agitated for the
-         reading now."
-  GOOD: "Jeff keeps moving.
-         She cannot get the cuff on his arm."
-
-If the time reference is essential to
-meaning, keep it, but it must carry
-content, not padding.
-  OK: "Tomorrow she will take the 7
-       o'clock shift."
-#END RULES: TRAILING_ADVERB
-
-#BEGIN RULES: SPANISH_VOICE
-In the Spanish text prefer active voice. Avoid passive constructions like "es traído", "es examinado", "es llevado". Use "Traen a...", "Llevan a...", "Lo examinan..." instead.
-#END RULES: SPANISH_VOICE
 
 #BEGIN RULES: HINTS_AND_BLANKS
 Every Warmup blank, every Grammar Pattern Practice blank, and
 every Student Questions item MUST include exactly one hint.
 
 Hint format: a single word or one short fixed phrase, in
-parentheses, placed immediately after the blank or after the
+parentheses, placed immediately after the sentence or after the
 question mark.
-  Blank example:    I ___ (hint) carefully before I leave.
+  Blank example:    I ___ carefully before I leave. (hint)
   Question example: What should you do when there is an air
                      quality alert? (stay inside)
 
@@ -168,10 +107,19 @@ Hints MUST be exactly one word, or one short fixed phrase
 (e.g. "should + verbo"). Never a list of options. Never a
 full sentence. Never a synonym pair.
 
+For a blank, the hint is the Spanish version of the answer,
+e.g. "(tuve)" for "had". For a Student Question, the hint is
+one Spanish word or short phrase that helps her answer,
+e.g. "(cita)". A hint is never the English answer.
+
 Every blank in Warmup and Grammar Pattern Practice MUST have
 exactly one correct answer. Do NOT write a blank that could be
 correctly filled by more than one item from that day's
 vocabulary list.
+
+Every blank, filled with its answer, MUST be a correct
+English sentence.
+
 #END RULES: HINTS_AND_BLANKS
 
 #BEGIN RULES: NARRATIVE_REWRITE
@@ -188,16 +136,13 @@ transcription.
   Add one sensory detail not in the
   bullets (a sound, a smell, a texture,
   a light, a temperature).
-  Use only words already in play:
-  the day's vocabulary block, the weekly
-  verb focus, and general A2 vocabulary.
-  Do NOT import vocabulary from other
-  days.
-  Do NOT invent new vocabulary for the
-  Vocabulary list.
-  The story prose may use common words.
-  The Vocabulary section is the only
-  place vocabulary is constrained.
+  Use the day's vocabulary block and the
+  weekly verb focus where the story calls
+  for them. See Vocabulary Source Rules for
+  the cross-day import restriction.
+  Beyond that, the story prose may use any
+  common word — but aim for A2 word
+  complexity throughout.
 
 Each long-day story MUST contain:
   • One main event. Not a list of things
@@ -236,34 +181,6 @@ They do NOT add sections, styles, or
 formatting.
 They govern prose only.
 
-VARIETY ACROSS DAYS:
- No two stories in a week should share
- the same emotional register.
- Plan the week:
-  One day can be calm and domestic.
-  One day can be tense.
-  One day can be funny or wry.
-  One day can be small and quiet.
- The storyboard should show this spread.
- If the storyboard is flat, the model
- should add register variation within
- the character's voice, not invent
- new plot.
-
-WORLD EXTENDS BEYOND THE CLINIC:
- Marisol lives in a barrio.
- She has a daughter, a neighbor, errands,
- a life, a past as a university student.
- The storyboard's setting for each day
- decides whether it is a clinic day.
- A day whose storyboard is NOT set at
- the clinic MUST feel different in
- setting, rhythm, and register from a
- clinic day.
- A non-clinic day at the gym should not
- read like a clinic day with the
- patients removed.
-
 HUMOR IS WELCOME WHEN NATURAL:
  A wry aside. A small observation.
  A line of dialogue that makes you
@@ -279,9 +196,15 @@ THE STUDENT IS A SPEAKER, NOT AN OBSERVER:
  The student is a Cuban woman, 28–36,
  a single mother, formerly university-track,
  now working as a house cleaner.
- She is not a passive reader of
- Marisol's life. She is in the room.
- She speaks. She thinks. She chooses.
+ This governs Warmup and Student Questions
+ phrasing ONLY — the first-person prompts
+ must invite her to speak as herself,
+ not observe Marisol from outside.
+ She is NOT a character inside the
+ Story narrative. Marisol's interior moment
+ (NARRATIVE_REWRITE) belongs to Marisol alone;
+ the student does not get her own
+ narrative beat.
 #END RULES: STORY_QUALITY
 
 #BEGIN RULES: SECTION_CONTENT
@@ -304,7 +227,9 @@ Warmup:
  Every blank MUST include a hint. See HINTS_AND_BLANKS.
  
 Vocabulary:
- 4–6 bilingual word/idiom pairs.
+ Long days: 4–6 bilingual word/idiom pairs.
+ Short days: 3–5 bilingual word/idiom pairs
+ (see STORY_LENGTH).
  Not full sentences. Not clauses.
  
 Grammar:
@@ -361,10 +286,11 @@ Student Questions:
  - Did you go grocery shopping today?
  - Did you assess a patient today?
  - Did you send a prescription order to the pharmacy?
+ Every item MUST be phrased as a question (ending in '?').
+ Do NOT include fill-in-the-blank statements in this section.
  Every question MUST include a hint. See HINTS_AND_BLANKS.
 #END RULES: SECTION_CONTENT
 
-# CHANGED: HTML_LAYOUT retired and replaced with MARKDOWN_LAYOUT.
 #BEGIN RULES: MARKDOWN_LAYOUT
 All output MUST follow these Markdown layout rules.
 This is plain Markdown text, not HTML. Do NOT use any
@@ -421,7 +347,10 @@ HTML tags anywhere in the output.
 4. Vocabulary, Examples, Translation Practice, Student
    Questions, and Warmup MUST use numbered Markdown lists
    ("1.", "2.", "3.", ...). Do NOT use "-" or "*" bullets
-   anywhere in the document.
+   anywhere in your OUTPUT. (This rule governs the lesson
+   you produce, not this instruction document — the "•"
+   markers in NARRATIVE_REWRITE above are formatting for
+   you to read, not a pattern to reproduce.)
 
 5. Grammar's Pattern Practice items also use a numbered
    Markdown list, continuing directly after the grammar
@@ -512,34 +441,34 @@ Donna - Marisa's daughter, age 12,  friends with Camy
 Dra. Doris Pérez – clinic doctor
 Rosie – coworker
 Letia – LPN
-Amanda – clinic receptionist, also has a hobby, a comidian in local comedy clubs.
-Rod – UPS driver, also has an interest of Marisol.
-Jason - Dra. Pérez's son, part time bookkeeper for the clinic, handle insurance coding.  Born om the US.
+Amanda – clinic receptionist, also has a hobby as a comedian in local comedy clubs.
+Rod – UPS driver, also has an interest in Marisol.
+Jason - Dra. Pérez's son, part time bookkeeper for the clinic, handles insurance coding. Born in the US.
 Carla - the clinic's part-time medical assistant
 Crystal - the clinic's new Physician Assistant who will be covering weekends going forward.
-Ernesto - Marisol's brother, also a Cuban immigrant
-#END DICTIONARY: CHARACTERS
+Ernesto - Marisol's brother, also a Cuban immigrant. Married to Virginia.
+Virginia - Marisol's sister-in-law, sometimes picks up Camy and Donna from school. Married to Ernesto.
 
-#BEGIN DICTIONARY: LANGUAGE_CORRECTIONS
-hacer un error → cometer un error
-hacer tan bien → hacerlo tan bien
-del clínica → de la clínica
-tomar el examen → hacer el examen
-compresas húmedas calientes → paños calientes húmedos
-plática → charla
-moqueo → moco
-moquito → moco
-parte del tiempo → pronóstico del tiempo
-ir a rastras → irse en carro juntos / carpool
-carpular → irse en carro juntos / carpool
-narices goteando → nariz que gotea
-#END DICTIONARY: LANGUAGE_CORRECTIONS
+MARISOL/ROD TONE NOTE: This is a light-hearted, occasional
+beat, not a developing storyline — do NOT escalate it week
+to week or let it become a main event (see NARRATIVE_REWRITE).
+Purpose: a small, funny, relatable moment that also gently
+shows how hard it is to date or maintain a relationship on
+a busy single mother's schedule — a missed chance to talk,
+a rushed hello, a text she means to answer and doesn't get
+to. Never soap-opera stakes. The target reader is in the
+same situation (young, single, raising kids) and should see
+herself in it, not a plot she's watching from outside.
+#END DICTIONARY: CHARACTERS
 
 #BEGIN DICTIONARY: CUBAN_REGISTER
 "pa'" = "para" (informal, keep)
 "pa'l" = "para el" (informal, keep)
 "pa' la" = "para la" (informal, keep)
-"carpool" = "irse en carro juntos" or keep "carpool" as loanword
+"carpool" (US concept) has no 1:1 Cuban equivalent = use "un rutero"
+  (a private driver hired to run a daily route) or "alquilar/pagar
+  un carro" — NOT "irse en carro juntos," which reads as literal
+  translation, not how this is actually described in Cuban Spanish
 "lonchera" = lunchbox (container), NOT the meal
 "almuerzo en bolsa" = sack lunch
 "desvanecimiento" / "desmayo" = syncope

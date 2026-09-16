@@ -12,40 +12,21 @@ It MUST follow the structure and rules below.
 OUTPUT FORMAT (MARKDOWN REQUIRED)
 ============================================================
 
-# CHANGED: Aug 2026 — output format migrated from HTML to Markdown,
-# mirroring the same change already made to MainLessonTemplate.txt.
-# See FIVEMINUTE_FORMAT below for the new rules. The day-heading
-# format is explicit this time for the same reason it was fixed on
-# the Main side: an unspecified rule is not a rule the model can
-# follow.
-
-#BEGIN DICTIONARY: LANGUAGE_CORRECTIONS
-hacer un error → cometer un error
-hacer tan bien → hacerlo tan bien
-del clínica → de la clínica
-tomar el examen → hacer el examen
-compresas húmedas calientes → paños calientes húmedos
-plática → charla
-moqueo → moco
-moquito → moco
-parte del tiempo → pronóstico del tiempo
-narices goteando → nariz que gotea
-#END DICTIONARY: LANGUAGE_CORRECTIONS
-
-#BEGIN RULES: DICTIONARY_SAFETY
-The dictionary above is ONLY for correction.
-The model MUST NOT use any "wrong" forms as vocabulary.
-The model MUST NOT treat dictionary entries as source vocabulary.
-#END RULES: DICTIONARY_SAFETY
-
 #BEGIN RULES: MINI_STORY_ALIGNMENT
 The Mini Story MUST be a compressed retelling of the main lesson's story for that day.
 It MUST use the same characters, setting, and events.
-It MUST NOT invent new characters.
+The real rule on characters: do NOT introduce a character
+who does not appear in that day's own #BEGIN DAYNAME_STORY
+block below. A character who DOES appear there is valid
+even if she is not yet listed in CHARACTER_DICTIONARY —
+that dictionary is a running reference, not an exhaustive
+whitelist (see CHARACTER_DICTIONARY). What you may NOT do
+is invent a character who appears in neither the day's
+story block nor the dictionary.
 It MUST NOT invent new events.
 It MUST NOT change the setting.
 It MUST NOT add details that do not appear in the main lesson.
-It MUST compress the main story into 4–6 sentences (8–12 words each).
+It MUST compress the main story into 4–6 sentences.
 #END RULES: MINI_STORY_ALIGNMENT
 
 #BEGIN RULES: MINI_STORY_EVENT_SCOPE
@@ -65,16 +46,19 @@ Spanish MUST follow Cuban register rules:
   - "lonchera" = lunchbox only
   - "almuerzo en llevar" = sack lunch
   - "desvanecimiento" / "desmayo" = syncope
-  - "carpool" = "ir en el carro de alguien" or "subirse al carro"
+  - "carpool" (US concept) has no 1:1 Cuban equivalent = use "un rutero"
+    (a private driver hired to run a daily route) or "alquilar/pagar
+    un carro" — NOT "irse en carro juntos," which reads as literal
+    translation, not how this is actually described in Cuban Spanish
 #END RULES: CUBAN_SPANISH_REGISTER
 
 #BEGIN RULES: LANGUAGE_LEVEL
 Target level: A2 → A2+. It's a 5-minute quick lesson.
 This applies to every section of the document,
 not only the Mini Story.
-Use simple present, simple past, going to, can, should.
-Avoid present perfect, past perfect. Simple first
-conditional is fine (e.g. "If she is late, she
+Use simple present, simple past, going to, will (simple future), can, should.
+Avoid present perfect and past perfect.
+Simple first conditional is fine (e.g. "If she is late, she
 takes the bus alone.").
 Keep sentences concrete. Avoid comparative
 phrasing ("like a suggestion"), idiomatic time
@@ -93,40 +77,34 @@ immediately after the question mark.
 
 Hints MUST be one word or one short fixed phrase. Never a list
 of options, never a full sentence.
+The hint MUST NOT be the answer. Give a Spanish word or phrase
+that helps, e.g. "(renovar la receta)".
 #END RULES: QUESTION_HINTS
 
-#BEGIN RULES: SENTENCE_CONTROL
-Mini-story sentences MUST:
-  - be 8–12 words
-  - contain at most ONE comma
-  - use ONLY these connectors: and, but, because
-#END RULES: SENTENCE_CONTROL
-
-#BEGIN RULES: TRAILING_ADVERB
-Mini-story sentences MUST NOT end with trailing adverbs such as:
-  - hoy
-  - ahora
-  - después
-#END RULES: TRAILING_ADVERB
-
 #BEGIN RULES: CHARACTER_DICTIONARY
-Characters allowed:
- Marisol – clinic medical assistant, single mother
+Recurring characters, for correct name, spelling, and role.
+This is a running reference, not an exhaustive whitelist —
+see MINI_STORY_ALIGNMENT for the actual rule on which
+characters may appear in the Mini Story.
+Marisol – clinic medical assistant, single mother
 Camy – Marisol's daughter
+Donna – Marisa's daughter, Camy's friend
 Marisa – neighbor, energetic, walks with Marisol
 Dra. Doris Pérez – clinic doctor
 Rosie – coworker
 Letia – LPN
 Amanda – receptionist
 Rod – UPS driver
-Do NOT introduce new characters.
+Carla - the clinic's part-time medical assistant
+Crystal - the clinic's new Physician Assistant who will be covering weekends going forward.
+Ernesto - Marisol's brother, also a Cuban immigrant. Married to Virginia.
+Virginia - Marisol's sister-in-law, sometimes picks up Camy and Donna from school. Married to Ernesto.
 #END RULES: CHARACTER_DICTIONARY
 
 #BEGIN RULES: PER_DAY_VOCAB_SOURCE
 Vocabulary for each day MUST come ONLY from the
 #BEGIN DAYNAME_VOCAB / #END DAYNAME_VOCAB block for that day,
 supplied below this template.
-Do NOT select vocabulary from the weekly pool.
 Do NOT import vocabulary from other days.
 #END RULES: PER_DAY_VOCAB_SOURCE
 
@@ -139,20 +117,6 @@ Do NOT use a day's story block for any other day.
 Do NOT invent events, characters, or details not present in
 that day's story block.
 #END RULES: PER_DAY_STORY_SOURCE
-
-#BEGIN RULES: RULE_PRIORITY
-If rules conflict:
-1. PER_DAY_STORY_SOURCE
-2. PER_DAY_VOCAB_SOURCE
-3. FIVEMINUTE_FORMAT
-4. LANGUAGE_LEVEL
-5. SENTENCE_CONTROL
-6. TRAILING_ADVERB
-7. CHARACTER_DICTIONARY
-8. CUBAN_SPANISH_REGISTER
-9. QUESTION_HINTS
-Dictionary corrections apply AFTER generation.
-#END RULES: RULE_PRIORITY
 
 #BEGIN RULES: FIVEMINUTE_FORMAT
 You MUST generate one Five-Minute lesson block for EACH DAY
@@ -198,9 +162,17 @@ anywhere in the output. This is not HTML.
    - If it has fewer than 4 items, use all available items.
 
 4. Grammar Focus:
-   - Plain paragraph, 2–3 sentences, no list.
-   - Restate the weekly verb focus.
-   - Include ONE new example not already used elsewhere.
+   - Plain paragraph, 1–3 sentences, no list.
+   - Highlight one grammar point that appears naturally
+     in that day's Mini Story below. Show it through what
+     a character does.
+   - The test: a CHARACTER must be the subject doing
+     something ("Ernesto gives advice with 'should'" is
+     fine — Ernesto is the one acting). Do NOT make the
+     WORD ITSELF the subject of a definition ("'should'
+     shows obligation" or "'should' means X" is NOT
+     allowed — that is explaining what the word represents,
+     not what the character does). See LANGUAGE_LEVEL.
 
 5. Mini Story:
    - Numbered Markdown list ("1.", "2.", ...) of 4–6 sentences.
