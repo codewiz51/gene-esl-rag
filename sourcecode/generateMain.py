@@ -87,22 +87,37 @@ def extract_partial_template(template_text, days_to_keep):
         template_text = pattern.sub("", template_text)
     return template_text
 
-def check_day_heading_format(markdown_text, days=None):
-    # MARKDOWN_LAYOUT rule 1 requires day headings to be exactly "# DAY"
-    # on their own line, ALL CAPS, nothing else. This check surfaces it
-    # loudly when the model doesn't follow the rule, so drift doesn't go
-    # unnoticed. (Previously this checked for an HTML <h1>DAY</h1> match
-    # against a rule that was never actually specified in the template -
-    # see the CHANGED note at the top of MainLessonTemplate.txt.)
-    days = days or ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
-    for day in days:
-        exact = re.search(rf"(?m)^#\s+{day}\s*$", markdown_text, flags=re.IGNORECASE)
-        if not exact:
-            loose = re.search(rf"(?m)^#{{1,3}}\s*{day}\b.*$", markdown_text, flags=re.IGNORECASE)
-            if loose:
-                print(f"WARNING: {day} heading doesn't match the required '# {day}' format exactly: {loose.group(0)!r}")
-            else:
-                print(f"WARNING: {day} heading not found in expected form at all.")
+def extract_verb_focus(storyboard_text):
+    # The storyboard's "WEEKLY VERB FOCUS:" block sits above the first
+    # "# MONDAY STORYBOARD" header, so parse_storyboard_days() never sees
+    # it. The template refers to "the week's verb focus" in several rules,
+    # so pass it through explicitly. The WEEKLY VOCABULARY pool is
+    # deliberately NOT passed - the Vocabulary Source Rules forbid using it.
+    match = re.search(
+        r"(?ims)^\s*WEEKLY VERB FOCUS:\s*\n(.*?)(?:\n\s*\n|\Z)",
+        storyboard_text
+    )
+    if not match:
+        print("NOTE: no 'WEEKLY VERB FOCUS:' block found in storyboard - "
+              "the model will infer the verb focus from each day's Story Requirements.")
+        return ""
+    return match.group(1).strip()
+
+def inject_verb_focus(template_text, verb_focus):
+    # Placed right after the "+++ START WEEK ... +++" marker, so it stays
+    # inside DAILY_STORIES and survives extract_partial_template() for
+    # both part1 and part2 calls.
+    if not verb_focus:
+        return template_text
+    block = f"Weekly Verb Focus:\n{verb_focus}\n"
+    new_text, count = re.subn(
+        r"(\+\+\+ START WEEK .*? \+\+\+\n)",
+        lambda m: m.group(1) + "\n" + block,
+        template_text, count=1
+    )
+    if count == 0:
+        print("WARNING: '+++ START WEEK' marker not found in template - verb focus not injected.")
+    return new_text
 
 def build_part_reminder(days):
     day_list = ", ".join(d.title() for d in days)
@@ -121,7 +136,7 @@ def build_part_reminder(days):
     Do not add extra explanation, commentary, or reasoning.
     Output ONLY plain Markdown text containing ONLY the days
     listed above, following all template rules (Sentence
-    Control, Trailing Adverb, Character Dictionary, Cuban
+    Control, Trailing Time Expression, Character Dictionary, Cuban
     Register, Translation Practice, Markdown structure,
     Vocabulary rules, Story length rules). Do NOT use any
     HTML tags. Do NOT wrap the output in a code fence.
@@ -176,7 +191,7 @@ def generate_part(label, days, template_with_stories, unified_prompt, debug_flag
         print("it hit num_predict/context; 'stop' means the model ended its own turn early -")
         print("these have different causes and different fixes, so don't assume which one it is.")
 
-    check_day_heading_format(markdown_text, days=days)
+    common.check_day_heading_format(markdown_text, days=days, label=label)
     return markdown_text
 
 def main():
@@ -210,6 +225,9 @@ def main():
 
     template = template.replace("WEEK XX", f"WEEK {identifier}")
 
+    verb_focus = extract_verb_focus(storyboard)
+    template = inject_verb_focus(template, verb_focus)
+
     day_map = parse_storyboard_days(storyboard)
     template_with_stories = inject_storyboard_into_template(template, day_map)
 
@@ -221,7 +239,7 @@ def main():
     main_markdown = merge_markdown_parts(part_mds[0], part_mds[1])
     main_markdown = common.apply_corrections(main_markdown, corrections)
     common.validate_markdown(main_markdown, "main lesson", common.MAIN_REQUIRED_SECTIONS)
-    check_day_heading_format(main_markdown)
+    common.check_day_heading_format(main_markdown, label="main lesson")
 
     common.write_markdown(main_markdown, identifier, "MAIN")
     common.write_markdown_fixed(main_markdown, common.MAIN_SUPPORT_FILENAME)

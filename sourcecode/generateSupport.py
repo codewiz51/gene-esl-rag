@@ -52,6 +52,30 @@ def extract_day_story(main_markdown):
         manifest.append(f"#BEGIN {day}_STORY\n{text}\n#END {day}_STORY\n")
     return "\n".join(manifest)
 
+def extract_day_grammar(main_markdown):
+    # Returns each day's Grammar explanation paragraph (the text between
+    # "## Grammar" and "Pattern Practice:"), so the Five-Minute Grammar
+    # Focus knows the day's actual target (e.g. had/could/got on Friday)
+    # instead of guessing it from the story. The Pattern Practice items
+    # are deliberately left out.
+    manifest = []
+    day_blocks = common.split_markdown_days(main_markdown)
+    for day in common.ALL_DAYS:
+        chunk = day_blocks.get(day)
+        if not chunk:
+            continue
+        grammar_match = re.search(
+            r"(?ms)^##\s*Grammar\s*$(.*?)(?=^Pattern Practice:|^##\s|\Z)",
+            chunk
+        )
+        if not grammar_match:
+            print(f"WARNING: no Grammar section found for {day}; Five-Minute Grammar Focus for {day} has no source.")
+            continue
+        text = re.sub(r"\s+", " ", grammar_match.group(1)).strip()
+        if text:
+            manifest.append(f"#BEGIN {day}_GRAMMAR\n{text}\n#END {day}_GRAMMAR\n")
+    return "\n".join(manifest)
+
 def main():
     if len(sys.argv) not in (6, 7):
         print("Usage: python3 generateSupport.py <identifier> <main_lesson.md> <storyboard.md> <fiveMinuteTemplate.txt> <unifiedPrompt.md> [Debug|NoDebug]")
@@ -88,6 +112,7 @@ def main():
 
     vocab_manifest = extract_day_vocab(main_markdown)
     story_manifest = extract_day_story(main_markdown)
+    grammar_manifest = extract_day_grammar(main_markdown)
 
     if not vocab_manifest.strip() or not story_manifest.strip():
         print("ERROR: Could not extract per-day vocab and/or story from the main lesson Markdown.")
@@ -100,7 +125,7 @@ def main():
                 f.write(f"story_manifest ({len(story_manifest)} chars):\n{story_manifest}\n")
         sys.exit(1)
 
-    payload_five = f"{five_template}\n\n{story_manifest}\n\n{vocab_manifest}\n\n{unified_prompt}"
+    payload_five = f"{five_template}\n\n{story_manifest}\n\n{vocab_manifest}\n\n{grammar_manifest}\n\n{unified_prompt}"
 
     if debug_flag:
         with open("debug_five_prompt.txt", "w", encoding="utf-8") as f:
