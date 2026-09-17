@@ -18,6 +18,9 @@ chroma/
 __pycache__/
 *.pyc
 
+# Archived files
+_archive_20260917/
+
 # Weekly Lesson Output Ignored
 source_docs/WeeklyLessons/
 
