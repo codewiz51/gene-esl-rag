@@ -305,6 +305,16 @@ Review the full week of lessons below for PROSE JUDGMENT ISSUES ONLY:
     a real conversation? If so, revise it.
   - Does any Story paragraph use B1-level vocabulary in the prose
     (not the Vocabulary list, the prose itself)? If so, simplify it.
+  - In the Spanish text, does any line say "Estás cansada" or "Estás
+    contenta" (or similar "Estás + adjective") when a character is
+    commenting on how ANOTHER character looks or seems (e.g. observing
+    "you look tired" or "you look happy")? Cuban Spanish for that
+    specific observation is "Te ves cansada/contenta" or "Tienes cara
+    de cansada/contenta" - NOT "Estás cansada/contenta". Fix only that
+    exact pattern. Do NOT touch "Estás..." when a character is stating
+    their OWN state as fact rather than observing someone else's
+    appearance (e.g. "Estoy cansada" said by the person themselves is
+    a different case and is not this rule).
 Do NOT flag or restructure sentences ending in a time expression
 (now, today, ahora, hoy, etc.) - trailing time words are natural in
 everyday spoken Spanish and in the students' own speech; this is not

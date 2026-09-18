@@ -95,7 +95,10 @@ BASE_CORRECTIONS = [
     (r"\bnarices goteando\b", "nariz que gotea"),
     # apply_corrections() is case-insensitive; this phrase almost always
     # opens a sentence, so the replacement is capitalized.
-    (r"\beso es la vida\b", "Así es la vida"),
+    (r"\beso es la vida\b", "Así es la vida"),    
+    # From CUBAN_REGISTER dictionary - forbidden in any context.
+    (r"\bcalientito\b", "caliente"),
+    (r"¿puedo tener (un[ao]) ([a-záéíóúñ]+)\?", r"¿me puedo comer \1 \2?"),
 ]
 
 def read_file(path):
