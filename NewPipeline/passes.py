@@ -175,7 +175,16 @@ def warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_fo
         "specific day is actually about. " \
         "Write the Grammar explanation paragraph in English (max 3 sentences), plus the Pattern " \
         "Practice frame sentences in English with blanks and hints as HINTS_AND_BLANKS requires. " \
-        "A later pass translates the Grammar explanation to Spanish - do not attempt that here."
+        "A later pass translates the Grammar explanation to Spanish - do not attempt that here.\n\n" \
+        "TWO ADDITIONAL HARD RULES:\n" \
+        "1. Every Warmup blank's verb MUST come from WEEKLY_VERB_FOCUS or that day's FINALIZED_VOCAB. " \
+        "Never introduce a verb or grammar point that is not the weekly focus and not in that day's " \
+        "vocabulary (e.g. do not write a Warmup blank built around \"try,\" \"want,\" or any other verb " \
+        "outside WEEKLY_VERB_FOCUS and the day's vocabulary list, no matter how natural it sounds).\n" \
+        "2. Within a single day, every Warmup sentence and every Pattern Practice sentence MUST be " \
+        "worded differently from each other - do not reuse the same frame sentence in both sections, " \
+        "even when they test the same grammar point. They may share the same verb or hint, but the " \
+        "surrounding sentence must differ."
 
     raw = _run_pass("warmup_grammar", rules, data_text, instructions, debug_flag)
     warmup = _extract_section_per_day(raw, "Warmup")

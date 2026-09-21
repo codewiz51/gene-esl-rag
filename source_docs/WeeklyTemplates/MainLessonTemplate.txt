@@ -27,6 +27,17 @@ short, plain sentences, one idea each.
 No dashes in story prose. No figurative
 language ("like a man waiting for pain
 to find him"). Say what happens.
+
+The English half of the Story section MUST NOT contain untranslated
+Spanish words in the narration - this includes family terms like
+"tío," "mija," "abuela," etc. Use the English equivalent ("uncle,"
+"sweetie," "grandma") in English narration and English dialogue tags.
+Spanish may appear in the English Story ONLY inside a character's
+directly quoted dialogue, and only when it is a deliberate teaching
+moment the story is built around (e.g., a character saying a Spanish
+or slang word that another character does not understand, as with
+Rosie's "cheesy" moment). An incidental Spanish word dropped into
+ordinary English narration is not that - remove it.
 #END RULES: SENTENCE_STYLE
 
 #BEGIN RULES: SPANISH_ACCURACY

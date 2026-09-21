@@ -26,7 +26,7 @@ import pypandoc
 from datetime import datetime
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen38"
+MODEL_NAME = "pipeline-qwen38:latest"
 
 weekly_template_dir = "/Users/gene/Documents/RAG/source_docs/weeklytemplates"
 lesson_dir = "/Users/gene/Documents/RAG/source_docs/WeeklyLessons"
