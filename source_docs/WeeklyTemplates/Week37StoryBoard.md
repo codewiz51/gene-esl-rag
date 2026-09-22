@@ -1,188 +1,217 @@
-WEEK 36 – STORY BOARD
+WEEK 37 – STORY BOARD
 
 WEEKLY VERB FOCUS (reference only — the parser does not pass this section to the model):
-Happen - The festival happens every July in the town square. – El festival se celebra todos los julios en la plaza del pueblo. (pasar / suceder / celebrarse)
-Hurt - My knee hurts after I run. – Me duele la rodilla después de correr. (doler)
-Clean - I clean the kitchen every evening. – Limpio la cocina todas las tardes. (limpiar)
+Perform - The doctor performs the medical procedure. (Realizar)
+Complete - I complete the medical procedure. (Completar)
+Sanitize - The MA sanitizes the equipment and surfaces. (Desinfectar)
 (¿Cuándo añadimos una -s? Añadimos una -s a estos verbos cuando hablamos de he, she o it. Piensa en él, ella o usted.)
 
 # MONDAY STORYBOARD
 
-Introduce "happen" – "pasar"
+Introduce "perform" – "realizar"
 Examples:
-Something happened to Camy. – A Camy le pasó algo.
-What happened to Camy? – ¿Qué le pasó a Camy?
-Accidents happen. – Los accidentes pasan.
-("Happen" es un verbo regular. Muchas veces vas a escuchar "happened" porque los angloparlantes lo usan para hablar de cosas que ya pasaron.)
+I perform wound cleaning for a small cut. – Yo realizo la curación de una herida por un cortecito.
+She performs her duties with care. - Ella realiza sus tareas con mucho cuidado.
+The band performs every Friday night. - La banda actúa cada viernes por la noche.
+(El verbo perform tiene dos significados en español — realizar y actuar
+en esta lección vamos a ver los dos, pero nos vamos a concentrar en realizar.)
 
 # === VOCAB MONDAY ===
 
-scraped knee – rodilla raspada
-non-stick gauze pad – gasa que no se pega
-gauze tape – cinta para gasa
-tears – lágrimas
-late to school – tarde a la escuela
+fender bender - un chopecito
+traffic jam - un embotellamiento
+skit - un sketch o una escena teatral
+draw blood - extraer sangre o tomar una muestra de sangre
+procedure - procedimiento médico
+several - varios
 
 # === END VOCAB MONDAY ===
 
-1 - Monday is carpool day.
-2 - Camy and Donna go outside before school.
-3 - Camy practices a cartwheel she learned in PE.
-4 - Camy falls and scrapes her knee on a landscape stone.
-5 - Marisol hears crying and finds Camy hurt.
-6 - Marisol cleans and bandages the wound.
-7 - The accident causes tears and a torn pair of jeans.
-8 - Camy and Marisol are late because of the accident.
+1 - Monday is not Marisol's carpool day.
+2 - Camy must perform in a class skit today.
+3 - Marisol helps Camy practice her lines.
+4 - Marisa drives Donna and Camy to school.
+5 - They see a minor fender bender that causes a traffic jam.
+6 - Marisol hurries to work; she is scheduled to draw blood.
+7 - She will also assist Dra. Pérez.  
+8 - Dra. Pérez will perform several procedures today.
 
 # TUESDAY STORYBOARD
 
-Introduce "hurt" – reinforce "happen"
+Introduce "complete" – reinforce "perform"
 Examples:
-Camy hurt her knee yesterday. - A Camy le dolió la rodilla ayer.
-Camy could not participate in PE because she has a hurt knee. - Camy no pudo participar en educación física porque tiene la rodilla lastimada.
-When you hurt yourself, you have to take time to heal. - Cuando te lastimas, tienes que darte tiempo para sanar.
-What is happening here? - ¿Qué pasa aquí?
-What happened yesterday? - ¿Qué pasó ayer?
-Something will happen soon. - Algo va a pasar pronto.
+Marisol completes the procedure cleanup. - Marisol completa la limpieza del procedimiento.
+I complete the treatment room cleaning. - Completo la limpieza de la sala de tratamiento.
+She completes the insurance form. - Ella completa el formulario del seguro médico.
+Marisol completed her house budget last night. - Marisol completó su presupuesto familiar anoche.
 
 # === VOCAB TUESDAY ===
 
-strawberry – raspón, no "fresa" (una abrasión sangrante con pérdida superficial de la piel)
-participate – participar
-heal – sanar
-cheesy – cursi
+budget - presupuesto
+insurance form - formulario del seguro médico
+checkbook - libreta de cheques
+pumped - emocionado
+chill - tranquilo
 
 # === END VOCAB TUESDAY ===
 
-1 - The morning after the accident, Marisol checks Camy's knee.
-2 - The strawberry is beginning to heal and form a scab.
-3 - Marisol applies petroleum jelly and a fresh bandage.
-4 - Camy goes to school with her injured knee.
-5 - At the clinic, Rosie says the music is "cheesy."
-6 - Marisol does not know what "cheesy" means and asks Rosie to explain.
+1 - Last night, Marisol completed her budget after work.
+2 - She balanced her checkbook.
+3 - She is pumped, because it looks like she can put some money in her savings.
+4 - At the clinic, she helps a patient fill in an insurance form.
+5 - At the clinic, Rosie says it is "chill" today.
+6 - Marisol does not know what "chill" means and asks Rosie to explain.
 
 # WEDNESDAY STORYBOARD
 
-Light review of "happen" and "hurt"
+Light review of "perform" and "complete"
 Examples:
-Camy's accident happened before school. - El accidente de Camy pasó antes de la escuela.
-Accidents will happen if you are not careful. - Los accidentes pasan si no tienes cuidado.
-If you scrape your knee, it can hurt. - Si te raspas la rodilla, puede doler.
-Donna was not hurt. - A Donna no le pasó nada.
+Marisol performs a blood test on the patient. - Marisol realiza una prueba de sangre al paciente.
+The doctor performs a check-up on the patient. - El doctor realiza un chequeo al paciente.
+Marisol completes the patient’s medical chart. - Marisol completa la ficha médica del paciente.
+Dra. Pérez completes the procedure and writes the notes. - Dra. Pérez completa el procedimiento y escribe las notas.
 
 # === VOCAB WEDNESDAY ===
 
-take a Tylenol – tomarse una pastilla de Tylenol
-attend to the wound – atender la herida
-petroleum jelly – vaselina
-cheesy – cursi
+procedure - procedimiento médico
+draw blood - extraer sangre
+insurance form - formulario del seguro médico
+budget - presupuesto
 
 # === END VOCAB WEDNESDAY ===
 
-1 - Camy's knee is healing, but it still hurts.
-2 - Marisol gives Camy a Tylenol and changes the bandage.
-3 - Marisol thinks about how the accident happened.
-4 - She is thankful that no one was seriously hurt.
-5 - Marisol still does not understand why Rosie called the music "cheesy."
+1 - Marisa drove Donna and Camy to school.
+2 - They saw a fender bender and a traffic jam on the way to school.
+3 - Marisol drew blood and assisted Dra. Pérez with several procedures at the clinic.
+4 - Marisol completed her budget and balanced her checkbook after work.
+5 - Marisol helped a patient fill in an insurance form.
+6 - Rosie says Tuesday at the clinic is “chill.” Marisol wonders what it means.
 
 # THURSDAY STORYBOARD
 
-Introduce "clean" – light reinforcement of "happen" and "hurt"
-Light past and future tenses are fine where the story needs it (happened, was hurt).
+Introduce "sanitize" – light reinforcement of "perform" and "complete"
+Light past and future tenses are fine when the story needs it.
 Examples:
-I cleaned Camy's knee. - Le limpié la rodilla a Camy.
-I clean the kitchen table. - Limpio la mesa de la cocina.
-She hurt her knee. – Ella se lastimó la rodilla.
-I happen to have five dollars. – Resulta que tengo cinco dólares.
+Marisol sanitizes the collection tray, arm rests and counter tops in the treatment room. – Marisol desinfecta la bandeja de recolección, los reposabrazos y las superficies de trabajo en la sala de tratamiento.
+She will sanitize the treatment room before the next patient arrives. – Ella desinfectará la sala de tratamiento antes de que llegue el siguiente paciente.
+She performs a check of the treatment room. – Ella realiza una revisión de la sala de tratamiento.
+She completed her duties and then practiced her Patient – MA English conversation skills. – Ella completó sus tareas y luego practicó sus habilidades de conversación en inglés entre paciente y asistente.
 
 # === VOCAB THURSDAY ===
 
-get better – mejorarse
-over-the-counter – sin receta
-get it – entender
-prescription – receta
+dropping off - dejar (a alguien en un lugar)
+requisitioned - solicitó
+venipuncture - venipunción / punción venosa
+capillary - capilar
+collection tray - bandeja de recolección
+counter tops - superficies de trabajo
 
 # === END VOCAB THURSDAY ===
 
-- Marisol walks with Camy to Marisa's apartment; it's Marisa's turn to take the girls to school.
-- Camy's knee is getting better.
-- Marisol goes straight to the clinic this morning, and there are already eight cars in the lot.
-- Most of the scheduled patients will have blood drawn for analysis, and several are there for DOT checkups.
-- Mr. Reyes is there for his sciatica, and the pain is bad enough that he wants something strong.
-- Dra. Pérez tells him the clinic can only authorize over-the-counter medicine, 800 mg of ibuprofen, not a prescription painkiller.
-- Mr. Reyes: "Just ibuprofen? That's it?"
-- Marisol explains the dosage to him and hands him a printout. He leaves still grumbling, but willing to try it.
-- The afternoon is busy with school vaccinations and runny noses.
+1 - After dropping off the girls at school, Marisol drives to work.
+2 - She checks the iPad for orders and requisitions for today.
+3 - The Dr. has requisitioned two more blood samples, one is venipuncture, the other is a capillary sample.
+4 - She checks out a venipunture kit and a capillary kit from the supply cabinet.
+5 - She sanitizes the collection tray, arm rests and counter tops in the treatment room, per instructions.
+6 - She performs a check of the treatment room.
+7 - After completing her duties, she practices her Patient - MA English Conversation skills.
 
 # FRIDAY STORYBOARD
 
-Reinforce "happen," "hurt," and "clean" and past tense: happened, hurt, cleaned
-Examples:
-I happened to see my teacher at the Mall. - Se dio la casualidad de que vi a mi maestra en el centro comercial.
-A patient hurt his elbow. - Un paciente se lastimó el codo.
-I cleaned the bathroom. - Limpié el baño.
+Reinforce "sanitize" and light reinforcement of "perform" and "complete"
+Heavier use of future, present, past tenses are permitted.
+Examples: Create 2 examples for "sanitize" and one each for "perform" and "complete."
+Marisol sanitizes the wound area before applying a pressure dressing. – Marisol desinfecta el área de la herida antes de aplicar una gasa con presión.
+The staff sanitized the treatment room after the patient was transferred to the ER. – El personal desinfectó la sala de tratamiento después de que el paciente fue transferido a la sala de emergencias.
+The LPN performs a wound assessment on the patient’s right arm. – La LPN realiza una evaluación de la herida en el brazo derecho del paciente.
+The staff will complete the transfer documentation before the ambulance arrives. – El personal completará la documentación de la transferencia antes de que llegue la ambulancia.
 
 # === VOCAB FRIDAY ===
 
-rolls out of bed – se levanta a rastras
-usually – normalmente
-a busy day – un día ajetreado
-smashed finger – dedo aplastado
-send to the ER – mandar a emergencias
+whiteboard - pizarra
+In court - en el tribunal o En la corte
+landscaping - jardinería
+laceration - laceración
+crosses the threshold - cruza el umbral o supera el límite o excede el límite
+staff - personal
 
 # === END VOCAB FRIDAY ===
 
-- Marisol rolls out of bed already thinking about work; Friday is always a busy day.
-- It seems like Fridays are the day people find new ways to hurt themselves at their jobs.
-- Marisol arrives at the clinic, and there are already five cars in the parking lot.
-- Dra. Pérez is already texting her about patients before she even parks the car.
-- Mr. Ortiz comes in holding his hand; he smashed his finger fixing a fence at work.
-- Marisol looks at it and winces. "That does not look good, Mr. Ortiz."
-- Dra. Pérez examines it, says he needs an X-ray, and sends him straight to the ER.
-- It will be a busy day, probably twenty patients, and it is not even nine o'clock.
+1. It’s 4:47 p.m. on a Friday.
+2. Letia, Rosie, Amanda and Marisol are ready to go home.
+3. Dr. Pérez’s name is on the whiteboard with a red “IN COURT – DO NOT CALL”
+4. A commercial landscaping crew foreman, Rafael, walks in at 4:52 p.m. with a 3-inch laceration on his right arm.
+5. The wound is long enough (3 inches) and deep enough (1/4") that it crosses the threshold where a single LPN suture line becomes a multi-layer closure question.
+6. The staff need to determine quickly if the patient should be routed to an ER for treatment.
+7. The on-call physician leaves a voice mail, "For anything time-critical, transfer to St. Luke’s ER, 12 minutes away, and document the transfer."
+8. The staff decide the patient must be referred to the ER.
 
 # SATURDAY STORYBOARD
 
-Reinforce "happen," "hurt," and "clean" and future tense: will happen, will hurt, will clean
-Examples:
-What will happen today? - ¿Qué va a pasar hoy?
-A patient asks if the syringe will hurt. - Un paciente pregunta si la inyección va a doler.
-She will clean the trash out of her car. - Ella va a limpiar la basura de su carro.
+Light reinforcement of "sanitize", "perform" and "complete"
+Future, present and past tenses are permitted.
+Examples: Create 2 examples for "sanitize", "perform" and "complete."
+Marisol sanitizes the bathroom sink and counter tops on Saturday morning. – Marisol desinfecta el lavabo y las superficies de trabajo del baño en la mañana del sábado.
+She will sanitize the kitchen after doing the laundry. – Ella desinfectará la cocina después de hacer la ropa.
+She almost had to perform a two-layer suture procedure with Letia. – Casi tuvo que realizar un procedimiento de sutura en varias capas con Letia.
+She will perform the deep clean on the bathroom tile this afternoon. – Ella realizará la limpieza profunda en el azulejo del baño esta tarde.
+She completes her housework before the girls get home. – Ella completa sus quehaceres de la casa antes de que las niñas regresen.
+She completed the grocery list last night. – Ella completó la lista de compras anoche.
 
 # === VOCAB SATURDAY ===
 
-school project – proyecto escolar
-poster board – cartulina
-checkbook – chequera
-pay the bills – pagar las cuentas
-a load of laundry – una lavada de ropa
+alarm goes off - el despertador suena o La alarma suena
+no use - no sirve de nada o No vale la pena
+chores - quehaceres o Faenas de la casa
+go back to sleep - volver a dormir
+multi-layer suture procedure - procedimiento de sutura en varias capas
 
 # === END VOCAB SATURDAY ===
 
-- Saturday is Marisol's day off, but it does not feel like a full break.
-- Camy needs help with her school project in the morning, and the poster board is still blank.
-- Marisol sits with her at the kitchen table before the rest of the day gets away from her.
-- Marisa stops by and asks if Marisol still wants to walk in the park; they agree to go once Camy's project is done.
-- Marisol assigns Camy to clean her room while she starts a load of laundry and finally opens the checkbook to pay bills.
-- Her phone buzzes. It is a text from Rod, asking if she is free later.
-- Marisol reads it, smiles a little, and sets the phone face down. There will be time to answer him tonight.
-- Maybe, if everything gets done, the four of them can still go to a movie.
+1. The alarm goes off at 6:30.  Marisol opens her eyes and realizes it is Saturday.
+2. Marisol forgot to turn her alarm off.  She won't be working Saturdays for a while.
+3. She rolls back over and tries to go back to sleep.
+4. After a few minutes, she realizes it's no use to try to sleep.
+5. She is already thinking about chores: doing laundry, grocery shopping, sanitizing the bathroom, completing her housework.
+6. She also thinks about yesterday, how she almost had to perform a multi-layer suture procedure with Letia.
+7. She hopes Marisa, Donna, Camy and Marisol can do something fun together later today.
+8. She wonders (no, she hopes) Rod will message her.
 
 # SUNDAY STORYBOARD
 
-Reinforce "happen," "hurt," and "clean" and future tense and past tenses.
-Choose one example for each verb and each tense.
+Use "sanitize," "perform" and "complete"
+Examples:
+Present
+Marisol sanitizes the treatment room before the morning procedures. – Marisol desinfecta la sala de tratamiento antes de los procedimientos matutinos.
+The doctor performs a check-up on the patient. – El doctor realiza un chequeo al paciente.
+Marisol completes the patient’s medical chart. – Marisol completa la ficha médica del paciente.
+Past
+Marisol sanitized the collection tray and arm rests after the blood draw. – Marisol desinfectó la bandeja de recolección y los reposabrazos después de la extracción de sangre.
+Dra. Pérez performed several procedures yesterday. – Dra. Pérez realizó varios procedimientos ayer.
+Marisol completed the insurance form for the patient. – Marisol completó el formulario del seguro médico del paciente.
+Future
+Marisol will sanitize the counter tops before the next patient arrives. – Marisol desinfectará las superficies de trabajo antes de que llegue el siguiente paciente.
+The doctor will perform a venipuncture on the patient. – El doctor realizará una venipunción al paciente.
+Marisol will complete the procedure notes before she leaves. – Marisol completará las notas del procedimiento antes de irse.
 
 # === VOCAB SUNDAY ===
 
-Select four vocabulary words or phrases from the first six days to use.
+draw blood – extraer sangre / tomar una muestra de sangre
+insurance form – formulario del seguro médico
+staff – personal
+chill – tranquilo
+chores – quehaceres / faenas de la casa
 
 # === END VOCAB SUNDAY ===
 
-- Sunday is quiet. Marisol lies in bed for a while, enjoying a morning with no tight schedule.
-- After breakfast, she video calls her brother Ernesto; he is home from the shop today.
-- Camy grabs the phone for a second to say a quick hello to her tío before running off to play.
-- Marisol asks Ernesto more questions about what she still needs to start a business.
-- He tells her about a few more requirements she had not thought of.
-- She writes the new notes on the same napkin from a few weeks ago, still folded in her apron pocket.
-- It is a small step, but it feels like real progress.
+1.Monday: Marisol helps Camy practice her skit lines, and they see a fender bender that causes a traffic jam on the way to school. At the clinic, Marisol draws blood and assists Dra. Pérez with several procedures.
+
+2.Tuesday: Marisol completes her budget and balances her checkbook after work, and she is pumped because she can put money in savings. At the clinic, she helps a patient fill in an insurance form, and Rosie calls the day “chill.”
+
+3.Wednesday: Marisol performs a blood test and completes the patient’s medical chart. Dra. Pérez completes a procedure and writes the notes.
+
+4.Thursday: Marisol checks the iPad for requisitions, sanitizes the treatment room, and performs a check of the space. After completing her duties, she practices her Patient – MA English conversation skills.
+
+5.Friday: A landscaping foreman arrives with a 3-inch laceration, and the staff must decide whether to transfer him to the ER. The on-call physician’s voicemail directs them to St. Luke’s, and the staff refer the patient.
+
+6.Saturday: Marisol wakes on a Saturday and thinks about chores, including sanitizing the bathroom. She recalls almost performing a two-layer suture with Letia and hopes Rod will message her.
