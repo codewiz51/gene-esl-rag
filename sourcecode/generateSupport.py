@@ -80,7 +80,7 @@ def main():
     if len(sys.argv) not in (6, 7):
         print("Usage: python3 generateSupport.py <identifier> <main_lesson.md> <storyboard.md> <fiveMinuteTemplate.txt> <unifiedPrompt.md> [Debug|NoDebug]")
         print("  main_lesson.md is looked up in the lessons output directory (the .md file")
-        print("  generateMain.py writes, NOT the .docx).")
+        print("  generateMain.py writes).")
         print("  storyboard.md, fiveMinuteTemplate.txt, unifiedPrompt.md are looked up in the templates directory.")
         sys.exit(1)
 
@@ -173,7 +173,6 @@ def main():
     common.validate_markdown(five_markdown, "Five-Minute lesson", common.SUPPORT_REQUIRED_SECTIONS)
 
     common.write_markdown(five_markdown, identifier, "FIVEMIN")
-    common.convert_markdown_to_docx(five_markdown, identifier, "FIVEMIN")
 
     print("Done.")
 

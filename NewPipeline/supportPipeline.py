@@ -25,6 +25,7 @@ import commonFunctions as common  # noqa: E402
 import generateSupport as gs      # noqa: E402  (reuse its extraction helpers rather than duplicate them)
 
 import passes  # noqa: E402
+from qa_utils import lint_hints  # noqa: E402
 
 
 def main():
@@ -104,10 +105,10 @@ def main():
     common.check_day_heading_format(five_markdown, days=supplied_days, label="Five-Minute")
 
     five_markdown = common.apply_corrections(five_markdown, corrections)
+    lint_hints(five_markdown, label="five-minute")
     common.validate_markdown(five_markdown, "Five-Minute lesson", common.SUPPORT_REQUIRED_SECTIONS)
 
     common.write_markdown(five_markdown, identifier, "FIVEMIN_PASSPIPELINE")
-    common.convert_markdown_to_docx(five_markdown, identifier, "FIVEMIN_PASSPIPELINE")
 
     print("Done.")
 

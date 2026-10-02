@@ -59,7 +59,40 @@ def extract_day_story_requirements(storyboard_text):
             "",
             chunk,
         )
+        # Also strip the optional STUDY NOTES block - it is factual source
+        # material for the Examples / Student Questions passes, not story
+        # requirements (see extract_day_study_notes below).
+        chunk = re.sub(
+            r"(?ms)^# === STUDY NOTES.*?=== END STUDY NOTES.*?===\s*$",
+            "",
+            chunk,
+        )
         result[day] = chunk.strip()
+    return result
+
+
+def extract_day_study_notes(storyboard_text):
+    """
+    Returns {DAY: notes_text} for any day that has an optional block:
+
+        # === STUDY NOTES SATURDAY ===
+        ...factual source material (e.g. practice-test questions,
+        correct answers, explanations)...
+        # === END STUDY NOTES SATURDAY ===
+
+    Days without a block are simply absent from the result. The
+    Examples and Student Questions passes use these notes as source
+    material; the Story and Vocabulary passes never see them.
+    """
+    result = {}
+    for day in ALL_DAYS:
+        pattern = re.compile(
+            rf"(?ms)^#?\s*===\s*STUDY\s+NOTES\s+{day}\s*===\s*$(.*?)^#?\s*===\s*END\s+STUDY\s+NOTES\s+{day}\s*===\s*$",
+            flags=re.IGNORECASE,
+        )
+        m = pattern.search(storyboard_text)
+        if m and m.group(1).strip():
+            result[day] = m.group(1).strip()
     return result
 
 
@@ -82,4 +115,46 @@ def extract_day_vocab_suggestions(storyboard_text):
             result[day] = ""
             continue
         result[day] = m.group(1).strip()
+    return result
+
+
+def extract_week_notes(storyboard_text):
+    """
+    Returns the optional whole-week block:
+
+        # === WEEK NOTES ===
+        ...facts and cast limits that apply to every day...
+        # === END WEEK NOTES ===
+
+    or "" if the storyboard has none. These notes are passed to the
+    Story, Warmup/Grammar, Examples and Student Questions passes.
+    """
+    m = re.search(
+        r"(?ms)^#?\s*===\s*WEEK\s+NOTES\s*===\s*$(.*?)^#?\s*===\s*END\s+WEEK\s+NOTES\s*===\s*$",
+        storyboard_text,
+        flags=re.IGNORECASE,
+    )
+    return m.group(1).strip() if m else ""
+
+
+def extract_day_focus(story_requirements_by_day):
+    """
+    Returns {DAY: focus_text} - the 'Introduce / Reinforce / Light review'
+    lines at the top of each day's storyboard section (everything before
+    the first 'Examples' line). Tells later passes which verb(s) the day
+    is about.
+    """
+    result = {}
+    for day, req in story_requirements_by_day.items():
+        lines = []
+        for line in req.splitlines():
+            if line.strip().lower().startswith("examples"):
+                break
+            if re.match(r"^\s*\d+\s*[-.]", line):
+                break
+            if line.strip():
+                lines.append(line.strip())
+            if len(lines) >= 3:
+                break
+        result[day] = "\n".join(lines)
     return result

@@ -72,6 +72,29 @@ def _extract_section_per_day(markdown_text, section_name, days=None):
     return out
 
 
+def _with_week_notes(data_text, week_notes):
+    if not week_notes:
+        return data_text
+    return f"#BEGIN WEEK_NOTES\n{week_notes}\n#END WEEK_NOTES\n\n{data_text}"
+
+
+def _week_notes_instruction(week_notes):
+    if not week_notes:
+        return ""
+    return (
+        "\n\nWEEK_NOTES RULE: the WEEK_NOTES block above holds real facts about the setting and cast limits "
+        "that apply to the whole week. Obey them exactly: do not contradict the facts (hours, location, who "
+        "works when), and do not put a character in any day or scene the notes forbid."
+    )
+
+
+HINT_RULE_TEXT = (
+    "\n\nHINT RULE (strict): every hint is in parentheses at the end of the line and is ONE Spanish word, or "
+    "one short fixed Spanish phrase of at most 3 words. A hint is NEVER an English word or phrase, NEVER the "
+    "full answer, and NEVER a sentence."
+)
+
+
 GENERAL_META = """
 You are an ESL lesson generator. Follow all rules given above exactly.
 Do NOT add new rules. Do NOT override any rule. Do NOT explain your
@@ -118,7 +141,7 @@ def vocabulary_pass(template_text, storyboard_vocab_by_day, week_state, debug_fl
         week_state.set_section(day, "Vocabulary", text)
 
 
-def story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=True):
+def story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=True, week_notes=""):
     rules = assemble_rules(
         template_text,
         rule_names=[
@@ -143,13 +166,13 @@ def story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week
         "You are seeing all seven days at once specifically so you can vary " \
         "emotional register across the week (STORY_QUALITY) - do not make every day read the same."
 
-    raw = _run_pass("story", rules, data_text, instructions, debug_flag)
+    raw = _run_pass("story", rules, _with_week_notes(data_text, week_notes), instructions + _week_notes_instruction(week_notes), debug_flag)
     per_day = _extract_section_per_day(raw, "Story")
     for day, text in per_day.items():
         week_state.set_section(day, "Story", text)
 
 
-def warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=True):
+def warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=True, week_notes=""):
     rules = assemble_rules(
         template_text,
         rule_names=["LANGUAGE_LEVEL", "HINTS_AND_BLANKS", "STORY_QUALITY", "MARKDOWN_LAYOUT"],
@@ -186,7 +209,7 @@ def warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_fo
         "even when they test the same grammar point. They may share the same verb or hint, but the " \
         "surrounding sentence must differ."
 
-    raw = _run_pass("warmup_grammar", rules, data_text, instructions, debug_flag)
+    raw = _run_pass("warmup_grammar", rules, _with_week_notes(data_text, week_notes), instructions + _week_notes_instruction(week_notes) + HINT_RULE_TEXT, debug_flag)
     warmup = _extract_section_per_day(raw, "Warmup")
     grammar = _extract_section_per_day(raw, "Grammar")
     for day in ALL_DAYS:
@@ -242,7 +265,9 @@ add commentary.
             print(f"WARNING: grammar_translate_pass produced nothing for {day} - keeping English original.")
 
 
-def examples_translation_pass(template_text, week_state, debug_flag=True):
+def examples_translation_pass(template_text, week_state, study_notes_by_day=None, debug_flag=True, week_notes="", day_focus_by_day=None):
+    day_focus_by_day = day_focus_by_day or {}
+    study_notes_by_day = study_notes_by_day or {}
     rules = assemble_rules(
         template_text,
         rule_names=["LANGUAGE_LEVEL", "SENTENCE_STYLE", "SPANISH_ACCURACY", "STORY_LENGTH", "READING_TRANSLATION", "MARKDOWN_LAYOUT"],
@@ -255,7 +280,39 @@ def examples_translation_pass(template_text, week_state, debug_flag=True):
         vocab = week_state.get_section(day, "Vocabulary")
         data_parts.append(f"#BEGIN {day}_FINISHED_STORY\n{story}\n#END {day}_FINISHED_STORY")
         data_parts.append(f"#BEGIN {day}_FINALIZED_VOCAB\n{vocab}\n#END {day}_FINALIZED_VOCAB")
+        if day_focus_by_day.get(day):
+            data_parts.append(f"#BEGIN {day}_DAY_FOCUS\n{day_focus_by_day[day]}\n#END {day}_DAY_FOCUS")
+        if study_notes_by_day.get(day):
+            data_parts.append(f"#BEGIN {day}_STUDY_NOTES\n{study_notes_by_day[day]}\n#END {day}_STUDY_NOTES")
     data_text = "\n\n".join(data_parts)
+
+    focus_instruction = ""
+    if day_focus_by_day:
+        focus_instruction = (
+            "\n\nDAY_FOCUS RULE: each day's DAY_FOCUS block names the verb(s) that day teaches or reviews. Examples "
+            "MUST include at least two numbered items that use those verbs in complete, natural sentences (for "
+            "example a day that introduces 'give' needs sentences with give, gives or gave; a day about 'have' needs "
+            "have or has). Examples are sentences and a dialogue ONLY: do NOT write grammar commentary or name "
+            "grammar terms (no 'passive voice', 'simple past', 'shows possibility', 'we use ...'). Keep every "
+            "sentence at A2 level. In a dialogue, each speaker states or asks one plain thing and the lines answer "
+            "each other like a real conversation; a character never promises something another staff member handles."
+        )
+
+    notes_instruction = ""
+    if study_notes_by_day:
+        days_with_notes = ", ".join(d for d in ALL_DAYS if d in study_notes_by_day)
+        notes_instruction = (
+            f"\n\nSTUDY_NOTES RULE (applies ONLY to: {days_with_notes}). Those days have a STUDY_NOTES block of "
+            "factual source material from a certification study guide: practice questions, the correct answers, and "
+            "explanations. For those days ONLY: the Examples section MUST be built from the STUDY_NOTES, one numbered "
+            "item per study question. Each item has the question in plain words, the correct answer, one or two "
+            "sentences saying why it is correct, and one short sentence for EACH wrong answer choice saying why it is "
+            "not correct. Use only facts given in STUDY_NOTES; do not add, change, or invent any rule or fact. Keep "
+            "A2/B1 wording. Those items replace the usual 4-6 item count, and the required dialogue is waived for "
+            "those days because the character is studying alone. For those days the professional reading item in "
+            "Translation Practice MUST use a sentence taken from STUDY_NOTES. All other days follow the normal rules "
+            "and ignore this paragraph."
+        )
 
     instructions = OUTPUT_FORMAT_COMMON + "\n\nThis pass produces ONLY: ## Examples and ## Translation Practice (in that order, per day). " \
         "The Examples dialogue MUST NOT contradict or add events beyond the FINISHED_STORY above. " \
@@ -264,9 +321,9 @@ def examples_translation_pass(template_text, week_state, debug_flag=True):
         "(the student translates it into English) - never write that item in English. Every item under " \
         "'English → Spanish' MUST be written IN ENGLISH. This applies to the required professional-register " \
         "reading item too (READING_TRANSLATION) - write that item's clinical/professional content in natural " \
-        "Cuban Spanish, in the Spanish → English list, not in English."
+        "Cuban Spanish, in the Spanish → English list, not in English." + focus_instruction + notes_instruction + _week_notes_instruction(week_notes)
 
-    raw = _run_pass("examples_translation", rules, data_text, instructions, debug_flag)
+    raw = _run_pass("examples_translation", rules, _with_week_notes(data_text, week_notes), instructions, debug_flag)
     examples = _extract_section_per_day(raw, "Examples")
     translation = _extract_section_per_day(raw, "Translation Practice")
     for day in ALL_DAYS:
@@ -274,7 +331,8 @@ def examples_translation_pass(template_text, week_state, debug_flag=True):
         week_state.set_section(day, "Translation Practice", translation.get(day, ""))
 
 
-def student_questions_pass(template_text, week_state, debug_flag=True):
+def student_questions_pass(template_text, week_state, study_notes_by_day=None, debug_flag=True, week_notes=""):
+    study_notes_by_day = study_notes_by_day or {}
     rules = assemble_rules(
         template_text,
         rule_names=["LANGUAGE_LEVEL", "HINTS_AND_BLANKS", "STORY_QUALITY", "MARKDOWN_LAYOUT"],
@@ -286,12 +344,27 @@ def student_questions_pass(template_text, week_state, debug_flag=True):
         vocab = week_state.get_section(day, "Vocabulary")
         data_parts.append(f"#BEGIN {day}_FINISHED_STORY\n{story}\n#END {day}_FINISHED_STORY")
         data_parts.append(f"#BEGIN {day}_FINALIZED_VOCAB\n{vocab}\n#END {day}_FINALIZED_VOCAB")
+        if study_notes_by_day.get(day):
+            data_parts.append(f"#BEGIN {day}_STUDY_NOTES\n{study_notes_by_day[day]}\n#END {day}_STUDY_NOTES")
     data_text = "\n\n".join(data_parts)
 
-    instructions = OUTPUT_FORMAT_COMMON + "\n\nThis pass produces ONLY: ## Student Questions.\n" \
-        "You are seeing all seven days at once specifically so no question is repeated across the week - check before writing each day's set."
+    notes_instruction = ""
+    if study_notes_by_day:
+        days_with_notes = ", ".join(d for d in ALL_DAYS if d in study_notes_by_day)
+        notes_instruction = (
+            f"\n\nSTUDY_NOTES RULE (applies ONLY to: {days_with_notes}). Those days have a STUDY_NOTES block of "
+            "factual source material from a certification study guide. For those days ONLY: write the Student "
+            "Questions about the facts in STUDY_NOTES (what a rule covers, which answer is correct and why, why a "
+            "wrong choice is wrong). Use only facts given in STUDY_NOTES. Every item is still a question ending in "
+            "'?' with exactly one hint, and at least one question still asks the student about her own life or "
+            "study. Do not ask for legal opinions or for facts that are not in STUDY_NOTES. All other days follow "
+            "the normal rules and ignore this paragraph."
+        )
 
-    raw = _run_pass("student_questions", rules, data_text, instructions, debug_flag)
+    instructions = OUTPUT_FORMAT_COMMON + "\n\nThis pass produces ONLY: ## Student Questions.\n" \
+        "You are seeing all seven days at once specifically so no question is repeated across the week - check before writing each day's set." + notes_instruction + HINT_RULE_TEXT + _week_notes_instruction(week_notes)
+
+    raw = _run_pass("student_questions", rules, _with_week_notes(data_text, week_notes), instructions, debug_flag)
     per_day = _extract_section_per_day(raw, "Student Questions")
     for day, text in per_day.items():
         week_state.set_section(day, "Student Questions", text)

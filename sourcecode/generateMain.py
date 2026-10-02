@@ -243,7 +243,6 @@ def main():
 
     common.write_markdown(main_markdown, identifier, "MAIN")
     common.write_markdown_fixed(main_markdown, common.MAIN_SUPPORT_FILENAME)
-    common.convert_markdown_to_docx(main_markdown, identifier, "MAIN")
 
     print("Done.")
 

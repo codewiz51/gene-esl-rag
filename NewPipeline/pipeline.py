@@ -25,9 +25,13 @@ from storyboard_utils import (
     extract_weekly_verb_focus,
     extract_day_story_requirements,
     extract_day_vocab_suggestions,
+    extract_day_study_notes,
+    extract_week_notes,
+    extract_day_focus,
 )
 from state import WeekState, ALL_DAYS
 import passes
+from qa_utils import lint_hints
 
 
 def main():
@@ -54,6 +58,13 @@ def main():
     weekly_verb_focus = extract_weekly_verb_focus(storyboard_raw)
     story_requirements_by_day = extract_day_story_requirements(storyboard_raw)
     vocab_by_day = extract_day_vocab_suggestions(storyboard_raw)
+    study_notes_by_day = extract_day_study_notes(storyboard_raw)
+    week_notes = extract_week_notes(storyboard_raw)
+    day_focus_by_day = extract_day_focus(story_requirements_by_day)
+    if week_notes:
+        print("WEEK NOTES found.")
+    if study_notes_by_day:
+        print(f"STUDY NOTES found for: {', '.join(study_notes_by_day)}")
 
     week_state = WeekState()
 
@@ -61,19 +72,19 @@ def main():
     passes.vocabulary_pass(template_text, vocab_by_day, week_state, debug_flag=debug_flag)
 
     # --- Layer 2: Story (needs Story Requirements + finalized Vocabulary) ---
-    passes.story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=debug_flag)
+    passes.story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=debug_flag, week_notes=week_notes)
 
     # --- Layer 3: Warmup + Grammar (needs verb focus + Vocabulary) ---
-    passes.warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=debug_flag)
+    passes.warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=debug_flag, week_notes=week_notes)
 
     # --- Layer 3b: translate the Grammar explanation to Spanish, narrow single-purpose pass ---
     passes.grammar_translate_pass(template_text, week_state, debug_flag=debug_flag)
 
     # --- Layer 4: Examples + Translation Practice (needs finished Story) ---
-    passes.examples_translation_pass(template_text, week_state, debug_flag=debug_flag)
+    passes.examples_translation_pass(template_text, week_state, study_notes_by_day=study_notes_by_day, debug_flag=debug_flag, week_notes=week_notes, day_focus_by_day=day_focus_by_day)
 
     # --- Layer 5: Student Questions (whole-week context, no repeats) ---
-    passes.student_questions_pass(template_text, week_state, debug_flag=debug_flag)
+    passes.student_questions_pass(template_text, week_state, study_notes_by_day=study_notes_by_day, debug_flag=debug_flag, week_notes=week_notes)
 
     # --- Assemble the week from all layers ---
     assembled = week_state.assemble_week(ALL_DAYS)
@@ -88,12 +99,12 @@ def main():
 
     final_markdown = common.apply_corrections(reviewed, corrections)
 
+    lint_hints(final_markdown, label="main lesson")
     common.validate_markdown(final_markdown, "pass-pipeline main lesson", common.MAIN_REQUIRED_SECTIONS)
     common.check_day_heading_format(final_markdown, label="pass-pipeline")
 
     common.write_markdown(final_markdown, identifier, "MAIN_PASSPIPELINE")
     common.write_markdown_fixed(final_markdown, common.MAIN_SUPPORT_FILENAME)
-    common.convert_markdown_to_docx(final_markdown, identifier, "MAIN_PASSPIPELINE")
 
     print("Done. Compare this output against the current NN_MAIN_corrected.md before trusting it for students.")
 

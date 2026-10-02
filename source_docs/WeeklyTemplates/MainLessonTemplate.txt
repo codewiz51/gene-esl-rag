@@ -484,6 +484,15 @@ herself in it, not a plot she's watching from outside.
 "almuerzo en bolsa" = sack lunch
 "desvanecimiento" / "desmayo" = syncope
 Do NOT use "chamba" for job; use "trabajo"
+"refill a prescription" = "renovar la receta" / "renovación de la receta" —
+  NOT "recarga" (a recarga is a phone or card top-up)
+"has a fever" = "tiene fiebre" or "tiene calentura" — NEVER "está caliente"
+  or "se siente caliente" about a person
+"fussy" (a child) = "inquieto" / "llorón"
+"dar de alta" = a provider discharges a patient from care. When the PATIENT
+  ends the care and discharges the provider, use "despedir al proveedor" or
+  "dejar al proveedor" — NOT "dar de alta"
+"work through the questions" = "repasar las preguntas" — NOT "irse por las preguntas"
 #END DICTIONARY: CUBAN_REGISTER
 
 ############################################################
