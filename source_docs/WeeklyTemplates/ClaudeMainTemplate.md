@@ -29,7 +29,7 @@ Mix in personal, non-clinic storylines now and then, the way real life goes.
 
 ## Lesson layout
 
-Every day uses exactly this skeleton, in this order. Day headings are `# MONDAY` etc.; one blank line between days, no `---`. "**English:**" and "**Spanish:**" are the only bold text. No `###`, tables, italics, or bullets. Leave a blank line between a label and the list after it (pandoc merges them otherwise).
+Every day uses exactly this skeleton, in this order. Day headings are `# MONDAY` etc.; one blank line between days, no `---`. "**English:**" and "**Spanish:**" are the only bold text. No `###`, tables, italics, or bullets; the only nested list is the a) b) c) choices under Student Questions. Leave a blank line between a label and the list after it (pandoc merges them otherwise).
 
 ```
 # MONDAY
@@ -79,7 +79,10 @@ English → Spanish
 
 ## Student Questions
 
-1. Question? (hint)
+1. Question?
+   a) Choice.
+   b) Choice.
+   c) Choice.
 ```
 
 ## Section rules
@@ -113,12 +116,13 @@ Translation Practice (S→E 6 / 2, E→S 2)
 - At least one professional, clinic-relevant reading item in S→E; at least one clinic phrase in E→S.
 
 Student Questions (4-6 / 3-4)
-- Real questions ending in "?". At least one asks the student about her own life, in first person. Questions may assume she works in a clinic.
+- Multiple choice, a) b) c), choices indented three spaces under the question. No hints. Students score about 7/10 and miss mostly fill-in items, so recognition comes before production for now.
+- Real questions ending in "?". At least one asks the student about her own life. Questions may assume she works in a clinic.
+- Story questions: exactly one correct choice. Wrong choices are plausible and come from the lesson (another day's detail, a wrong number, the wrong person), not tricks. Same form and similar length for all three. Vary the position of the correct answer.
+- Personal questions: all three choices are valid answers written as short first-person sentences she could say ("Yes, I felt very nervous."), so the choices model the answer.
 
-Hints (Warmup, Pattern Practice, Student Questions)
-- One hint per item, in parentheses at the end: one Spanish word or short fixed phrase.
-- For a blank: the Spanish form of the answer in the right person and tense (tomo, toma, dio, tomaré). Never the English answer.
-- For a question: a Spanish helper word, never the answer.
+Hints (Warmup, Pattern Practice)
+- One hint per blank, in parentheses at the end: the Spanish form of the answer in the right person and tense (tomo, toma, dio, tomaré). Never the English answer.
 - Each blank has exactly one correct answer, and the filled sentence is correct English.
 
 ## Characters
