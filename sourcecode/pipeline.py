@@ -5,21 +5,18 @@ pipeline.py
 Usage:
     python3 pipeline.py <identifier> <storyboard.md> <template.txt> [Debug|NoDebug]
 
-Example (mirrors generateMain.py's own call shape):
+Example:
     python3 pipeline.py 35 Week35StoryBoard.md MainLessonTemplate.txt Debug
 
 Runs the pass pipeline end to end and writes NN_MAIN_PASSPIPELINE_<ts>.md
-into the same lesson_dir commonFunctions.py already uses - it does NOT
-touch generateMain.py/generateSupport.py or their output filenames, so
-the existing pipeline keeps working as the fallback while you compare
-this one's output against it.
+into commonFunctions.lesson_dir, plus mainSupport.md (fixed name) as the
+input for supportPipeline.py.
 """
 
 import sys
 import os
 
-sys.path.insert(0, "/Users/gene/Documents/RAG/sourcecode")
-import commonFunctions as common  # noqa: E402
+import commonFunctions as common
 
 from storyboard_utils import (
     extract_weekly_verb_focus,

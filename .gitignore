@@ -26,3 +26,4 @@ source_docs/WeeklyLessons/
 
 # Ignore debug files.  Previously, I only ignored in sourcecode. 
 debug_*.txt
+sourcecode/debug/

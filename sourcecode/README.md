@@ -1,5 +1,11 @@
 # Pass-based pipeline
 
+All pipeline code lives in `sourcecode/` (moved from `NewPipeline/` in
+Oct 2026). The legacy `generateMain.py` / `generateSupport.py` and
+`_archive_20260917/` were retired; the last state with them is git tag
+`pre-consolidation`. Paths are derived from `commonFunctions.py`'s own
+location, so nothing is hardcoded to `/Users/gene/...`.
+
 ## Status (as of Oct 2, 2026)
 
 Used for production runs on Weeks 35, 37, 38 and 39, for both MAIN and
@@ -10,9 +16,8 @@ the optional STUDY NOTES / WEEK NOTES storyboard blocks, a per-day verb
 focus for the Examples pass, and a hint checker.
 
 **No .docx output.** `pipeline.py` and `supportPipeline.py` write only
-Markdown. (The original `generateMain.py` / `generateSupport.py` no
-longer write .docx either; `commonFunctions.convert_markdown_to_docx()`
-still exists if a corrected lesson ever needs one.)
+Markdown. Use `toDocx.py` on the corrected lessons when a .docx is
+needed.
 
 ## Files
 
@@ -33,15 +38,17 @@ still exists if a corrected lesson ever needs one.)
   section order.
 - `passes.py` — the MAIN passes (in dependency order below), plus
   `fiveminute_self_review_pass()` used by `supportPipeline.py`.
-- `pipeline.py` — MAIN orchestrator / CLI, same call shape as
-  `generateMain.py`. Also writes `mainSupport.md` (fixed filename)
-  alongside the timestamped output, so `supportPipeline.py` /
-  `generateSupport.py` has a stable name to point at.
-- `supportPipeline.py` — Five-Minute orchestrator, same call shape as
-  `generateSupport.py`, with one addition: a self-review pass before
-  corrections/validation/write. Imports `generateSupport.py`'s
-  extraction helpers directly rather than duplicating them.
-  `generateSupport.py` itself is untouched.
+- `commonFunctions.py` — shared library: paths, Ollama call, Markdown
+  validation, corrections, file writers, `debug_path()`, and the
+  `extract_day_vocab()` / `extract_day_story()` helpers used by
+  `supportPipeline.py`.
+- `pipeline.py` — MAIN orchestrator / CLI. Also writes `mainSupport.md`
+  (fixed filename) alongside the timestamped output, so
+  `supportPipeline.py` has a stable name to point at.
+- `supportPipeline.py` — Five-Minute orchestrator, with a self-review
+  pass before corrections/validation/write.
+- `toDocx.py` — converts the corrected `NN_MAIN_corrected.md` /
+  `NN_FIVEMIN_corrected.md` to .docx.
 
 ## Optional storyboard blocks
 
@@ -91,7 +98,7 @@ use only what is in them.
 ## Run it
 
 ```bash
-cd /Users/gene/Documents/RAG/NewPipeline
+cd ~/Documents/RAG/sourcecode
 time python3 pipeline.py 35 Week35StoryBoard.md MainLessonTemplate.txt Debug ; \
 time python3 supportPipeline.py 35 mainSupport.md Week35StoryBoard.md FiveMinuteTemplate.txt promptFive.md Debug ; \
 afplay /System/Library/Sounds/Glass.aiff
@@ -108,11 +115,11 @@ time python3 supportPipeline.py 39 39_MAIN_corrected.md Week39StoryBoard.md Five
 (`mainSupport.md` is written automatically by `pipeline.py` and holds the
 uncorrected main lesson.)
 
-Reads the same `weekly_template_dir` / `lesson_dir` as the existing
-pipeline (via shared `commonFunctions.py`, imported from `sourcecode/`
-- nothing duplicated). Output uses `MAIN_PASSPIPELINE` /
-`FIVEMIN_PASSPIPELINE` suffixes so it never collides with or overwrites
-`generateMain.py` / `generateSupport.py`'s own output. Typical run time:
+Storyboards and templates are read from `source_docs/WeeklyTemplates`,
+lessons are written to `source_docs/WeeklyLessons`, and debug files go to
+`sourcecode/debug/` - regardless of which directory you run from.
+Output uses `MAIN_PASSPIPELINE` / `FIVEMIN_PASSPIPELINE` suffixes.
+Typical run time:
 ~25 min MAIN + ~5-6 min Five-Minute.
 
 ## MAIN pass order (each depends only on layers already written)
@@ -158,12 +165,12 @@ pipeline (via shared `commonFunctions.py`, imported from `sourcecode/`
 4. `supportPipeline.py` pointed at the corrected file (see "Run it"),
    then correct that output as `NN_FIVEMIN_corrected.md`.
 5. Commit code, templates and storyboards. `source_docs/WeeklyLessons/`
-   and `debug_*.txt` are in `.gitignore`, so lesson output is not
+   and `sourcecode/debug/` are in `.gitignore`, so lesson output is not
    committed.
 
 ## Five-Minute flow
 
-Unchanged extraction/generation from `generateSupport.py`, plus:
+Extraction/generation carried over from the retired `generateSupport.py`, plus:
 - **`fiveminute_self_review_pass`** — narrow, single check: every
   Grammar Focus must have a *character* as the grammatical subject
   ("Marisol tells...", not "'have' shows..."). Deliberately does not
@@ -193,7 +200,7 @@ Unchanged extraction/generation from `generateSupport.py`, plus:
   the required professional-register item) - fixed with an explicit
   instruction; confirmed fixed on the following run.
 - `pipeline.py` wasn't writing `mainSupport.md` (the fixed-filename
-  copy `generateSupport.py`/`supportPipeline.py` expect) - added.
+  copy `supportPipeline.py` expects) - added.
 
 ## Known gaps / next steps
 
@@ -212,5 +219,4 @@ Unchanged extraction/generation from `generateSupport.py`, plus:
   ("Mr.") inside Spanish sentences, a wrong gender on acronyms (la
   HIPAA), and the answer repeated inside a hint.
 - **No per-pass retry/repair loop** - a pass missing a day or section
-  currently just warns and moves on, same as `generateMain.py`'s
-  existing behavior.
+  currently just warns and moves on.

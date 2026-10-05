@@ -26,8 +26,7 @@ import os
 import subprocess
 import sys
 
-sys.path.insert(0, "/Users/gene/Documents/RAG/sourcecode")
-import commonFunctions as common  # noqa: E402
+import commonFunctions as common
 
 
 def convert(md_path, docx_path):

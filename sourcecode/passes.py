@@ -24,10 +24,8 @@ iterating on, more than the code structure itself.
 """
 
 import re
-import sys
 
-sys.path.insert(0, "/Users/gene/Documents/RAG/sourcecode")
-import commonFunctions as common  # noqa: E402
+import commonFunctions as common
 
 from rule_utils import assemble_rules
 from state import ALL_DAYS
@@ -40,13 +38,13 @@ def _run_pass(label, rules_text, data_text, output_instructions, debug_flag):
         f"{output_instructions}\n"
     )
     if debug_flag:
-        with open(f"debug_pass_{label}_prompt.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path(f"debug_pass_{label}_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload)
     print(f"Running pass: {label} ...")
     result = common.send_to_ollama(payload, debug_label=f"pass_{label}", debug_flag=debug_flag)
     text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
     if debug_flag:
-        with open(f"debug_pass_{label}_response.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path(f"debug_pass_{label}_response.txt"), "w", encoding="utf-8") as f:
             f.write(text)
     return text
 
@@ -411,13 +409,13 @@ Do not add commentary before or after the markdown.
 
     payload = f"{GENERAL_META}\n\n{rubric}\n\n#BEGIN WEEK_TO_REVIEW\n{assembled_week_markdown}\n#END WEEK_TO_REVIEW"
     if debug_flag:
-        with open("debug_pass_selfreview_prompt.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path("debug_pass_selfreview_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload)
     print("Running pass: self_review ...")
     result = common.send_to_ollama(payload, debug_label="pass_selfreview", debug_flag=debug_flag)
     text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
     if debug_flag:
-        with open("debug_pass_selfreview_response.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path("debug_pass_selfreview_response.txt"), "w", encoding="utf-8") as f:
             f.write(text)
     return text
 
@@ -465,12 +463,12 @@ Do not add commentary before or after the markdown.
 
     payload = f"{GENERAL_META}\n\n{rubric}\n\n#BEGIN FIVE_MINUTE_WEEK_TO_REVIEW\n{assembled_five_minute_markdown}\n#END FIVE_MINUTE_WEEK_TO_REVIEW"
     if debug_flag:
-        with open("debug_five_selfreview_prompt.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path("debug_five_selfreview_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload)
     print("Running pass: five_minute_self_review ...")
     result = common.send_to_ollama(payload, debug_label="five_selfreview", debug_flag=debug_flag)
     text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
     if debug_flag:
-        with open("debug_five_selfreview_response.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path("debug_five_selfreview_response.txt"), "w", encoding="utf-8") as f:
             f.write(text)
     return text

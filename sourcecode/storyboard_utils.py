@@ -10,7 +10,7 @@ file (e.g. Week35StoryBoard.md):
   3. Each day's suggested vocabulary block (between
      "=== VOCAB <DAY> (Suggested) ===" and "=== END VOCAB <DAY> ===").
 
-This intentionally does NOT reuse generateMain.py's parse_storyboard_days(),
+This intentionally did NOT reuse the retired generateMain.py's parse_storyboard_days(),
 because that function expects the "=== START DAY ===" / "=== END DAY ==="
 wrapper format generateMain.py's own inject_storyboard_into_template()
 produces - not the raw "# MONDAY STORYBOARD" + inline VOCAB markers

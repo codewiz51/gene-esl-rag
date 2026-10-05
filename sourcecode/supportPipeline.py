@@ -2,15 +2,12 @@
 """
 supportPipeline.py
 
-Same command-line shape and inputs/outputs as generateSupport.py, with
-one addition: a judgment-only self-review pass over the fully assembled
-Five-Minute week, before corrections/validation/write.
+Generates the Five-Minute lesson from the finished Main lesson, then runs
+a judgment-only self-review pass over the fully assembled Five-Minute
+week, before corrections/validation/write. (Replaces the retired
+generateSupport.py - see git tag pre-consolidation.)
 
-generateSupport.py itself is untouched - this is a separate script, the
-same relationship pipeline.py has to generateMain.py, so the original
-stays available as a known-good fallback.
-
-Usage (identical to generateSupport.py):
+Usage:
     python3 supportPipeline.py <identifier> <main_lesson.md> <storyboard.md> <fiveMinuteTemplate.txt> <unifiedPrompt.md> [Debug|NoDebug]
 
 Example:
@@ -20,12 +17,9 @@ Example:
 import sys
 import os
 
-sys.path.insert(0, "/Users/gene/Documents/RAG/sourcecode")
-import commonFunctions as common  # noqa: E402
-import generateSupport as gs      # noqa: E402  (reuse its extraction helpers rather than duplicate them)
-
-import passes  # noqa: E402
-from qa_utils import lint_hints  # noqa: E402
+import commonFunctions as common
+import passes
+from qa_utils import lint_hints
 
 
 def main():
@@ -57,8 +51,8 @@ def main():
     if weekly_corrections:
         print(f"Loaded {len(weekly_corrections)} weekly correction(s) from storyboard.")
 
-    vocab_manifest = gs.extract_day_vocab(main_markdown)
-    story_manifest = gs.extract_day_story(main_markdown)
+    vocab_manifest = common.extract_day_vocab(main_markdown)
+    story_manifest = common.extract_day_story(main_markdown)
 
     if not vocab_manifest.strip() or not story_manifest.strip():
         print("ERROR: Could not extract per-day vocab and/or story from the main lesson Markdown.")
@@ -68,7 +62,7 @@ def main():
     payload_five = f"{five_template}\n\n{story_manifest}\n\n{vocab_manifest}\n\n{unified_prompt}"
 
     if debug_flag:
-        with open("debug_five_prompt.txt", "w", encoding="utf-8") as f:
+        with open(common.debug_path("debug_five_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload_five)
 
     print("Generating Five-Minute lesson...")
@@ -87,7 +81,7 @@ def main():
         print("ERROR: No day headings found in the Five-Minute response at all "
               f"(expected: {', '.join(supplied_days)}).")
         if debug_flag:
-            with open("debug_five_raw_response.txt", "w", encoding="utf-8") as f:
+            with open(common.debug_path("debug_five_raw_response.txt"), "w", encoding="utf-8") as f:
                 f.write(five_markdown)
         sys.exit(1)
 

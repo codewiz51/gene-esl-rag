@@ -2,7 +2,9 @@
 # commonFunctions.py
 #
 # Shared "library" module for the ESL lesson generation pipeline.
-# generateMain.py and generateSupport.py both import from this file rather
+# (Oct 2026: generateMain.py/generateSupport.py were retired - see git
+# tag pre-consolidation. References below now name their replacements.)
+# pipeline.py and supportPipeline.py both import from this file rather
 # than each keeping their own copy - this is the fix for the drift risk
 # discovered when the same corrections dictionary lived separately in two
 # template files and got out of sync. Edit shared logic here once; both
@@ -17,7 +19,7 @@
 # The old split_html_blocks / looks_truncated / validate_html / write_html
 # functions are retired in favor of Markdown-aware equivalents below.
 # convert_markdown_to_docx() is new - it's the Pandoc step. Both
-# generateMain.py and generateSupport.py now use these same helpers.
+# pipeline.py and supportPipeline.py now use these same helpers.
 
 import os
 import re
@@ -28,8 +30,20 @@ from datetime import datetime
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "pipeline-qwen38:latest"
 
-weekly_template_dir = "/Users/gene/Documents/RAG/source_docs/weeklytemplates"
-lesson_dir = "/Users/gene/Documents/RAG/source_docs/WeeklyLessons"
+# Paths are derived from this file's own location (RAG/sourcecode/), so
+# the repo can be moved or renamed without editing code.
+SOURCE_DIR = os.path.dirname(os.path.abspath(__file__))
+RAG_ROOT = os.path.dirname(SOURCE_DIR)
+weekly_template_dir = os.path.join(RAG_ROOT, "source_docs", "WeeklyTemplates")
+lesson_dir = os.path.join(RAG_ROOT, "source_docs", "WeeklyLessons")
+
+# All debug_*.txt output goes here instead of whatever directory the
+# script was launched from. Created on first use; ignored by git.
+DEBUG_DIR = os.path.join(SOURCE_DIR, "debug")
+
+def debug_path(filename):
+    os.makedirs(DEBUG_DIR, exist_ok=True)
+    return os.path.join(DEBUG_DIR, filename)
 
 # Optional Pandoc reference-doc for Word heading styles (Heading 1 for day
 # headings, Heading 2 for section headings). If this file doesn't exist,
@@ -40,11 +54,11 @@ reference_doc_path = os.path.join(weekly_template_dir, "reference.docx")
 
 ALL_DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
 
-# Fixed filename generateMain.py also writes the Main lesson to, alongside
-# its normal timestamped file, so generateSupport.py can be called with a
+# Fixed filename pipeline.py also writes the Main lesson to, alongside
+# its normal timestamped file, so supportPipeline.py can be called with a
 # constant path instead of the caller having to copy the timestamp out of
-# generateMain.py's console output. Gets silently overwritten by the next
-# generateMain.py run - the timestamped file from write_markdown() remains
+# pipeline.py's console output. Gets silently overwritten by the next
+# pipeline.py run - the timestamped file from write_markdown() remains
 # the permanent record; this one is a workflow convenience only.
 MAIN_SUPPORT_FILENAME = "mainSupport.md"
 
@@ -59,7 +73,7 @@ MAIN_REQUIRED_SECTIONS = [
 ]
 
 # NEW: Five-Minute lesson's own section list, distinct from Main's -
-# generateSupport.py passes this to validate_markdown() and
+# supportPipeline.py passes this to validate_markdown() and
 # markdown_looks_truncated() instead of MAIN_REQUIRED_SECTIONS.
 SUPPORT_REQUIRED_SECTIONS = [
     "Vocabulary Review",
@@ -187,7 +201,7 @@ def send_to_ollama(payload, debug_label=None, debug_flag=True):
         print(f"Ollama finished (label={debug_label}): done_reason={done_reason}, "
               f"prompt_tokens={prompt_eval_count}, response_tokens={eval_count}")
         if debug_flag and debug_label:
-            with open(f"debug_{debug_label}_metadata.txt", "w", encoding="utf-8") as f:
+            with open(debug_path(f"debug_{debug_label}_metadata.txt"), "w", encoding="utf-8") as f:
                 for key in ("done", "done_reason", "prompt_eval_count", "eval_count",
                             "total_duration", "load_duration", "prompt_eval_duration", "eval_duration"):
                     f.write(f"{key}: {resp_json.get(key, '(not present)')}\n")
@@ -201,7 +215,7 @@ def send_to_ollama(payload, debug_label=None, debug_flag=True):
             thinking_words = len(thinking.split())
             print(f"Ollama returned a thinking trace (label={debug_label}): ~{thinking_words} words")
             if debug_flag and debug_label:
-                with open(f"debug_{debug_label}_thinking.txt", "w", encoding="utf-8") as f:
+                with open(debug_path(f"debug_{debug_label}_thinking.txt"), "w", encoding="utf-8") as f:
                     f.write(thinking)
         elif debug_flag and debug_label:
             print(f"NOTE: no 'thinking' field in Ollama's response for label={debug_label} "
@@ -255,8 +269,8 @@ def markdown_looks_truncated(text, days, required_sections=None):
     return bool(missing)
 
 def validate_markdown(text, label, required_sections):
-    # Shared by both scripts: generateMain.py passes MAIN_REQUIRED_SECTIONS,
-    # generateSupport.py passes SUPPORT_REQUIRED_SECTIONS.
+    # Shared by both scripts: pipeline.py passes MAIN_REQUIRED_SECTIONS,
+    # supportPipeline.py passes SUPPORT_REQUIRED_SECTIONS.
     # Check each day separately - a section missing from one day (e.g. Sunday
     # losing Student Questions) is invisible to a whole-document check when
     # the other six days still have it.
@@ -290,7 +304,7 @@ def validate_markdown(text, label, required_sections):
               f"'1.' with no blank line - this will merge into a run-on paragraph in the docx.")
 
 def check_day_heading_format(markdown_text, days=None, label=""):
-    # Both generateMain.py and generateSupport.py require the exact
+    # Both pipeline.py and supportPipeline.py require the exact
     # "# DAY" heading format (see MARKDOWN_LAYOUT / FIVEMINUTE_FORMAT
     # rule 1 in their respective templates). Centralized here so both
     # scripts check it the same way rather than keeping two copies that
@@ -357,3 +371,53 @@ def convert_markdown_to_docx(markdown_text, identifier, suffix):
     )
     print(f"Saved: {full_path}")
     return full_path
+
+
+# ---------------------------------------------------------------------------
+# Day-section extractors used by supportPipeline.py to build the Five-Minute
+# prompt from the finished Main lesson. Moved here from the retired
+# generateSupport.py (Oct 2026) so nothing imports that script any more.
+# ---------------------------------------------------------------------------
+
+def extract_day_vocab(main_markdown):
+    # Look for a "## Vocabulary" section within each day's own block, so
+    # the vocab handed to the Five-Minute prompt is labeled with the day
+    # it actually belongs to.
+    vocab_manifest = []
+    day_blocks = split_markdown_days(main_markdown)
+    for day in ALL_DAYS:
+        chunk = day_blocks.get(day)
+        if not chunk:
+            continue
+        vocab_match = re.search(
+            r"(?ms)^##\s*Vocabulary\s*$(.*?)(?=^##\s|\Z)",
+            chunk
+        )
+        if not vocab_match:
+            print(f"WARNING: no Vocabulary section found for {day}; Five-Minute vocab for {day} will be empty.")
+            continue
+        text = vocab_match.group(1).strip()
+        vocab_manifest.append(f"#BEGIN {day}_VOCAB\n{text}\n#END {day}_VOCAB\n")
+    return "\n".join(vocab_manifest)
+
+def extract_day_story(main_markdown):
+    # Returns ONLY the English half of each day's Story section (per
+    # MARKDOWN_LAYOUT rule 3 in MainLessonTemplate.txt: "**English:**"
+    # ... "**Spanish:**" ... ). The Five-Minute lesson never includes a
+    # Spanish mini-story, so the model never needs the Spanish half.
+    manifest = []
+    day_blocks = split_markdown_days(main_markdown)
+    for day in ALL_DAYS:
+        chunk = day_blocks.get(day)
+        if not chunk:
+            continue
+        story_match = re.search(
+            r"(?ms)^##\s*Story\s*$.*?\*\*English:\*\*\s*(.*?)\*\*Spanish:\*\*",
+            chunk
+        )
+        if not story_match:
+            print(f"WARNING: no Story/English block found for {day}; Five-Minute lesson for {day} will have no source story.")
+            continue
+        text = re.sub(r"\s+", " ", story_match.group(1)).strip()
+        manifest.append(f"#BEGIN {day}_STORY\n{text}\n#END {day}_STORY\n")
+    return "\n".join(manifest)
