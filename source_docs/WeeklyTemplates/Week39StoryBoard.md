@@ -157,40 +157,27 @@ the claim was denied - la reclamación fue negada
 Light reinforcement of "give," "have," and "get"
 Future, present and past tenses are permitted.
 Examples: Create one example each for "give," "have," and "get."
-Marisol has a practice test in front of her. – Marisol tiene un examen de práctica delante de ella.
-She gets the correct answer on question one. – Ella obtiene la respuesta correcta en la pregunta uno.
-She gives a reason for each answer. – Ella da una razón para cada respuesta.
+Marisol has three practice questions about vital signs. – Marisol tiene tres preguntas de práctica sobre los signos vitales.
+She gets the correct answer on two questions. – Ella saca la respuesta correcta en dos preguntas.
+The study guide gives a reason for each answer. – La guía de estudio da una razón para cada respuesta.
 
 # === VOCAB SATURDAY ===
 
-discriminate - discriminar
-employment - empleo
-breach of contract - incumplimiento de contrato
+practice question - pregunta de práctica
+Celsius / Fahrenheit - grados centígrados / grados Fahrenheit
+neck - cuello
+normal range - rango normal
 answer choice - opción de respuesta
-late payment - pago atrasado
-HIPAA - HIPAA (ley de privacidad de la información médica)
 
 # === END VOCAB SATURDAY ===
 
 1. The clinic is closed on Saturday. The house is quiet, and Marisol sits at the kitchen table with a cup of coffee and the Mometrix study guide.
-2. She opens to CMA Practice Test #1, questions 1, 2 and 3. She reads each question twice. These are legal and rules questions, not vital signs.
-3. She works through the three questions one at a time. They ask about the ADA, about HIPAA, and about breach of contract. She reads the explanation for each answer.
-4. Marisol gets questions 1 and 2 right. On question 3 she chooses d first, then reads the explanation and sees her mistake.
-5. She has a small moment of doubt: "I have to study the legal parts more." She also remembers the pharmacist's call on Wednesday and thinks about privacy and HIPAA.
-6. She makes a note on page 236 and decides to try questions 4, 5 and 6 next Saturday.
-
-# === STUDY NOTES SATURDAY ===
-Source: Mometrix CMA Study Guide, CMA Practice Test #1, questions 1, 2 and 3 (printed page 236). The answers and explanations come from the guide's answer key for Test #1.
-Question 1 (ADA): Title I of the Americans with Disabilities Act says people with disabilities must be: a. given access to public services; b. given chances to get public housing; c. not discriminated against in getting a job; d. given telecommunication services.
-Correct answer: c. Title I is about employment. A company cannot refuse to hire a person because of a disability.
-Why the others are wrong: a is about public services, which is a different title of the law. b is about housing, not employment. d is about telecommunications, which is also a different title.
-Question 2 (HIPAA): Which health care issue is NOT covered by HIPAA? a. making health insurance portable; b. health care fraud and abuse; c. standard electronic transmission of health data; d. how Medicare and Medicaid are paid.
-Correct answer: d. HIPAA does not say how Medicare and Medicaid payments work. The only link to Medicare plans is that they must coordinate with other plans so coverage is not duplicated.
-Why the others are wrong: a, b and c are all covered by HIPAA. Portability, fraud and abuse, and electronic data standards are three of its main topics.
-Question 3 (breach of contract): Which is a breach of contract by a health care provider? a. stopping treatment because the patient paid late; b. stopping treatment because it is no longer needed; c. being formally discharged by the patient; d. withdrawing from the case because the patient does not follow instructions or the provider cannot serve the patient.
-Correct answer: a. A provider cannot stop treatment only because a payment is late. That is a breach of contract.
-Why the others are wrong: b is allowed, because the treatment is finished. c is allowed, because the patient chose to end the care and formally discharged the provider. d is allowed, because the patient does not follow instructions or the provider cannot serve the patient. For c and d, the provider must send a notice to the patient by certified mail with a return receipt.
-# === END STUDY NOTES SATURDAY ===
+2. Today she studies vital signs, the same numbers she used all week. She has three practice questions from CMA Practice Test #1 (questions 158, 159 and 160).
+3. The first practice question asks how to change Celsius to Fahrenheit: multiply by 9/5, then add 32. Marisol smiles. In Cuba, a fever is 38 degrees. Here, it is 100.4.
+4. She thinks about Mr. Salazar on Monday. His temperature was 100.8 Fahrenheit, a little more than 38 Celsius. Now the American number makes sense to her.
+5. The second question asks which pulse is used in an emergency. Marisol chooses the wrist, because she used the wrist on Monday. The correct answer is the neck. The wrist is for normal visits. She says out loud, "The neck, not the wrist."
+6. The third question is easy. An adult has a pulse of 70 beats per minute. The normal range is 60 to 100, so it is normal. She gets it right in two seconds.
+7. Marisol gets two of the three questions right. She writes "neck = emergency" on a sticky note and puts it on the study guide.
 
 # SUNDAY STORYBOARD
 
@@ -215,7 +202,7 @@ vital signs - signos vitales
 reading - lectura
 oxygen saturation - saturación de oxígeno
 claims technician - técnico de reclamaciones del seguro
-breach of contract - incumplimiento de contrato
+normal range - rango normal
 
 # === END VOCAB SUNDAY ===
 
@@ -229,4 +216,4 @@ breach of contract - incumplimiento de contrato
 
 5 - Friday: A toddler has a fever. A claims technician calls about a denied claim, and Marisol finds the vital signs in the chart. Jason says, "Good thing you wrote everything down."
 
-6 - Saturday: Marisol studies three CMA practice questions, gets two right, and learns from her mistake on the third.
+6 - Saturday: Marisol studies three practice questions about vital signs. She changes Celsius to Fahrenheit, gets two right, and learns that the neck pulse is for emergencies.

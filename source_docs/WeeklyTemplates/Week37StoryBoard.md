@@ -1,217 +1,204 @@
 WEEK 37 – STORY BOARD
 
 WEEKLY VERB FOCUS (reference only — the parser does not pass this section to the model):
-Perform - The doctor performs the medical procedure. (Realizar)
-Complete - I complete the medical procedure. (Completar)
-Sanitize - The MA sanitizes the equipment and surfaces. (Desinfectar)
-(¿Cuándo añadimos una -s? Añadimos una -s a estos verbos cuando hablamos de he, she o it. Piensa en él, ella o usted.)
+Perform – The doctor performs the procedure. – La doctora realiza el procedimiento. (realizar / hacer / actuar)
+Complete – I complete the insurance form. – Lleno la planilla del seguro. (completar / terminar / llenar)
+Sanitize – The MA sanitizes the countertops. – La asistente desinfecta las mesetas. (desinfectar)
+(¿Cuándo añadimos una -s? Con he, she o it: él, ella o una cosa. Con "you" nunca: decimos "you perform", no "you performs", aunque en español se diga "usted realiza".)
 
 # MONDAY STORYBOARD
 
 Introduce "perform" – "realizar"
 Examples:
-I perform wound cleaning for a small cut. – Yo realizo la curación de una herida por un cortecito.
-She performs her duties with care. - Ella realiza sus tareas con mucho cuidado.
-The band performs every Friday night. - La banda actúa cada viernes por la noche.
-(El verbo perform tiene dos significados en español — realizar y actuar
-en esta lección vamos a ver los dos, pero nos vamos a concentrar en realizar.)
+Dra. Pérez performs several procedures today. – Hoy la Dra. Pérez realiza varios procedimientos.
+I perform a wound cleaning for a small cut. – Realizo la cura de un cortecito.
+Camy performs in a skit at school. – Camy actúa en una obrita en la escuela.
+(El verbo "perform" tiene dos significados: realizar en la clínica y actuar en el teatro. Esta semana nos concentramos en realizar.)
 
 # === VOCAB MONDAY ===
 
-fender bender - un chopecito
-traffic jam - un embotellamiento
-skit - un sketch o una escena teatral
-draw blood - extraer sangre o tomar una muestra de sangre
-procedure - procedimiento médico
-several - varios
+skit – una obrita de teatro
+practice lines – ensayar el papel
+fender bender – un choquecito
+traffic jam – un tranque
+draw blood – extraer sangre
+procedure – procedimiento
 
 # === END VOCAB MONDAY ===
 
-1 - Monday is not Marisol's carpool day.
-2 - Camy must perform in a class skit today.
-3 - Marisol helps Camy practice her lines.
-4 - Marisa drives Donna and Camy to school.
-5 - They see a minor fender bender that causes a traffic jam.
-6 - Marisol hurries to work; she is scheduled to draw blood.
-7 - She will also assist Dra. Pérez.  
-8 - Dra. Pérez will perform several procedures today.
+- Monday is not Marisol's carpool day. Marisa drives Camy and Donna to school.
+- Camy must perform in a class skit today, and she is nervous.
+- At breakfast, Marisol helps Camy practice her lines.
+- Marisol drives to the clinic. She must draw blood at 8:00.
+- A small fender bender causes a traffic jam, and Marisol is stuck.
+- In the car, she thinks about Camy and hopes she remembers her lines.
+- Marisol arrives just in time. Today she will also assist Dra. Pérez, who will perform several procedures.
 
 # TUESDAY STORYBOARD
 
 Introduce "complete" – reinforce "perform"
 Examples:
-Marisol completes the procedure cleanup. - Marisol completa la limpieza del procedimiento.
-I complete the treatment room cleaning. - Completo la limpieza de la sala de tratamiento.
-She completes the insurance form. - Ella completa el formulario del seguro médico.
-Marisol completed her house budget last night. - Marisol completó su presupuesto familiar anoche.
+Marisol completes the cleanup after the procedure. – Marisol termina la limpieza después del procedimiento.
+She completes the insurance form with the patient. – Llena la planilla del seguro con el paciente.
+Marisol completed her budget last night. – Anoche Marisol terminó su presupuesto.
+Dra. Pérez performed several procedures yesterday. – Ayer la Dra. Pérez realizó varios procedimientos.
+(Con planillas decimos "llenar": complete a form = llenar una planilla.)
 
 # === VOCAB TUESDAY ===
 
-budget - presupuesto
-insurance form - formulario del seguro médico
-checkbook - libreta de cheques
-pumped - emocionado
-chill - tranquilo
+chill – tranquilo
+pumped – embullada
+budget – presupuesto
+insurance form – planilla del seguro
+checkbook – chequera
 
 # === END VOCAB TUESDAY ===
 
-1 - Last night, Marisol completed her budget after work.
-2 - She balanced her checkbook.
-3 - She is pumped, because it looks like she can put some money in her savings.
-4 - At the clinic, she helps a patient fill in an insurance form.
-5 - At the clinic, Rosie says it is "chill" today.
-6 - Marisol does not know what "chill" means and asks Rosie to explain.
+- Last night, Marisol completed her budget and balanced her checkbook.
+- She is pumped. She can put a little money in savings this month.
+- At the clinic, she helps a patient complete an insurance form.
+- Rosie looks at the quiet waiting room and says, "It's chill today."
+- Marisol smiles and nods, but she does not know what "chill" means.
 
 # WEDNESDAY STORYBOARD
 
 Light review of "perform" and "complete"
 Examples:
-Marisol performs a blood test on the patient. - Marisol realiza una prueba de sangre al paciente.
-The doctor performs a check-up on the patient. - El doctor realiza un chequeo al paciente.
-Marisol completes the patient’s medical chart. - Marisol completa la ficha médica del paciente.
-Dra. Pérez completes the procedure and writes the notes. - Dra. Pérez completa el procedimiento y escribe las notas.
+Camy performed in a skit at school. – Camy actuó en una obrita en la escuela.
+Dra. Pérez performed several procedures on Monday. – El lunes la Dra. Pérez realizó varios procedimientos.
+Marisol completes the patient's chart. – Marisol completa la historia clínica del paciente.
 
 # === VOCAB WEDNESDAY ===
 
-procedure - procedimiento médico
-draw blood - extraer sangre
-insurance form - formulario del seguro médico
-budget - presupuesto
+chill – tranquilo
+budget – presupuesto
+draw blood – extraer sangre
+procedure – procedimiento
 
 # === END VOCAB WEDNESDAY ===
 
-1 - Marisa drove Donna and Camy to school.
-2 - They saw a fender bender and a traffic jam on the way to school.
-3 - Marisol drew blood and assisted Dra. Pérez with several procedures at the clinic.
-4 - Marisol completed her budget and balanced her checkbook after work.
-5 - Marisol helped a patient fill in an insurance form.
-6 - Rosie says Tuesday at the clinic is “chill.” Marisol wonders what it means.
+- Marisol and Camy eat dinner at the kitchen table.
+- Camy says she performed her skit on Monday, and she did not forget one line.
+- Marisol tells Camy about the clinic. She drew blood, and Dra. Pérez performed several procedures.
+- She tells Camy she completed her budget. She is still happy about her savings.
+- Marisol: "Rosie says the clinic is 'chill.' What does that mean?"
+- Camy: "Mami, everybody knows that. It means calm. Relaxed."
+- Marisol laughs. Tonight is chill too.
 
 # THURSDAY STORYBOARD
 
 Introduce "sanitize" – light reinforcement of "perform" and "complete"
 Light past and future tenses are fine when the story needs it.
 Examples:
-Marisol sanitizes the collection tray, arm rests and counter tops in the treatment room. – Marisol desinfecta la bandeja de recolección, los reposabrazos y las superficies de trabajo en la sala de tratamiento.
-She will sanitize the treatment room before the next patient arrives. – Ella desinfectará la sala de tratamiento antes de que llegue el siguiente paciente.
-She performs a check of the treatment room. – Ella realiza una revisión de la sala de tratamiento.
-She completed her duties and then practiced her Patient – MA English conversation skills. – Ella completó sus tareas y luego practicó sus habilidades de conversación en inglés entre paciente y asistente.
+Marisol sanitizes the collection tray and the countertops. – Marisol desinfecta la bandeja de recolección y las mesetas.
+She will sanitize the room before the next patient arrives. – Va a desinfectar el cuarto antes de que llegue el próximo paciente.
+She performs a final check of the treatment room. – Realiza una revisión final de la sala de tratamiento.
+She completes her checklist. – Termina su lista de tareas.
 
 # === VOCAB THURSDAY ===
 
-dropping off - dejar (a alguien en un lugar)
-requisitioned - solicitó
-venipuncture - venipunción / punción venosa
-capillary - capilar
-collection tray - bandeja de recolección
-counter tops - superficies de trabajo
+countertops – las mesetas
+collection tray – bandeja de recolección
+venipuncture – punción venosa
+drop off – dejar
+capillary sample – muestra capilar
 
 # === END VOCAB THURSDAY ===
 
-1 - After dropping off the girls at school, Marisol drives to work.
-2 - She checks the iPad for orders and requisitions for today.
-3 - The Dr. has requisitioned two more blood samples, one is venipuncture, the other is a capillary sample.
-4 - She checks out a venipunture kit and a capillary kit from the supply cabinet.
-5 - She sanitizes the collection tray, arm rests and counter tops in the treatment room, per instructions.
-6 - She performs a check of the treatment room.
-7 - After completing her duties, she practices her Patient - MA English Conversation skills.
+- Marisol drops off Camy and Donna at school and drives to work.
+- She checks the iPad for today's orders. Dra. Pérez orders two blood draws: one venipuncture and one capillary sample.
+- She takes the two kits from the supply cabinet. There is only one capillary kit left, so she writes a note to order more.
+- She sanitizes the collection tray, the arm rests, and the countertops in the treatment room.
+- She performs a final check of the room and completes her checklist.
+- The first patient is late, so Marisol practices her patient English. She says softly, "Please roll up your sleeve."
+- The word "venipuncture" is hard to say. She tries it three times.
 
 # FRIDAY STORYBOARD
 
-Reinforce "sanitize" and light reinforcement of "perform" and "complete"
-Heavier use of future, present, past tenses are permitted.
-Examples: Create 2 examples for "sanitize" and one each for "perform" and "complete."
-Marisol sanitizes the wound area before applying a pressure dressing. – Marisol desinfecta el área de la herida antes de aplicar una gasa con presión.
-The staff sanitized the treatment room after the patient was transferred to the ER. – El personal desinfectó la sala de tratamiento después de que el paciente fue transferido a la sala de emergencias.
-The LPN performs a wound assessment on the patient’s right arm. – La LPN realiza una evaluación de la herida en el brazo derecho del paciente.
-The staff will complete the transfer documentation before the ambulance arrives. – El personal completará la documentación de la transferencia antes de que llegue la ambulancia.
+Reinforce "sanitize" – light reinforcement of "perform" and "complete"
+Present, past, and future tenses are fine.
+Examples:
+Marisol sanitizes the countertops after Rafael leaves. – Marisol desinfecta las mesetas después que Rafael se va.
+The staff sanitized the treatment room at 5:15. – El personal desinfectó la sala de tratamiento a las 5:15.
+Letia performs a wound assessment on Rafael's right arm. – Letia realiza una evaluación de la herida en el brazo derecho de Rafael.
+Marisol will complete the transfer notes before she goes home. – Marisol va a completar las notas del traslado antes de irse pa' la casa.
 
 # === VOCAB FRIDAY ===
 
-whiteboard - pizarra
-In court - en el tribunal o En la corte
-landscaping - jardinería
-laceration - laceración
-crosses the threshold - cruza el umbral o supera el límite o excede el límite
-staff - personal
+staff – el personal
+laceration – laceración
+refer – remitir
+on-call doctor – médico de guardia
+whiteboard – pizarra
+landscaping – jardinería
 
 # === END VOCAB FRIDAY ===
 
-1. It’s 4:47 p.m. on a Friday.
-2. Letia, Rosie, Amanda and Marisol are ready to go home.
-3. Dr. Pérez’s name is on the whiteboard with a red “IN COURT – DO NOT CALL”
-4. A commercial landscaping crew foreman, Rafael, walks in at 4:52 p.m. with a 3-inch laceration on his right arm.
-5. The wound is long enough (3 inches) and deep enough (1/4") that it crosses the threshold where a single LPN suture line becomes a multi-layer closure question.
-6. The staff need to determine quickly if the patient should be routed to an ER for treatment.
-7. The on-call physician leaves a voice mail, "For anything time-critical, transfer to St. Luke’s ER, 12 minutes away, and document the transfer."
-8. The staff decide the patient must be referred to the ER.
+- It is 4:47 p.m. on Friday. Letia, Rosie, Amanda, and Marisol are ready to go home.
+- The whiteboard says: "DRA. PÉREZ – CONFERENCE – DO NOT CALL."
+- At 4:52, Rafael, a worker from a landscaping crew, walks in. He has a deep laceration on his right arm, about three inches long.
+- Letia performs a quick wound assessment while Marisol holds gauze on the cut.
+- Letia says, "This is too deep for us. He needs a doctor."
+- Amanda calls the on-call doctor and gets a voicemail: "For anything urgent, send the patient to St. Luke's ER. It is twelve minutes away."
+- The staff refer Rafael to St. Luke's ER. He speaks little English, so Marisol explains the plan to him in Spanish.
+- A man from his crew drives him to the ER. Marisol completes the transfer notes and sanitizes the treatment room.
 
 # SATURDAY STORYBOARD
 
-Light reinforcement of "sanitize", "perform" and "complete"
-Future, present and past tenses are permitted.
-Examples: Create 2 examples for "sanitize", "perform" and "complete."
-Marisol sanitizes the bathroom sink and counter tops on Saturday morning. – Marisol desinfecta el lavabo y las superficies de trabajo del baño en la mañana del sábado.
-She will sanitize the kitchen after doing the laundry. – Ella desinfectará la cocina después de hacer la ropa.
-She almost had to perform a two-layer suture procedure with Letia. – Casi tuvo que realizar un procedimiento de sutura en varias capas con Letia.
-She will perform the deep clean on the bathroom tile this afternoon. – Ella realizará la limpieza profunda en el azulejo del baño esta tarde.
-She completes her housework before the girls get home. – Ella completa sus quehaceres de la casa antes de que las niñas regresen.
-She completed the grocery list last night. – Ella completó la lista de compras anoche.
+Light reinforcement of "sanitize," "perform," and "complete"
+Present, past, and future tenses are fine.
+Examples:
+Marisol sanitizes the bathroom sink and the countertop. – Marisol desinfecta el lavamanos y la meseta del baño.
+She will sanitize the kitchen after she does the laundry. – Va a desinfectar la cocina después de lavar la ropa.
+Letia performed a quick wound assessment yesterday. – Ayer Letia realizó una evaluación rápida de la herida.
+Dra. Pérez will perform more procedures on Monday. – El lunes la Dra. Pérez va a realizar más procedimientos.
+She completes her housework before lunch. – Termina los quehaceres antes del almuerzo.
+She completed the grocery list last night. – Anoche terminó la lista de compras.
 
 # === VOCAB SATURDAY ===
 
-alarm goes off - el despertador suena o La alarma suena
-no use - no sirve de nada o No vale la pena
-chores - quehaceres o Faenas de la casa
-go back to sleep - volver a dormir
-multi-layer suture procedure - procedimiento de sutura en varias capas
+alarm goes off – suena el despertador
+it's no use – es por gusto
+chores – los quehaceres
+go back to sleep – volver a dormirse
+turn off – apagar
 
 # === END VOCAB SATURDAY ===
 
-1. The alarm goes off at 6:30.  Marisol opens her eyes and realizes it is Saturday.
-2. Marisol forgot to turn her alarm off.  She won't be working Saturdays for a while.
-3. She rolls back over and tries to go back to sleep.
-4. After a few minutes, she realizes it's no use to try to sleep.
-5. She is already thinking about chores: doing laundry, grocery shopping, sanitizing the bathroom, completing her housework.
-6. She also thinks about yesterday, how she almost had to perform a multi-layer suture procedure with Letia.
-7. She hopes Marisa, Donna, Camy and Marisol can do something fun together later today.
-8. She wonders (no, she hopes) Rod will message her.
+- The alarm goes off at 6:30. Marisol opens her eyes. It is Saturday.
+- She forgot to turn off her alarm. She does not work on Saturdays now.
+- She rolls over and tries to go back to sleep.
+- After a few minutes, she knows it's no use. Her mind is already busy.
+- She thinks about her chores: laundry, grocery shopping, and sanitizing the bathroom. She wants to complete her housework before lunch.
+- She thinks about yesterday: Rafael, the worker with the deep cut, and the quick trip to the ER. She is glad Letia performed a fast, calm assessment.
+- She hopes she, Camy, Marisa, and Donna can do something fun later.
+- She wonders if Rod will message her. No. She hopes he will.
 
 # SUNDAY STORYBOARD
 
-Use "sanitize," "perform" and "complete"
+Review "perform," "complete," and "sanitize" in present, past, and future.
+Sunday is a review day: one short sentence for each day of the week, inside one scene.
 Examples:
-Present
-Marisol sanitizes the treatment room before the morning procedures. – Marisol desinfecta la sala de tratamiento antes de los procedimientos matutinos.
-The doctor performs a check-up on the patient. – El doctor realiza un chequeo al paciente.
-Marisol completes the patient’s medical chart. – Marisol completa la ficha médica del paciente.
-Past
-Marisol sanitized the collection tray and arm rests after the blood draw. – Marisol desinfectó la bandeja de recolección y los reposabrazos después de la extracción de sangre.
-Dra. Pérez performed several procedures yesterday. – Dra. Pérez realizó varios procedimientos ayer.
-Marisol completed the insurance form for the patient. – Marisol completó el formulario del seguro médico del paciente.
-Future
-Marisol will sanitize the counter tops before the next patient arrives. – Marisol desinfectará las superficies de trabajo antes de que llegue el siguiente paciente.
-The doctor will perform a venipuncture on the patient. – El doctor realizará una venipunción al paciente.
-Marisol will complete the procedure notes before she leaves. – Marisol completará las notas del procedimiento antes de irse.
+Camy performed in her class skit on Monday. – Camy actuó en la obrita de su clase el lunes.
+Marisol completes her chores every Saturday. – Marisol termina los quehaceres todos los sábados.
+The staff sanitized the treatment room on Friday. – El personal desinfectó la sala de tratamiento el viernes.
+Dra. Pérez will perform more procedures next week. – La Dra. Pérez va a realizar más procedimientos la semana que viene.
 
 # === VOCAB SUNDAY ===
 
-draw blood – extraer sangre / tomar una muestra de sangre
-insurance form – formulario del seguro médico
-staff – personal
 chill – tranquilo
-chores – quehaceres / faenas de la casa
+chores – los quehaceres
+staff – el personal
+draw blood – extraer sangre
 
 # === END VOCAB SUNDAY ===
 
-1.Monday: Marisol helps Camy practice her skit lines, and they see a fender bender that causes a traffic jam on the way to school. At the clinic, Marisol draws blood and assists Dra. Pérez with several procedures.
-
-2.Tuesday: Marisol completes her budget and balances her checkbook after work, and she is pumped because she can put money in savings. At the clinic, she helps a patient fill in an insurance form, and Rosie calls the day “chill.”
-
-3.Wednesday: Marisol performs a blood test and completes the patient’s medical chart. Dra. Pérez completes a procedure and writes the notes.
-
-4.Thursday: Marisol checks the iPad for requisitions, sanitizes the treatment room, and performs a check of the space. After completing her duties, she practices her Patient – MA English conversation skills.
-
-5.Friday: A landscaping foreman arrives with a 3-inch laceration, and the staff must decide whether to transfer him to the ER. The on-call physician’s voicemail directs them to St. Luke’s, and the staff refer the patient.
-
-6.Saturday: Marisol wakes on a Saturday and thinks about chores, including sanitizing the bathroom. She recalls almost performing a two-layer suture with Letia and hopes Rod will message her.
+- On Sunday evening, Marisol and Marisa walk in the park while Camy and Donna ride their bikes.
+- Marisa asks, "So, how was your week?"
+- On Monday, Camy performed in her class skit, and Marisol drew blood at the clinic.
+- On Tuesday, Marisol completed her budget and was happy about her savings.
+- On Wednesday, Camy explained the word "chill" to her mom.
+- On Thursday, Marisol sanitized the treatment room and practiced her patient English.
+- On Friday, a worker came in with a deep cut, and the staff sent him to the ER.
+- On Saturday, Marisol completed her chores and sanitized the bathroom.
+- Marisol says, "Busy, but good. Next week, I will complete one page of my coffee shop plan."
