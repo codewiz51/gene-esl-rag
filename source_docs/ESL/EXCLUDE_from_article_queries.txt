@@ -1,0 +1,43 @@
+EXCLUDE LIST — ESL Lesson PDFs and CMA Exam Material
+Purpose: These files are NOT "day in the life" articles. They are ESL lesson plans,
+bilingual sentence exercises, and CMA exam practice material. They should be tagged
+as "ESL lesson material" or excluded when running article-style retrieval queries
+such as "day in the life of a medical assistant."
+
+REASON FOR EXCLUSION:
+These documents contain heavy vocabulary overlap with medical-assistant article queries
+(vitals, clinic, patient, morning, afternoon, chart, schedule, insurance, wound care),
+which causes bge-m3 to score them above the similarity threshold even though they are
+not articles about a medical assistant's day.
+
+FILES TO TAG OR EXCLUDE:
+
+  week_02_day_04.txt   — Marisol's clinic story (ESL Day 4)
+  week_02_day_07.txt   — Sunday gunshot-wound scene (ESL Day 7)
+  week_03_day_01.txt   — CMA cert exam questions (ESL Day 1)
+  week_03_day_05.txt   — Gentleman Jim's prosthetic foot (ESL Day 5)
+  week_05_day_04.txt   — PET scan / Dr. Johansen story (ESL Day 4)
+  week_05_day_05.txt   — Dr. Johansen continued (ESL Day 5)
+  week_06_bar.txt      — Bariatrics conversation with Dra. Pérez
+  week_08_preview.txt  — Verb practice (do / get / have)
+  week_09_day_04.txt   — Marisol's Saturday clinic shift (ESL Day 4)
+  week_09_day_05.txt   — Marisol's Sunday clinic shift (ESL Day 5)
+  week_09_day_06.txt   — Marisol's Monday shift (ESL Day 6)
+  week_09_day_07.txt   — Marisol's Tuesday shift (ESL Day 7)
+  week_10_*.txt        — Mrs. Ruiz story (ESL)
+  week_11_*.txt        — Mr. Vega story (ESL)
+  week_24_*.txt        — Marisol story (ESL)
+  week_25_*.txt        — Marisol story (ESL)
+  week_35_*.txt        — Marisol story (ESL)
+  mometrix_cma_p18.txt — CMA exam prep page 18
+  mometrix_cma_p19.txt — CMA exam prep page 19
+  mometrix_cma_p20.txt — CMA exam prep page 20
+
+RECOMMENDED METADATA TAG:
+  source_type: "ESL_lesson" or "CMA_exam_prep"
+  exclude_from: "article_retrieval"
+  include_for: "ESL_instruction", "CMA_studying"
+
+GENERATED: 2026-09-25
+REASON: Prevented false-positive retrieval of lesson PDFs when querying
+          for "day in the life of a medical assistant" articles.

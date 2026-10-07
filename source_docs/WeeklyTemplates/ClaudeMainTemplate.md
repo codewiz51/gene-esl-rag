@@ -140,6 +140,7 @@ Hints (Warmup, Pattern Practice)
 - Carla – part-time medical assistant.
 - Crystal – new Physician Assistant, covers weekends.
 - Ernesto – Marisol's brother, Cuban immigrant, married to Virginia.
+- Jorge – Marisol's oldest brother, late 40s, lives in Cuba with his wife in a nice house near where they grew up. Use family details sparingly.
 - Virginia – Marisol's sister-in-law; sometimes picks up Camy and Donna from school.
 
 Marisol and Rod: a light, occasional beat, never a storyline and never the main event. A missed chance to talk, a rushed wave, a text she means to answer. It should show, with a smile, how hard dating is on a single mother's schedule. The reader is in the same situation and should see herself in it.
