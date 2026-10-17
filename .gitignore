@@ -22,8 +22,12 @@ __pycache__/
 _archive_20260917/
 
 # Weekly Lesson Output Ignored
-source_docs/WeeklyLessons/
 
 # Ignore debug files.  Previously, I only ignored in sourcecode. 
 debug_*.txt
 sourcecode/debug/
+
+# Track lesson output; keep zips ignored
+!source_docs/WeeklyLessons/**/*.docx
+source_docs/WeeklyLessons/**/*.zip
+!source_docs/WeeklyTemplates/reference.docx
