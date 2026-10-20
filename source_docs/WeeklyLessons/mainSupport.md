@@ -2,517 +2,549 @@
 
 ## Warmup
 
-1. I ___ a new schedule this week at the clinic. (tengo)
-2. The patient ___ a fever, so I take his temperature. (tiene)
-3. I ___ to brush up on the vital signs before my first day. (tengo)
+1. I ___ a little off this morning, but I go to work anyway. (me siento)
+2. Mrs. Carter ___ light-headed, so she sits down. (se siente)
+3. How do you ___ today, patient? (sentir)
 
 ## Vocabulary
 
-1. vital signs – signos vitales
-2. pulse – pulso
-3. beats per minute – latidos por minuto
-4. fever – fiebre
-5. review / brush up on – repasar (formal / casual)
+1. a little off – no muy bien / un poco rara
+2. let's get the ball rolling – vamos a empezar / manos a la obra
+3. light-headed – mareado / mareada
+4. warning sign – señal de alerta
+5. hang tight / please wait – espere un momentico / favor de esperar (casual / formal)
 
 ## Story
 
 **English:**
 
-Monday morning, Marisa drives Camy and Donna to school. Marisol drives herself to the clinic. Before she leaves, Camy says, "Mom, don't be nervous. You know this job." Marisol smiles, but she is still nervous. This is her first full-time week. She did her internship here several months ago, but she needs to brush up on the basics.
+Monday morning, Marisol feels a little off. She did not sleep well, and the house is quiet because Marisa drives Camy and Donna to school today. Marisol arrives at the clinic at nine o'clock. She walks in and says, "Good morning! Let's get the ball rolling." It is a phrase she learned from Rosie, and it makes her smile.
 
-The clinic opens at 9:30. Walk-in patients are already in the waiting room. Letia reviews the five vital signs with Marisol: pulse, breathing, blood pressure, oxygen, and temperature. The first patient is Mr. Salazar, a walk-in. He feels hot and tired.
+At 9:30, Mrs. Carter is waiting at the front desk. She tells Marisol, "I feel light-headed, and my heart is beating fast." Marisol stays calm. She says, "Hang tight. Please sit down." The room smells like clean soap and old paper.
 
-Marisol takes his temperature. It reads 100.8. He has a fever. Then she feels the pulse on his wrist, below the thumb. She counts: 96 beats per minute. The normal range is 60 to 100, so his pulse is normal. Only his temperature is high. Her hands shake a little. She breathes and counts the pulse again. Letia says, "Take your time. Count again." Marisol writes the numbers in the chart. Mr. Salazar has a fever, and Dr. Pérez will see him next.
+Marisol takes her pulse: 112 beats per minute. That is above the normal range of 60 to 100. Her hands feel cold for a second, but she breathes in and keeps going. She tells Letia right away. She writes a short note in the chart: "Light-headed, fast pulse, started this morning."
+
+Dr. Pérez sees Mrs. Carter next. Marisol goes back to the front desk. She takes a breath and says, "Okay, who's next?"
 
 **Spanish:**
 
-Lunes por la mañana, Marisa lleva a Camy y a Donna a la escuela. Marisol se va a la clínica en su carro. Antes de irse, Camy le dice: "Mamá, no te pongas nerviosa. Ya conoces este trabajo." Marisol sonríe, pero todavía está nerviosa. Es su primera semana completa. Hizo su práctica aquí hace unos meses, pero tiene que repasar lo básico.
+La mañana del lunes, Marisol no se siente muy bien. No durmió bien, y la casa está tranquila porque Marisa lleva a Camy y a Donna a la escuela hoy. Marisol llega a la clínica a las nueve. Entra y dice: "¡Buenos días! Vamos a empezar." Es una frase que aprendió de Rosie, y la hace sonreír.
 
-La clínica abre a las 9:30. Ya hay pacientes en la sala de espera. Letia le repasa a Marisol los cinco signos vitales: pulso, respiración, presión, oxígeno y temperatura. El primer paciente es el señor Salazar, que llegó sin cita. Se siente con calor y cansado.
+A las 9:30, la señora Carter está esperando en la recepción. Le dice a Marisol: "Me siento mareada y me late el corazón rápido." Marisol se queda tranquila. Le dice: "Favor de esperar. Siéntese, por favor." La sala huele a jabón limpio y a papel viejo.
 
-Marisol le toma la temperatura. Marca 100.8. Tiene fiebre. Luego le toma el pulso en la muñeca, debajo del pulgar. Cuenta: 96 latidos por minuto. Lo normal es de 60 a 100, así que su pulso está bien. Solo la temperatura está alta. Le tiemblan un poco las manos. Respira y cuenta el pulso otra vez. Letia le dice: "Tómese su tiempo. Cuente otra vez." Marisol escribe los números en el expediente. El señor Salazar tiene fiebre, y la Dra. Pérez lo va a ver después.
+Marisol le toma el pulso: 112 latidos por minuto. Eso está por encima del rango normal de 60 a 100. Sus manos se ponen frías un segundo, pero respira hondo y sigue. Le dice a Letia enseguida. Escribe una nota corta en el expediente: "Mareada, pulso rápido, empezó esta mañana."
+
+La Dra. Pérez atiende a la señora Carter después. Marisol vuelve a la recepción. Respira y dice: "Bueno, ¿quién sigue?"
 
 ## Grammar
 
-"Have" significa "tener" en español. Con I, you, we, they, la forma es "have." Con he, she, it, la forma es "has."
+El verbo "feel" es irregular. En presente, se dice "I feel," "you feel," y "she feels" (se le pone -s a he, she, o it). En pasado, se vuelve "felt" para todos los sujetos.
 
 Pattern Practice:
 
-1. Mr. Salazar ___ a temperature of 100.8. (tiene)
-2. I ___ to count his pulse a second time. (tengo)
-3. She ___ a normal pulse, 72 beats per minute. (tiene)
+1. I ___ a little off today. (me siento)
+2. Mrs. Carter ___ light-headed this morning. (se siente)
+3. I ___ tired last night. (me sentí)
 
 ## Examples
 
-1. Marisol has a full schedule today because it is her first full-time week at the clinic.
-2. Mr. Salazar has a temperature of 100.8, so he has a fever, and his pulse is 96 beats per minute.
-3. Letia has the five vital signs written down so Marisol can review them before the first patient.
-4. Letia and Marisol talk at the station:
-Letia: "Marisol, your hands are shaking. Take a breath."
-Marisol: "I know. I have so much to do today."
-Letia: "You did this before, in your internship. Count again."
-Marisol: "Okay. 96. That is in the normal range."
-Letia: "Good. Now write it down. You can do this."
-5. Camy has one last thing to say before school: "Mom, don't be nervous. You know this job."
+1. Marisol feels a little off this morning because she did not sleep well.
+2. Mrs. Carter tells Marisol, "I feel light-headed, and my heart is beating fast."
+3. Letia feels the pulse and says, "One hundred and twelve beats per minute. That is high."
+4. Marisol: "Good morning! Let's get the ball rolling."
+   Rosie: "Ha, I love that phrase. Where did you learn it?"
+   Marisol: "From you! I heard you say it last week."
+   Rosie: "Well, at least you are using it. Most people just say 'hello' and walk away."
+   Marisol: "I will try to say it every morning. It makes me feel ready."
+5. Marisol tells Letia about Mrs. Carter's fast pulse right away.
+6. Dr. Pérez feels Mrs. Carter's wrist and checks her blood pressure.
 
 ## Translation Practice
 
 Spanish → English
 
-1. El paciente tiene una temperatura de 100.8 y un pulso de 96 latidos por minuto.
-2. La enfermera le repasa los cinco signos vitales a la nueva asistente.
-3. El señor Salazar se siente con calor y cansado.
-4. La asistente cuenta los latidos en la muñeca, debajo del pulgar.
-5. Tómese su tiempo y cuente otra vez.
-6. La asistente escribe los números en el expediente del paciente.
+1. Me siento mareada y me late el corazón rápido.
+2. Favor de esperar un momentico y siéntese, por favor.
+3. El pulso está en 112 latidos por minuto, eso está por encima del rango normal.
+4. No dormí bien anoche, así que hoy me siento un poco rara.
+5. La paciente dice que el mareo empezó esta mañana.
+6. Vamos a empezar, ¿quién sigue?
 
 English → Spanish
 
-1. The patient's temperature is high, so he has a fever.
-2. The nurse tells the new assistant to take her time and count the pulse again.
+1. She did not sleep well, so she feels a little off today.
+2. The patient's pulse is above the normal range.
 
 ## Student Questions
 
-1. When you take a patient's pulse, where on the body do you feel it? (muñeca)
-2. What do you do if your hands shake while you count the pulse? (respirar)
-3. What is the normal range for an adult's pulse in beats per minute? (rango normal)
-4. Did you feel nervous before your first full-time day at work? (nerviosa)
+1. What do you do when a patient feels light-headed and her pulse is above 100? (avisas)
+2. What do you write in the chart when a patient comes in with new symptoms? (síntomas)
+3. How do you make a scared patient feel calm? (calma)
+4. Did you feel a little off this morning, or did you sleep well? (descanso)
 
 # TUESDAY
 
 ## Warmup
 
-1. I ___ the blood pressure cuff from the drawer for Mrs. Gómez. (saco)
-2. The reading is a little high, so I ___ a second reading. (obtengo)
-3. I ___ nervous at the clinic, but I take a deep breath. (me pongo)
+1. I ___ the nurse the numbers. (le digo)
+2. Mr. Delgado ___ me about his stomach cramps. (me cuenta)
 
 ## Vocabulary
 
-1. reading – lectura
-2. systolic / diastolic – sistólica / diastólica (el número de arriba / el número de abajo)
-3. cuff size – tamaño del manguito
-4. a little high – un poco alta
-5. calm down / take a deep breath – cálmese / respire profundo (formal / casual)
+1. stomach cramps – retortijones / cólicos
+2. weak – débil
+3. pale – pálido / pálida
+4. check in – registrar al paciente
+5. no worries – no se preocupe / tranquilo
 
 ## Story
 
 **English:**
 
-Tuesday at the clinic is steady, with no rush. Marisol gets the blood pressure cuff from the drawer for Mrs. Gómez, who has a bad headache. The cuff is too small for Mrs. Gómez's arm, and Marisol knows a wrong cuff size gives a wrong reading. She gets a bigger cuff from the cabinet and wraps it around the woman's arm. The reading is 138 over 88. The top number is systolic, and the bottom number is diastolic. It is a little high. Mrs. Gómez says she gets nervous at the doctor, so Marisol tells her, "Take a deep breath," and waits five minutes. Marisol takes the reading again. It is lower this time, and Mrs. Gómez lets out a long breath. She writes both readings in the chart and tells Dr. Pérez.
+Marisol arrives with her coffee. She had a long night with Camy's homework, and her eyes feel heavy. Mr. Delgado comes to the front desk, pale and holding his stomach. He tells Marisol, "I have stomach cramps. They started last night, and I feel weak." Marisol says, "No worries. I will check you in and get Letia." She takes his blood pressure: 98 over 60, a little low. She tells Letia and writes in the chart: "Stomach cramps, weak, low blood pressure." Then she calls out, "Who's up next?"
 
 **Spanish:**
 
-El martes en la clínica va tranquilo, sin apuro. Marisol saca el manguito de la gaveta para la señora Gómez, que tiene un dolor de cabeza fuerte. El manguito es muy pequeño para el brazo de la señora, y Marisol sabe que un tamaño equivocado da una lectura mala. Saca un manguito más grande del armario y le pone el manguito en el brazo. La lectura es 138 sobre 88. El número de arriba es la sistólica, y el de abajo es la diastólica. Está un poco alta. La señora Gómez dice que se pone nerviosa con el doctor, así que Marisol le dice: "Respire profundo," y espera cinco minutos. Marisol toma la lectura otra vez. Esta vez es más baja, y la señora Gómez suelta un suspiro. Escribe las dos lecturas en el expediente y se lo dice a la Dra. Pérez.
+Marisol llega con su café. Tuvo una noche larga con la tarea de Camy, y le pesan los ojos. El señor Delgado llega a la recepción, pálido y agarrándose el estómago. Le cuenta a Marisol: "Tengo retortijones. Empezaron anoche y me siento débil." Marisol le dice: "Tranquilo. Lo voy a registrar y voy a buscar a Letia." Le toma la presión: 98 sobre 60, un poquito baja. Le dice a Letia y escribe en el expediente: "Retortijones, débil, presión baja." Luego grita: "¿Quién sigue?"
 
 ## Grammar
 
-"Get" puede significar "obtain" (obtener), "take out" (sacar) o "become" (ponerse). Con I, you, we, they, la forma es "get." Con he, she, it, la forma es "gets."
+El verbo "tell" significa "decir" o "contar" en español. En presente, se dice "I tell," "you tell," y "she tells" (se le pone -s a he, she, o it). En pasado, se vuelve "told" para todos los sujetos.
 
 Pattern Practice:
 
-1. She ___ the cuff from the cabinet and puts it on the patient's arm. (saca)
-2. I ___ a blood pressure reading from the cuff. (obtengo)
-3. Patients ___ nervous when the doctor is late. (se ponen)
+1. I ___ Letia about the low reading. (le digo)
+2. He ___ me that he feels weak. (me dice)
 
 ## Examples
 
-1. Marisol gets the blood pressure cuff from the drawer, but it is too small for Mrs. Gómez's arm.
-2. Mrs. Gómez has a bad headache, and the first reading is a little high.
-3. Marisol and Mrs. Gómez talk in the exam room:
-Marisol: "Mrs. Gómez, you look nervous. Take a deep breath."
-Mrs. Gómez: "I always get nervous at the doctor. It is hard for me."
-Marisol: "That is okay. I will get a bigger cuff and try again in five minutes."
-Mrs. Gómez: "Thank you. I feel better already."
-4. Marisol gets a bigger cuff from the cabinet, and the second reading is lower.
+1. Mr. Delgado tells Marisol, "I have stomach cramps. They started last night, and I feel weak."
+2. Marisol tells Letia, "The patient is pale and his blood pressure is low."
+3. Mr. Delgado: "I feel weak. I can barely stand."
+   Marisol: "No worries. I will check you in and get Letia."
+   Mr. Delgado: "Ugh, my stomach hurts so much. I have not eaten since yesterday."
+   Marisol: "I will tell Dr. Pérez right away. Please sit down."
+   Mr. Delgado: "Fine. I will wait here."
 
 ## Translation Practice
 
 Spanish → English
 
-1. El número de arriba es la presión sistólica, y el de abajo es la diastólica.
-2. La asistente saca un manguito más grande del armario porque el primero es muy pequeño.
+1. Tengo retortijones. Empezaron anoche y me siento débil.
+2. El paciente está pálido y su presión arterial está baja, 98 sobre 60.
 
 English → Spanish
 
-1. The reading is a little high, so the nurse tells the patient to take a deep breath.
-2. The cuff size is wrong, so the reading is not right.
+1. No worries. I will check you in and get Letia.
+2. The patient has stomach cramps and feels weak.
 
 ## Student Questions
 
-1. What do you do if the blood pressure cuff is too small for the patient's arm? (manguito grande)
-2. What is the top number in a blood pressure reading called? (sistólica)
-3. Did you help someone calm down today, at work or at home? (cálmese)
+1. What do you do when a patient is pale and weak at the front desk? (registrar)
+2. What do you say to a patient who looks scared when he comes in? (tranquilo)
+3. Did you have a long night with Camy's homework, like Marisol? (tarea)
+4. What do you check first when a patient feels weak? (presión)
 
 # WEDNESDAY
 
 ## Warmup
 
-1. I ___ his date of birth from the chart for the pharmacist. (saco)
-2. The patient ___ a medication for his blood pressure. (tiene)
-3. I ___ to ask the pharmacist to repeat the dosage. (tengo)
+1. I ___ tired at the store, but I keep going. (me siento)
+2. Camy ___ me that she needs poster board. (me dice)
 
 ## Vocabulary
 
-1. pharmacist – farmacéutico / farmacéutica
-2. medication – medicamento
-3. dosage – dosis
-4. date of birth – fecha de nacimiento
-5. please hold / hang tight – favor de esperar / espere un momentito (formal / casual)
+1. ATM – cajero automático
+2. groceries – la compra / los mandados
+3. next in line / who's up next – el próximo / ¿quién sigue? (formal / casual)
+4. receipt – recibo
+5. poster board – cartulina
 
 ## Story
 
 **English:**
 
-On Wednesday morning, the clinic phone rings. A pharmacist is calling about a refill for Mr. Navarro's blood pressure medication. The pharmacist asks, "Do you have his date of birth and his last blood pressure reading?" Marisol says, "Please hold. I'll get his chart." Rosie whispers, "You can say 'hang tight.' It sounds friendlier," and Marisol smiles. Marisol gets the chart and reads the date of birth. The last reading was 118 over 76, and his pulse was 72. The pharmacist says a long sentence about the dosage. Marisol does not understand, so she asks, "Could you say that again, please?" Dr. Pérez approves the refill. Marisol tells the pharmacist, and she feels proud because she understood the second time.
+After work, Marisol stops at the ATM and then goes to the grocery store. Camy calls and tells her mom, "I need poster board for my science project. It is due Friday." The line at the store is long, and Marisol feels tired. Her feet hurt. The cashier calls out, "Who's up next?" Marisol smiles because she says the same thing at the clinic every day. In the car, she checks her receipt: groceries and poster board. She feels ready for Thursday.
 
 **Spanish:**
 
-El miércoles por la mañana suena el teléfono de la clínica. Llama un farmacéutico sobre la renovación de la receta de la presión del señor Navarro. El farmacéutico pregunta: "¿Tienen su fecha de nacimiento y su última lectura de presión?" Marisol dice: "Favor de esperar. Voy a buscar su expediente." Rosie le susurra: "Puede decir 'espere un momentito.' Suena más amable," y Marisol sonríe. Marisol busca el expediente y lee la fecha de nacimiento. La última lectura fue 118 sobre 76, y su pulso fue 72. El farmacéutico dice una frase larga sobre la dosis. Marisol no entiende, así que pregunta: "¿Puede decir eso otra vez, por favor?" La Dra. Pérez aprueba la renovación. Marisol se lo dice al farmacéutico, y se siente orgullosa porque la segunda vez sí entendió.
+Después del trabajo, Marisol para en el cajero automático y luego va a la tienda por la compra. Camy la llama y le dice a su mamá: "Necesito cartulina para mi proyecto de ciencia. Es para el viernes." La fila en la tienda es larga, y Marisol se siente cansada. Le duelen los pies. La cajera grita: "¿Quién sigue?" Marisol sonríe porque dice lo mismo en la clínica todos los días. En el carro, revisa su recibo: la compra y la cartulina. Se siente lista para el jueves.
 
 ## Grammar
 
-Hoy repasamos "have" (tener) y "get" (obtener, sacar). Con he, she, it, "have" se vuelve "has" y "get" se vuelve "gets." Usa "have" pa' lo que una persona tiene y "get" pa' lo que una persona obtiene o saca.
+Esta semana repasamos "feel" y "tell". Los dos son irregulares: "feel" se vuelve "felt," y "tell" se vuelve "told." No se olviden de ponerle -s a he, she, o it en presente.
 
 Pattern Practice:
 
-1. The pharmacist ___ a question about the refill. (tiene)
-2. I ___ the chart and read the date of birth. (saco)
-3. She ___ to hang tight while I check the numbers. (tiene)
+1. She ___ light-headed after the long line. (se siente)
+2. I ___ the cashier that I am next in line. (le digo)
 
 ## Examples
 
-1. Marisol has to get Mr. Navarro's chart for the pharmacist on the phone.
-2. The pharmacist has a question about the dosage of Mr. Navarro's medication.
-3. Rosie and Marisol talk at the front desk:
-Rosie: "Marisol, you can say 'hang tight' instead of 'please hold.' It sounds friendlier."
-Marisol: "Really? I have always said 'please hold.'"
-Rosie: "Yeah. Try it next time. It is easier."
-Marisol: "Okay. I will get used to it."
-4. Marisol gets the chart and reads the date of birth and the last reading for the pharmacist.
+1. Camy tells her mom, "I need poster board for my science project. It is due Friday."
+2. Marisol feels tired at the store because the line is long and her feet hurt.
+3. Camy: "Mom, I need poster board for my science project. It is due Friday."
+   Marisol: "Okay, I will get it at the store. How do you feel about the project?"
+   Camy: "I feel nervous. I do not know what to put on it."
+   Marisol: "Well, do not worry. We will figure it out together."
+   Camy: "Thanks, Mom. I feel better now."
 
 ## Translation Practice
 
 Spanish → English
 
-1. El farmacéutico pregunta por la fecha de nacimiento y la última lectura de presión del paciente.
-2. La asistente le dice al farmacéutico: "Favor de esperar, voy a buscar el expediente."
+1. Necesito cartulina para mi proyecto de ciencia. Es para el viernes.
+2. La paciente dice: "Me siento cansada y me duelen los pies después de esperar en la fila."
 
 English → Spanish
 
-1. The doctor approves the refill for the patient's blood pressure medication.
-2. The assistant does not understand the dosage, so she asks the pharmacist to say it again.
+1. She checks her receipt: groceries and poster board.
+2. The patient feels tired after waiting in a long line at the clinic.
 
 ## Student Questions
 
-1. What information does a pharmacist need to process a medication refill? (fecha de nacimiento)
-2. What do you say when you need someone to wait on the phone? (favor de esperar)
-3. What do you do if you do not understand a long sentence on the phone? (otra vez)
-4. Did you make a phone call at work today, or did you answer one? (teléfono)
+1. What do you buy at the grocery store when Camy needs something for school? (mandados)
+2. What do you do when the line at the store is very long and you are tired? (paciencia)
+3. Did you check your receipt after you paid at the store today? (recibo)
+4. What do you feel when you hear "who's up next" outside the clinic? (familiar)
 
 # THURSDAY
 
 ## Warmup
 
-1. I ___ the numbers to Dra. Pérez after I check the oxygen saturation. (doy)
-2. The patient has dark nail polish, so I ___ a new reading. (obtengo)
-3. I ___ a printed sheet to the patient with her results. (doy)
+1. I ___ my stethoscope to work every day. (traigo)
+2. His wife ___ his medication list this morning. (trajo)
+3. I will ___ the chart to Dr. Pérez. (llevar)
 
 ## Vocabulary
 
-1. oxygen saturation – saturación de oxígeno
-2. nail polish – esmalte de uñas
-3. accurate – exacto / preciso
-4. breaths per minute – respiraciones por minuto
-5. the reading looks off / something is not right – la lectura se ve rara / algo no está bien (casual / formal)
-6. good catch – buena observación
+1. manual cuff – manguito manual
+2. stethoscope – estetoscopio
+3. old-school – a la antigua
+4. joint pain – dolor en las articulaciones
+5. swelling – hinchazón
+6. recent travel – viaje reciente
 
 ## Story
 
 **English:**
 
-Thursday is busy. Marisol checks the iPad and sees Ms. Ortega, a woman in her thirties with a cough. At 10:00, Rod from UPS brings a box of supplies to the front desk. He waves, and Marisol waves back with a thermometer in her hand. She does not have time to talk.
+Thursday morning, the electronic blood pressure machine has a blinking red light. The battery is dead. Marisol says, "Okay, old-school today." She brings the manual cuff and the stethoscope from the cabinet. The metal feels cold against her palm.
 
-Marisol puts the pulse oximeter on Ms. Ortega's finger. The machine beeps, and the oxygen saturation reads 89 percent. The normal range is 95 to 100. Ms. Ortega looks fine and breathes easily. Marisol thinks, "Something is not right." She looks at the woman's hand and sees dark nail polish.
+The first patient is Yoel Martínez. His wife brings his medication list. Yoel tells Marisol he has bad joint pain in his knees, ankles, and wrists. He could not work for three days. Marisol sees swelling in his wrists.
 
-Marisol knows dark nail polish can make the reading wrong. She gives Ms. Ortega a polish remover pad and tries the finger again. Ms. Ortega laughs and says, "I forgot I even had this on." The new reading is 97 percent, and the number is accurate now. Marisol also watches Ms. Ortega's chest and counts 16 breaths per minute, without telling her.
+A baby cries in the next room, so she waits. The first tapping sound is the top number, and when it stops, that is the bottom number: 124 over 78.
 
-Marisol gives the numbers to Dr. Pérez. Dr. Pérez says, "Good catch." Amanda jokes from the front desk, "Next time, check the nail polish at the door." Marisol laughs and goes back to her station.
+Marisol asks, "Did you travel recently?" Yoel says, "I came from Pinar del Río four months ago. Many people in my neighborhood had chikungunya." She writes his words in the chart. She does not name a disease. She tells Dr. Pérez right away.
+
+Marisol thinks about her brother Jorge in Cuba. She worries, but she keeps working so she can help him.
+
+Dr. Pérez says, "Good question about the travel."
 
 **Spanish:**
 
-El jueves está lleno. Marisol revisa la tableta y ve a la señora Ortega, una mujer de treinta y tantos con tos. A las 10:00, Rod de UPS trae una caja de suministros al escritorio de recepción. Él saluda con la mano, y Marisol le devuelve el saludo con un termómetro en la mano. No tiene tiempo de hablar.
+La mañana del jueves, la máquina de presión electrónica tiene una lucecita roja parpadeante. La pila está muerta. Marisol dice: "Bueno, a la antigua hoy." Trae el manguito manual y el estetoscopio del gabinete. El metal se siente frío contra la palma.
 
-Marisol le pone el oxímetro de pulso en el dedo de la señora Ortega. La máquina pita, y la saturación de oxígeno marca 89 por ciento. Lo normal es de 95 a 100. La señora Ortega se ve bien y respira fácil. Marisol piensa: "Algo no está bien." Mira la mano de la mujer y ve esmalte oscuro en las uñas.
+El primer paciente es Yoel Martínez. Su esposa trae la lista de sus medicamentos. Yoel le cuenta a Marisol que tiene dolor en las articulaciones de las rodillas, los tobillos y las muñecas. No pudo trabajar en tres días. Marisol ve hinchazón en sus muñecas.
 
-Marisol sabe que el esmalte oscuro puede hacer que la lectura salga mal. Le da a la señora Ortega una toallita para quitar el esmalte y le prueba el dedo otra vez. La señora Ortega se ríe y dice: "Se me olvidó que me puse esmalte." La nueva lectura es 97 por ciento, y ahora el número es exacto. Marisol también mira el pecho de la señora Ortega y cuenta 16 respiraciones por minuto, sin decírselo.
+Un bebé llora en la sala de al lado, así que espera. El primer golpe es el número de arriba, y cuando se detiene, ese es el de abajo: 124 sobre 78.
 
-Marisol le da los números a la Dra. Pérez. La Dra. Pérez dice: "Buena observación." Amanda bromea desde el escritorio de recepción: "La próxima vez, revise el esmalte en la puerta." Marisol se ríe y vuelve a su puesto.
+Marisol pregunta: "¿Viajó hace poco?" Yoel dice: "Vine de Pinar del Río hace cuatro meses. Muchas personas en mi barrio tuvieron chikungunya." Escribe sus palabras en el expediente. No le pone nombre a la enfermedad. Le dice a la Dra. Pérez enseguida.
+
+Marisol piensa en su hermano Jorge en Cuba. Se preocupa, pero sigue trabajando para poder ayudarle.
+
+La Dra. Pérez dice: "Buena pregunta sobre el viaje."
 
 ## Grammar
 
-"Give" significa "dar" en español. Con I, you, we, they, la forma es "give." Con he, she, it, la forma es "gives."
+El verbo "bring" significa "traer" o "llevar" en español. En presente, se dice "I bring," "you bring," y "she brings." En pasado, se vuelve "brought" para todos los sujetos.
 
 Pattern Practice:
 
-1. Marisol ___ the oxygen reading to Dra. Pérez. (da)
-2. I ___ a cold cloth to the mother for the baby. (doy)
-3. Dra. Pérez ___ the instructions to Mr. Salazar. (da)
+1. Marisol ___ the manual cuff from the cabinet. (trae)
+2. I ___ a small face mask for the patient. (traigo)
+3. She ___ the stethoscope yesterday. (trajo)
 
 ## Examples
 
-1. Marisol has a busy day, and she does not have time to talk to Rod when he brings the UPS box.
-2. Ms. Ortega has dark nail polish, and it makes the oxygen saturation reading wrong.
-3. Marisol gives Ms. Ortega a polish remover pad, and the new reading is 97 percent.
-4. Amanda and Marisol talk at the front desk:
-Amanda: "Marisol, next time, check the nail polish at the door. That would save you time."
-Marisol: "I never thought of that. I will give it a try."
-Amanda: "Good. And Rod waved at you again. You just waved back with a thermometer."
-Marisol: "I did not have time. I had a patient."
-Amanda: "I know, I know. But maybe next time."
-5. Dr. Pérez gives Marisol a small thank-you: "Good catch."
-6. Marisol gets the numbers from the machine and gives them to Dr. Pérez.
+1. Marisol brings the manual cuff and the stethoscope from the cabinet because the battery is dead.
+2. Yoel tells Marisol, "I have bad joint pain in my knees, ankles, and wrists."
+3. Marisol feels the cold metal of the stethoscope against her palm.
+4. Marisol: "Okay, old-school today. The battery is dead."
+   Rosie: "Ha, I feel the same way. I brought my own cuff just in case."
+   Marisol: "You are a lifesaver. I feel ready now."
+   Rosie: "Well, at least we are not stuck. Who is next?"
+   Marisol: "Yoel Martínez. He has joint pain and swelling in his wrists."
+5. Yoel tells Marisol, "I came from Pinar del Río four months ago. Many people in my neighborhood had chikungunya."
+6. Marisol tells Dr. Pérez right away about the patient's recent travel and swelling.
 
 ## Translation Practice
 
 Spanish → English
 
-1. La saturación de oxígeno de la paciente es 89 por ciento, pero lo normal es de 95 a 100.
-2. El esmalte oscuro en las uñas puede hacer que la lectura salga mal.
-3. La asistente cuenta 16 respiraciones por minuto en el pecho de la paciente.
-4. La doctora dice: "Buena observación." La asistente sonríe.
-5. La asistente le da a la paciente una toallita para quitar el esmalte.
-6. Rod de UPS trae una caja de suministros y saluda con la mano.
+1. La pila está muerta. Trae el manguito manual y el estetoscopio del gabinete.
+2. Tengo dolor en las articulaciones de las rodillas, los tobillos y las muñecas.
+3. El paciente tiene hinchazón en las muñecas y no pudo trabajar en tres días.
+4. ¿Viajó hace poco?
+5. Muchas personas en mi barrio tuvieron chikungunya.
+6. La paciente siente frío en la palma al tocar el metal del estetoscopio.
 
 English → Spanish
 
-1. The reading looks off, so the assistant checks the patient's fingernails.
-2. The assistant gives the doctor the numbers, and the doctor says good catch.
+1. She brings the manual cuff and the stethoscope from the cabinet.
+2. The patient has swelling in his wrists and reports recent travel.
 
 ## Student Questions
 
-1. What can make an oxygen saturation reading wrong? (esmalte oscuro)
-2. What is the normal range for oxygen saturation? (por ciento)
-3. How do you count a patient's breaths per minute? (pecho)
-4. What do you say when you notice a mistake before the doctor sees it? (buena observación)
-5. Did you notice something at home today that you almost missed? (cuidado)
+1. What do you use when the electronic machine does not work? (manguito)
+2. What do you write in the chart when a patient names a disease himself? (palabras)
+3. Why do you not name a disease for the patient? (regla)
+4. What do you ask a patient when you see swelling in his joints? (viaje)
+5. Did you think about someone in Cuba today, like Marisol thinks about Jorge? (familia)
+6. What do you feel when the metal of the stethoscope touches your hand? (frío)
 
 # FRIDAY
 
 ## Warmup
 
-1. The toddler has a fever, and I ___ a cold cloth to the mother. (doy)
-2. I ___ the date of the visit to the claims technician. (doy)
-3. I ___ to check the chart before I answer the phone. (tengo)
+1. The boy ___ hot and tired. (se siente)
+2. I ___ Dr. Pérez about the rash right away. (le digo)
+3. A mother ___ her little boy to the clinic. (trae)
 
 ## Vocabulary
 
-1. toddler – niño pequeño (de uno a tres años)
-2. armpit temperature – temperatura axilar (en la axila)
-3. claims technician – técnico de reclamaciones del seguro
-4. documentation – documentación
-5. I'll get back to you / I'll call you back – le contesto luego / le devuelvo la llamada (formal / casual)
-6. the claim was denied – la reclamación fue negada
+1. rash – sarpullido
+2. spreading – regándose / extendiéndose
+3. face mask – nasobuco
+4. private room – cuarto aparte
+5. vaccine record – tarjeta de vacunas
+6. we're going to take care of him – lo vamos a atender
 
 ## Story
 
 **English:**
 
-It is 2:30 on a busy Friday afternoon. A mother brings in her toddler, Mateo. He is hot and fussy, and he cries. Marisol takes his armpit temperature: 101.2. A toddler's pulse is faster than an adult's. His is 128. That is high for a child with a fever. She gives the mother a cold cloth and explains the next steps in Spanish and in English. The mother nods and holds the cloth against Mateo's neck.
+On Friday afternoon, a mother rushes in with her little boy, Andrés. He is four years old. Andrés has a fever and a light cough. A red rash starts on his face and is spreading down his neck. The cough sounds small and wet in the quiet room.
 
-Then the clinic phone rings. A claims technician says the claim for Mr. Navarro's visit was denied because the vital signs are missing. The technician talks fast. Marisol says, "Could you say that again, please?" and then, "I'll get back to you."
+Marisol knows the clinic rule for a fever with a rash. She brings a small face mask for Andrés and one for his mother. She takes them to a private room and closes the door. Her study guide says some germs stay in the air and travel far, so the door stays closed.
 
-Marisol checks the chart. The vital signs are there. She tells the technician, "The vital signs are in the chart. Jason handles the coding. I'll call you back." Then she gives the date of the visit to Jason. Jason says, "Good thing you wrote everything down." Marisol realizes the numbers she writes protect the patient and the clinic.
+The mother is scared. Marisol tells her in a calm voice, "We're going to take care of him." Marisol asks for his vaccine record. The mother finds a photo of the card on her phone.
+
+Marisol tells Dr. Pérez right away. Dr. Pérez examines Andrés and says, "We need to test him and call the health department."
+
+Marisol washes her hands. She feels proud. She did every step in order, and her hands stop shaking.
 
 **Spanish:**
 
-Son las 2:30 de una tarde de viernes llena. Una mamá trae a su niño pequeño, Mateo. Está con calor y llorón, y llora. Marisol le toma la temperatura axilar: 101.2. El pulso de un niño pequeño es más rápido que el de un adulto. El suyo es 128. Eso está alto para un niño con fiebre. Le da a la mamá un paño frío y le explica los siguientes pasos en español y en inglés. La mamá asiente y le pone el paño en el cuello a Mateo.
+Un viernes por la tarde, una mamá entra corriendo con su niño, Andrés. Tiene cuatro años. Andrés tiene fiebre y una tos ligera. Un sarpullido rojo empieza en su cara y se le está regando por el cuello. La tos suena chiquita y mojada en la sala tranquila.
 
-Luego suena el teléfono de la clínica. Un técnico de reclamaciones del seguro dice que la reclamación de la visita del señor Navarro fue negada porque faltan los signos vitales. El técnico habla rápido. Marisol dice: "¿Puede decir eso otra vez, por favor?" y luego: "Le contesto luego."
+Marisol conoce la regla de la clínica para fiebre con sarpullido. Trae un nasobuco chiquito para Andrés y uno para su mamá. Los lleva a un cuarto aparte y cierra la puerta. Su guía de estudio dice que algunos gérmenes se quedan en el aire y viajan lejos, así que la puerta se queda cerrada.
 
-Marisol revisa el expediente. Los signos vitales están ahí. Le dice al técnico: "Los signos vitales están en el expediente. Jason se encarga del código. Le devuelvo la llamada." Luego le da la fecha de la visita a Jason. Jason dice: "Bien que lo escribió todo." Marisol entiende que los números que escribe protegen al paciente y a la clínica.
+La mamá está asustada. Marisol le dice con voz tranquila: "Lo vamos a atender." Marisol pide su tarjeta de vacunas. La mamá encuentra una foto de la tarjeta en su celular.
+
+Marisol le dice a la Dra. Pérez enseguida. La Dra. Pérez le hace el examen a Andrés y dice: "Hay que hacerle una prueba y llamar al departamento de salud."
+
+Marisol se lava las manos. Se siente orgullosa. Hizo cada paso en orden, y sus manos dejan de temblar.
 
 ## Grammar
 
-Hoy reforzamos "give" (dar), "have" (tener) y "get" (obtener, devolver). Las formas de tercera persona son "gives", "has" y "gets". Usa "give" pa' darle algo a alguien, "have" pa' lo que uno tiene y "get" pa' obtener o devolver.
+Reforzamos "feel," "tell," y "bring" juntos. Los tres son irregulares en pasado: "felt," "told," y "brought." En presente, se le pone -s a he, she, o it.
 
 Pattern Practice:
 
-1. I ___ the documentation to Jason for the claim. (doy)
-2. She ___ the numbers to Dra. Pérez after the visit. (da)
-3. I ___ back to the claims technician after I talk to Jason. (devuelvo)
+1. I ___ a little off this morning. (me siento)
+2. She ___ me that the rash is spreading. (me dice)
+3. I ___ a face mask for the mother. (traigo)
 
 ## Examples
 
-1. The mother has a toddler with a fever of 101.2, and he is fussy and crying.
-2. Marisol gives the mother a cold cloth and explains the next steps in Spanish and in English.
-3. The claims technician has a problem: the claim for Mr. Navarro was denied.
-4. Marisol and the claims technician talk on the phone:
-Claims technician: "The vital signs are missing from Mr. Navarro's chart. The claim was denied."
-Marisol: "Could you say that again, please? I will get back to you."
-Claims technician: "Okay. I will wait."
-Marisol: "I have the numbers. I will get the chart and call Jason."
-5. Marisol gets the chart and finds the vital signs. She gives the date of the visit to Jason.
-6. Jason has the coding system open, and he says, "Good thing you wrote everything down."
+1. Marisol brings a small face mask for Andrés and one for his mother.
+2. The mother tells Marisol, "I feel scared. My son has a fever and a red rash."
+3. Marisol tells Dr. Pérez right away about the fever and the spreading rash.
+4. Mother: "I feel so scared. His rash is spreading down his neck. What do I do?"
+   Marisol: "We're going to take care of him. Please, stay calm."
+   Mother: "Oh, thank you. I feel a little better now."
+   Marisol: "I will bring a face mask for you and for Andrés. Let's go to a private room."
+   Mother: "Okay. I will follow you."
+5. Marisol feels proud because she did every step in order.
+6. Dr. Pérez tells Marisol, "We need to test him and call the health department."
 
 ## Translation Practice
 
 Spanish → English
 
-1. El técnico de reclamaciones del seguro dice que la reclamación fue negada porque faltan los signos vitales.
-2. La asistente le da a la mamá un paño frío para el niño pequeño.
-3. La temperatura axilar del niño es 101.2, y su pulso es 128.
-4. La asistente le dice al técnico: "Le contesto luego."
-5. La documentación está completa en el expediente del paciente.
-6. El niño pequeño está con calor y llorón, y la mamá está preocupada.
+1. Trae un nasobuco chiquito para Andrés y uno para su mamá.
+2. Un sarpullido rojo empieza en su cara y se le está regando por el cuello.
+3. La paciente tiene fiebre y sarpullido que se está extendiendo.
+4. Necesito su tarjeta de vacunas.
+5. Lo vamos a atender.
+6. La Dra. Pérez dice: "Hay que hacerle una prueba y llamar al departamento de salud."
 
 English → Spanish
 
-1. The assistant gives the cold cloth to the mother and explains the next steps in Spanish.
-2. The claim was denied, so the assistant checks the documentation and calls the coding person.
+1. She brings a face mask for the child and for his mother.
+2. The patient has a fever and a spreading rash, and the provider needs the vaccine record.
 
 ## Student Questions
 
-1. Where do you take a toddler's temperature? (axila)
-2. What do you tell a caller when you need to check something first? (le contesto luego)
-3. Why is documentation important at the clinic? (proteger)
-4. Did you write something down today that helped you remember? (escribió)
-5. What do you do when a caller talks too fast for you? (más despacio)
+1. What do you do when a child has a fever and a rash that is spreading? (aislar)
+2. What do you bring to a patient with a fever and a cough? (nasobuco)
+3. What do you ask the mother for when the child has a fever? (vacunas)
+4. What do you say to a scared mother when her child is sick? (tranquila)
+5. Did you feel proud when you did every step in order at work today? (orgullo)
+6. What do you do after you help a patient with a fever and a rash? (manos)
 
 # SATURDAY
 
 ## Warmup
 
-1. I ___ a practice test in front of me and read each question twice. (tengo)
-2. I ___ the correct answer on question one. (obtengo)
+1. I ___ lazy this morning, just like Camy. (me siento)
+2. I ___ Crystal that I already have plans. (le digo)
+3. Marisa ___ a warm bag of donuts. (trae)
 
 ## Vocabulary
 
-1. discriminate – discriminar
-2. employment – empleo
-3. breach of contract – incumplimiento de contrato
-4. answer choice – opción de respuesta
-5. late payment – pago atrasado
-6. HIPAA – HIPAA (ley de privacidad de la información médica)
+1. two peas in a pod – dos gotas de agua
+2. donuts – donuts
+3. call in sick – reportarse enfermo / enferma
+4. cover a shift – cubrir un turno
+5. I already have plans – ya tengo planes
 
 ## Story
 
 **English:**
 
-The clinic is closed on Saturday. The house is quiet, and Marisol sits at the kitchen table with a cup of coffee and the Mometrix study guide. The only sound is the clock on the wall.
+Saturday morning is quiet. Marisol stays under the warm blankets. Camy comes in, climbs into the bed, and says, "I feel lazy today." Marisol laughs. "We are two peas in a pod."
 
-She opens to CMA Practice Test 1, questions 1, 2, and 3. She reads each question twice. These are legal and rules questions, not vital signs. She works through the three questions one at a time. They ask about the ADA, about employment and discrimination, about HIPAA, and about breach of contract. She reads the explanation for each answer.
+Someone knocks on the door. It is Marisa and Donna with a warm bag of donuts. The smell of sugar and oil fills the hallway. Marisa says, "Donna woke me up early for donuts, so we brought some for you." Marisol says, "Next Saturday, my treat!"
 
-Marisol gets questions 1 and 2 right. On question 3, she chooses answer choice d first. Then she reads the explanation and sees her mistake. The question is about a late payment and the employer. She has a small moment of doubt. "I have to study the legal parts more," she says to herself. She also remembers the pharmacist's call on Wednesday and thinks about privacy and HIPAA.
+They plan a trip to Science Museum Oklahoma at 11:00. Then the phone rings. It is Crystal from the clinic: "Carla called in sick for tomorrow. Can you cover her shift?"
 
-She makes a note on page 236 and decides to try questions 4, 5, and 6 next Saturday. She gives herself a break and closes the book.
+Marisol knows Carla always calls in sick on weekends. She takes a deep breath and says, "I'm sorry. I already have plans. Tomorrow is my day with Camy." She feels a little guilty, but she shakes it off.
+
+At the museum, Camy and Donna get lost in the mirror maze and race on the track again and again. By the end of the day, Marisol feels full of peace.
 
 **Spanish:**
 
-El sábado la clínica está cerrada. La casa está en silencio, y Marisol se sienta en la mesa de la cocina con una taza de café y la guía de estudio Mometrix. El único sonido es el reloj de la pared.
+La mañana del sábado está tranquila. Marisol se queda bajo las mantas calientitas. Camy entra, se sube a la cama y dice: "Hoy me siento vaga." Marisol se ríe. "Somos dos gotas de agua."
 
-Abre la Práctica 1 del CMA, preguntas 1, 2 y 3. Lee cada pregunta dos veces. Son preguntas de leyes y reglas, no de signos vitales. Repasa las tres preguntas una por una. Preguntan por la ADA, por el empleo y la discriminación, por el HIPAA y por el incumplimiento de contrato. Lee la explicación de cada respuesta.
+Alguien toca la puerta. Son Marisa y Donna con una bolsa de donuts calientes. El olor a azúcar y aceite llena el pasillo. Marisa dice: "Donna me despertó temprano por los donuts, así que les trajimos unos." Marisol dice: "¡El próximo sábado, invito yo!"
 
-Marisol acierta las preguntas 1 y 2. En la pregunta 3, primero elige la opción d. Luego lee la explicación y ve su error. La pregunta es sobre un pago atrasado y el empleador. Tiene un momentito de duda. "Tengo que estudiar más las partes legales," se dice a sí misma. También recuerda la llamada del farmacéutico del miércoles y piensa en la privacidad y el HIPAA.
+Planean ir al Science Museum Oklahoma a las 11:00. Luego suena el teléfono. Es Crystal de la clínica: "Carla se reportó enferma para mañana. ¿Puedes cubrir su turno?"
 
-Escribe una nota en la página 236 y decide intentar las preguntas 4, 5 y 6 el próximo sábado. Se da un respiro y cierra el libro.
+Marisol sabe que Carla siempre se reporta enferma los fines de semana. Respira hondo y dice: "Lo siento. Ya tengo planes. Mañana es mi día con Camy." Se siente un poquito culpable, pero se lo saca de la cabeza.
+
+En el museo, Camy y Donna se pierden en el laberinto de espejos y corren en la pista una y otra vez. Al final del día, Marisol se siente llena de paz.
 
 ## Grammar
 
-Hoy damos un repasito a "give" (dar), "have" (tener) y "get" (obtener). Las formas de tercera persona son "gives", "has" y "gets". Usa estos verbos pa' hablar de lo que uno entrega, lo que uno tiene y lo que uno obtiene.
+Seguimos con "feel," "tell," y "bring." Se usa el presente para los hábitos ("I feel calm every Sunday") y el pasado para acciones terminadas ("I told Crystal yesterday"). El futuro se hace con "will" o "going to" ("I will bring donuts next Saturday").
 
 Pattern Practice:
 
-1. She ___ a reason for each answer choice. (da)
-2. I ___ a reason for my wrong answer on question three. (doy)
+1. I ___ calm on Sunday morning. (me siento)
+2. I ___ Camy about the museum. (le cuento)
+3. I ___ Marisa donuts next Saturday. (le llevo)
 
 ## Examples
 
-1. The question asks what Title I of the Americans with Disabilities Act says about people with disabilities. The correct answer is c: a company cannot refuse to give a job to a person because of a disability. Title I is about employment, so a company has to treat all workers the same. Answer a is wrong because it talks about public services, which is a different title of the law. Answer b is wrong because it talks about housing, not employment. Answer d is wrong because it talks about telecommunications, which is also a different title.
-2. The question asks which health care issue HIPAA does not have rules about. The correct answer is d: how Medicare and Medicaid are paid. HIPAA does not say how the payment system for Medicare and Medicaid works. Answer a is wrong because portability of health insurance is covered by HIPAA. Answer b is wrong because fraud and abuse are covered by HIPAA. Answer c is wrong because electronic data standards are covered by HIPAA.
-3. The question asks which action is a breach of contract by a health care provider. The correct answer is a: stopping treatment because the patient has a late payment. A provider cannot stop treatment only because the payment is late, and that is a breach of contract. Answer b is wrong because a provider can stop treatment when it is no longer needed. Answer c is wrong because the patient can end the care and formally discharge the provider. Answer d is wrong because a provider can get out of the case if the patient does not follow instructions or the provider cannot serve the patient. For c and d, the provider must give a notice to the patient by certified mail with a return receipt.
+1. Marisa and Donna bring a warm bag of donuts to Marisol's door.
+2. Camy tells Marisol, "I feel lazy today."
+3. Marisol tells Crystal on the phone, "I'm sorry. I already have plans. Tomorrow is my day with Camy."
+4. Marisa: "Donna woke me up early for donuts, so we brought some for you."
+   Marisol: "You are the best! I feel so happy right now."
+   Donna: "Can we go to the Science Museum at eleven?"
+   Marisol: "Yes! I will tell you what to bring. Just your water bottle and a snack."
+   Donna: "Great! I feel excited!"
+5. Marisol feels a little guilty about saying no to Crystal, but she shakes it off.
+6. Camy tells Marisol, "Mom, I feel full of peace after the museum."
 
 ## Translation Practice
 
 Spanish → English
 
-1. El Título I de la Ley de Estadounidenses con Discapacidades dice que una empresa no puede negar un empleo a una persona por su discapacidad.
-2. La pregunta 3 tiene cuatro opciones de respuesta, y la correcta es la a.
-3. El proveedor no puede dejar el tratamiento solo porque el paciente tiene un pago atrasado.
-4. El HIPAA no tiene reglas sobre cómo se pagan el Medicare y el Medicaid.
-5. El incumplimiento de contrato pasa cuando el proveedor hace algo que no está en el acuerdo.
-6. La asistente elige la opción d primero, pero luego lee la explicación y ve su error.
+1. Donna me despertó temprano por los donuts, así que les trajimos unos.
+2. Carla se reportó enferma para mañana. ¿Puedes cubrir su turno?
+3. Lo siento. Ya tengo planes. Mañana es mi día con Camy.
+4. Hoy me siento vaga.
+5. La clínica necesita que cubras un turno el sábado porque la asistente médica se reportó enferma.
+6. El olor a azúcar y aceite llena el pasillo.
 
 English → Spanish
 
-1. The provider must give a notice to the patient by certified mail with a return receipt.
-2. The patient has a late payment, but the provider cannot stop the treatment.
+1. I already have plans. Tomorrow is my day with Camy.
+2. The clinic needs someone to cover a shift because the medical assistant called in sick.
 
 ## Student Questions
 
-1. What does Title I of the ADA protect people with disabilities from? (empleo)
-2. Which health care issue is NOT covered by HIPAA? (pagos)
-3. What is a breach of contract by a health care provider? (pago atrasado)
-4. Did you study today, and how many questions did you get right? (práctica)
+1. What do you say when a friend offers to cover your shift? (planes)
+2. What do you do when someone calls in sick and you already have plans? (dices no)
+3. Did you spend time with Camy today, or did you work? (hija)
+4. What do you say to your daughter when she climbs into your bed in the morning? (cariño)
+5. How do you feel after a day at the museum with Camy? (paz)
+6. What do you do when you feel guilty but know you made the right choice? (respiras)
 
 # SUNDAY
 
 ## Warmup
 
-1. I ___ the patient's chart in my hand and check the vital signs. (tengo)
-2. I ___ the numbers to Dra. Pérez every day. (doy)
+1. I ___ calm this morning. (me siento)
+2. Camy ___ her mom about the museum. (le cuenta)
+3. Camy ___ her mom a second cup of coffee. (le trae)
 
 ## Vocabulary
 
-1. vital signs – signos vitales
-2. reading – lectura
-3. oxygen saturation – saturación de oxígeno
-4. claims technician – técnico de reclamaciones del seguro
-5. breach of contract – incumplimiento de contrato
+1. light-headed – mareado / mareada
+2. stomach cramps – retortijones / cólicos
+3. stethoscope – estetoscopio
+4. call in sick – reportarse enfermo / enferma
+5. a little off – no muy bien / un poco rara
 
 ## Story
 
 **English:**
 
-Sunday is quiet. Marisol sits on the porch with a glass of water and watches the sun go down. She thinks about the week. On Monday, her hands shook while she took Mr. Salazar's pulse. On Tuesday, she got a bigger cuff for Mrs. Gómez, and the reading was lower. On Wednesday, she got the chart for the pharmacist and gave the information. On Thursday, she caught the nail polish, and the oxygen saturation was accurate. On Friday, a claims technician called, and she found the vital signs in the chart. On Saturday, she studied three questions and got two right. She takes a long drink of water and thinks, "Next week, I will give the doctor accurate numbers, and I will get better at English."
+Sunday morning, there is no alarm. Marisol drinks coffee on the porch and remembers her week. Monday, Mrs. Carter felt light-headed with a pulse of 112. Tuesday, Mr. Delgado was pale and weak. Thursday, the battery was dead, so Marisol brought the manual cuff. Friday, a little boy had a fever and a rash, and Marisol did every step in order. Saturday, Carla called in sick again, and Marisol said no. She felt guilty for a minute, but Camy brings her a second cup of coffee, and Marisol feels calm. She chose her daughter, and it was the right choice.
 
 **Spanish:**
 
-El domingo está tranquilo. Marisol se sienta en la terraza con un vaso de agua y mira cómo se pone el sol. Piensa en la semana. El lunes, le temblaron las manos mientras le tomaba el pulso al señor Salazar. El martes, sacó un manguito más grande para la señora Gómez, y la lectura bajó. El miércoles, buscó el expediente para el farmacéutico y le dio la información. El jueves, se dio cuenta del esmalte, y la saturación de oxígeno quedó exacta. El viernes, llamó un técnico de reclamaciones, y encontró los signos vitales en el expediente. El sábado, repasó tres preguntas y acertó dos. Toma un trago largo de agua y piensa: "La próxima semana, le daré a la doctora números exactos, y mejoraré en inglés."
+La mañana del domingo no hay alarma. Marisol toma café en el porche y recuerda su semana. El lunes, la señora Carter se sintió mareada con un pulso de 112. El martes, el señor Delgado estaba pálido y débil. El jueves, la pila estaba muerta, así que Marisol trajo el manguito manual. El viernes, un niño tenía fiebre y sarpullido, y Marisol hizo cada paso en orden. El sábado, Carla se reportó enferma otra vez, y Marisol dijo que no. Se sintió culpable un minuto, pero Camy le trae otra taza de café, y Marisol se siente tranquila. Ella eligió a su hija, y fue la decisión correcta.
 
 ## Grammar
 
-Hoy usamos "have" (tener), "get" (obtener, sacar) y "give" (dar) en pasado y presente. Formas en pasado: "had", "got", "gave". Formas en presente: "have/has", "get/gets", "give/gives".
+Hoy usamos "feel," "tell," y "bring" en pasado. "Feel" se vuelve "felt," "tell" se vuelve "told," y "bring" se vuelve "brought." Estas formas de pasado son iguales para todos los sujetos: I, you, he, she, it, we, they.
 
 Pattern Practice:
 
-1. Mr. Salazar ___ a fever on Monday. (tuvo)
-2. She ___ a bigger cuff for Mrs. Gómez on Tuesday. (sacó)
+1. Mrs. Carter ___ light-headed on Monday. (se sintió)
+2. Mr. Delgado ___ Marisol about his stomach cramps. (le contó)
+3. Marisol ___ the manual cuff from the cabinet. (trajo)
 
 ## Examples
 
-1. Marisol has a quiet Sunday, and she sits on the porch with a glass of water.
-2. She thinks about how she got better at taking readings all week.
-3. Marisol talks to herself on the porch:
-Marisol: "This week, I gave the doctor accurate numbers every day."
-Marisol: "On Monday, I had shaking hands. But on Thursday, I got the nail polish thing right."
-Marisol: "I have a plan. Next week, I will get better at English."
-Marisol: "I can do this. I will give my best."
-4. Marisol has one more thing to do: she will study the legal parts on Saturday and give the doctor accurate numbers next week.
+1. Marisol feels calm on Sunday morning. She chose her daughter, and it was the right choice.
+2. Camy brings Marisol a second cup of coffee on the porch.
+3. Camy: "Mom, I feel happy today. No alarm, no rush."
+   Marisol: "I feel the same way. Last week was busy, but I handled it."
+   Camy: "You told me you would take the day off. You did!"
+   Marisol: "I did. And I feel proud of myself."
+   Camy: "Me too. Let's just sit here and drink coffee."
 
 ## Translation Practice
 
 Spanish → English
 
-1. La asistente le da a la doctora los signos vitales exactos, y la doctora dice: "Buen trabajo."
-2. El técnico de reclamaciones llamó porque faltaba la documentación en el expediente.
+1. La señora Carter se sintió mareada con un pulso de 112.
+2. Carla se reportó enferma otra vez el sábado, y Marisol dijo que no.
 
 English → Spanish
 
-1. The assistant gives the doctor accurate vital signs, and the doctor says good job.
-2. The claims technician called because the documentation was missing in the chart.
+1. She feels calm and proud. She chose her daughter, and it was the right choice.
+2. The medical assistant told the nurse that the patient's pulse was above the normal range.
 
 ## Student Questions
 
-1. What are the five vital signs you review at the clinic? (signos vitales)
-2. What did you learn this week that surprised you? (semana)
-3. What do you want to improve next week at the clinic? (próxima semana)
+1. What do you remember from your week at the clinic? (semana)
+2. Did you choose your family over work this weekend, like Marisol? (familia)
+3. What do you drink on Sunday morning on the porch? (café)
+4. What helps you feel calm after a small guilt? (hija)
