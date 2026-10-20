@@ -6,6 +6,12 @@ Oct 2026). The legacy `generateMain.py` / `generateSupport.py` and
 `pre-consolidation`. Paths are derived from `commonFunctions.py`'s own
 location, so nothing is hardcoded to `/Users/gene/...`.
 
+**Start here:** `docs/QUICKSTART_MACBOOK.md` (how to run a week) and
+`docs/PROJECT_DOCUMENTATION.md` (how it works, machines, errors, resume,
+change history). Since Oct 20, 2026 the pipeline runs on the Macbook in
+client mode (model calls go to Ollama on the Studio) or on the Studio in
+local mode, detected automatically.
+
 ## Status (as of Oct 2, 2026)
 
 Used for production runs on Weeks 35, 37, 38 and 39, for both MAIN and
@@ -30,7 +36,7 @@ needed.
   `STUDY NOTES` blocks, and each day's focus line (the "Introduce ...",
   "Light review of ..." lines above its Examples).
 - `qa_utils.py` — `lint_hints()`: no-model check, run at the end of both
-  pipelines. Prints `HINT WARNING` for any Warmup / Grammar / Student
+  pipelines. Logs `WARNING: HINT [...]` for any Warmup / Grammar / Student
   Questions hint longer than 3 words or made only of common English
   words. Warns only; never edits the lesson.
 - `state.py` — `WeekState`: holds each day's finished section text as
@@ -38,8 +44,9 @@ needed.
   section order.
 - `passes.py` — the MAIN passes (in dependency order below), plus
   `fiveminute_self_review_pass()` used by `supportPipeline.py`.
-- `commonFunctions.py` — shared library: paths, Ollama call, Markdown
-  validation, corrections, file writers, `debug_path()`, and the
+- `commonFunctions.py` — shared library: paths, `send_to_ollama()`
+  (thin wrapper over `ollama_client.py`), Markdown validation, the
+  self-review guard, corrections, file writers, `debug_path()`, and the
   `extract_day_vocab()` / `extract_day_story()` helpers used by
   `supportPipeline.py`.
 - `pipeline.py` — MAIN orchestrator / CLI. Also writes `mainSupport.md`
@@ -49,6 +56,11 @@ needed.
   pass before corrections/validation/write.
 - `toDocx.py` — converts the corrected `NN_MAIN_corrected.md` /
   `NN_FIVEMIN_corrected.md` to .docx.
+- Added Oct 20, 2026 (see `docs/PROJECT_DOCUMENTATION.md`):
+  `config.py` (settings, Macbook/Studio detection), `ollama_client.py`
+  (streaming calls, timeout, retries), `errors.py` (exit codes),
+  `runs.py` (run folders, checkpoints, `--resume`), `runlog.py`
+  (run.log, summary), `cli.py` (shared flags), `tools/mock_ollama.py`.
 
 ## Optional storyboard blocks
 
@@ -98,9 +110,9 @@ use only what is in them.
 ## Run it
 
 ```bash
-cd ~/Documents/RAG/sourcecode
-time python3 pipeline.py 35 Week35StoryBoard.md MainLessonTemplate.txt Debug ; \
-time python3 supportPipeline.py 35 mainSupport.md Week35StoryBoard.md FiveMinuteTemplate.txt promptFive.md Debug ; \
+cd ~/RAG/sourcecode
+time python3 pipeline.py 41 Week41StoryBoard.md MainLessonTemplate.txt Debug ; \
+time python3 supportPipeline.py 41 mainSupport.md Week41StoryBoard.md FiveMinuteTemplate.txt promptFive.md Debug ; \
 afplay /System/Library/Sounds/Glass.aiff
 ```
 
@@ -116,11 +128,12 @@ time python3 supportPipeline.py 39 39_MAIN_corrected.md Week39StoryBoard.md Five
 uncorrected main lesson.)
 
 Storyboards and templates are read from `source_docs/WeeklyTemplates`,
-lessons are written to `source_docs/WeeklyLessons`, and debug files go to
-`sourcecode/debug/` - regardless of which directory you run from.
+lessons are written to `source_docs/WeeklyLessons`, and each run's
+log, checkpoints and debug files go to `RAG/runs/<id>_<KIND>_<ts>/`
+(before Oct 20, 2026: `sourcecode/debug/`).
 Output uses `MAIN_PASSPIPELINE` / `FIVEMIN_PASSPIPELINE` suffixes.
-Typical run time:
-~25 min MAIN + ~5-6 min Five-Minute.
+Typical run time (Week 41, Oct 20, 2026, Macbook -> Studio):
+~31 min MAIN + ~9 min Five-Minute.
 
 ## MAIN pass order (each depends only on layers already written)
 
@@ -158,15 +171,16 @@ Typical run time:
 
 1. Write `WeekNNStoryBoard.md` in `source_docs/WeeklyTemplates`
    (use WEEK NOTES / STUDY NOTES when the week needs them).
-2. `pipeline.py` (MAIN, about 40 minutes on the current model).
+2. `pipeline.py` (MAIN, about 30 minutes on the current model).
 3. Read the output, correct it by hand or with Claude, and save it as
    `NN_MAIN_corrected.md` in `source_docs/WeeklyLessons`. Watch the
-   terminal for `HINT WARNING` lines.
+   end-of-run summary for `HINT [...]` warnings.
 4. `supportPipeline.py` pointed at the corrected file (see "Run it"),
    then correct that output as `NN_FIVEMIN_corrected.md`.
-5. Commit code, templates and storyboards. `source_docs/WeeklyLessons/`
-   and `sourcecode/debug/` are in `.gitignore`, so lesson output is not
-   committed.
+5. Commit code, templates and storyboards, plus the lessons you want
+   kept (`source_docs/WeeklyLessons/` .docx files are tracked; .md
+   files show as untracked until you add them). `runs/` is in
+   `.gitignore` and stays local to each machine.
 
 ## Five-Minute flow
 
@@ -218,5 +232,6 @@ Extraction/generation carried over from the retired `generateSupport.py`, plus:
 - **Model-written Spanish needs a read.** Typical misses: English titles
   ("Mr.") inside Spanish sentences, a wrong gender on acronyms (la
   HIPAA), and the answer repeated inside a hint.
-- **No per-pass retry/repair loop** - a pass missing a day or section
-  currently just warns and moves on.
+- **Per-pass retry is coverage-only** (since Oct 20, 2026): a pass
+  missing a day or section is run once more, then kept with a warning.
+  Nothing repairs content quality automatically.
