@@ -118,7 +118,10 @@ SUPPORT_REQUIRED_SECTIONS = [
 BASE_CORRECTIONS = [
     (r"\bir a rastras\b", "un rutero"),
     (r"\bcarpular\b", "un rutero"),
-    (r"\balmuerzo en bolsa\b", "almuerzo en llevar"),
+    # Gene's decision, Oct 20, 2026: sack lunch = "almuerzo para llevar"
+    # (both templates' register lists agree). Previously this rule turned
+    # the template's own "almuerzo en bolsa" into "almuerzo en llevar".
+    (r"\balmuerzo en (?:bolsa|llevar)\b", "almuerzo para llevar"),
     (r"\bchamba\b", "trabajo"),
     (r"\bparte del tiempo\b", "pronóstico del tiempo"),
     (r"\bmoqueo\b", "moco"),
@@ -137,7 +140,11 @@ BASE_CORRECTIONS = [
     # opens a sentence, so the replacement is capitalized.
     (r"\beso es la vida\b", "Así es la vida"),    
     # From CUBAN_REGISTER dictionary - forbidden in any context.
-    (r"\bcalientito\b", "caliente"),
+    # All four forms (the old rule matched only "calientito", so
+    # "mantas calientitas" slipped through in the Week 41 runs). Plural
+    # keeps its plural: calientitos/calientitas -> calientes.
+    (r"\bcalientit[oa]s\b", "calientes"),
+    (r"\bcalientit[oa]\b", "caliente"),
     (r"¿puedo tener (un[ao]) ([a-záéíóúñ]+)\?", r"¿me puedo comer \1 \2?"),
 ]
 

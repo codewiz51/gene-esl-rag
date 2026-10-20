@@ -59,8 +59,10 @@ CONNECT_TIMEOUT = 10
 # response is streamed, so this is "no new data for N seconds", not a cap
 # on the whole call: a long, steady generation never trips it. It does
 # include the wait for the first token (model load + prompt processing).
-# Started at 300 on Oct 20, 2026; tune from the timings in run.log.
-INACTIVITY_TIMEOUT = 300
+# Started at 300 on Oct 20, 2026. Lowered to 120 the same day after the
+# Week 41 runs on both machines: longest pause between tokens 0.7 s,
+# longest wait for the first token 45 s. Override per run with --timeout.
+INACTIVITY_TIMEOUT = 120
 
 # Extra attempts after a retryable failure (connection drop, timeout,
 # server error, empty answer). 2 means up to 3 attempts in total.

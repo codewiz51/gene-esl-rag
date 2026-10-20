@@ -29,7 +29,7 @@ python3 pipeline.py 42 Week42StoryBoard.md MainLessonTemplate.txt Debug --check
 Expect:
 
 ```
-pipeline.py - machine=macbook (detected from $HOME=/Users/Gene), mode=client -> Ollama on the Studio at http://192.168.4.47:11434, model=pipeline-qwen38:latest, inactivity timeout=300s
+pipeline.py - machine=macbook (detected from $HOME=/Users/Gene), mode=client -> Ollama on the Studio at http://192.168.4.47:11434, model=pipeline-qwen38:latest, inactivity timeout=120s
 WEEKLY VERB FOCUS found (6 lines).
 WEEK NOTES found.
 Ollama OK at http://192.168.4.47:11434; model 'pipeline-qwen38:latest' is installed.
@@ -92,7 +92,7 @@ thinking traces are in its `debug/` folder).
 | 1 | `Storyboard file ... not found` / `... can't be used` / `... is missing block(s)` | Fix the file name or the storyboard/template; rerun. |
 | 2 | `Cannot reach Ollama at http://192.168.4.47:11434` | Wake the Studio, check Ollama is running there; rerun with `--resume`. |
 | 2 | `Model 'pipeline-qwen38:latest' is not installed` | On the Studio: `ollama list`. |
-| 2 | `Ollama went silent for more than 300s` | Studio hung or asleep. Check it, then rerun with `--resume`. |
+| 2 | `Ollama went silent for more than 120s` | Studio hung or asleep. Check it, then rerun with `--resume`. |
 | 3 | `The lesson was written, but N structural problem(s)` | A day or section is missing — listed in the summary. Fix by hand, or rerun. |
 | 130 | `Interrupted (Ctrl-C)` | Rerun with `--resume` when ready. |
 
@@ -119,7 +119,7 @@ the old version) — then start a fresh run without `--resume`.
 | `--check` | Validate inputs + Ollama connection only. |
 | `--resume` | Continue the newest unfinished run for that week. |
 | `--studio-ip 192.168.4.50` | The Studio's address changed. |
-| `--timeout 600` | Allow longer silence before a call counts as hung (default 300s). |
+| `--timeout 600` | Allow longer silence before a call counts as hung (default 120s). |
 | `--machine macbook` | Only if auto-detection ever fails. |
 | `NoDebug` (instead of `Debug`) | Skip prompt/response/thinking files. `run.log` and checkpoints are always written. |
 

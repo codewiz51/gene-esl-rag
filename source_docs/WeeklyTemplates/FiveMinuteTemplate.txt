@@ -44,7 +44,12 @@ Spanish MUST follow Cuban register rules:
   - "pa'" and "pa'l" allowed
   - Do NOT use "chamba"
   - "lonchera" = lunchbox only
-  - "almuerzo en llevar" = sack lunch
+  - "almuerzo para llevar" = sack lunch (NOT "almuerzo en bolsa" or
+    "almuerzo en llevar")
+  - "the battery is dead" = "se le acabó la batería" / "la batería está
+    descargada" — NOT "la pila" (in Cuba "la pila" is the faucet)
+  - "porch" = "la terraza" — NOT "el porche" or "el portal"
+  - "bring" (toward here) = "traer"; "take" (to another place) = "llevar"
   - "desvanecimiento" / "desmayo" = syncope
   - "carpool" (US concept) has no 1:1 Cuban equivalent = use "un rutero"
     (a private driver hired to run a daily route) or "alquilar/pagar
@@ -99,6 +104,7 @@ Carla - the clinic's part-time medical assistant
 Crystal - the clinic's new Physician Assistant who will be covering weekends going forward.
 Ernesto - Marisol's brother, also a Cuban immigrant. Married to Virginia.
 Virginia - Marisol's sister-in-law, sometimes picks up Camy and Donna from school. Married to Ernesto.
+Jorge - Marisol's oldest brother, late 40s, lives with his wife in Cuba.
 #END RULES: CHARACTER_DICTIONARY
 
 #BEGIN RULES: PER_DAY_VOCAB_SOURCE
@@ -173,6 +179,12 @@ anywhere in the output. This is not HTML.
      shows obligation" or "'should' means X" is NOT
      allowed — that is explaining what the word represents,
      not what the character does). See LANGUAGE_LEVEL.
+   - The paragraph MUST quote the English target word or
+     form in double quotes, the way it appears in the Mini
+     Story (e.g. Marisol uses "feels" to say she is tired).
+     A paragraph that never names the grammar point (e.g.
+     "She tells the reader why she is not okay") teaches
+     nothing and is NOT allowed.
 
 5. Mini Story:
    - Numbered Markdown list ("1.", "2.", ...) of 4–6 sentences.
@@ -198,11 +210,18 @@ anywhere in the output. This is not HTML.
    - Spanish→English: EXACTLY 2 items.
    - English→Spanish: EXACTLY 1 item.
    - All items MUST be 8–12 words and full sentences.
+   - Items under "Spanish → English" are written IN SPANISH.
+     The item under "English → Spanish" is written IN ENGLISH.
+     Never put a Spanish sentence under "English → Spanish".
 
 7. Student Questions:
    - Numbered Markdown list ("1.", "2.").
    - EXACTLY 2 questions: one comprehension, one personal.
    - Each question MUST include a hint. See QUESTION_HINTS.
+   - The personal question is about the student's OWN life.
+     Marisol's family and friends (Camy, Donna, Marisa,
+     Ernesto, Virginia, Jorge) are not hers: ask about "your
+     children", never "Did you spend time with Camy?".
 
 8. Separate each day's content from the next day's "#" heading
    with a blank line, then a line containing only "---" (a

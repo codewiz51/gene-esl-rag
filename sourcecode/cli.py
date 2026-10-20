@@ -30,7 +30,7 @@ def add_common_args(parser):
     g.add_argument("--studio-ip", metavar="IP",
                    help="Studio address when running on the Macbook (default 192.168.4.47).")
     g.add_argument("--timeout", type=float, metavar="SECONDS",
-                   help="Inactivity timeout for each model call (default from config.py: 300).")
+                   help="Inactivity timeout for each model call (default from config.py: 120).")
     g.add_argument("--model", metavar="NAME",
                    help="TESTING ONLY - use a different Ollama model. Production runs never set this.")
 

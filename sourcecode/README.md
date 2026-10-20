@@ -39,6 +39,8 @@ needed.
   pipelines. Logs `WARNING: HINT [...]` for any Warmup / Grammar / Student
   Questions hint longer than 3 words or made only of common English
   words. Warns only; never edits the lesson.
+  Since Oct 20, 2026 also `lint_student_life()`, `lint_translation_direction()`
+  and `lint_story_length()` (see docs/PROJECT_DOCUMENTATION.md).
 - `state.py` — `WeekState`: holds each day's finished section text as
   passes fill it in, and assembles the final Markdown in canonical
   section order.

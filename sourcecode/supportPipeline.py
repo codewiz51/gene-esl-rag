@@ -32,7 +32,7 @@ import passes
 import runlog
 import runs
 from errors import InputError, OllamaBadResponse, ResumeError, ValidationFailed
-from qa_utils import lint_hints
+from qa_utils import lint_hints, lint_student_life, lint_translation_direction
 
 log = logging.getLogger("esl")
 
@@ -188,6 +188,8 @@ def main(ctx):
     structural = common.check_day_heading_format(five_markdown, days=supplied_days, label="Five-Minute")
     five_markdown = common.apply_corrections(five_markdown, corrections)
     lint_hints(five_markdown, label="five-minute")
+    lint_student_life(five_markdown, label="five-minute")
+    lint_translation_direction(five_markdown, label="five-minute")
     structural += common.validate_markdown(five_markdown, "Five-Minute lesson",
                                            common.SUPPORT_REQUIRED_SECTIONS, days=supplied_days)
 

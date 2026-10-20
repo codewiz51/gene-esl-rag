@@ -34,7 +34,7 @@ import passes
 import runlog
 import runs
 from errors import InputError, ResumeError, ValidationFailed
-from qa_utils import lint_hints
+from qa_utils import lint_hints, lint_story_length, lint_student_life, lint_translation_direction
 from state import ALL_DAYS, WeekState
 from storyboard_utils import (
     extract_day_focus,
@@ -215,6 +215,9 @@ def main(ctx):
     # ---- corrections, checks, write -----------------------------------------
     final_markdown = common.apply_corrections(reviewed, corrections)
     lint_hints(final_markdown, label="main lesson")
+    lint_student_life(final_markdown, label="main lesson")
+    lint_translation_direction(final_markdown, label="main lesson")
+    lint_story_length(final_markdown, label="main lesson")
     structural = common.validate_markdown(final_markdown, "main lesson", common.MAIN_REQUIRED_SECTIONS)
     structural += common.check_day_heading_format(final_markdown, label="main lesson")
 

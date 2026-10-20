@@ -194,9 +194,10 @@ Then corrections, hint check, validation, write
 ## 7. Talking to Ollama (`ollama_client.py`, `config.py`)
 
 - **Streaming** `/api/generate`. `requests` uses a connect timeout of
-  10 s and a **read (inactivity) timeout of 300 s**: the call fails only
-  if Ollama sends nothing for 300 s. A long, steady generation never
-  trips it. The 300 s includes the wait for the first token (model load +
+  10 s and a **read (inactivity) timeout of 120 s** (300 s until the
+  Week 41 runs measured the real gaps): the call fails only
+  if Ollama sends nothing for 120 s. A long, steady generation never
+  trips it. The 120 s includes the wait for the first token (model load +
   prompt processing).
 - **Retries**: connection errors, timeouts, HTTP 5xx, an empty answer,
   or a stream that ends before "done" are retried twice (after 10 s,
@@ -313,10 +314,9 @@ self-reviews accepted.
   temperature 0.5. Structure, section lists, vocabulary counts and
   day count match; MAIN length 4,698 vs 4,897 words.
 - **Timeout:** the longest pause between tokens was 0.7 s and the
-  longest wait for a first token 45 s. The 300 s inactivity timeout is
-  about 7× the worst real wait. A value near 120 s would still allow
-  for a slow model load and catch a hang much sooner. Not changed yet
-  (`config.INACTIVITY_TIMEOUT`).
+  longest wait for a first token 45 s. The inactivity timeout was
+  lowered from 300 s to 120 s on that evidence
+  (`config.INACTIVITY_TIMEOUT`; `--timeout` overrides per run).
 
 ## 12. Change history
 
@@ -352,29 +352,61 @@ self-reviews accepted.
   - Atomic file writes. `ALL_DAYS` defined once.
 - Debug files moved from `sourcecode/debug/` to each run's `debug/`.
 
+**Oct 20, 2026 — Week 41 review fixes** (branch `fixes/week41-review`):
+
+- Code:
+  - `BASE_CORRECTIONS`: "calientito" now catches all four forms
+    (calientita/os/as slipped through in both Week 41 runs); sack lunch
+    is rewritten to "almuerzo para llevar" (Gene's decision; it used to
+    be rewritten to "almuerzo en llevar", contradicting the template).
+  - New warn-only checks in `qa_utils.py`, run by both pipelines:
+    `STUDENT` (a question or first-person prompt treats Marisol's
+    family as the student's), `DIRECTION` (a translation item in the
+    wrong language), `LENGTH` (a long-day English story outside
+    140–180 words). On the two Week 41 runs they found 7 and 5
+    student-life problems, 7 wrong-direction Five-Minute items, and one
+    188-word story.
+  - Inactivity timeout 300 → 120 s.
+- MainLessonTemplate.txt:
+  - CUBAN_REGISTER: sack lunch = "almuerzo para llevar"; the battery is
+    dead = "se le acabó la batería" (not "la pila", the faucet in Cuba);
+    porch = "la terraza"; bring = traer, take = llevar.
+  - Grammar: teach the bring/take contrast; a "bring" hint is a form of
+    "traer".
+  - Warmup and Student Questions: questions about the student's life
+    never treat Marisol's family as hers.
+  - CHARACTERS: Jorge added.
+- Examples pass prompt (`passes.py`): numbered sentences must be new,
+  not copied from the story; a verb is used in the sense the day
+  teaches; translation items keep the story's facts (person, gender,
+  action).
+- FiveMinuteTemplate.txt: the same register entries and Jorge; Grammar
+  Focus must quote the target word; translation direction stated; the
+  personal question is about the student's own life.
+- Week41StoryBoard.md: the "She does not name a disease" bullet line is
+  removed (the rule stays in WEEK NOTES); the bring examples follow the
+  bring/take contrast.
+
 Earlier history: `sourcecode/README.md` ("Fixed so far") and the git log.
 
 ## 13. Known gaps / next phase
 
-Prompt and template work (not code):
-
-- `BASE_CORRECTIONS`: "almuerzo en bolsa" → **"almuerzo en llevar"** looks
-  wrong. Standard is "almuerzo para llevar".
-- Week 41 review (Thursday) showed:
-  - "bring = traer o llevar" in Grammar, and a Warmup item hinted
-    "(llevar)", which blurs bring/take.
-  - A WEEK NOTES rule ("she never names a disease") leaking into the
-    story as narration.
-  - A Translation item with the wrong gender and wrong person.
-  - Examples mostly copying story sentences.
+- Week 41 fixes (Oct 20, round 2, section 12) need a fresh Week 41 run
+  to confirm qwen follows them. Watch the summary for `STUDENT`,
+  `DIRECTION`, `LENGTH` and `HINT` warnings.
 - Most generation time is thinking (about 85% of tokens in the story
   pass). That's worth testing per pass for speed and quality; note the
   Aug 28 `think: False` regression.
-- No deterministic checks yet for Mini Story sentence length (8–12
-  words), comma limit, the and/but/because rule, or Translation Practice
-  language direction. These are prompt-only today.
+- Still prompt-only (no deterministic check): Mini Story sentence length
+  (8–12 words), comma limit, the and/but/because rule, short-day story
+  length (sentences), and whether a blank's answer fits one blank
+  (Saturday's "I ___ Marisa donuts next Saturday" needs "will bring").
 - Model Spanish still needs a read: English titles inside Spanish
   sentences, wrong gender on acronyms, the answer repeated in a hint.
-- The 300 s timeout is about 7× the longest wait seen (45 s). Use the
-  "longest pause" figures from the next runs to decide whether to lower
-  it.
+- The storyboard skill (esl-weekly-lessons) should: write the plain
+  `WEEKLY VERB FOCUS:` header; keep rules such as scope of practice in
+  WEEK NOTES, never as a day's bullet (qwen copies bullets into the
+  story); follow bring = traer / take = llevar in its examples.
+- Keep an eye on "first data" times in the summary: if a cold model
+  load ever comes close to the 120 s timeout, raise it or pass
+  `--timeout`.

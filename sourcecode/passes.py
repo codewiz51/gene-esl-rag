@@ -396,7 +396,8 @@ def examples_translation_pass(template_text, week_state, study_notes_by_day=None
             "\n\nDAY_FOCUS RULE: each day's DAY_FOCUS block names the verb(s) that day teaches or reviews. Examples "
             "MUST include at least two numbered items that use those verbs in complete, natural sentences (for "
             "example a day that introduces 'give' needs sentences with give, gives or gave; a day about 'have' needs "
-            "have or has). Examples are sentences and a dialogue ONLY: do NOT write grammar commentary or name "
+            "have or has). Use each verb in the meaning the DAY_FOCUS teaches (for 'feel', how a person feels - "
+            "not touching something). Examples are sentences and a dialogue ONLY: do NOT write grammar commentary or name "
             "grammar terms (no 'passive voice', 'simple past', 'shows possibility', 'we use ...'). Keep every "
             "sentence at A2 level. In a dialogue, each speaker states or asks one plain thing and the lines answer "
             "each other like a real conversation; a character never promises something another staff member handles."
@@ -420,6 +421,12 @@ def examples_translation_pass(template_text, week_state, study_notes_by_day=None
 
     instructions = OUTPUT_FORMAT_COMMON + "\n\nThis pass produces ONLY: ## Examples and ## Translation Practice (in that order, per day). " \
         "The Examples dialogue MUST NOT contradict or add events beyond the FINISHED_STORY above. " \
+        "The numbered Examples sentences that are NOT the dialogue MUST be NEW sentences - do NOT copy or lightly " \
+        "reword sentences from the FINISHED_STORY. Use the day's verbs in other everyday situations (home, work, " \
+        "shopping, family), with the story's characters or with 'I' / 'she' / 'my daughter'; they must not " \
+        "contradict the story. " \
+        "A Translation Practice item taken from the story keeps the story's facts: the same person, the same " \
+        "gender, the same action (do not turn Marisol into 'la paciente', or a man into a woman). " \
         "Translation Practice MUST NOT reuse vocabulary words unless they appear naturally in that day's finished story. " \
         "LANGUAGE DIRECTION IS MANDATORY: every item under 'Spanish → English' MUST be written IN SPANISH " \
         "(the student translates it into English) - never write that item in English. Every item under " \

@@ -236,7 +236,12 @@ Warmup:
   "I ___ to be a good worker when I am tired."
  The blank "___" should relate to the day's verb focus or vocabulary.
  Every blank MUST include a hint. See HINTS_AND_BLANKS.
- 
+ A first-person prompt is about the student's OWN life. Marisol's
+ family and friends (Camy, Donna, Marisa, Ernesto, Virginia, Jorge)
+ are NOT the student's family: never write them into a sentence as if
+ they were hers. Say "my daughter", "my son", "my children", "my
+ neighbor" instead.
+
 Vocabulary:
  Long days: 4–6 bilingual word/idiom pairs.
  Short days: 3–5 bilingual word/idiom pairs
@@ -254,6 +259,13 @@ Grammar:
   The frame must use the week's verb
   focus.
   Every blank MUST include a hint. See HINTS_AND_BLANKS.
+ When the verb is "bring" or "take", teach
+ the contrast: "bring" = toward here, toward
+ the speaker ("traer"); "take" = to another
+ place, away from the speaker ("llevar").
+ Every "bring" blank is a moment of coming
+ toward here, and its hint is a form of
+ "traer". Do NOT write "bring" = "llevar".
  Example (illustrative only — use the
 current week's verb focus, not the
 words shown here):
@@ -297,6 +309,12 @@ Student Questions:
  - Did you go grocery shopping today?
  - Did you assess a patient today?
  - Did you send a prescription order to the pharmacy?
+ A question about the student's own life MUST NOT treat Marisol's
+ family and friends (Camy, Donna, Marisa, Ernesto, Virginia, Jorge)
+ as the student's. Ask about "your children", "your daughter",
+ "your neighbor" — never "Did you spend time with Camy?" and never
+ "like Marisol". Questions ABOUT the story may name its characters
+ ("What does Camy need for school?").
  Every item MUST be phrased as a question (ending in '?').
  Do NOT include fill-in-the-blank statements in this section.
  Every question MUST include a hint. See HINTS_AND_BLANKS.
@@ -459,6 +477,7 @@ Carla - the clinic's part-time medical assistant
 Crystal - the clinic's new Physician Assistant who will be covering weekends going forward.
 Ernesto - Marisol's brother, also a Cuban immigrant. Married to Virginia.
 Virginia - Marisol's sister-in-law, sometimes picks up Camy and Donna from school. Married to Ernesto.
+Jorge - Marisol's oldest brother, late 40s. He and his wife live in Cuba, near where they grew up. Marisol works partly to help her family there.
 
 MARISOL/ROD TONE NOTE: This is a light-hearted, occasional
 beat, not a developing storyline — do NOT escalate it week
@@ -481,7 +500,15 @@ herself in it, not a plot she's watching from outside.
   un carro" — NOT "irse en carro juntos," which reads as literal
   translation, not how this is actually described in Cuban Spanish
 "lonchera" = lunchbox (container), NOT the meal
-"almuerzo en bolsa" = sack lunch
+"sack lunch" / "packed lunch" = "almuerzo para llevar" — NOT "almuerzo en
+  bolsa" or "almuerzo en llevar"
+"battery" (of a device or machine) = "la batería"; "the battery is dead" =
+  "se le acabó la batería" / "la batería está descargada" — NOT "la pila"
+  (in Cuba "la pila" is the faucet)
+"porch" = "la terraza" — NOT "el porche" or "el portal"
+"bring" = "traer" (toward here, toward the speaker); "take" (to another
+  place, away from the speaker) = "llevar". Translate "bring" with a form
+  of "traer" and "take" with a form of "llevar".
 "desvanecimiento" / "desmayo" = syncope
 Do NOT use "chamba" for job; use "trabajo"
 "refill a prescription" = "renovar la receta" / "renovación de la receta" —

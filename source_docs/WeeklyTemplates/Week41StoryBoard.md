@@ -92,12 +92,14 @@ poster board – cartulina
 # THURSDAY STORYBOARD
 
 Introduce "bring" – light reinforcement of "feel" and "tell"
+Contrast: "bring" = toward here (traer); "take" = to another place (llevar).
 Light past and future tenses are fine when the story needs it.
 Examples:
 Marisol brings the manual cuff from the cabinet. – Marisol trae el manguito manual del gabinete.
 I bring my stethoscope to work every day. – Traigo mi estetoscopio al trabajo todos los días.
 His wife brought his medication list. – Su esposa trajo la lista de sus medicamentos.
-I will bring the chart to Dr. Pérez. – Le voy a llevar el expediente a la Dra. Pérez.
+Can you bring me the chart? – ¿Me puedes traer el expediente?
+I take the chart to Dr. Pérez. – Le llevo el expediente a la Dra. Pérez. (take, not bring)
 
 # === VOCAB THURSDAY ===
 
@@ -116,7 +118,7 @@ recent travel – viaje reciente
 4 - Yoel tells Marisol that he has bad joint pain in his knees, ankles and wrists. He could not work for the last three days. Marisol sees swelling in his wrists. His temperature is normal.
 5 - Marisol uses the manual cuff. A baby cries in the next room, and loud noise can give a wrong reading, so she waits for the room to be quiet. The first tapping sound is the top number (systolic). When the sound stops, that is the bottom number (diastolic). The reading is 124 over 78. (Mometrix CMA study guide, Blood Pressure, PDF page 28; Practice Test #1, question 165.)
 6 - Marisol asks, "Did you travel recently?" Yoel says, "I came from Pinar del Río four months ago. Many people in my neighborhood had chikungunya."
-7 - Marisol writes his words in the chart. She does not name a disease. She tells Dr. Pérez right away.
+7 - Marisol writes his words in the chart and tells Dr. Pérez right away.
 8 - Marisol thinks about her oldest brother, Jorge, in Cuba. He and his wife live in a nice house near where they grew up. The electricity goes out for many hours, so the refrigerator is useless. Food stays covered in the pot for two days, and the flies can be bad. She worries, but she keeps working so she can help her family.
 9 - Dr. Pérez says, "Good question about the travel."
 
@@ -193,7 +195,7 @@ Marisol brought the manual cuff from the cabinet. – Marisol trajo el manguito 
 Future
 Marisol will feel ready on Monday. – Marisol se va a sentir lista el lunes.
 She will tell Dr. Pérez the numbers. – Ella le va a decir los números a la Dra. Pérez.
-She will bring Marisa donuts next Saturday. – Ella le va a llevar donuts a Marisa el próximo sábado.
+Marisa will bring donuts again next Saturday. – Marisa va a traer donuts otra vez el próximo sábado.
 
 # === VOCAB SUNDAY ===
 
