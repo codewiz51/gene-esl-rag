@@ -125,9 +125,11 @@ def main(ctx):
     week_notes = extract_week_notes(storyboard_raw)
     day_focus_by_day = extract_day_focus(story_requirements_by_day)
     validate_storyboard(story_requirements_by_day, vocab_by_day, os.path.basename(storyboard_path))
-    if not weekly_verb_focus:
-        log.info("WEEKLY VERB FOCUS is reference-only in this storyboard (not sent to the model); "
-                 "each day's focus line carries the verb.")
+    if weekly_verb_focus:
+        log.info(f"WEEKLY VERB FOCUS found ({len(weekly_verb_focus.splitlines())} lines).")
+    else:
+        log.warning("No WEEKLY VERB FOCUS block found in the storyboard - the story and warmup/grammar "
+                    "passes will get an empty verb focus.")
     if week_notes:
         log.info("WEEK NOTES found.")
     if study_notes_by_day:

@@ -26,8 +26,23 @@ log = logging.getLogger("esl")
 
 
 def extract_weekly_verb_focus(storyboard_text):
+    """
+    The block under the "WEEKLY VERB FOCUS" header, up to the next
+    section: "WEEKLY VOCABULARY", any "#" line (WEEK NOTES, the first day
+    storyboard), or end of file.
+
+    FIXED (Oct 20, 2026): since Week 35 the storyboards' header has read
+    "WEEKLY VERB FOCUS (reference only - the parser does not pass this
+    section to the model):" - wording written for the retired
+    generateMain.py. This function only matched the bare
+    "WEEKLY VERB FOCUS:" form, so every pass-pipeline run from Week 35 on
+    sent the model an EMPTY verb focus. Any text between "FOCUS" and the
+    colon is now accepted. The "#" terminator matters: Week 35+ files have
+    no WEEKLY VOCABULARY section, so without it the block would run to the
+    end of the file and swallow WEEK NOTES and every day.
+    """
     m = re.search(
-        r"(?ms)^WEEKLY VERB FOCUS:\s*$(.*?)(?=^WEEKLY VOCABULARY|\Z)",
+        r"(?ms)^WEEKLY VERB FOCUS\b[^\n]*:\s*$(.*?)(?=^WEEKLY VOCABULARY|^#|\Z)",
         storyboard_text,
     )
     return m.group(1).strip() if m else ""

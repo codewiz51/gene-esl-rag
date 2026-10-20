@@ -1,6 +1,6 @@
 WEEK 41 – STORY BOARD
 
-WEEKLY VERB FOCUS (reference only — the parser does not pass this section to the model):
+WEEKLY VERB FOCUS:
 Feel – I feel a little off today. – Hoy no me siento bien del todo. (sentirse)
 Tell – The patient tells me about her symptoms. – La paciente me cuenta sus síntomas. (decir / contar)
 Bring – She brings the manual cuff from the cabinet. – Ella trae el manguito manual del gabinete. (traer)
