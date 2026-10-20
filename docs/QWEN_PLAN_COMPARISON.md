@@ -8,12 +8,27 @@ code work its blind spots are known in advance.
 
 Each of qwen's claims was **tested against the code**, not just read.
 
-**Context that matters for fairness:** qwen was given only the Python
-files, and Gene's prompt asked mainly about exception handling. It never
-saw the templates, the storyboards or a lesson, and half the pipeline's
-logic lives there. So section 2 ("What qwen missed") is mostly about the
-limits of the brief, not of the model. Sections 3 and 4 judge what qwen
-did with what it had.
+**Context that matters for fairness.** Gene ran qwen one step at a time,
+on purpose, with this brief (Oct 19):
+
+> You have access to the directory ~/RAG/sourcecode. List all python
+> files in the directory. Do not recurse into sub folders.
+> Analyze the python file content for each file. Report the purpose of
+> each python script.
+> Analyze the source code for weaknesses. Do not change any files.
+> Analysis only.
+> Prepare a plan for streamlining, correcting and simplifying the python
+> code. Produce a markdown file.
+> *(then: save a summary of the conversation to ~/AIExperiments)*
+
+So qwen was asked for a **code-only** review of the Python files, and it
+did exactly that. It never saw the templates, the storyboards, a lesson
+or the git history, and half the pipeline's logic lives in those files.
+It was also never asked for the client/server mode, `--resume` or
+anything else Gene asked Claude for on Oct 20. Section 2 ("Outside
+qwen's brief") is therefore a map of what a code-only review cannot see,
+not a list of qwen's failures. Sections 3 and 4 judge what qwen did with
+what it was given.
 
 ## 1. Scorecard
 
@@ -61,9 +76,9 @@ did with what it had.
 | Q5 | Type hints + unit tests | **Unit tests done later on Oct 20**: 84 tests in `sourcecode/tests/`. No type hints. |
 | Q6 | `toDocx.py` crashes on a Pandoc error | Not done |
 
-## 2. What qwen missed
+## 2. Outside qwen's brief
 
-Everything below was found on Oct 20. Nearly all of it was outside what qwen was given (Python only, with an exception-handling brief). Ordered by impact:
+Everything below was found on Oct 20, and all of it was outside a code-only review of `sourcecode/*.py`. It shows what that kind of review cannot catch, whoever does it. Ordered by impact:
 
 1. **The weekly verb focus never reached the model.** Since Week 35 the
    storyboard header read "WEEKLY VERB FOCUS (reference only …):", and the
