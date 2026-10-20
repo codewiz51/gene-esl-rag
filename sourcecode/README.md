@@ -63,6 +63,8 @@ needed.
   (streaming calls, timeout, retries), `errors.py` (exit codes),
   `runs.py` (run folders, checkpoints, `--resume`), `runlog.py`
   (run.log, summary), `cli.py` (shared flags), `tools/mock_ollama.py`.
+- `tests/` — unit tests (stdlib `unittest`, ~2 s, no Ollama needed):
+  `python3 -m unittest discover -s tests -t .` from `sourcecode/`.
 
 ## Optional storyboard blocks
 

@@ -8,21 +8,28 @@ code work its blind spots are known in advance.
 
 Each of qwen's claims was **tested against the code**, not just read.
 
+**Context that matters for fairness:** qwen was given only the Python
+files, and Gene's prompt asked mainly about exception handling. It never
+saw the templates, the storyboards or a lesson, and half the pipeline's
+logic lives there. So section 2 ("What qwen missed") is mostly about the
+limits of the brief, not of the model. Sections 3 and 4 judge what qwen
+did with what it had.
+
 ## 1. Scorecard
 
 ### Correctness items (qwen's P0)
 
 | ID | Qwen's claim | Claim accurate? | Status after Oct 20 |
 |---|---|---|---|
-| C1 | "eso es la vida" → "Así es la vida" capitalizes mid-sentence | **Yes.** Test: "Ella dice que eso es la vida." → "…que Así es la vida." | **Not fixed.** Claude missed it. |
-| C2 | A backslash in a weekly correction crashes the run | **Yes.** Test: `foo → bar\1` crashes with `PatternError`. | **Not fixed.** Claude missed it. **Qwen's fix is wrong** (see §3). |
+| C1 | "eso es la vida" → "Así es la vida" capitalizes mid-sentence | **Yes.** Test: "Ella dice que eso es la vida." → "…que Así es la vida." | Claude missed it on the first pass. **Fixed later on Oct 20**: the replacement copies the case of the first letter it replaces. |
+| C2 | A backslash in a weekly correction crashes the run | **Yes.** Test: `foo → bar\1` crashes with `PatternError`. | Claude missed it on the first pass. **Fixed later on Oct 20**, for weekly corrections only. **Qwen's fix is wrong** (see §3). |
 | C3 | No timeout, no retry on the Ollama call | Yes | Fixed: streaming, 120 s inactivity timeout, 2 retries, typed errors |
 | C4 | `str(resp_json)` can end up in the lesson | Yes | Fixed: raises an error instead |
 | C5 | Top-level `pypandoc` import breaks startup | Yes | Fixed: unused function and import removed |
 | C6 | Self-review output not checked | Yes | Fixed, more strictly than proposed: the review is rejected unless every day and section survive and its length is 70–150% of the original |
 | C7 | `markdown_looks_truncated` checks only the last day | Yes | Covered: `validate_markdown` now checks every day (exit 3) and each pass retries missing days. The function itself is unchanged. |
 | C8 | A missing day heading "merges" the next day into this one | **No.** Test: the day is *dropped* (empty), not merged. | Covered: a storyboard with an empty day now stops before any model call (exit 1). |
-| C9 | A duplicate day heading silently overwrites the first | Yes | **Not fixed.** Claude missed it. |
+| C9 | A duplicate day heading silently overwrites the first | Yes | Claude missed it on the first pass. **Fixed later on Oct 20**: reported, and the longer block is kept. |
 
 ### Reliability items (qwen's P1)
 
@@ -51,12 +58,12 @@ Each of qwen's claims was **tested against the code**, not just read.
 | Q1–Q2 | Weak hint and validation heuristics | Partly: new checks for STUDENT, DIRECTION and LENGTH. The English-hint list is unchanged. |
 | Q3 | Use logging | Done |
 | Q4 | Move config out of the code | Done |
-| Q5 | Type hints + unit tests | **Not done.** Claude tested with a mock Ollama and a prompt-equivalence check, but committed no unit tests. |
+| Q5 | Type hints + unit tests | **Unit tests done later on Oct 20**: 84 tests in `sourcecode/tests/`. No type hints. |
 | Q6 | `toDocx.py` crashes on a Pandoc error | Not done |
 
 ## 2. What qwen missed
 
-Everything below was found on Oct 20 and was outside qwen's view. Ordered by impact:
+Everything below was found on Oct 20. Nearly all of it was outside what qwen was given (Python only, with an exception-handling brief). Ordered by impact:
 
 1. **The weekly verb focus never reached the model.** Since Week 35 the
    storyboard header read "WEEKLY VERB FOCUS (reference only …):", and the
@@ -118,8 +125,8 @@ Everything below was found on Oct 20 and was outside qwen's view. Ordered by imp
   simplification, then optional work.
 - It kept the layered "3D-printer" architecture instead of flattening it.
   Claude made the same call.
-- It wanted unit tests. That's fair criticism of the Oct 20 work, which
-  has none committed.
+- It wanted unit tests. That was fair criticism of the first Oct 20
+  pass; the suite was added the same afternoon.
 - Its static reading was thorough and mostly accurate (C8 was the one
   misread).
 
@@ -144,6 +151,10 @@ Everything below was found on Oct 20 and was outside qwen's view. Ordered by imp
 
 ## 6. Open items from this comparison
 
-C1, C2 (weekly corrections only) and C9 are real, small and unfixed. Each
-is a few lines plus a test. Unit tests for the pure functions (qwen's Q5)
-would be a reasonable next step at the same time.
+C1, C2 (weekly corrections only) and C9 were fixed on Oct 20 with unit
+tests. Still open from qwen's list, all low priority:
+- S1/S3/S4: duplicated extraction and prompt-building code.
+- S7: warn when a day has no focus line.
+- Q1/Q2: the English-hint word list and per-day accent check.
+- Q6: `toDocx.py` error handling.
+- R8: stale `mainSupport.md`.

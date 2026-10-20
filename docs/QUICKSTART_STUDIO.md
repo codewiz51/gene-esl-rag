@@ -15,6 +15,9 @@ cd ~/RAG/sourcecode           # the scripts run from here
 
 (On the Studio, `rag` leaves you in `~/RAG`, not `~/RAG/sourcecode`.)
 
+If the code changed since the last run, run the unit tests first (2 seconds):
+`python3 -m unittest discover -s tests -t .`
+
 ## 1. Check (5 seconds)
 
 ```bash

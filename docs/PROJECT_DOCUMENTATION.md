@@ -266,6 +266,30 @@ pre-refactor code (tag `pre-refactor-oct20`). Each failure mode above
 produced the expected message and exit code, and `--resume` continued
 correctly after a failure at pass 4 and after Ctrl-C.
 
+### Unit tests
+
+`sourcecode/tests/`: 84 tests, Python standard library only (`unittest`),
+about 2 seconds, no Studio or Ollama needed. Run from `~/RAG/sourcecode`
+with the venv active:
+
+```bash
+python3 -m unittest discover -s tests -t .
+```
+
+They cover:
+- corrections, including C1, C2 and C9 below, and the `\1`/`\2` base rules;
+- Markdown splitting, validation and the self-review guard;
+- storyboard parsing, including the old "reference only" verb-focus header
+  and the real Week 41 storyboard;
+- the template check and pass coverage;
+- the hint, STUDENT, DIRECTION and LENGTH checks;
+- machine detection and `--studio-ip` rules;
+- run folders, checkpoints and `--resume`;
+- the Ollama client against `tools/mock_ollama.py` (retry, timeout,
+  empty answer, missing model).
+
+Run them after any change to the code, before a 45-minute pipeline run.
+
 ## 11. Reference run: Week 41, Oct 20, 2026 (Macbook → Studio)
 
 Zero warnings, no retries, every call `done_reason=stop`, both reviews
@@ -388,6 +412,20 @@ self-reviews accepted.
 - Week41StoryBoard.md: the "She does not name a disease" bullet line is
   removed (the rule stays in WEEK NOTES); the bring examples follow the
   bring/take contrast.
+
+**Oct 20, 2026: C1, C2, C9 and unit tests** (branch `fixes/c1-c2-c9-tests`;
+bugs first found by qwen, see `QWEN_PLAN_COMPARISON.md`):
+
+- C1: a correction now copies the case of the first letter it replaces.
+  "eso es la vida" → "así es la vida" mid-sentence, "Así es la vida" at
+  the start; "Chamba" → "Trabajo".
+- C2: storyboard weekly corrections are plain text on both sides. A
+  backslash no longer crashes the run, and a phrase starting or ending
+  with punctuation, e.g. "presión (alta)", now matches. Base corrections
+  keep their `\1`/`\2` group references.
+- C9: a day heading that appears twice in model output is reported, and
+  the longer block is kept (before, the later one silently won).
+- `sourcecode/tests/`: 84 unit tests (see "Unit tests" above).
 
 Earlier history: `sourcecode/README.md` ("Fixed so far") and the git log.
 

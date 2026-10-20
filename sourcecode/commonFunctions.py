@@ -136,9 +136,11 @@ BASE_CORRECTIONS = [
     (r"\btomar el examen\b", "hacer el examen"),
     (r"\bcompresas h[uú]medas calientes\b", "paños calientes húmedos"),
     (r"\bnarices goteando\b", "nariz que gotea"),
-    # apply_corrections() is case-insensitive; this phrase almost always
-    # opens a sentence, so the replacement is capitalized.
-    (r"\beso es la vida\b", "Así es la vida"),    
+    # apply_corrections() copies the case of the first letter it replaces,
+    # so this gives "Así es la vida" at the start of a sentence and "así es
+    # la vida" mid-sentence. (Until Oct 20, 2026 the replacement was written
+    # capitalized and capitalized every occurrence - qwen's C1.)
+    (r"\beso es la vida\b", "así es la vida"),    
     # From CUBAN_REGISTER dictionary - forbidden in any context.
     # All four forms (the old rule matched only "calientito", so
     # "mantas calientitas" slipped through in the Week 41 runs). Plural
@@ -174,8 +176,17 @@ def parse_weekly_corrections(storyboard_text):
         right = right.strip()
         if wrong and right:
             # \b word-boundary wrap assumes the phrase is plain text, matching
-            # how BASE_CORRECTIONS entries are written.
-            pairs.append((rf"\b{re.escape(wrong)}\b", right))
+            # how BASE_CORRECTIONS entries are written. Both sides are plain
+            # text: the pattern is escaped, and backslashes in the replacement
+            # are doubled so apply_corrections() treats them literally. (Until
+            # Oct 20, 2026 a "\1" or "C:\..." in a storyboard correction was
+            # read as a group reference and crashed the run - qwen's C2.)
+            # BASE_CORRECTIONS are NOT escaped: two of them use \1 / \2 on
+            # purpose.
+            # (?<!\w) / (?!\w) instead of \b: same result for phrases that
+            # start and end with a letter, but \b never matched a phrase that
+            # starts or ends with punctuation, e.g. "presión (alta)".
+            pairs.append((rf"(?<!\w){re.escape(wrong)}(?!\w)", right.replace("\\", "\\\\")))
     return pairs
 
 def send_to_ollama(payload, debug_label=None, debug_flag=True):
@@ -213,6 +224,12 @@ def split_markdown_days(text, days=None):
     # A day block starts at its "# DAY" heading (MARKDOWN_LAYOUT /
     # FIVEMINUTE_FORMAT rule 1) and runs until the next "# DAY" heading
     # or end of text.
+    #
+    # A day heading that appears twice (the model restarted a day, or
+    # repeated it) is reported, and the LONGER block is kept - the usual
+    # cause is a restart partway through, so the longer block is the more
+    # complete one. (Until Oct 20, 2026 the later block silently replaced
+    # the earlier one - qwen's C9.)
     days = days or ALL_DAYS
     pattern = re.compile(r"(?m)^#\s+(" + "|".join(days) + r")\s*$", flags=re.IGNORECASE)
     matches = list(pattern.finditer(text))
@@ -221,7 +238,14 @@ def split_markdown_days(text, days=None):
         day = m.group(1).upper()
         start = m.start()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
-        blocks[day] = text[start:end].strip()
+        block = text[start:end].strip()
+        if day in blocks:
+            kept = "this one" if len(block) > len(blocks[day]) else "the earlier one"
+            log.warning(f"'# {day}' appears more than once in the model output - keeping the longer "
+                        f"block ({kept}, {max(len(block), len(blocks[day]))} chars).")
+            if len(block) <= len(blocks[day]):
+                continue
+        blocks[day] = block
     return blocks
 
 def markdown_looks_truncated(text, days, required_sections=None):
@@ -357,9 +381,30 @@ def accept_full_week_review(original, reviewed, required_sections, label):
 
 
 def apply_corrections(text, corrections):
+    """
+    Apply (pattern, replacement) pairs, matching case-insensitively.
+
+    The replacement is a regex template (so BASE_CORRECTIONS can use \\1).
+    If the replaced text starts with a capital, the replacement's first
+    letter is capitalized too: "Chamba" -> "Trabajo",
+    "¿Puedo tener una pera?" -> "¿Me puedo comer una pera?". A replacement
+    that itself starts with a capital ("Dra. Pérez", "C:\\...") is never
+    lowercased.
+    """
     for wrong, right in corrections:
-        text = re.sub(wrong, right, text, flags=re.IGNORECASE)
+        def _sub(m, right=right):
+            return _match_first_letter_case(m.group(0), m.expand(right))
+        text = re.sub(wrong, _sub, text, flags=re.IGNORECASE)
     return text
+
+
+def _match_first_letter_case(original, replacement):
+    """Capitalize replacement's first letter if original's first letter is a capital."""
+    o = next((ch for ch in original if ch.isalpha()), None)
+    i = next((k for k, ch in enumerate(replacement) if ch.isalpha()), None)
+    if o is None or i is None or not o.isupper():
+        return replacement
+    return replacement[:i] + replacement[i].upper() + replacement[i + 1:]
 
 
 def _atomic_write(full_path, text):

@@ -20,6 +20,9 @@ cd ~/RAG/sourcecode                  # the scripts run from here
 The storyboard goes in `~/RAG/source_docs/WeeklyTemplates/` as
 `WeekNNStoryBoard.md`.
 
+If the code changed since the last run, run the unit tests first (2 seconds):
+`python3 -m unittest discover -s tests -t .`
+
 ## 1. Check (5 seconds, generates nothing)
 
 ```bash
