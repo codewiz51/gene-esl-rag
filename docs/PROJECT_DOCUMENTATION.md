@@ -367,6 +367,8 @@ self-reviews accepted.
     student-life problems, 7 wrong-direction Five-Minute items, and one
     188-word story.
   - Inactivity timeout 300 → 120 s.
+  - Hint check: a Spanish "going to" future hint ("me voy a sentir",
+    "le va a decir") may have 4 words; other hints stay at 3.
 - MainLessonTemplate.txt:
   - CUBAN_REGISTER: sack lunch = "almuerzo para llevar"; the battery is
     dead = "se le acabó la batería" (not "la pila", the faucet in Cuba);

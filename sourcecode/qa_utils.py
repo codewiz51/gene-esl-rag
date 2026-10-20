@@ -14,6 +14,13 @@ _ENGLISH_HINT_WORDS = {
     "get", "give", "have", "take", "check", "reading", "patient", "doctor", "claim", "chart",
 }
 
+# ir a + infinitive, with an optional object/reflexive pronoun in front:
+# "voy a traer", "me voy a sentir", "le va a decir", "nos vamos a ir".
+_IR_A_FUTURE = re.compile(
+    r"^(?:(?:me|te|se|le|les|lo|la|los|las|nos)\s+)?(?:voy|vas|va|vamos|van)\s+a\s+\w+(?:r|rse|rlo|rla|rle)$",
+    re.IGNORECASE,
+)
+
 
 def lint_hints(markdown_text, label="lesson"):
     """Warn about hints that are too long or look English. Hint = last (...) on a numbered line."""
@@ -36,7 +43,11 @@ def lint_hints(markdown_text, label="lesson"):
             continue
         hint = m.group(1).strip()
         words = hint.split()
-        if len(words) > 3:
+        # The Spanish "going to" future is one fixed phrase but can take four
+        # words with a pronoun: "(me voy a sentir)", "(le va a decir)". Allow
+        # it (Oct 20, 2026: the 3-word limit flagged correct future hints).
+        limit = 4 if _IR_A_FUTURE.match(hint) else 3
+        if len(words) > limit:
             warnings.append(f"{day} {section}: hint has {len(words)} words: ({hint})")
         elif all(w.lower() in _ENGLISH_HINT_WORDS for w in words):
             warnings.append(f"{day} {section}: hint looks English: ({hint})")
