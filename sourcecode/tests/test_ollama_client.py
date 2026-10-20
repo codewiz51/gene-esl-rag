@@ -9,6 +9,7 @@ from tests._support import quiet_logging
 quiet_logging()
 import config  # noqa: E402
 import mock_ollama  # noqa: E402
+import runlog  # noqa: E402
 import ollama_client  # noqa: E402
 from errors import OllamaBadResponse, OllamaModelMissing, OllamaTimeout, OllamaUnavailable  # noqa: E402
 
@@ -87,6 +88,43 @@ class Client(unittest.TestCase):
     def test_unknown_model_on_generate(self):
         with self.assertRaises(OllamaModelMissing):
             self.call(self.rt(model="nosuch:latest", retries=0))
+
+    # --- context early warning (story pass reached 93% on Oct 20, 2026) ---
+    def test_near_full_context_warns_and_is_recorded(self):
+        rt = self.rt()
+        rt.options = dict(rt.options, num_ctx=200)      # the mock answer alone is bigger
+        timings = []
+        ollama_client.generate(rt, "This pass produces ONLY: ## Story\n", "ctx_full", timings=timings)
+        self.assertTrue(any(w.startswith("ctx_full: used") for w in runlog.collected_warnings()))
+        self.assertGreaterEqual(timings[0]["context_used"], config.CONTEXT_WARN_RATIO)
+
+    def test_normal_context_does_not_warn(self):
+        timings = []
+        ollama_client.generate(self.rt(), "This pass produces ONLY: ## Story\n", "ctx_ok", timings=timings)
+        self.assertFalse(any(w.startswith("ctx_ok:") for w in runlog.collected_warnings()))
+        self.assertLess(timings[0]["context_used"], 0.1)
+
+
+class ContextShare(unittest.TestCase):
+    def test_week41_story_pass_numbers(self):
+        # Keeper run: 7,374 prompt + 53,846 response of 65,536 -> 93.4%
+        self.assertEqual(ollama_client.context_share(7374, 53846, 65536), 0.934)
+        msg = ollama_client.context_warning("pass_story", 7374, 53846, 65536)
+        self.assertIn("61,220 of 65,536", msg)
+        self.assertIn("93%", msg)
+
+    def test_below_threshold_is_silent(self):
+        # examples_translation in the same run: 36%
+        self.assertIsNone(ollama_client.context_warning("pass_examples", 7848, 16039, 65536))
+
+    def test_threshold_is_inclusive(self):
+        self.assertIsNotNone(ollama_client.context_warning("x", 0, 85, 100, ratio=0.85))
+        self.assertIsNone(ollama_client.context_warning("x", 0, 84, 100, ratio=0.85))
+
+    def test_unknown_counts_are_silent(self):
+        self.assertIsNone(ollama_client.context_share("?", 10, 100))
+        self.assertIsNone(ollama_client.context_share(10, 10, None))
+        self.assertIsNone(ollama_client.context_warning("x", "?", "?", 65536))
 
 
 if __name__ == "__main__":

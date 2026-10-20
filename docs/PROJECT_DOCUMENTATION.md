@@ -207,6 +207,17 @@ Then corrections, hint check, validation, write
   the thinking trace (debug mode).
 - **`done_reason=length`** (context exhausted) is logged as a warning;
   coverage checks then catch the missing content.
+- **Context early warning**: a call whose prompt + response (thinking
+  included) uses at least 85% of `num_ctx` is flagged
+  (`config.CONTEXT_WARN_RATIO`), and the summary shows each call's
+  share. The Week 41 keeper run's story pass reached **93%**
+  (61,220 of 65,536 tokens); every other pass stayed at or below 36%.
+  Decision (Oct 20): leave thinking and `num_ctx` as they are and watch
+  the warning. qwen is the backup lesson generator, so a 20-minute rerun
+  is acceptable. A larger window is a tight fit on the 36 GB Studio
+  alongside the 18 GB model; splitting the story pass would cost the
+  whole-week register view; turning thinking off risks the Aug 28
+  regression.
 - **Generation options** (`config.GENERATION_OPTIONS`): temperature 0.5,
   num_ctx 65536, num_predict -1. `think` is deliberately not set: on
   Aug 28, 2026, `think: False` made the model stop after one day.
@@ -268,7 +279,7 @@ correctly after a failure at pass 4 and after Ctrl-C.
 
 ### Unit tests
 
-`sourcecode/tests/`: 84 tests, Python standard library only (`unittest`),
+`sourcecode/tests/`: 90 tests, Python standard library only (`unittest`),
 about 2 seconds, no Studio or Ollama needed. Run from `~/RAG/sourcecode`
 with the venv active:
 
@@ -426,6 +437,8 @@ bugs first found by qwen, see `QWEN_PLAN_COMPARISON.md`):
 - C9: a day heading that appears twice in model output is reported, and
   the longer block is kept (before, the later one silently won).
 - `sourcecode/tests/`: 84 unit tests (see "Unit tests" above).
+- Context early warning at 85% of `num_ctx`, and context share per call
+  in the summary (6 more tests, 90 in total).
 
 Earlier history: `sourcecode/README.md` ("Fixed so far") and the git log.
 
@@ -434,9 +447,9 @@ Earlier history: `sourcecode/README.md` ("Fixed so far") and the git log.
 - Week 41 fixes (Oct 20, round 2, section 12) need a fresh Week 41 run
   to confirm qwen follows them. Watch the summary for `STUDENT`,
   `DIRECTION`, `LENGTH` and `HINT` warnings.
-- Most generation time is thinking (about 85% of tokens in the story
-  pass). That's worth testing per pass for speed and quality; note the
-  Aug 28 `think: False` regression.
+- Most generation time is thinking (85–95% of tokens in the story pass).
+  Time is not a concern (Gene, Oct 20). The one risk is context: watch
+  the "context" column in the summary and the 85% warning (section 7).
 - Still prompt-only (no deterministic check): Mini Story sentence length
   (8–12 words), comma limit, the and/but/because rule, short-day story
   length (sentences), and whether a blank's answer fits one blank

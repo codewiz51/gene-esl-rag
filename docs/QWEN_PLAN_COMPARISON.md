@@ -73,7 +73,7 @@ what it was given.
 | Q1–Q2 | Weak hint and validation heuristics | Partly: new checks for STUDENT, DIRECTION and LENGTH. The English-hint list is unchanged. |
 | Q3 | Use logging | Done |
 | Q4 | Move config out of the code | Done |
-| Q5 | Type hints + unit tests | **Unit tests done later on Oct 20**: 84 tests in `sourcecode/tests/`. No type hints. |
+| Q5 | Type hints + unit tests | **Unit tests done later on Oct 20**: 84 tests in `sourcecode/tests/` (90 by the end of the day). No type hints. |
 | Q6 | `toDocx.py` crashes on a Pandoc error | Not done |
 
 ## 2. Outside qwen's brief
@@ -101,7 +101,8 @@ Everything below was found on Oct 20, and all of it was outside a code-only revi
 
    Qwen's plan explicitly put prompt content out of scope, so these were
    never in reach.
-5. **No way to prove "behavior-preserving."** The plan promised no change
+5. **No way to prove "behavior-preserving."** (This one is within the
+   brief.) The plan promised no change
    in behavior but had no test for it. The Oct 20 work proved it: with
    identical model answers, all 9 prompts and both lesson files were
    byte-identical to the old code, and each later prompt change touched
@@ -147,9 +148,11 @@ Everything below was found on Oct 20, and all of it was outside a code-only revi
 
 ## 5. How to use qwen for code work next time
 
-1. **Give it the data, not just the code**: a storyboard, both templates,
-   and one real lesson output. Its biggest misses came from never seeing
-   them.
+1. **Keep the step-by-step brief.** The Oct 19 brief (list files, describe
+   each, find weaknesses, plan) produced a solid code review. For a review
+   of the whole pipeline rather than the Python alone, add the data: a
+   storyboard, both templates, and one real lesson output. Most of what
+   a code-only review can't see lives there (section 2).
 2. **Ask it to prove each bug** with a two-line test or a sample input.
    C8 would have been corrected that way.
 3. **Ask for every caller of a function before accepting a fix to it.** The

@@ -87,6 +87,11 @@ PASS_COVERAGE_RETRIES = 1
 # original only if it still has every day and section and its length is
 # within these ratios of the original; otherwise the original is kept.
 SELF_REVIEW_MIN_LENGTH_RATIO = 0.70
+# Warn when one call's prompt + response (thinking included) uses at least
+# this share of num_ctx. Week 41 (Oct 20, 2026): the story pass reached 93%
+# (61,220 of 65,536 tokens); every other pass stayed at or below 36%. At
+# 100% Ollama stops with done_reason=length and the pass output is cut off.
+CONTEXT_WARN_RATIO = 0.85
 SELF_REVIEW_MAX_LENGTH_RATIO = 1.50
 
 ALL_DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]

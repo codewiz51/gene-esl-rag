@@ -220,6 +220,32 @@ def _one_attempt(runtime, prompt, label):
     )
 
 
+def context_share(prompt_tokens, response_tokens, num_ctx):
+    """Share of num_ctx used by one call (prompt + response, thinking
+    included), rounded to 3 places; None if any number is unknown."""
+    if not all(isinstance(n, int) and n >= 0 for n in (prompt_tokens, response_tokens)):
+        return None
+    if not isinstance(num_ctx, int) or num_ctx <= 0:
+        return None
+    return round((prompt_tokens + response_tokens) / num_ctx, 3)
+
+
+def context_warning(label, prompt_tokens, response_tokens, num_ctx, ratio=None):
+    """
+    Early warning, before the hard limit: a message when one call used at
+    least config.CONTEXT_WARN_RATIO of the context window, else None. Most of
+    a long call is thinking, which counts against the same window as the
+    lesson text.
+    """
+    ratio = config.CONTEXT_WARN_RATIO if ratio is None else ratio
+    share = context_share(prompt_tokens, response_tokens, num_ctx)
+    if share is None or share < ratio:
+        return None
+    return (f"{label}: used {prompt_tokens + response_tokens:,} of {num_ctx:,} context tokens "
+            f"({share:.0%}; thinking counts). Close to the limit - at 100% the output is cut off "
+            f"(done_reason=length).")
+
+
 def generate(runtime, prompt, label, debug_dir=None, timings=None):
     """
     One model call with retries. Returns GenerateResult; raises an
@@ -256,6 +282,11 @@ def generate(runtime, prompt, label, debug_dir=None, timings=None):
     if result.done_reason == "length":
         log.warning(f"{label}: Ollama stopped because it ran out of context/token budget "
                     f"(done_reason=length) - the output is probably cut off.")
+    else:
+        warning = context_warning(label, result.prompt_tokens, result.response_tokens,
+                                  runtime.options.get("num_ctx"))
+        if warning:
+            log.warning(warning)
 
     if timings is not None:
         timings.append({
@@ -267,6 +298,8 @@ def generate(runtime, prompt, label, debug_dir=None, timings=None):
             "response_tokens": result.response_tokens,
             "done_reason": result.done_reason,
             "attempts": result.attempts,
+            "context_used": context_share(result.prompt_tokens, result.response_tokens,
+                                          runtime.options.get("num_ctx")),
         })
 
     if debug_dir:
