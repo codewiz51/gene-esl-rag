@@ -5,6 +5,9 @@ network to Ollama on the Studio (192.168.4.47), using
 `pipeline-qwen38:latest`. The Macbook detects this by itself — no flag
 needed.
 
+**First time on this machine?** Do `SETUP.md` first: Python, the venv,
+the repo, and the network path to the Studio.
+
 ## 0. Before the first run of the week
 
 On the **Studio**: awake, on the network, Ollama running. Nothing else.

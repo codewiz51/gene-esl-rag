@@ -1,0 +1,46 @@
+# pipeline-qwen38.modelfile
+# ──────────────────────────────────────────────────
+# Pipeline-only model. Separate from gene-qwen38.modelfile
+# (the ALLM chat persona) on purpose: this tag carries no
+# SYSTEM persona, domain list, or tooling preferences, so
+# the ESL lesson pipeline's own template rules (promptMain.md,
+# MainLessonTemplate.txt, FiveMinuteTemplate.txt) are the only
+# instructions the model sees, with nothing from a second,
+# unscoped source competing with them.
+#
+#   Create / rebuild (from the repo copy):
+#     ollama create pipeline-qwen38 -f ~/RAG/pipeline-qwen38.modelfile
+#
+#   The pipeline points at it in sourcecode/config.py
+#   (moved from commonFunctions.py on Oct 20, 2026):
+#     MODEL_NAME = "pipeline-qwen38:latest"
+#
+#   Check it's live:
+#     ollama list | grep pipeline-qwen38
+# ──────────────────────────────────────────────────
+
+FROM qwen3.8:27b-mlx
+
+# Same tuned sampling parameters as gene-qwen38.modelfile, carried
+# over explicitly. send_to_ollama()'s "options" object only overrides
+# temperature, num_ctx, and num_predict per call - top_k, min_p, and
+# repeat_penalty come from the Modelfile itself and would silently
+# revert to base-model defaults if omitted here.
+PARAMETER temperature 0.5
+PARAMETER top_k 20
+PARAMETER top_p 0.9
+PARAMETER min_p 0
+PARAMETER repeat_penalty 1
+PARAMETER num_ctx 65536
+
+# No persona, no domain list, no tooling preferences, no
+# "produce output as a copy-pasteable block with a filename
+# comment" instruction - all of that lives in gene-qwen38.modelfile
+# for chat use only. This SYSTEM block is deliberately mechanical:
+# it defers entirely to whatever instructions arrive in the prompt.
+SYSTEM """
+Follow the instructions in the prompt exactly. Output only what is
+requested, in the exact format requested. Do not add commentary,
+explanation, filenames, or headers that are not explicitly part of
+the requested output.
+"""

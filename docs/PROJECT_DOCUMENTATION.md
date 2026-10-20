@@ -34,7 +34,8 @@ around the `qwen3.8:27b-mlx` weights, installed on the Studio.
   the location of `sourcecode/commonFunctions.py`, so nothing hardcodes a
   user folder.
 - Python: the `rag_env` virtual environment on each machine (`rag` alias
-  activates it). Needs `requests`; `pypandoc` is optional
+  activates it). First-time installation (Ollama, model, Python, venv,
+  repo, network) is in `SETUP.md`. Needs `requests`; `pypandoc` is optional
   (`requirements.txt`). Code works on Python 3.7+; both venvs run 3.14.
 - **Detection** (`config.py`): `$HOME` is matched exactly against the
   `MACHINES` table, then cross-checked with the hostname. If they

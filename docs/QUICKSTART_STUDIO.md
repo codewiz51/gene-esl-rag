@@ -5,6 +5,9 @@ The only difference is where the model calls go: on the Studio the
 pipeline detects `$HOME=/Users/gene` and uses its own Ollama at
 `http://localhost:11434`. No network, no `--studio-ip`.
 
+**First time on this machine?** Do `SETUP.md` first: Ollama, the model,
+Python, the venv, and the repo.
+
 ## 0. Before the run
 
 ```bash
