@@ -291,6 +291,33 @@ Output vs. the Claude-built baseline (`41_*_rewrite.md`): same
 structure, total length within 2% (MAIN 4,897 vs 5,005 words;
 Five-Minute 1,348 vs 1,317), and identical vocabulary counts.
 
+### Studio run (local mode), same day
+
+Same code (`main` at `61473ce`), run on the Studio itself: `machine=studio`,
+`mode=local`, Ollama at localhost. Zero warnings, no retries, both
+self-reviews accepted.
+
+| | Macbook → Studio | Studio (local) |
+|---|---:|---:|
+| MAIN total | 30.6 min | 33.6 min |
+| Five-Minute total | 8.8 min | 9.9 min |
+| Story pass | 718 s | 755 s |
+| Longest wait for first data | 45 s | 44 s |
+| **Longest pause between tokens** | not measured | **0.7 s** |
+
+- The network adds nothing measurable; the Studio's model does all the
+  work in both modes. Timing differences between runs are model
+  variation (the warmup_grammar pass thought for 14,955 vs 8,736 tokens).
+- Story-pass prompts were identical on both machines (7,125 tokens).
+  The lesson text differs between the two runs, as expected at
+  temperature 0.5. Structure, section lists, vocabulary counts and
+  day count match; MAIN length 4,698 vs 4,897 words.
+- **Timeout:** the longest pause between tokens was 0.7 s and the
+  longest wait for a first token 45 s. The 300 s inactivity timeout is
+  about 7× the worst real wait. A value near 120 s would still allow
+  for a slow model load and catch a hang much sooner. Not changed yet
+  (`config.INACTIVITY_TIMEOUT`).
+
 ## 12. Change history
 
 **Oct 20, 2026 — client/server refactor** (commits `efd79a7`,
