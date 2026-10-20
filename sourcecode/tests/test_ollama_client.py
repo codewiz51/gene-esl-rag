@@ -1,4 +1,5 @@
 """ollama_client against the in-process mock server (no Studio needed)."""
+import sys
 import threading
 import unittest
 from http.server import ThreadingHTTPServer
@@ -18,7 +19,18 @@ class Client(unittest.TestCase):
         class QuietHandler(mock_ollama.Handler):
             def log_message(self, *args):  # keep the test output clean
                 pass
-        cls.server = ThreadingHTTPServer(("127.0.0.1", 0), QuietHandler)
+
+        class QuietServer(ThreadingHTTPServer):
+            # Tests hang up on the server on purpose (timeouts, errors). On
+            # macOS that surfaces as ConnectionResetError in the server's
+            # thread, which socketserver prints as a traceback even though
+            # every test passes. Ignore exactly those; report anything else.
+            def handle_error(self, request, client_address):
+                if isinstance(sys.exc_info()[1], (ConnectionResetError, BrokenPipeError)):
+                    return
+                super().handle_error(request, client_address)
+
+        cls.server = QuietServer(("127.0.0.1", 0), QuietHandler)
         cls.server.daemon_threads = True
         threading.Thread(target=cls.server.serve_forever, daemon=True).start()
         cls.url = f"http://127.0.0.1:{cls.server.server_address[1]}"
