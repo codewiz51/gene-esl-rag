@@ -21,17 +21,123 @@ NOTE: the rule_names/dictionary_names/section_subblocks lists below are
 a first cut at "what does this pass actually need to see." Tune them as
 you observe real output - that mapping is the main thing worth
 iterating on, more than the code structure itself.
+
+CHANGED (Oct 20, 2026):
+  - Each pass's rule/dictionary/section-block list now lives in PASS_RULES
+    below, so check_template() can confirm the template has every block
+    BEFORE the first model call (a missing block used to be a warning in
+    the middle of the run, and the pass ran without those rules).
+  - _run_pass() checks the pass's output covers every day and section it
+    asked for, and runs the pass again (config.PASS_COVERAGE_RETRIES) if
+    not.
+  - The self-review passes only replace the week when the reviewed text
+    still has every day and section (commonFunctions.accept_full_week_review).
 """
 
+import logging
 import re
 
 import commonFunctions as common
+import config
 
+from errors import TemplateError
 from rule_utils import assemble_rules
 from state import ALL_DAYS
 
+log = logging.getLogger("esl")
 
-def _run_pass(label, rules_text, data_text, output_instructions, debug_flag):
+
+# Which template blocks each pass is given. Edit here to change what a
+# pass sees; check_template() validates every name listed.
+PASS_RULES = {
+    "vocabulary": dict(
+        rule_names=["STORY_LENGTH", "MARKDOWN_LAYOUT"],
+        section_subblocks=["Vocabulary"],
+    ),
+    "story": dict(
+        rule_names=[
+            "LANGUAGE_LEVEL", "SENTENCE_STYLE", "SPANISH_ACCURACY",
+            "STORY_LENGTH", "MARKDOWN_LAYOUT",
+            "NARRATIVE_REWRITE", "STORY_QUALITY",
+        ],
+        dictionary_names=["CHARACTERS", "CUBAN_REGISTER"],
+    ),
+    "warmup_grammar": dict(
+        rule_names=["LANGUAGE_LEVEL", "HINTS_AND_BLANKS", "STORY_QUALITY", "MARKDOWN_LAYOUT"],
+        section_subblocks=["Warmup", "Grammar"],
+    ),
+    "grammar_translate": dict(
+        rule_names=["SPANISH_ACCURACY"],
+        dictionary_names=["CUBAN_REGISTER"],
+    ),
+    "examples_translation": dict(
+        rule_names=["LANGUAGE_LEVEL", "SENTENCE_STYLE", "SPANISH_ACCURACY", "STORY_LENGTH", "READING_TRANSLATION", "MARKDOWN_LAYOUT"],
+        dictionary_names=["CHARACTERS", "CUBAN_REGISTER"],
+        section_subblocks=["Examples", "Translation Practice"],
+    ),
+    "student_questions": dict(
+        rule_names=["LANGUAGE_LEVEL", "HINTS_AND_BLANKS", "STORY_QUALITY", "MARKDOWN_LAYOUT"],
+        section_subblocks=["Student Questions"],
+    ),
+}
+
+
+def check_template(template_text, template_name="template"):
+    """Raise TemplateError listing every block a pass needs that the template lacks."""
+    missing = []
+    section_content = None
+    for pass_name, spec in PASS_RULES.items():
+        for name in spec.get("rule_names", []):
+            if not _block_present(template_text, name, "RULES"):
+                missing.append(f"RULES: {name} (used by {pass_name})")
+        for name in spec.get("dictionary_names", []):
+            if not _block_present(template_text, name, "DICTIONARY"):
+                missing.append(f"DICTIONARY: {name} (used by {pass_name})")
+        for heading in spec.get("section_subblocks", []):
+            if section_content is None:
+                section_content = _block_text(template_text, "SECTION_CONTENT", "RULES")
+            if not section_content:
+                missing.append(f"RULES: SECTION_CONTENT (used by {pass_name})")
+            elif not re.search(rf"(?m)^{re.escape(heading)}:\s*$", section_content):
+                missing.append(f"SECTION_CONTENT sub-block '{heading}:' (used by {pass_name})")
+    if missing:
+        unique = list(dict.fromkeys(missing))
+        raise TemplateError(f"{template_name} is missing block(s) the passes need: " + "; ".join(unique))
+
+
+def _block_present(template_text, name, kind):
+    return bool(_block_text(template_text, name, kind))
+
+
+def _block_text(template_text, name, kind):
+    m = re.search(
+        rf"#BEGIN {kind}:\s*{re.escape(name)}\s*\n(.*?)\n#END {kind}:\s*{re.escape(name)}",
+        template_text, flags=re.DOTALL | re.IGNORECASE,
+    )
+    return m.group(1).strip() if m else ""
+
+
+def _coverage_gaps(markdown_text, sections, days=None):
+    """[(day, [missing sections])] for a pass's raw output."""
+    days = days or ALL_DAYS
+    blocks = common.split_markdown_days(markdown_text, days)
+    gaps = []
+    for day in days:
+        block = blocks.get(day)
+        if block is None:
+            gaps.append((day, list(sections)))
+            continue
+        missing = []
+        for s in sections:
+            m = re.search(rf"(?ms)^##\s*{re.escape(s)}\s*$(.*?)(?=^##\s|\Z)", block)
+            if not m or not m.group(1).strip():
+                missing.append(s)
+        if missing:
+            gaps.append((day, missing))
+    return gaps
+
+
+def _run_pass(label, rules_text, data_text, output_instructions, debug_flag, expect_sections=None):
     payload = (
         f"{rules_text}\n\n"
         f"{data_text}\n\n"
@@ -40,12 +146,26 @@ def _run_pass(label, rules_text, data_text, output_instructions, debug_flag):
     if debug_flag:
         with open(common.debug_path(f"debug_pass_{label}_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload)
-    print(f"Running pass: {label} ...")
-    result = common.send_to_ollama(payload, debug_label=f"pass_{label}", debug_flag=debug_flag)
-    text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
-    if debug_flag:
-        with open(common.debug_path(f"debug_pass_{label}_response.txt"), "w", encoding="utf-8") as f:
-            f.write(text)
+    attempts = 1 + (config.PASS_COVERAGE_RETRIES if expect_sections else 0)
+    text = ""
+    for attempt in range(1, attempts + 1):
+        suffix = "" if attempt == 1 else f"_retry{attempt - 1}"
+        log.info(f"Running pass: {label}{' (coverage retry)' if attempt > 1 else ''} ...")
+        result = common.send_to_ollama(payload, debug_label=f"pass_{label}{suffix}", debug_flag=debug_flag)
+        text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
+        if debug_flag:
+            with open(common.debug_path(f"debug_pass_{label}{suffix}_response.txt"), "w", encoding="utf-8") as f:
+                f.write(text)
+        if not expect_sections:
+            break
+        gaps = _coverage_gaps(text, expect_sections)
+        if not gaps:
+            break
+        desc = "; ".join(f"{d}: {', '.join(m)}" for d, m in gaps)
+        if attempt < attempts:
+            log.warning(f"pass {label} output is missing {desc} - running the pass again.")
+        else:
+            log.warning(f"pass {label} output is still missing {desc} after {attempts} attempt(s) - keeping what it produced.")
     return text
 
 
@@ -59,14 +179,21 @@ def _extract_section_per_day(markdown_text, section_name, days=None):
     days = days or ALL_DAYS
     day_blocks = common.split_markdown_days(markdown_text, days)
     out = {}
-    for day, chunk in day_blocks.items():
+    # Walk the days that were asked for, not just the ones that came back,
+    # so a day the model dropped entirely is reported too.
+    for day in days:
+        chunk = day_blocks.get(day)
+        if chunk is None:
+            out[day] = ""
+            log.warning(f"pass output has no '# {day}' block at all (needed for '## {section_name}').")
+            continue
         m = re.search(
             rf"(?ms)^##\s*{re.escape(section_name)}\s*$(.*?)(?=^##\s|\Z)",
             chunk,
         )
         out[day] = m.group(1).strip() if m else ""
         if not out[day]:
-            print(f"WARNING: pass output missing '## {section_name}' for {day}.")
+            log.warning(f"pass output missing '## {section_name}' for {day}.")
     return out
 
 
@@ -119,11 +246,7 @@ fence. Preserve Spanish accents (UTF-8).
 
 
 def vocabulary_pass(template_text, storyboard_vocab_by_day, week_state, debug_flag=True):
-    rules = assemble_rules(
-        template_text,
-        rule_names=["STORY_LENGTH", "MARKDOWN_LAYOUT"],
-        section_subblocks=["Vocabulary"],
-    )
+    rules = assemble_rules(template_text, **PASS_RULES["vocabulary"])
     data_parts = ["#BEGIN DAILY VOCAB SOURCE BLOCKS"]
     for day in ALL_DAYS:
         data_parts.append(f"#BEGIN {day}_VOCAB_SOURCE\n{storyboard_vocab_by_day.get(day, '')}\n#END {day}_VOCAB_SOURCE")
@@ -133,22 +256,14 @@ def vocabulary_pass(template_text, storyboard_vocab_by_day, week_state, debug_fl
     instructions = OUTPUT_FORMAT_COMMON + "\n\nThis pass produces ONLY: ## Vocabulary\n" \
         "Vocabulary MUST come only from that day's VOCAB SOURCE block above - never invent, never import another day's."
 
-    raw = _run_pass("vocabulary", rules, data_text, instructions, debug_flag)
+    raw = _run_pass("vocabulary", rules, data_text, instructions, debug_flag, expect_sections=["Vocabulary"])
     per_day = _extract_section_per_day(raw, "Vocabulary")
     for day, text in per_day.items():
         week_state.set_section(day, "Vocabulary", text)
 
 
 def story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=True, week_notes=""):
-    rules = assemble_rules(
-        template_text,
-        rule_names=[
-            "LANGUAGE_LEVEL", "SENTENCE_STYLE", "SPANISH_ACCURACY",
-            "STORY_LENGTH", "MARKDOWN_LAYOUT",
-            "NARRATIVE_REWRITE", "STORY_QUALITY",
-        ],
-        dictionary_names=["CHARACTERS", "CUBAN_REGISTER"],
-    )
+    rules = assemble_rules(template_text, **PASS_RULES["story"])
     data_parts = [f"#BEGIN WEEKLY_VERB_FOCUS\n{weekly_verb_focus}\n#END WEEKLY_VERB_FOCUS"]
     for day in ALL_DAYS:
         vocab = week_state.get_section(day, "Vocabulary")
@@ -164,18 +279,14 @@ def story_pass(template_text, story_requirements_by_day, weekly_verb_focus, week
         "You are seeing all seven days at once specifically so you can vary " \
         "emotional register across the week (STORY_QUALITY) - do not make every day read the same."
 
-    raw = _run_pass("story", rules, _with_week_notes(data_text, week_notes), instructions + _week_notes_instruction(week_notes), debug_flag)
+    raw = _run_pass("story", rules, _with_week_notes(data_text, week_notes), instructions + _week_notes_instruction(week_notes), debug_flag, expect_sections=["Story"])
     per_day = _extract_section_per_day(raw, "Story")
     for day, text in per_day.items():
         week_state.set_section(day, "Story", text)
 
 
 def warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_focus, week_state, debug_flag=True, week_notes=""):
-    rules = assemble_rules(
-        template_text,
-        rule_names=["LANGUAGE_LEVEL", "HINTS_AND_BLANKS", "STORY_QUALITY", "MARKDOWN_LAYOUT"],
-        section_subblocks=["Warmup", "Grammar"],
-    )
+    rules = assemble_rules(template_text, **PASS_RULES["warmup_grammar"])
     data_parts = [f"#BEGIN WEEKLY_VERB_FOCUS\n{weekly_verb_focus}\n#END WEEKLY_VERB_FOCUS"]
     for day in ALL_DAYS:
         vocab = week_state.get_section(day, "Vocabulary")
@@ -207,7 +318,7 @@ def warmup_grammar_pass(template_text, story_requirements_by_day, weekly_verb_fo
         "even when they test the same grammar point. They may share the same verb or hint, but the " \
         "surrounding sentence must differ."
 
-    raw = _run_pass("warmup_grammar", rules, _with_week_notes(data_text, week_notes), instructions + _week_notes_instruction(week_notes) + HINT_RULE_TEXT, debug_flag)
+    raw = _run_pass("warmup_grammar", rules, _with_week_notes(data_text, week_notes), instructions + _week_notes_instruction(week_notes) + HINT_RULE_TEXT, debug_flag, expect_sections=["Warmup", "Grammar"])
     warmup = _extract_section_per_day(raw, "Warmup")
     grammar = _extract_section_per_day(raw, "Grammar")
     for day in ALL_DAYS:
@@ -228,7 +339,7 @@ def grammar_translate_pass(template_text, week_state, debug_flag=True):
     is written entirely in Spanish; the Pattern Practice frame sentences
     stay in English exactly as generated.
     """
-    rules = assemble_rules(template_text, rule_names=["SPANISH_ACCURACY"], dictionary_names=["CUBAN_REGISTER"])
+    rules = assemble_rules(template_text, **PASS_RULES["grammar_translate"])
 
     data_parts = []
     for day in ALL_DAYS:
@@ -254,24 +365,19 @@ Preserve Spanish accents (UTF-8). Do not wrap in a code fence. Do not
 add commentary.
 """.strip()
 
-    raw = _run_pass("grammar_translate", rules, data_text, instructions, debug_flag)
+    raw = _run_pass("grammar_translate", rules, data_text, instructions, debug_flag, expect_sections=["Grammar"])
     translated = _extract_section_per_day(raw, "Grammar")
     for day in ALL_DAYS:
         if translated.get(day):
             week_state.set_section(day, "Grammar", translated[day])
         else:
-            print(f"WARNING: grammar_translate_pass produced nothing for {day} - keeping English original.")
+            log.warning(f"grammar_translate_pass produced nothing for {day} - keeping English original.")
 
 
 def examples_translation_pass(template_text, week_state, study_notes_by_day=None, debug_flag=True, week_notes="", day_focus_by_day=None):
     day_focus_by_day = day_focus_by_day or {}
     study_notes_by_day = study_notes_by_day or {}
-    rules = assemble_rules(
-        template_text,
-        rule_names=["LANGUAGE_LEVEL", "SENTENCE_STYLE", "SPANISH_ACCURACY", "STORY_LENGTH", "READING_TRANSLATION", "MARKDOWN_LAYOUT"],
-        dictionary_names=["CHARACTERS", "CUBAN_REGISTER"],
-        section_subblocks=["Examples", "Translation Practice"],
-    )
+    rules = assemble_rules(template_text, **PASS_RULES["examples_translation"])
     data_parts = []
     for day in ALL_DAYS:
         story = week_state.get_section(day, "Story")
@@ -321,7 +427,7 @@ def examples_translation_pass(template_text, week_state, study_notes_by_day=None
         "reading item too (READING_TRANSLATION) - write that item's clinical/professional content in natural " \
         "Cuban Spanish, in the Spanish → English list, not in English." + focus_instruction + notes_instruction + _week_notes_instruction(week_notes)
 
-    raw = _run_pass("examples_translation", rules, _with_week_notes(data_text, week_notes), instructions, debug_flag)
+    raw = _run_pass("examples_translation", rules, _with_week_notes(data_text, week_notes), instructions, debug_flag, expect_sections=["Examples", "Translation Practice"])
     examples = _extract_section_per_day(raw, "Examples")
     translation = _extract_section_per_day(raw, "Translation Practice")
     for day in ALL_DAYS:
@@ -331,11 +437,7 @@ def examples_translation_pass(template_text, week_state, study_notes_by_day=None
 
 def student_questions_pass(template_text, week_state, study_notes_by_day=None, debug_flag=True, week_notes=""):
     study_notes_by_day = study_notes_by_day or {}
-    rules = assemble_rules(
-        template_text,
-        rule_names=["LANGUAGE_LEVEL", "HINTS_AND_BLANKS", "STORY_QUALITY", "MARKDOWN_LAYOUT"],
-        section_subblocks=["Student Questions"],
-    )
+    rules = assemble_rules(template_text, **PASS_RULES["student_questions"])
     data_parts = []
     for day in ALL_DAYS:
         story = week_state.get_section(day, "Story")
@@ -362,7 +464,7 @@ def student_questions_pass(template_text, week_state, study_notes_by_day=None, d
     instructions = OUTPUT_FORMAT_COMMON + "\n\nThis pass produces ONLY: ## Student Questions.\n" \
         "You are seeing all seven days at once specifically so no question is repeated across the week - check before writing each day's set." + notes_instruction + HINT_RULE_TEXT + _week_notes_instruction(week_notes)
 
-    raw = _run_pass("student_questions", rules, _with_week_notes(data_text, week_notes), instructions, debug_flag)
+    raw = _run_pass("student_questions", rules, _with_week_notes(data_text, week_notes), instructions, debug_flag, expect_sections=["Student Questions"])
     per_day = _extract_section_per_day(raw, "Student Questions")
     for day, text in per_day.items():
         week_state.set_section(day, "Student Questions", text)
@@ -411,13 +513,15 @@ Do not add commentary before or after the markdown.
     if debug_flag:
         with open(common.debug_path("debug_pass_selfreview_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload)
-    print("Running pass: self_review ...")
+    log.info("Running pass: self_review ...")
     result = common.send_to_ollama(payload, debug_label="pass_selfreview", debug_flag=debug_flag)
     text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
     if debug_flag:
         with open(common.debug_path("debug_pass_selfreview_response.txt"), "w", encoding="utf-8") as f:
             f.write(text)
-    return text
+    accepted, _ = common.accept_full_week_review(
+        assembled_week_markdown, text, common.MAIN_REQUIRED_SECTIONS, "self_review")
+    return accepted
 
 
 def fiveminute_self_review_pass(assembled_five_minute_markdown, debug_flag=True):
@@ -465,10 +569,12 @@ Do not add commentary before or after the markdown.
     if debug_flag:
         with open(common.debug_path("debug_five_selfreview_prompt.txt"), "w", encoding="utf-8") as f:
             f.write(payload)
-    print("Running pass: five_minute_self_review ...")
+    log.info("Running pass: five_minute_self_review ...")
     result = common.send_to_ollama(payload, debug_label="five_selfreview", debug_flag=debug_flag)
     text = common.strip_markdown_fence(result if isinstance(result, str) else str(result))
     if debug_flag:
         with open(common.debug_path("debug_five_selfreview_response.txt"), "w", encoding="utf-8") as f:
             f.write(text)
-    return text
+    accepted, _ = common.accept_full_week_review(
+        assembled_five_minute_markdown, text, common.SUPPORT_REQUIRED_SECTIONS, "five_minute_self_review")
+    return accepted

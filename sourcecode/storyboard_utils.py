@@ -17,9 +17,12 @@ produces - not the raw "# MONDAY STORYBOARD" + inline VOCAB markers
 format the actual storyboard files (Week35StoryBoard.md) use natively.
 """
 
+import logging
 import re
 
-ALL_DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+from config import ALL_DAYS
+
+log = logging.getLogger("esl")
 
 
 def extract_weekly_verb_focus(storyboard_text):
@@ -47,7 +50,7 @@ def extract_day_story_requirements(storyboard_text):
             pattern = re.compile(rf"(?ms){start_pat}(.*)")
         m = pattern.search(storyboard_text)
         if not m:
-            print(f"WARNING: no storyboard section found for {day}.")
+            log.warning(f"no storyboard section found for {day}.")
             result[day] = ""
             continue
         chunk = m.group(1)
@@ -111,7 +114,7 @@ def extract_day_vocab_suggestions(storyboard_text):
         )
         m = pattern.search(storyboard_text)
         if not m:
-            print(f"WARNING: no VOCAB block found for {day}.")
+            log.warning(f"no VOCAB block found for {day}.")
             result[day] = ""
             continue
         result[day] = m.group(1).strip()

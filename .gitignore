@@ -31,3 +31,6 @@ sourcecode/debug/
 !source_docs/WeeklyLessons/**/*.docx
 source_docs/WeeklyLessons/**/*.zip
 !source_docs/WeeklyTemplates/reference.docx
+
+# Per-run folders (run.log, checkpoints, debug) - local to each machine
+runs/

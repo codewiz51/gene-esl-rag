@@ -17,7 +17,10 @@ pulls just one of those sub-headings out, so e.g. the Vocabulary pass
 doesn't see the Examples dialogue rules.
 """
 
+import logging
 import re
+
+log = logging.getLogger("esl")
 
 
 def get_rule_block(template_text, name, kind="RULES"):
@@ -33,7 +36,7 @@ def get_rule_block(template_text, name, kind="RULES"):
     )
     m = pattern.search(template_text)
     if not m:
-        print(f"WARNING: rule block {kind}:{name} not found in template.")
+        log.warning(f"rule block {kind}:{name} not found in template.")
         return ""
     return m.group(1).strip()
 
@@ -61,7 +64,7 @@ def get_section_subblock(section_content_text, heading):
     )
     m = pattern.search(section_content_text)
     if not m:
-        print(f"WARNING: section subblock '{heading}' not found in SECTION_CONTENT.")
+        log.warning(f"section subblock '{heading}' not found in SECTION_CONTENT.")
         return ""
     return m.group(1).strip()
 

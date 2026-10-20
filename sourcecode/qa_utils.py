@@ -4,7 +4,10 @@ qa_utils.py - cheap, no-model checks that print warnings about a finished
 lesson. They never change the lesson text.
 """
 
+import logging
 import re
+
+log = logging.getLogger("esl")
 
 _ENGLISH_HINT_WORDS = {
     "the", "a", "an", "to", "of", "and", "is", "are", "it", "back", "tight", "hang", "hold",
@@ -38,7 +41,7 @@ def lint_hints(markdown_text, label="lesson"):
         elif all(w.lower() in _ENGLISH_HINT_WORDS for w in words):
             warnings.append(f"{day} {section}: hint looks English: ({hint})")
     for w in warnings:
-        print(f"HINT WARNING [{label}]: {w}")
+        log.warning(f"HINT [{label}]: {w}")
     if not warnings:
-        print(f"Hint check [{label}]: no problems found.")
+        log.info(f"Hint check [{label}]: no problems found.")
     return warnings

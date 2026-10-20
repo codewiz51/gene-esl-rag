@@ -1,0 +1,3 @@
+requests>=2.25
+# optional: toDocx.py falls back to the pandoc command line without it
+pypandoc

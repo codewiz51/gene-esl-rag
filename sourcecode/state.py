@@ -6,9 +6,16 @@ WeekState is the "print bed" - each pass writes one section's text for
 every day into it. Nothing reads a section before the pass responsible
 for producing it has run (pipeline.py enforces the order; this class
 just stores the layers).
+
+to_dict()/from_dict() let pipeline.py checkpoint the state after every
+pass, so --resume can pick up where a failed run stopped.
 """
 
-ALL_DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+import logging
+
+from config import ALL_DAYS  # noqa: F401  (re-exported: passes.py imports it from here)
+
+log = logging.getLogger("esl")
 
 # Canonical section order for final assembly - must match MARKDOWN_LAYOUT
 # rule 2 in MainLessonTemplate.txt.
@@ -50,7 +57,7 @@ class WeekState:
         for section in SECTION_ORDER:
             text = self.get_section(day, section)
             if not text:
-                print(f"WARNING: {day} missing '{section}' at assembly time - leaving heading with no body.")
+                log.warning(f"{day} missing '{section}' at assembly time - leaving heading with no body.")
             parts.append(f"## {section}")
             parts.append("")
             parts.append(text)
@@ -60,3 +67,14 @@ class WeekState:
     def assemble_week(self, days=None):
         days = days or ALL_DAYS
         return "\n\n".join(self.assemble_day(d) for d in days) + "\n"
+
+    def to_dict(self):
+        return {"sections": self.sections}
+
+    @classmethod
+    def from_dict(cls, data):
+        ws = cls()
+        for day, secs in (data.get("sections") or {}).items():
+            if day.upper() in ws.sections:
+                ws.sections[day.upper()] = dict(secs)
+        return ws

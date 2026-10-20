@@ -18,41 +18,67 @@
 # converted to .docx via Pandoc for printing/formatting in Word/Pages.
 # The old split_html_blocks / looks_truncated / validate_html / write_html
 # functions are retired in favor of Markdown-aware equivalents below.
-# convert_markdown_to_docx() is new - it's the Pandoc step. Both
-# pipeline.py and supportPipeline.py now use these same helpers.
+#
+# CHANGED (Oct 20, 2026): client/server refactor. Model settings and the
+# machine/endpoint logic moved to config.py; the HTTP call moved to
+# ollama_client.py (streaming, inactivity timeout, retries, typed errors).
+# send_to_ollama() below is now a thin wrapper so passes.py is unchanged.
+# Messages go through the "esl" logger (runlog.py) instead of print().
+# convert_markdown_to_docx() was removed - nothing called it, and its
+# top-level pypandoc import stopped the pipeline starting on a machine
+# without pypandoc. toDocx.py does the .docx step.
 
+import logging
 import os
 import re
-import requests
-import pypandoc
 from datetime import datetime
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "pipeline-qwen38:latest"
+import config
+from config import ALL_DAYS  # noqa: F401  (re-exported: other modules use common.ALL_DAYS)
+
+log = logging.getLogger("esl")
+
+# Kept as names other code may still refer to; the values live in config.py.
+MODEL_NAME = config.MODEL_NAME
 
 # Paths are derived from this file's own location (RAG/sourcecode/), so
-# the repo can be moved or renamed without editing code.
+# the repo can be moved or renamed without editing code. ~/RAG is the
+# repo root on both the Macbook and the Studio.
 SOURCE_DIR = os.path.dirname(os.path.abspath(__file__))
 RAG_ROOT = os.path.dirname(SOURCE_DIR)
 weekly_template_dir = os.path.join(RAG_ROOT, "source_docs", "WeeklyTemplates")
 lesson_dir = os.path.join(RAG_ROOT, "source_docs", "WeeklyLessons")
+RUNS_DIR = os.path.join(RAG_ROOT, "runs")
 
-# All debug_*.txt output goes here instead of whatever directory the
-# script was launched from. Created on first use; ignored by git.
-DEBUG_DIR = os.path.join(SOURCE_DIR, "debug")
+# ---------------------------------------------------------------------------
+# Per-run state, set once by the orchestrator through init_run().
+# ---------------------------------------------------------------------------
+RUNTIME = None        # config.Runtime: which Ollama, which model, timeouts
+DEBUG_DIR = None      # this run's debug/ folder (None when debug is off)
+TIMINGS = []          # one dict per model call, for the summary/manifest
+
+
+def init_run(runtime, debug_dir=None):
+    global RUNTIME, DEBUG_DIR, TIMINGS
+    RUNTIME = runtime
+    DEBUG_DIR = debug_dir
+    TIMINGS = []
+
 
 def debug_path(filename):
-    os.makedirs(DEBUG_DIR, exist_ok=True)
-    return os.path.join(DEBUG_DIR, filename)
+    # Debug files go in the current run's debug/ folder. If called before
+    # init_run() (e.g. a helper used on its own), fall back to the old
+    # sourcecode/debug/ location.
+    d = DEBUG_DIR or os.path.join(SOURCE_DIR, "debug")
+    os.makedirs(d, exist_ok=True)
+    return os.path.join(d, filename)
 
 # Optional Pandoc reference-doc for Word heading styles (Heading 1 for day
-# headings, Heading 2 for section headings). If this file doesn't exist,
-# convert_markdown_to_docx() falls back to Pandoc's default styling rather
-# than failing - build this once in Word: create a .docx, define Heading 1
-# / Heading 2 the way you want them to look, save it here.
+# headings, Heading 2 for section headings). Used by toDocx.py; if this
+# file doesn't exist it falls back to Pandoc's default styling. Build it
+# once in Word: create a .docx, define Heading 1 / Heading 2 the way you
+# want them to look, save it here.
 reference_doc_path = os.path.join(weekly_template_dir, "reference.docx")
-
-ALL_DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
 
 # Fixed filename pipeline.py also writes the Main lesson to, alongside
 # its normal timestamped file, so supportPipeline.py can be called with a
@@ -146,86 +172,25 @@ def parse_weekly_corrections(storyboard_text):
     return pairs
 
 def send_to_ollama(payload, debug_label=None, debug_flag=True):
-    # NOTE: Ollama's /api/generate only reads generation parameters
-    # (temperature, num_predict, num_ctx, etc.) from a nested "options"
-    # object. A top-level "temperature" key is silently ignored - so
-    # temperature here matches the qwen38 Modelfile's tuned 0.5 explicitly,
-    # rather than assuming the top-level field would take effect.
+    # Thin wrapper kept so passes.py and supportPipeline.py call the model
+    # the same way they always have. The real work - streaming, the
+    # inactivity timeout, retries, typed errors, done_reason/thinking
+    # capture - is in ollama_client.generate(); settings are in config.py
+    # (including the notes on num_ctx, "think", and the Aug 28 thinking-
+    # trace diagnostic that used to live here).
     #
-    # num_ctx is set well above the ~10,000-13,000 tokens a full week's
-    # prompt+response typically needs, as a deliberate diagnostic choice:
-    # if truncation happens despite this headroom, num_ctx is NOT the
-    # cause - check done_reason below instead of assuming.
-    #
-    # NOTE: "think" is intentionally NOT set here (reverted from a brief
-    # "think": False test on Aug 28, 2026). An earlier attempt at
-    # "think": False (pre-dating the Mon-Thu/Fri-Sun call split and the
-    # Markdown rewrite) fixed a mid-generation truncation issue but
-    # introduced a worse regression (the model treating one day as a
-    # complete task and stopping early, on both Week 31 and Week 32
-    # storyboards).
-    #
-    # DIAGNOSTIC RUN (Aug 28, 2026): eval_count for a real run came back
-    # at ~89,500 response tokens total (part1+part2) against a final
-    # saved document of only ~4,600 words (~6,400 tokens est.) - a ~14x
-    # gap. The leading theory is that most of that gap is an invisible
-    # thinking trace: Ollama returns reasoning output in a separate
-    # "thinking" JSON field on models with thinking enabled, which this
-    # function has never read (only "response" below) - so it's been
-    # silently costing generation time without ever showing up in the
-    # saved file or being counted by anything downstream. This run
-    # captures that field (if present) to debug_{label}_thinking.txt so
-    # it can actually be read, instead of just inferred from token math.
-    data = {
-        "model": MODEL_NAME,
-        "prompt": payload,
-        "stream": False,
-        "options": {
-            "temperature": 0.5,
-            "num_ctx": 65536,
-            "num_predict": -1
-        }
-    }
-    response = requests.post(OLLAMA_URL, json=data)
-    response.raise_for_status()
-    resp_json = response.json()
-
-    # Surface WHY generation ended, instead of only keeping the text.
-    # done_reason "stop" = the model hit a stop token on its own (a
-    # model/prompt behavior question, not a resource limit).
-    # done_reason "length" = it genuinely hit num_predict/context.
-    if isinstance(resp_json, dict):
-        done_reason = resp_json.get("done_reason", "unknown")
-        eval_count = resp_json.get("eval_count", "?")
-        prompt_eval_count = resp_json.get("prompt_eval_count", "?")
-        print(f"Ollama finished (label={debug_label}): done_reason={done_reason}, "
-              f"prompt_tokens={prompt_eval_count}, response_tokens={eval_count}")
-        if debug_flag and debug_label:
-            with open(debug_path(f"debug_{debug_label}_metadata.txt"), "w", encoding="utf-8") as f:
-                for key in ("done", "done_reason", "prompt_eval_count", "eval_count",
-                            "total_duration", "load_duration", "prompt_eval_duration", "eval_duration"):
-                    f.write(f"{key}: {resp_json.get(key, '(not present)')}\n")
-
-        # DIAGNOSTIC: capture the thinking trace, if Ollama returned one,
-        # completely separate from the response text used for the lesson.
-        # This never touches the saved .md/.docx - it's purely for reading
-        # what the model was actually doing with the extra tokens.
-        thinking = resp_json.get("thinking")
-        if thinking:
-            thinking_words = len(thinking.split())
-            print(f"Ollama returned a thinking trace (label={debug_label}): ~{thinking_words} words")
-            if debug_flag and debug_label:
-                with open(debug_path(f"debug_{debug_label}_thinking.txt"), "w", encoding="utf-8") as f:
-                    f.write(thinking)
-        elif debug_flag and debug_label:
-            print(f"NOTE: no 'thinking' field in Ollama's response for label={debug_label} "
-                  f"(either this model/version doesn't separate it, or there's nothing to show).")
-
-    # Ollama returns JSON with a "response" field in earlier versions; handle both str and dict
-    if isinstance(resp_json, dict) and "response" in resp_json:
-        return resp_json["response"]
-    # Fallback if API returns raw text
-    return resp_json if isinstance(resp_json, str) else str(resp_json)
+    # Raises an errors.OllamaError subclass if no usable answer comes back
+    # after retries; never returns a stringified error object as if it
+    # were lesson text (the old code could).
+    if RUNTIME is None:
+        raise RuntimeError("commonFunctions.init_run() was not called before send_to_ollama().")
+    label = debug_label or "call"
+    debug_dir = None
+    if debug_flag and debug_label:
+        debug_dir = os.path.dirname(debug_path("x"))
+    import ollama_client  # imported here so toDocx.py works without the requests package
+    result = ollama_client.generate(RUNTIME, payload, label, debug_dir=debug_dir, timings=TIMINGS)
+    return result.text
 
 def strip_markdown_fence(text):
     # The prompt explicitly forbids code fences, but models sometimes wrap
@@ -268,31 +233,48 @@ def markdown_looks_truncated(text, days, required_sections=None):
     missing = [s for s in required_sections if f"## {s}" not in last_block]
     return bool(missing)
 
-def validate_markdown(text, label, required_sections):
+def validate_markdown(text, label, required_sections, days=None):
     # Shared by both scripts: pipeline.py passes MAIN_REQUIRED_SECTIONS,
     # supportPipeline.py passes SUPPORT_REQUIRED_SECTIONS.
     # Check each day separately - a section missing from one day (e.g. Sunday
     # losing Student Questions) is invisible to a whole-document check when
     # the other six days still have it.
-    day_blocks = split_markdown_days(text)
+    #
+    # Returns the list of STRUCTURAL problems (a whole day missing, or a
+    # day missing a required section, or a section heading with nothing
+    # under it). The orchestrators exit with code 3 when this list is not
+    # empty. Everything else (accents, HTML, arrows, fences) is a warning
+    # only - logged, collected in the run summary, but not fatal.
+    structural = []
+    expected_days = [d.upper() for d in (days or ALL_DAYS)]
+    day_blocks = split_markdown_days(text, expected_days)
     if day_blocks:
-        for day, block in day_blocks.items():
+        for day in expected_days:
+            if day not in day_blocks:
+                structural.append(f"{label}: {day} is missing entirely")
+                continue
+            block = day_blocks[day]
             missing = [s for s in required_sections if f"## {s}" not in block]
             if missing:
-                print(f"WARNING: {label} {day} missing sections: {missing}")
+                structural.append(f"{label} {day} missing sections: {missing}")
+            empty = [s for s in required_sections
+                     if f"## {s}" in block and not _section_body(block, s)]
+            if empty:
+                structural.append(f"{label} {day} has empty section(s): {empty}")
     else:
-        missing = [section for section in required_sections if f"## {section}" not in text]
-        if missing:
-            print(f"WARNING: {label} missing sections: {missing}")
+        structural.append(f"{label}: no day headings found at all")
+    for problem in structural:
+        log.warning(problem)
+
     if re.search(r"(?m)^\d+\. .+ → .+$", text):
-        print(f"WARNING: {label} has a numbered item containing '→' - "
-              f"Translation Practice may include answers.")
+        log.warning(f"{label} has a numbered item containing '→' - "
+                    f"Translation Practice may include answers.")
     if not any(c in text for c in "áéíóúñ"):
-        print(f"WARNING: {label} may have lost Spanish accents")
+        log.warning(f"{label} may have lost Spanish accents")
     if re.search(r"</?[a-zA-Z][^>]*>", text):
-        print(f"WARNING: {label} contains what looks like an HTML tag - Markdown output should have none")
+        log.warning(f"{label} contains what looks like an HTML tag - Markdown output should have none")
     if "```" in text:
-        print(f"WARNING: {label} contains a code fence that strip_markdown_fence() didn't catch")
+        log.warning(f"{label} contains a code fence that strip_markdown_fence() didn't catch")
     # Known Pandoc failure mode: a "Spanish → English" / "English → Spanish"
     # label directly followed by a numbered list with no blank line in
     # between gets merged into one run-on paragraph in the docx - the list
@@ -300,39 +282,95 @@ def validate_markdown(text, label, required_sections):
     # surfaces as a warning instead of only being visible after opening
     # the .docx.
     if re.search(r"(Spanish\s*→\s*English|English\s*→\s*Spanish)\n1\.", text):
-        print(f"WARNING: {label} has a Translation Practice label directly followed by "
-              f"'1.' with no blank line - this will merge into a run-on paragraph in the docx.")
+        log.warning(f"{label} has a Translation Practice label directly followed by "
+                    f"'1.' with no blank line - this will merge into a run-on paragraph in the docx.")
+    return structural
+
+
+def _section_body(day_block, section_name):
+    m = re.search(rf"(?ms)^##\s*{re.escape(section_name)}\s*$(.*?)(?=^##\s|^---\s*$|\Z)", day_block)
+    return m.group(1).strip() if m else ""
+
 
 def check_day_heading_format(markdown_text, days=None, label=""):
     # Both pipeline.py and supportPipeline.py require the exact
     # "# DAY" heading format (see MARKDOWN_LAYOUT / FIVEMINUTE_FORMAT
     # rule 1 in their respective templates). Centralized here so both
     # scripts check it the same way rather than keeping two copies that
-    # can drift apart.
+    # can drift apart. Returns the list of problems found.
     days = days or ALL_DAYS
     prefix = f"{label}: " if label else ""
+    problems = []
     for day in days:
         exact = re.search(rf"(?m)^#\s+{day}\s*$", markdown_text, flags=re.IGNORECASE)
         if not exact:
             loose = re.search(rf"(?m)^#{{1,3}}\s*{day}\b.*$", markdown_text, flags=re.IGNORECASE)
             if loose:
-                print(f"WARNING: {prefix}{day} heading doesn't match the required '# {day}' format exactly: {loose.group(0)!r}")
+                problems.append(f"{prefix}{day} heading doesn't match the required '# {day}' format exactly: {loose.group(0)!r}")
             else:
-                print(f"WARNING: {prefix}{day} heading not found in expected form at all.")
+                problems.append(f"{prefix}{day} heading not found in expected form at all.")
+    for p in problems:
+        log.warning(p)
+    return problems
+
+
+def accept_full_week_review(original, reviewed, required_sections, label):
+    """
+    Guard for the self-review passes, which return the WHOLE week and used
+    to replace it unchecked - an empty, truncated or restructured answer
+    became the final lesson. The review is accepted only if it still has
+    every day the original had, every required section in each of those
+    days, and a length within config's ratio band. Otherwise the original
+    is kept and a warning says why.
+    """
+    days = list(split_markdown_days(original).keys())
+    reasons = []
+    if not reviewed or not reviewed.strip():
+        reasons.append("the review came back empty")
+    else:
+        rblocks = split_markdown_days(reviewed, days or None)
+        for day in days:
+            if day not in rblocks:
+                reasons.append(f"{day} is missing")
+                continue
+            missing = [s for s in required_sections if f"## {s}" not in rblocks[day]]
+            if missing:
+                reasons.append(f"{day} lost {missing}")
+        ratio = len(reviewed) / max(1, len(original))
+        if ratio < config.SELF_REVIEW_MIN_LENGTH_RATIO:
+            reasons.append(f"it is only {ratio:.0%} of the original length (probably cut off)")
+        elif ratio > config.SELF_REVIEW_MAX_LENGTH_RATIO:
+            reasons.append(f"it is {ratio:.0%} of the original length (probably added commentary)")
+    if reasons:
+        log.warning(f"{label}: review rejected, keeping the un-reviewed week - " + "; ".join(reasons[:6])
+                    + (" ..." if len(reasons) > 6 else ""))
+        return original, False
+    log.info(f"{label}: review accepted.")
+    return reviewed, True
+
 
 def apply_corrections(text, corrections):
     for wrong, right in corrections:
         text = re.sub(wrong, right, text, flags=re.IGNORECASE)
     return text
 
+
+def _atomic_write(full_path, text):
+    # Temp file + rename: a crash or Ctrl-C mid-write never leaves a
+    # half-written lesson behind.
+    tmp = f"{full_path}.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write(text)
+    os.replace(tmp, full_path)
+
+
 def write_markdown(text, identifier, suffix):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"{identifier}_{suffix}_{timestamp}.md"
     full_path = os.path.join(lesson_dir, filename)
     os.makedirs(lesson_dir, exist_ok=True)
-    with open(full_path, "w", encoding="utf-8") as f:
-        f.write(text)
-    print(f"Saved: {full_path}")
+    _atomic_write(full_path, text)
+    log.info(f"Saved: {full_path}")
     return full_path
 
 def write_markdown_fixed(text, filename):
@@ -341,37 +379,9 @@ def write_markdown_fixed(text, filename):
     # command-line convenience, not a second copy of record.
     full_path = os.path.join(lesson_dir, filename)
     os.makedirs(lesson_dir, exist_ok=True)
-    with open(full_path, "w", encoding="utf-8") as f:
-        f.write(text)
-    print(f"Saved: {full_path}")
+    _atomic_write(full_path, text)
+    log.info(f"Saved: {full_path}")
     return full_path
-
-def convert_markdown_to_docx(markdown_text, identifier, suffix):
-    # Converts the final Markdown text to a .docx via Pandoc. If
-    # reference_doc_path exists, Pandoc maps "#"/"##" to that document's
-    # Heading 1 / Heading 2 styles - build reference.docx once in Word and
-    # every future lesson picks up the same look automatically.
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{identifier}_{suffix}_{timestamp}.docx"
-    full_path = os.path.join(lesson_dir, filename)
-    os.makedirs(lesson_dir, exist_ok=True)
-
-    extra_args = ["--standalone"]
-    if os.path.exists(reference_doc_path):
-        extra_args.append(f"--reference-doc={reference_doc_path}")
-    else:
-        print(f"NOTE: no reference-doc found at {reference_doc_path} - using Pandoc's default docx styling")
-
-    pypandoc.convert_text(
-        markdown_text,
-        to="docx",
-        format="markdown+hard_line_breaks",
-        outputfile=full_path,
-        extra_args=extra_args,
-    )
-    print(f"Saved: {full_path}")
-    return full_path
-
 
 # ---------------------------------------------------------------------------
 # Day-section extractors used by supportPipeline.py to build the Five-Minute
@@ -394,7 +404,7 @@ def extract_day_vocab(main_markdown):
             chunk
         )
         if not vocab_match:
-            print(f"WARNING: no Vocabulary section found for {day}; Five-Minute vocab for {day} will be empty.")
+            log.warning(f"no Vocabulary section found for {day}; Five-Minute vocab for {day} will be empty.")
             continue
         text = vocab_match.group(1).strip()
         vocab_manifest.append(f"#BEGIN {day}_VOCAB\n{text}\n#END {day}_VOCAB\n")
@@ -416,7 +426,7 @@ def extract_day_story(main_markdown):
             chunk
         )
         if not story_match:
-            print(f"WARNING: no Story/English block found for {day}; Five-Minute lesson for {day} will have no source story.")
+            log.warning(f"no Story/English block found for {day}; Five-Minute lesson for {day} will have no source story.")
             continue
         text = re.sub(r"\s+", " ", story_match.group(1)).strip()
         manifest.append(f"#BEGIN {day}_STORY\n{text}\n#END {day}_STORY\n")
