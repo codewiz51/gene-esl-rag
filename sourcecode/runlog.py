@@ -96,8 +96,9 @@ def print_summary(log, title, timings=None, outputs=None, extra_lines=None):
         log.info(f"Model calls: {len(timings)}, total {total / 60:.1f} min")
         for t in timings:
             retry = f", {t['attempts']} attempts" if t.get("attempts", 1) > 1 else ""
+            gap = f"  longest pause {t['max_gap_seconds']:>5.1f}s" if "max_gap_seconds" in t else ""
             log.info(f"  {t['label']:<32} {t['seconds']:>6.0f}s  first data {t['first_data_seconds']:>4.0f}s"
-                     f"  done={t['done_reason']}{retry}")
+                     f"{gap}  done={t['done_reason']}{retry}")
     for line in outputs or []:
         log.info(f"Wrote: {line}")
     for line in extra_lines or []:

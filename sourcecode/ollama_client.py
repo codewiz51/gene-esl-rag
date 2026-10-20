@@ -42,6 +42,7 @@ class GenerateResult:
     response_tokens: object
     seconds: float
     first_data_seconds: float
+    max_gap_seconds: float
     attempts: int
     raw_final: dict
 
@@ -134,6 +135,8 @@ def _one_attempt(runtime, prompt, label):
     start = time.monotonic()
     first_data = None
     last_beat = start
+    last_chunk = None
+    max_gap = 0.0
     response_parts, thinking_parts = [], []
     final = None
 
@@ -165,6 +168,9 @@ def _one_attempt(runtime, prompt, label):
                 if not line:
                     continue
                 now = time.monotonic()
+                if last_chunk is not None:
+                    max_gap = max(max_gap, now - last_chunk)
+                last_chunk = now
                 if first_data is None:
                     first_data = now - start
                     log.info(f"  first data after {first_data:.0f}s")
@@ -208,6 +214,7 @@ def _one_attempt(runtime, prompt, label):
         response_tokens=final.get("eval_count", "?"),
         seconds=time.monotonic() - start,
         first_data_seconds=first_data or 0.0,
+        max_gap_seconds=max_gap,
         attempts=1,
         raw_final=final,
     )
@@ -244,7 +251,8 @@ def generate(runtime, prompt, label, debug_dir=None, timings=None):
 
     log.info(f"Ollama finished (label={label}): done_reason={result.done_reason}, "
              f"prompt_tokens={result.prompt_tokens}, response_tokens={result.response_tokens}, "
-             f"{result.seconds:.0f}s (first data {result.first_data_seconds:.0f}s)")
+             f"{result.seconds:.0f}s (first data {result.first_data_seconds:.0f}s, "
+             f"longest pause {result.max_gap_seconds:.1f}s)")
     if result.done_reason == "length":
         log.warning(f"{label}: Ollama stopped because it ran out of context/token budget "
                     f"(done_reason=length) - the output is probably cut off.")
@@ -254,6 +262,7 @@ def generate(runtime, prompt, label, debug_dir=None, timings=None):
             "label": label,
             "seconds": round(result.seconds, 1),
             "first_data_seconds": round(result.first_data_seconds, 1),
+            "max_gap_seconds": round(result.max_gap_seconds, 1),
             "prompt_tokens": result.prompt_tokens,
             "response_tokens": result.response_tokens,
             "done_reason": result.done_reason,
@@ -267,6 +276,7 @@ def generate(runtime, prompt, label, debug_dir=None, timings=None):
                 f.write(f"{key}: {result.raw_final.get(key, '(not present)')}\n")
             f.write(f"wall_seconds: {result.seconds:.1f}\n")
             f.write(f"first_data_seconds: {result.first_data_seconds:.1f}\n")
+            f.write(f"max_gap_seconds: {result.max_gap_seconds:.1f}\n")
             f.write(f"attempts: {result.attempts}\n")
         if result.thinking:
             with open(f"{debug_dir}/debug_{label}_thinking.txt", "w", encoding="utf-8") as f:
